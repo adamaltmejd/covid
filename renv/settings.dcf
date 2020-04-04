@@ -1,0 +1,6 @@
+external.libraries:
+ignored.packages: devtools, remotes, colorout
+package.dependency.fields: Imports, Depends, LinkingTo
+snapshot.type: implicit
+use.cache: TRUE
+vcs.ignore.library: TRUE

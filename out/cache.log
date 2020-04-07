@@ -1,0 +1,31 @@
+hash,type,name
+b2a66d46940189cf,import,can_be_numeric
+643d267f9c913b0c,import,colors_fill
+71cb16e1f570082e,target,deaths
+d63e09be3e3f0ca1,target,deaths_09756282
+ba9008de1db20b9b,target,deaths_84f1d265
+62fce1250c44b372,target,deaths_8cc4de1a
+85e960848be130ce,target,deaths_b3a7bd84
+a14ff57f0499a68c,target,deaths_c1a487b6
+b6d03ae4f6281f2a,target,deaths_f810aabe
+c85d88fc56f4e042,target,drake_target_1
+affee1e3d30b0182,target,DT
+d66a014d22269a6b,target,fhm_files
+43e5b408490c28e0,import,fig_aspect_ratio_pres
+152602b8ff81e5bb,import,fig_height
+ebe43ad0681bea9c,import,join_data
+7867e3226ff40c9f,target,lag_plot
+3f89ac0972911988,import,load_fhm
+e58487b951031097,import,forcats::fct_rev
+e423aa5df8a6f519,import,wesanderson::wes_palette
+9596081df10620d2,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx
+0ca8902ead92da51,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx
+65139f8c81d522b1,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx
+e2763671d72931d8,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xlsx
+6c8ec43c0cd49a7c,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_06.xlsx
+83f838cf76cf7250,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_07.xlsx
+71da106783d5f158,target,file out/lag_plot.pdf
+11620f737eef7454,import,plot_lagged_deaths
+c65762ca576c783c,import,predict_lag
+52416757403aa2f1,target,prediction
+2cf85d4f8f8bf172,import,save_plot

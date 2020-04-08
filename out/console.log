@@ -2333,3 +2333,431 @@ C02XD1WQJHD2 | 18654 | 2020-04-07 17:53:08.756350 +0200 GMT | drake_target_1 | t
 C02XD1WQJHD2 | 18654 | 2020-04-07 17:53:09.270765 +0200 GMT | drake_target_1 | store
 C02XD1WQJHD2 | 18654 | 2020-04-07 17:53:09.285075 +0200 GMT | drake_target_1 | time  (install lubridate to print runtimes in the log)
 C02XD1WQJHD2 | 18654 | 2020-04-07 17:53:09.401252 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.804337 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.892139 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.893573 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.897402 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.914778 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.949867 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.962941 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.980144 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.982115 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:46.986411 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.295619 +0200 GMT |  | finalize graph edges
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.296178 +0200 GMT |  | create igraph
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.298739 +0200 GMT |  | trim neighborhoods
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.309214 +0200 GMT |  | add igraph attributes
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.310924 +0200 GMT |  | finalize igraph
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.317378 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.318022 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.468620 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.577064 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xlsx | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.638509 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_07.xlsx | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.738006 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.774312 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_06.xlsx | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.818104 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.867136 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.874454 +0200 GMT | url https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data | import
+C02XD1WQJHD2 | 29635 | 2020-04-08 09:21:47.959220 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.729110 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.757348 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.758055 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.764605 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.766959 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.773447 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.773803 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.805687 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.814383 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xlsx | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.820740 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_07.xlsx | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.831826 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.838002 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_06.xlsx | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.845308 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.852873 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:15.858320 +0200 GMT | url https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data | import
+C02XD1WQJHD2 | 29744 | 2020-04-08 09:22:16.655967 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.683280 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.716304 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.719521 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.722687 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.740823 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.743557 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.753503 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.756011 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.757323 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.757661 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.931005 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.931410 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.983073 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:44.993700 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xlsx | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.003863 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_07.xlsx | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.011707 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.020318 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_06.xlsx | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.028659 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.036710 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.044275 +0200 GMT | url https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data | import
+C02XD1WQJHD2 | 31976 | 2020-04-08 09:34:45.822604 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.571583 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.597323 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.598083 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.600599 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.610706 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.612549 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.621263 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.624408 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.626059 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.626518 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.783199 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.783667 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.822472 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.832380 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xlsx | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.839756 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_07.xlsx | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.847103 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.854583 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_06.xlsx | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.863540 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.870824 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:57.875694 +0200 GMT | url https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data | import
+C02XD1WQJHD2 | 32051 | 2020-04-08 09:34:58.488708 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.271636 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.299108 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.299909 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.302335 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.312197 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.313741 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.324285 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.327008 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.328393 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.328802 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.478391 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.478746 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.520724 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.536509 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xlsx | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.544234 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_07.xlsx | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.551556 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.558873 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_06.xlsx | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.565798 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.572778 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:10.577544 +0200 GMT | url https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data | import
+C02XD1WQJHD2 | 33580 | 2020-04-08 09:39:11.216828 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.344260 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.374778 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.375806 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.379122 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.399796 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.402560 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.412950 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.416171 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.417614 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.418025 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.419163 +0200 GMT | file data/FHM/FHM_latest.xlsx | file_out
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.617595 +0200 GMT |  | finalize graph edges
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.618105 +0200 GMT |  | create igraph
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.620387 +0200 GMT |  | trim neighborhoods
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.626586 +0200 GMT |  | add igraph attributes
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.627865 +0200 GMT |  | finalize igraph
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.633753 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.634289 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.676927 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.691379 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.697886 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.704608 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.711370 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.717261 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.724270 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.738856 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.751620 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.761214 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.771157 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.784302 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.839205 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.849891 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.859925 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.870937 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.883829 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.889553 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.917346 +0200 GMT | fhm_files | trigger command
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.925573 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.929105 +0200 GMT | fhm_files | trigger command
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.934398 +0200 GMT | fhm_files | target
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.938395 +0200 GMT | fhm_files | format file
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.939096 +0200 GMT | fhm_files | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.951189 +0200 GMT | fhm_files | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.968097 +0200 GMT | latest_fhm | trigger missing
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:56.970371 +0200 GMT | latest_fhm | target
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.629082 +0200 GMT | latest_fhm | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.637746 +0200 GMT | latest_fhm | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.656157 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.656757 +0200 GMT | deaths | trigger depend (dynamic)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.659097 +0200 GMT | deaths | trigger subtarget (special)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.668344 +0200 GMT | deaths | dynamic
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.668736 +0200 GMT | deaths | register 6 subtargets
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.671194 +0200 GMT | deaths_c59a5ac6 | subtarget
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.699069 +0200 GMT | deaths_c59a5ac6 | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.702418 +0200 GMT | deaths_c59a5ac6 | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.713994 +0200 GMT | deaths_dcfe792d | subtarget
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.731316 +0200 GMT | deaths_dcfe792d | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.733831 +0200 GMT | deaths_dcfe792d | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.747036 +0200 GMT | deaths_184155c5 | subtarget
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.765384 +0200 GMT | deaths_184155c5 | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.768279 +0200 GMT | deaths_184155c5 | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.778402 +0200 GMT | deaths_7ebb63a6 | subtarget
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.806308 +0200 GMT | deaths_7ebb63a6 | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.808885 +0200 GMT | deaths_7ebb63a6 | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.818845 +0200 GMT | deaths_30410b02 | subtarget
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.834526 +0200 GMT | deaths_30410b02 | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.837006 +0200 GMT | deaths_30410b02 | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.846702 +0200 GMT | deaths_fb0e1833 | subtarget
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.863354 +0200 GMT | deaths_fb0e1833 | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.865989 +0200 GMT | deaths_fb0e1833 | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.876713 +0200 GMT | deaths | finalize
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.882215 +0200 GMT | deaths | store
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.885904 +0200 GMT | deaths | time  (install lubridate to print runtimes in the log)
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.905230 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.920697 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:58.939882 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:59.023680 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 46398 | 2020-04-08 10:12:59.348937 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:09.988476 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.025291 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.026212 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.030308 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.033243 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.040282 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.040673 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.089160 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.097914 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.105130 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.111870 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.118609 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.125806 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.132558 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.137522 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.142286 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.146851 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.151608 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.157198 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.170281 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.179735 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.193876 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.201349 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.214133 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.219490 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.242341 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.325795 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.330228 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.334043 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.337388 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.340648 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.346158 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.348035 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.349098 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 46460 | 2020-04-08 10:13:10.742335 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.547308 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.579161 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.579802 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.584095 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.587723 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.594959 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.595278 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.643722 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.655952 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.664321 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.671787 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.678510 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.685542 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.692701 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.697489 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.702095 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.706621 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.711770 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.717684 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.729950 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.737874 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.743846 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.751987 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.759814 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.768318 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.799623 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.883788 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.889225 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.894288 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.898907 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.910904 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.918766 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.920685 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:21.921756 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 50206 | 2020-04-08 10:42:22.206510 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.397763 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.426598 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.427448 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.431040 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.433516 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.439897 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.440279 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.481414 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.490633 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.498330 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.505958 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.514203 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.525437 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.532744 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.538943 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.545907 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.552248 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.558564 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.565351 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.579649 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.591208 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.598824 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.614423 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.625193 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.632217 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.656367 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.734452 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.738635 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.742357 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.746018 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.749735 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.755990 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.757692 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:36.759824 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 50271 | 2020-04-08 10:42:37.086848 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.155236 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.182749 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.183446 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.186768 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.190762 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.197267 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.197654 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.236138 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.244668 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.250601 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.256640 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.262692 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.269320 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.277674 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.283847 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.290118 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.296430 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.307797 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.318341 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.328201 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.341267 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.349224 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.359965 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.370621 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.379822 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.405844 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.489629 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.493948 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.497975 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.502046 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.505805 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.511989 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.514364 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.515362 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 50533 | 2020-04-08 10:43:27.785875 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.876302 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.909213 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.909949 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.914113 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.917411 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.926100 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.926448 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.968017 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.977992 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.986959 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:35.997008 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.006680 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.017801 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.028003 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.035552 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.042033 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.050873 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.075766 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.101165 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.122211 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.132607 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.140357 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.155267 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.165632 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.173382 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.206085 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.293570 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.299738 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.305197 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.309551 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.313920 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.320357 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.322174 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.323292 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 55896 | 2020-04-08 11:20:36.628751 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:18.969666 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.000473 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.001297 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.005377 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.009231 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.016407 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.016732 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.056999 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.066643 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.073656 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.080585 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.089555 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.096600 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.105310 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.111572 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.117866 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.124203 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.130156 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.137291 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.149877 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.159940 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.167383 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.177412 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.193917 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.208482 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.236330 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.319539 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.325196 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.330331 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.334945 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.339514 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.348010 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.349701 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.350734 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 56454 | 2020-04-08 11:23:19.637582 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.479341 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.507563 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.508308 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.511693 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.514272 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.520461 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.520803 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.558944 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.567527 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.573499 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.579461 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.585380 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.591259 +0200 GMT | file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.597265 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.601861 +0200 GMT | fig_aspect_ratio_pres | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.606070 +0200 GMT | fig_height | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.610280 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.614701 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.620026 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.629419 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.637294 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.643260 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.651133 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.658653 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.663902 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.695007 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.777120 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.780738 +0200 GMT | deaths | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.784158 +0200 GMT | DT | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.787244 +0200 GMT | prediction | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.790182 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.795919 +0200 GMT | drake_target_1 | skip
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.797163 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:24.797981 +0200 GMT |  | All targets are already up to date.
+C02XD1WQJHD2 | 56869 | 2020-04-08 11:25:25.063328 +0200 GMT |  | end make()

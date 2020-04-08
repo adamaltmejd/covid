@@ -1,3 +1,37 @@
+download_latest_fhm <- function(f) {
+    require(readxl)
+
+    DL <- download.file("https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data",
+                        destfile = file.path(f), method = "curl", extra = c("-L"), quiet = TRUE)
+    if (DL != 0) { stop("File download error.") }
+
+    # Check archived files for latest record
+    latest_record <- max(as.Date(gsub("^.*(2020-[0-9]{2}-[0-9]{2}).xlsx", "\\1", list.files(file.path("data", "FHM"), pattern = "^Folkhalso"))))
+
+    # Check if new download is newer than latest record, in that case, archive it.
+    new_record <- max(load_fhm(f)$publication_date)
+
+    if (latest_record < new_record) { file.copy(f, file.path("data", "FHM", paste0("Folkhalsomyndigheten_Covid19_", new_record, ".xlsx"))) }
+}
+
+trigger_new_download <- function(f) {
+    require(data.table)
+
+    if (!file.exists(f)) {
+        return(TRUE)
+    }
+
+    latest_record <- max(load_fhm(f)$publication_date)
+
+    if (latest_record < Sys.Date()) {
+        if (as.ITime(Sys.time(), tz = "Europe/Stockholm") > as.ITime("14:00")) {
+            return(TRUE)
+        }
+    }
+
+    return(FALSE)
+}
+
 load_fhm <- function(f) {
     require(data.table)
     require(readxl)

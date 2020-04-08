@@ -3,21 +3,36 @@ b2a66d46940189cf,import,can_be_numeric
 643d267f9c913b0c,import,colors_fill
 71cb16e1f570082e,target,deaths
 d63e09be3e3f0ca1,target,deaths_09756282
+b6d03ae4f6281f2a,target,deaths_184155c5
+ba9008de1db20b9b,target,deaths_30410b02
+d63e09be3e3f0ca1,target,deaths_7ebb63a6
 ba9008de1db20b9b,target,deaths_84f1d265
 62fce1250c44b372,target,deaths_8cc4de1a
 85e960848be130ce,target,deaths_b3a7bd84
 a14ff57f0499a68c,target,deaths_c1a487b6
+62fce1250c44b372,target,deaths_c59a5ac6
+85e960848be130ce,target,deaths_dcfe792d
 b6d03ae4f6281f2a,target,deaths_f810aabe
+a14ff57f0499a68c,target,deaths_fb0e1833
+ea33eee200f3ea27,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 affee1e3d30b0182,target,DT
-d66a014d22269a6b,target,fhm_files
+3261c03aa97d7687,target,fhm_files
 43e5b408490c28e0,import,fig_aspect_ratio_pres
 152602b8ff81e5bb,import,fig_height
 ebe43ad0681bea9c,import,join_data
 7867e3226ff40c9f,target,lag_plot
+c85d88fc56f4e042,target,latest_fhm
 3f89ac0972911988,import,load_fhm
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
+83f838cf76cf7250,target,file data/FHM/FHM_latest.xlsx
+9596081df10620d2,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx
+0ca8902ead92da51,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx
+65139f8c81d522b1,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx
+e2763671d72931d8,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-05.xlsx
+6c8ec43c0cd49a7c,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-06.xlsx
+83f838cf76cf7250,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-07.xlsx
 9596081df10620d2,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_02.xlsx
 0ca8902ead92da51,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_03.xlsx
 65139f8c81d522b1,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_04.xlsx
@@ -29,3 +44,4 @@ e2763671d72931d8,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020_04_05.xl
 c65762ca576c783c,import,predict_lag
 52416757403aa2f1,target,prediction
 2cf85d4f8f8bf172,import,save_plot
+8af83c4fbd843b6b,import,trigger_new_download

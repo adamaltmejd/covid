@@ -103,15 +103,44 @@ predict_lag <- function(death_dt) {
 ##
 # Plots
 
-plot_lagged_deaths <- function(death_dt, death_prediction) {
+set_default_theme <- function() {
+    require(hrbrthemes)
+    require(gdtools)
+
+    if (font_family_exists(font_family = "Arial")) fam <- "Arial"
+    if (font_family_exists(font_family = "EB Garamond")) fam <- "EB Garamond"
+    if (font_family_exists(font_family = "Garamond Premier Pro")) fam <- "Garamond Premier Pro"
+
+    theme_ipsum(base_family = fam) %+replace%
+        theme(
+            plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
+            plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
+            legend.title = element_blank(),
+            legend.position = c(0.15,0.9),
+            legend.background = element_rect(fill = "white", color = "grey80"),
+            legend.margin = margin(1,5,5,5),
+            legend.direction = "vertical",
+            # legend.box.margin = margin(0,0,0,0),
+            # legend.justification = c(0,0),
+            # legend.box.just = "left",
+            # legend.text.align = 0,
+            # legend.spacing = unit(0, "pt")
+            # axis.title = element_text(size = rel(1.5)),
+            # axis.text = element_text(size = rel(1)),
+
+            # Panels
+            panel.grid.major = element_line(linetype = "dotted", color = "grey60", size = 0.2),
+            panel.grid.minor = element_line(linetype = "dotted", color = "grey80", size = 0.2)
+        )
+}
+
+plot_lagged_deaths <- function(death_dt, death_prediction, th) {
     require(ggplot2)
-    # require(forcats)
+    require(forcats)
 
     death_dt <- death_dt[n_diff != 0]
-    death_dt[, days_since_publication := forcats::fct_rev(factor(days_since_publication))]
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
     death_dt[, publication_date := forcats::fct_rev(factor(publication_date))]
-    # death_dt[, days_since_publication := as.integer(days_since_publication)]
 
     pal <- wesanderson::wes_palette("Darjeeling1", length(levels(death_dt$publication_date)), type = "continuous")
 
@@ -120,18 +149,22 @@ plot_lagged_deaths <- function(death_dt, death_prediction) {
         geom_line(data = death_prediction, aes(y = total)) +
         scale_x_date(date_breaks = "2 day", expand = c(0, 0)) +
         scale_fill_manual(values = pal, na.value = "grey50") +
+        th +
         theme(axis.text.x = element_text(angle = 60, hjust = 1),
               legend.position = "right") +
         labs(title = "Covid deaths (Sweden)",
              subtitle = "Number of deaths by report date, black line shows prediction.",
              caption = "Predicted deaths based on average historical reporting delay.",
              x = "Date",
-             y = "N")
+             y = "Number of deaths")
 
     p
 }
 
 save_plot <- function(p, f) {
+    fig_height <- 6 # inches
+    fig_aspect_ratio_pres <- 16/9
+
     ggsave(filename = f, plot = p,
            height = fig_height,
            width = fig_height * fig_aspect_ratio_pres,

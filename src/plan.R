@@ -5,7 +5,11 @@ plan <- drake_plan(
     death_dts = target(load_fhm(fhm_files), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),
     death_prediction = predict_lag(death_dt),
-    lag_plot = target(plot_lagged_deaths(death_dt, death_prediction)),
+
+    # Plots
+    default_theme = set_default_theme(),
+
+    lag_plot = target(plot_lagged_deaths(death_dt, death_prediction, th = default_theme)),
     save_plot(lag_plot, file_out(!!file.path("out", "lag_plot.pdf")))
 )
 

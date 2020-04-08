@@ -10,21 +10,23 @@ d63e09be3e3f0ca1,target,death_dts_7ebb63a6
 85e960848be130ce,target,death_dts_dcfe792d
 a14ff57f0499a68c,target,death_dts_fb0e1833
 0ebc21fb1948a412,target,death_prediction
+d3fcfeb4b9be2618,target,default_theme
 3d498b1dc481cabe,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 ad62d12ee603002e,target,fhm_files
 43e5b408490c28e0,import,fig_aspect_ratio_pres
 152602b8ff81e5bb,import,fig_height
 07d947e7d8f138e1,import,join_data
-37ee36047dc5b641,target,lag_plot
+726b6df61602b5d8,target,lag_plot
 8271c9325d9ef093,target,latest_fhm
 825b7e43dc7b0ff4,import,list_fhm_files
 3f89ac0972911988,import,load_fhm
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 9a746ffc57d0af53,target,file data/FHM
-1f2a7061705aefaf,target,file out/lag_plot.pdf
-a3a19321d4e2b209,import,plot_lagged_deaths
+34d68345d186c16c,target,file out/lag_plot.pdf
+a48114681cad587d,import,plot_lagged_deaths
 793c830110fdd638,import,predict_lag
-2cf85d4f8f8bf172,import,save_plot
+43c11c0fdca293fe,import,save_plot
+e45aa7b0f68f195e,import,set_default_theme
 8af83c4fbd843b6b,import,trigger_new_download

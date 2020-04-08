@@ -117,3 +117,315 @@ C02XD1WQJHD2 | 87027 | 2020-04-08 15:25:33.689378 +0200 GMT | drake_target_1 | t
 C02XD1WQJHD2 | 87027 | 2020-04-08 15:25:34.240727 +0200 GMT | drake_target_1 | store
 C02XD1WQJHD2 | 87027 | 2020-04-08 15:25:34.252767 +0200 GMT | drake_target_1 | time  0.55s : 0.57s  (exec : total)
 C02XD1WQJHD2 | 87027 | 2020-04-08 15:25:34.388403 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.459366 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.490771 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.491527 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.494733 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.510940 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.513346 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.526407 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.529217 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.530612 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.530981 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.532206 +0200 GMT | file data/FHM | file_out
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.682221 +0200 GMT |  | finalize graph edges
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.682729 +0200 GMT |  | create igraph
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.685079 +0200 GMT |  | trim neighborhoods
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.690964 +0200 GMT |  | add igraph attributes
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.692008 +0200 GMT |  | finalize igraph
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.697989 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.698489 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.739980 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.748306 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.756083 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.761722 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.767067 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.773139 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.790978 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.798805 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.807823 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.816416 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.822125 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.884958 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.901081 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.906303 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.910898 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.920553 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.925705 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.930457 +0200 GMT | default_theme | trigger missing
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.932892 +0200 GMT | default_theme | target
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.951070 +0200 GMT | default_theme | fail
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:31.958647 +0200 GMT |  | target default_theme failed.
+diagnose(default_theme)error$message:
+  could not find function "set_theme"
+diagnose(default_theme)error$calls:
+ 
+C02XD1WQJHD2 | 90913 | 2020-04-08 15:38:32.045149 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.164629 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.201318 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.202167 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.206816 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.228508 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.230387 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.252583 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.265563 +0200 GMT |  | create graph edges
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.267574 +0200 GMT |  | connect output files
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.268155 +0200 GMT | file out/lag_plot.pdf | file_out
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.269742 +0200 GMT | file data/FHM | file_out
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.506472 +0200 GMT |  | finalize graph edges
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.507029 +0200 GMT |  | create igraph
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.509655 +0200 GMT |  | trim neighborhoods
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.516453 +0200 GMT |  | add igraph attributes
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.517699 +0200 GMT |  | finalize igraph
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.523973 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.524525 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.571795 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.587726 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.594357 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.601310 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.617131 +0200 GMT | set_default_theme | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.624054 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.632349 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.647744 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.660188 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.672626 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.685120 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.693312 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.777580 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.794260 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.800456 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.807373 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.820147 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.827882 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.836007 +0200 GMT | default_theme | trigger missing
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.838828 +0200 GMT | default_theme | target
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:48.858839 +0200 GMT | default_theme | store
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.144360 +0200 GMT | default_theme | time  0.017s : 0.03s  (exec : total)
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.156975 +0200 GMT | lag_plot | trigger command
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.158227 +0200 GMT | lag_plot | target
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.158853 +0200 GMT |  | load death_dt
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.158853 +0200 GMT |  | load death_prediction
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.183849 +0200 GMT | lag_plot | Loading required package: forcats
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.263206 +0200 GMT | lag_plot | store
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.315871 +0200 GMT | lag_plot | time  0.101s : 0.162s  (exec : total)
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.332680 +0200 GMT | drake_target_1 | trigger depend
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.334417 +0200 GMT | drake_target_1 | target
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.355519 +0200 GMT | drake_target_1 | fail
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.370275 +0200 GMT |  | target drake_target_1 failed.
+diagnose(drake_target_1)error$message:
+  object 'fig_height' not found
+diagnose(drake_target_1)error$calls:
+  1. └─global::save_plot(lag_plot, file_out("out/lag_plot.pdf"))
+  2.   └─ggplot2::ggsave(...)
+  3.     └─ggplot2:::plot_dim(...)
+  4.       └─ggplot2:::to_inches(dim)
+C02XD1WQJHD2 | 91006 | 2020-04-08 15:38:49.526437 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.567121 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.619375 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.620491 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.625821 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.649811 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.652724 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.670435 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.678401 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.678872 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.736423 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.746690 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.765022 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.773507 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.782785 +0200 GMT | set_default_theme | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.792371 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.803961 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.830558 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.840811 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.853703 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.866031 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.877288 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:18.894923 +0200 GMT | default_theme | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.007028 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.021306 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.026747 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.031555 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.036004 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.040505 +0200 GMT | lag_plot | skip
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.047270 +0200 GMT | drake_target_1 | trigger command
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.051290 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.064373 +0200 GMT | drake_target_1 | trigger command
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.067222 +0200 GMT | drake_target_1 | target
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.068382 +0200 GMT |  | load lag_plot
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.771902 +0200 GMT | drake_target_1 | store
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:19.927647 +0200 GMT | drake_target_1 | time  0.668s : 0.744s  (exec : total)
+C02XD1WQJHD2 | 91195 | 2020-04-08 15:39:20.030955 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.689541 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.728832 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.729665 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.736493 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.764415 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.766870 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.782885 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.792666 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.793256 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.859890 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.869328 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.876749 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.883044 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.890063 +0200 GMT | set_default_theme | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.897398 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.904064 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.916173 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.925215 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.934267 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.942918 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.949454 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:36.960786 +0200 GMT | default_theme | skip
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.060019 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.073240 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.078198 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.082684 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.086752 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.091269 +0200 GMT | lag_plot | trigger depend
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.095715 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.099543 +0200 GMT | lag_plot | trigger depend
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.108019 +0200 GMT | lag_plot | target
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.108990 +0200 GMT |  | load death_dt
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.108990 +0200 GMT |  | load death_prediction
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.108990 +0200 GMT |  | load default_theme
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.135926 +0200 GMT | lag_plot | Loading required package: forcats
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.184277 +0200 GMT | lag_plot | store
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.457187 +0200 GMT | lag_plot | time  0.07s : 0.149s  (exec : total)
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.471333 +0200 GMT | drake_target_1 | trigger depend
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.473143 +0200 GMT | drake_target_1 | target
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:37.981437 +0200 GMT | drake_target_1 | store
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:38.001127 +0200 GMT | drake_target_1 | time  0.507s : 0.534s  (exec : total)
+C02XD1WQJHD2 | 91526 | 2020-04-08 15:40:38.101654 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.238015 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.269378 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.270190 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.273567 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.290601 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.292382 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.306118 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.312505 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.312933 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.354598 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.361301 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.367516 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.372912 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.378565 +0200 GMT | set_default_theme | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.386563 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.393145 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.404443 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.414566 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.426743 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.438977 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.446530 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.460720 +0200 GMT | default_theme | trigger depend
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.551193 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.565123 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.570566 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.575279 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.579546 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.585572 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.589611 +0200 GMT | default_theme | trigger depend
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.597894 +0200 GMT | default_theme | target
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.614187 +0200 GMT | default_theme | store
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.855628 +0200 GMT | default_theme | time  0.013s : 0.161s  (exec : total)
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.868388 +0200 GMT | lag_plot | trigger depend
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.869967 +0200 GMT | lag_plot | target
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.870611 +0200 GMT |  | load death_dt
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.870611 +0200 GMT |  | load death_prediction
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.893647 +0200 GMT | lag_plot | Loading required package: forcats
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.936600 +0200 GMT | lag_plot | store
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:52.984138 +0200 GMT | lag_plot | time  0.063s : 0.118s  (exec : total)
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:53.000653 +0200 GMT | drake_target_1 | trigger depend
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:53.002233 +0200 GMT | drake_target_1 | target
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:53.539521 +0200 GMT | drake_target_1 | store
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:53.560657 +0200 GMT | drake_target_1 | time  0.536s : 0.565s  (exec : total)
+C02XD1WQJHD2 | 91603 | 2020-04-08 15:40:53.658545 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.873456 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.903863 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.904764 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.907944 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.922470 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.924211 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.936424 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.945071 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.945647 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:28.995476 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.003649 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.009176 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.014848 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.020037 +0200 GMT | set_default_theme | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.027214 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.034053 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.046294 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.054544 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.063869 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.073246 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.079324 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.092416 +0200 GMT | default_theme | trigger depend
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.181090 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.194035 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.198723 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.203115 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.206880 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.212547 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.216613 +0200 GMT | default_theme | trigger depend
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.225502 +0200 GMT | default_theme | target
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.240704 +0200 GMT | default_theme | store
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.457571 +0200 GMT | default_theme | time  0.013s : 0.157s  (exec : total)
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.467365 +0200 GMT | lag_plot | trigger depend
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.468596 +0200 GMT | lag_plot | target
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.469074 +0200 GMT |  | load death_dt
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.469074 +0200 GMT |  | load death_prediction
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.489634 +0200 GMT | lag_plot | Loading required package: forcats
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.528958 +0200 GMT | lag_plot | store
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.573949 +0200 GMT | lag_plot | time  0.058s : 0.107s  (exec : total)
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.589004 +0200 GMT | drake_target_1 | trigger depend
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:29.590641 +0200 GMT | drake_target_1 | target
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:30.077224 +0200 GMT | drake_target_1 | store
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:30.100730 +0200 GMT | drake_target_1 | time  0.486s : 0.516s  (exec : total)
+C02XD1WQJHD2 | 91738 | 2020-04-08 15:41:30.211838 +0200 GMT |  | end make()
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.537772 +0200 GMT |  | begin drake_config()
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.573105 +0200 GMT |  | cache /Users/adal7067/Dropbox/My Mac (C02XD1WQJHD2)/Documents/Corona/corona_stats/.drake
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.573976 +0200 GMT |  | analyze environment
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.577325 +0200 GMT |  | analyze imports
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.606053 +0200 GMT |  | get knitr hash
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.613111 +0200 GMT |  | analyze commands
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.625200 +0200 GMT |  | set knitr files
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.635416 +0200 GMT |  | end drake_config()
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.635875 +0200 GMT |  | begin make()
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.694019 +0200 GMT | save_plot | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.702516 +0200 GMT | join_data | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.708317 +0200 GMT | list_fhm_files | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.713597 +0200 GMT | can_be_numeric | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.719394 +0200 GMT | set_default_theme | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.727056 +0200 GMT | predict_lag | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.734648 +0200 GMT | wesanderson::wes_palette | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.740853 +0200 GMT | forcats::fct_rev | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.751019 +0200 GMT | load_fhm | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.762780 +0200 GMT | plot_lagged_deaths | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.771929 +0200 GMT | download_latest_fhm | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.778189 +0200 GMT | trigger_new_download | import
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.791676 +0200 GMT | default_theme | trigger depend
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.882210 +0200 GMT | latest_fhm | skip
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.920690 +0200 GMT | fhm_files | skip
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.928004 +0200 GMT | death_dts | skip
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.934067 +0200 GMT | death_dt | skip
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.938973 +0200 GMT | death_prediction | skip
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.947607 +0200 GMT |  | isolate oudated targets
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.959212 +0200 GMT | default_theme | trigger depend
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:19.962616 +0200 GMT | default_theme | target
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:20.775415 +0200 GMT | default_theme | store
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:20.991535 +0200 GMT | default_theme | time  0.81s : 0.991s  (exec : total)
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.034975 +0200 GMT | lag_plot | trigger depend
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.036631 +0200 GMT | lag_plot | target
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.037489 +0200 GMT |  | load death_dt
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.037489 +0200 GMT |  | load death_prediction
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.095134 +0200 GMT | lag_plot | store
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.141773 +0200 GMT | lag_plot | time  0.054s : 0.112s  (exec : total)
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.158134 +0200 GMT | drake_target_1 | trigger depend
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.159862 +0200 GMT | drake_target_1 | target
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.932280 +0200 GMT | drake_target_1 | store
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:21.945864 +0200 GMT | drake_target_1 | time  0.771s : 0.795s  (exec : total)
+C02XD1WQJHD2 | 93811 | 2020-04-08 15:47:22.092873 +0200 GMT |  | end make()

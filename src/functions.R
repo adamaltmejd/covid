@@ -1,17 +1,20 @@
-download_latest_fhm <- function(f) {
+download_latest_fhm <- function(folder) {
     require(readxl)
 
     DL <- download.file("https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data",
-                        destfile = file.path(f), method = "curl", extra = c("-L"), quiet = TRUE)
+                        destfile = file.path(folder, "FHM_latest.xlsx"), method = "curl", extra = c("-L"), quiet = TRUE)
     if (DL != 0) { stop("File download error.") }
 
     # Check archived files for latest record
-    latest_record <- max(as.Date(gsub("^.*(2020-[0-9]{2}-[0-9]{2}).xlsx", "\\1", list.files(file.path("data", "FHM"), pattern = "^Folkhalso"))))
+    latest_record <- max(as.Date(gsub("^.*(2020-[0-9]{2}-[0-9]{2}).xlsx", "\\1", list.files(folder, pattern = "^Folkhalso"))))
 
     # Check if new download is newer than latest record, in that case, archive it.
-    new_record <- max(load_fhm(f)$publication_date)
+    new_record <- max(load_fhm(file.path(folder, "FHM_latest.xlsx"))$publication_date)
 
-    if (latest_record < new_record) { file.copy(f, file.path("data", "FHM", paste0("Folkhalsomyndigheten_Covid19_", new_record, ".xlsx"))) }
+    if (latest_record < new_record) {
+        file.copy(file.path(folder, "FHM_latest.xlsx"),
+                  file.path("data", "FHM", paste0("Folkhalsomyndigheten_Covid19_", new_record, ".xlsx")))
+    }
 }
 
 trigger_new_download <- function(f) {
@@ -30,6 +33,10 @@ trigger_new_download <- function(f) {
     }
 
     return(FALSE)
+}
+
+list_fhm_files <- function(folder) {
+    list.files(folder, pattern = "^Folkhalso", full.names = TRUE)
 }
 
 load_fhm <- function(f) {
@@ -65,52 +72,52 @@ can_be_numeric <- function(x) {
     return(numNAs_new == numNAs)
 }
 
-join_data <- function(DT) {
-    DT <- data.table(DT)
-    setkey(DT, publication_date, date)
+join_data <- function(death_dt) {
+    death_dt <- data.table(death_dt)
+    setkey(death_dt, publication_date, date)
 
-    DT[, days_since_publication := publication_date - date]
-    DT[publication_date == "2020-04-02", days_since_publication := NA]
-    DT[date == "2020-04-02" & publication_date == "2020-04-02", days_since_publication := 0]
+    death_dt[, days_since_publication := publication_date - date]
+    death_dt[publication_date == "2020-04-02", days_since_publication := NA]
+    death_dt[date == "2020-04-02" & publication_date == "2020-04-02", days_since_publication := 0]
 
-    DT[, paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
-    DT[, n_diff := N - n_m1]
+    death_dt[, paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
+    death_dt[, n_diff := N - n_m1]
 
-    return(DT)
+    return(death_dt)
 }
 
-predict_lag <- function(DT) {
-    avg_delay <- DT[!is.na(days_since_publication) & days_since_publication != 0,
+predict_lag <- function(death_dt) {
+    avg_delay <- death_dt[!is.na(days_since_publication) & days_since_publication != 0,
         .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
     avg_delay[, sum_cum := cumsum(avg_diff)]
     avg_delay[, match := days_since_publication - 1]
 
-    DT <- DT[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
-    DT <- merge(DT, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
+    death_dt <- death_dt[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
+    death_dt <- merge(death_dt, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
 
-    DT <- DT[, .(date, sure_deaths = deaths, predicted_deaths = sum_cum, total = deaths + sum_cum)]
+    death_dt <- death_dt[, .(date, sure_deaths = deaths, predicted_deaths = sum_cum, total = deaths + sum_cum)]
 
-    return(DT)
+    return(death_dt)
 }
 
 ##
 # Plots
 
-plot_lagged_deaths <- function(DT, prediction) {
+plot_lagged_deaths <- function(death_dt, death_prediction) {
     require(ggplot2)
     # require(forcats)
 
-    DT <- DT[n_diff != 0]
-    DT[, days_since_publication := forcats::fct_rev(factor(days_since_publication))]
-    DT[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
-    DT[, publication_date := forcats::fct_rev(factor(publication_date))]
-    # DT[, days_since_publication := as.integer(days_since_publication)]
+    death_dt <- death_dt[n_diff != 0]
+    death_dt[, days_since_publication := forcats::fct_rev(factor(days_since_publication))]
+    death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
+    death_dt[, publication_date := forcats::fct_rev(factor(publication_date))]
+    # death_dt[, days_since_publication := as.integer(days_since_publication)]
 
-    pal <- wesanderson::wes_palette("Darjeeling1", length(levels(DT$publication_date)), type = "continuous")
+    pal <- wesanderson::wes_palette("Darjeeling1", length(levels(death_dt$publication_date)), type = "continuous")
 
-    p <- ggplot(data = DT, aes(y = n_diff, x = date)) +
+    p <- ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_bar(position="stack", stat="identity", aes(fill = publication_date)) +
-        geom_line(data = prediction, aes(y = total)) +
+        geom_line(data = death_prediction, aes(y = total)) +
         scale_x_date(date_breaks = "2 day", expand = c(0, 0)) +
         scale_fill_manual(values = pal, na.value = "grey50") +
         theme(axis.text.x = element_text(angle = 60, hjust = 1),

@@ -14,3 +14,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 rsconnect/
+
+# Drake console
+console.log

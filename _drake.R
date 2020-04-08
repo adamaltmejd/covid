@@ -14,6 +14,6 @@ drake::drake_config(
     plan = plan,
     verbose = 2, lock_cache = TRUE,
     session_info = TRUE, seed = 12345,
-    log_make = file.path("out", "console.log"),
-    cache_log_file = file.path("out", "cache.log")
+    log_make = file.path("console.log"),
+    cache_log_file = file.path("cache.log")
 )

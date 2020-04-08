@@ -162,11 +162,23 @@ plot_lagged_deaths <- function(death_dt, death_prediction, th) {
 }
 
 save_plot <- function(p, f) {
-    fig_height <- 6 # inches
-    fig_aspect_ratio_pres <- 16/9
+    require(ggplot2)
+    require(Cairo)
+    require(tools)
+    require(cowplot)
 
-    ggsave(filename = f, plot = p,
-           height = fig_height,
-           width = fig_height * fig_aspect_ratio_pres,
+    h <- 6 # inches
+    w <- 10 # inches
+
+    if (tools::file_ext(f) == "pdf") {
+        ggsave(filename = f, plot = p,
+           height = h, width = w,
            device = cairo_pdf)
+    }
+    if (tools::file_ext(f) == "png") {
+        ggsave(filename = f, plot = p,
+           height = h, width = w, dpi = 300,
+           bg = "transparent",
+           type = "cairo-png")
+    }
 }

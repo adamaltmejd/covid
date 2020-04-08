@@ -22,11 +22,11 @@ affee1e3d30b0182,target,DT
 152602b8ff81e5bb,import,fig_height
 ebe43ad0681bea9c,import,join_data
 7867e3226ff40c9f,target,lag_plot
-c85d88fc56f4e042,target,latest_fhm
+8271c9325d9ef093,target,latest_fhm
 3f89ac0972911988,import,load_fhm
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
-83f838cf76cf7250,target,file data/FHM/FHM_latest.xlsx
+3573e0f384b4bdd6,target,file data/FHM/FHM_latest.xlsx
 9596081df10620d2,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-02.xlsx
 0ca8902ead92da51,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-03.xlsx
 65139f8c81d522b1,import,file data/FHM/Folkhalsomyndigheten_Covid19_2020-04-04.xlsx

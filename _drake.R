@@ -7,7 +7,6 @@
 # The arguments to drake_config() are basically the same as those to make().
 
 source('src/packages.R')
-source('src/settings.R')
 source('src/functions.R')
 source('src/plan.R')
 

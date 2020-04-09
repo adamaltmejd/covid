@@ -1,6 +1,6 @@
 plan <- drake_plan(
     latest_fhm = target(download_latest_fhm(folder = file_out(!!file.path("data", "FHM"))),
-                      trigger = trigger(condition = trigger_new_download(!!file.path("data", "FHM", "FHM_latest.xlsx")))),
+                        trigger = trigger(condition = trigger_new_download(!!file.path("data", "FHM", "FHM_latest.xlsx")))),
     fhm_files = target(list_fhm_files(folder = file_in(!!file.path("data", "FHM"))), format = "file"),
     death_dts = target(load_fhm(fhm_files), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),

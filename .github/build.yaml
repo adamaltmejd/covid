@@ -1,0 +1,16 @@
+on:
+  push:
+    branches: master
+
+name: make_drake
+
+jobs:
+  build:
+    runs-on: macOS-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Setup R
+        uses: r-lib/actions/setup-r@master
+

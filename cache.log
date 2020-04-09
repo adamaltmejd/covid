@@ -1,39 +1,40 @@
 hash,type,name
 b2a66d46940189cf,import,can_be_numeric
-88900a4b9b6a5108,target,death_dt
-eeb68fda92952e6f,target,death_dts
+dcfac223aa2daec9,target,death_dt
+b9fd8f8fa79c85bb,target,death_dts
 b6d03ae4f6281f2a,target,death_dts_184155c5
 ba9008de1db20b9b,target,death_dts_30410b02
 0075ceb72d15a56b,target,death_dts_4a8bb423
 d63e09be3e3f0ca1,target,death_dts_7ebb63a6
+d3d4121e09d491d3,target,death_dts_860d1e8c
 62fce1250c44b372,target,death_dts_c59a5ac6
 85e960848be130ce,target,death_dts_dcfe792d
 a14ff57f0499a68c,target,death_dts_fb0e1833
-0ebc21fb1948a412,target,death_prediction
+f673cc3f24738f1d,target,death_prediction
 55f236b7e7825041,target,default_theme
-3d498b1dc481cabe,import,download_latest_fhm
+c4fc5c0cbaffacf8,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_2
-ad62d12ee603002e,target,fhm_files
+31cbaaa0d7eedea7,target,fhm_files
 43e5b408490c28e0,import,fig_aspect_ratio_pres
 152602b8ff81e5bb,import,fig_height
 07d947e7d8f138e1,import,join_data
-d187c9c1126ea55f,target,lag_plot
+8d7cbee9695da89c,target,lag_plot
 8271c9325d9ef093,target,latest_fhm
-825b7e43dc7b0ff4,import,list_fhm_files
-3f89ac0972911988,import,load_fhm
+5ea91e324b829377,import,list_fhm_files
+cf52466a7e87d6e8,import,load_fhm
 9c51020e6bf5b21d,import,gdtools::sys_fonts
 8a98b0a860d97901,import,data.table::fwrite
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
-9a746ffc57d0af53,target,file data/FHM
-ff80257fd2fb6208,target,file docs/deaths_lag_sweden.pdf
-00713d175ded4cb0,target,file docs/deaths_lag_sweden.png
+e1073e8bdef4f618,target,file data/FHM
+1dce17020fb3c3f3,target,file docs/deaths_lag_sweden.pdf
+c78b17fbcdc7e237,target,file docs/deaths_lag_sweden.png
 94e3c2cf63681c79,target,file out/deaths_lag_sweden.pdf
 94e3c2cf63681c79,target,file out/lag_plot.pdf
 56782f780381687e,import,plot_lagged_deaths
 793c830110fdd638,import,predict_lag
 b7381a9d7717a7c6,import,save_plot
 4744ad80dc0ae218,import,set_default_theme
-8af83c4fbd843b6b,import,trigger_new_download
+cd9ae2f6d3d319ae,import,trigger_new_download

@@ -4,5 +4,7 @@
 @import "{{ site.theme }}";
 
 body {
-    background-color: beige;
+    background-color: red !important;
 }
+
+img { background-color: transparent !important;}

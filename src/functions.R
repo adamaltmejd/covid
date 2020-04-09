@@ -1,4 +1,4 @@
-download_latest_fhm <- function(folder) {
+download_latest_fhm <- function(folder = file.path("data", "FHM")) {
     require(readxl)
 
     DL <- download.file("https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data",
@@ -35,7 +35,7 @@ trigger_new_download <- function(f) {
     return(FALSE)
 }
 
-list_fhm_files <- function(folder) {
+list_fhm_files <- function(folder = file.path("data", "FHM")) {
     list.files(folder, pattern = "^Folkhalso", full.names = TRUE)
 }
 
@@ -49,7 +49,7 @@ load_fhm <- function(f) {
 
     setnames(DT, c("date", "N"))
 
-    DT <- DT[!is.na(date) & date != "Uppgift saknas"] # drop deaths with no date assigned
+    DT <- DT[!is.na(date) & date != "Uppgift saknas" & date != "uppgift saknas"] # drop deaths with no date assigned
 
     if (can_be_numeric(DT[, date])) {
         DT[, date := as.Date(as.numeric(date), origin = "1899-12-30")]

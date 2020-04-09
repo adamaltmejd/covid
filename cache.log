@@ -10,7 +10,7 @@ d63e09be3e3f0ca1,target,death_dts_7ebb63a6
 85e960848be130ce,target,death_dts_dcfe792d
 a14ff57f0499a68c,target,death_dts_fb0e1833
 0ebc21fb1948a412,target,death_prediction
-d0d49f3074802f8f,target,default_theme
+55f236b7e7825041,target,default_theme
 3d498b1dc481cabe,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_2
@@ -18,7 +18,7 @@ ad62d12ee603002e,target,fhm_files
 43e5b408490c28e0,import,fig_aspect_ratio_pres
 152602b8ff81e5bb,import,fig_height
 07d947e7d8f138e1,import,join_data
-94e088d3e444df08,target,lag_plot
+d187c9c1126ea55f,target,lag_plot
 8271c9325d9ef093,target,latest_fhm
 825b7e43dc7b0ff4,import,list_fhm_files
 3f89ac0972911988,import,load_fhm
@@ -26,12 +26,12 @@ e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
 9a746ffc57d0af53,target,file data/FHM
-5c3c200b4d2c3de9,target,file docs/deaths_lag_sweden.pdf
-cbd1fc6e57e8ca23,target,file docs/deaths_lag_sweden.png
+ff80257fd2fb6208,target,file docs/deaths_lag_sweden.pdf
+00713d175ded4cb0,target,file docs/deaths_lag_sweden.png
 94e3c2cf63681c79,target,file out/deaths_lag_sweden.pdf
 94e3c2cf63681c79,target,file out/lag_plot.pdf
-9d6709d36ab60cb4,import,plot_lagged_deaths
+56782f780381687e,import,plot_lagged_deaths
 793c830110fdd638,import,predict_lag
 b7381a9d7717a7c6,import,save_plot
-be8b8c5159e3dc5c,import,set_default_theme
+c7c5663ffdee5da4,import,set_default_theme
 8af83c4fbd843b6b,import,trigger_new_download

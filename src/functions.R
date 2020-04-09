@@ -131,8 +131,8 @@ set_default_theme <- function() {
             axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1.1),
 
             # Panels
-            panel.background = element_rect(fill = "transparent"), # bg of the panel
-            plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+            # panel.background = element_rect(fill = "transparent"), # bg of the panel
+            # plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
             panel.border = element_blank(),
             panel.grid.major = element_line(linetype = "dotted", color = "grey60", size = 0.2),
             panel.grid.minor = element_line(linetype = "dotted", color = "grey80", size = 0.2)
@@ -156,7 +156,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         scale_x_date(date_breaks = "2 day", expand = c(0, 0)) +
         scale_fill_manual(values = pal, na.value = "grey50") +
         my_theme +
-        labs(title = "Swedish Covid-19 deaths by report date.",
+        labs(title = "Swedish Covid-19 deaths by report date",
              subtitle = "Each death is attributed to its actual day of death. Black line shows estimated total deaths based on average historical reporting lag.",
              caption = paste0("Source: Folkhälsomyndigheten. Last updated: ", Sys.Date()),
              fill = "Report date",

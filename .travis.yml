@@ -2,8 +2,6 @@ language: r
 r:
     - release
 
-latex: false
-
 cache:
     directories:
         - $HOME/.local/share/renv

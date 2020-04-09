@@ -3,8 +3,8 @@
 
 @import "{{ site.theme }}";
 
-body {
-    background-color: beige !important;
-}
+body { background-color: antiquewhite; }
 
 img { background-color: transparent !important;}
+
+h1 { display: none !important; }

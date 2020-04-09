@@ -49,7 +49,7 @@ load_fhm <- function(f) {
 
     setnames(DT, c("date", "N"))
 
-    DT <- DT[!is.na(date) & date != "Uppgift saknas" & date != "uppgift saknas"] # drop deaths with no date assigned
+    DT[date == "Uppgift saknas" | date == "uppgift saknas", date := NA]
 
     if (can_be_numeric(DT[, date])) {
         DT[, date := as.Date(as.numeric(date), origin = "1899-12-30")]
@@ -59,7 +59,7 @@ load_fhm <- function(f) {
 
     DT[is.na(N), N := 0]
 
-    DT[, publication_date := max(date)]
+    DT[, publication_date := max(date, na.rm = TRUE)]
 
     return(as.data.frame(DT))
 }
@@ -76,21 +76,22 @@ join_data <- function(death_dt) {
     death_dt <- data.table(death_dt)
     setkey(death_dt, publication_date, date)
 
-    death_dt[, days_since_publication := publication_date - date]
-    death_dt[publication_date == "2020-04-02", days_since_publication := NA]
+    death_dt[!is.na(date) & publication_date > "2020-04-02", days_since_publication := publication_date - date]
     death_dt[date == "2020-04-02" & publication_date == "2020-04-02", days_since_publication := 0]
 
-    death_dt[, paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
-    death_dt[, n_diff := N - n_m1]
+    death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
+    death_dt[!is.na(date), n_diff := N - n_m1]
 
     return(death_dt)
 }
 
 predict_lag <- function(death_dt) {
     avg_delay <- death_dt[!is.na(days_since_publication) & days_since_publication != 0,
-        .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
+                          .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
     avg_delay[, sum_cum := cumsum(avg_diff)]
     avg_delay[, match := days_since_publication - 1]
+
+    death_dt <- death_dt[!is.na(date)]
 
     death_dt <- death_dt[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
     death_dt <- merge(death_dt, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
@@ -116,13 +117,12 @@ set_default_theme <- function() {
         warning("Couldn't find any fonts, sys_fonts written to csv.")
     }
 
-
     theme_ipsum(base_family = fam) %+replace%
         theme(
             plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             # legend.title = element_blank(),
-            legend.background = element_rect(fill = "white", color = "grey80"),
+            legend.background = element_rect(fill = "grey90", color = "grey80"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
@@ -138,7 +138,7 @@ set_default_theme <- function() {
 
             # Panels
             # panel.background = element_rect(fill = "transparent"), # bg of the panel
-            # plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+            plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
             panel.border = element_blank(),
             panel.grid.major = element_line(linetype = "dotted", color = "grey60", size = 0.2),
             panel.grid.minor = element_line(linetype = "dotted", color = "grey80", size = 0.2)
@@ -149,21 +149,28 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     require(ggplot2)
     require(forcats)
 
-    death_dt <- death_dt[n_diff != 0]
+    total_deaths <- death_dt[publication_date == max(date, na.rm = TRUE), sum(N, na.rm = TRUE)]
+
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
-    death_dt[, publication_date := forcats::fct_rev(factor(publication_date))]
+    date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
+    death_dt <- death_dt[n_diff != 0 & !is.na(n_diff)]
+
+    # Labels with total new deaths
+    death_dt[date_diff, on = .(publication_date), new_lab := paste0(publication_date, " (N=", i.V1, ")")]
+    death_dt[, publication_date := forcats::fct_rev(factor(new_lab))]
 
     pal <- wesanderson::wes_palette("Darjeeling1", length(levels(death_dt$publication_date)), type = "continuous")
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
+        geom_bar(data = death_prediction, aes(y = total), stat="identity", fill = "grey90") +
         geom_bar(position="stack", stat="identity", aes(fill = publication_date)) +
-        geom_line(data = death_prediction, aes(y = total), color = "grey70") +
-        geom_point(data = death_prediction, aes(y = total), size = 1.5, color = "grey70") +
+        # geom_line(data = death_prediction, aes(y = total), color = "grey70") +
+        # geom_point(data = death_prediction, aes(y = total), size = 1.5, color = "grey70") +
         scale_x_date(date_breaks = "2 day", expand = c(0, 0)) +
-        scale_fill_manual(values = pal, na.value = "grey50") +
+        scale_fill_manual(values = pal, na.value = "grey40") +
         my_theme +
-        labs(title = "Swedish Covid-19 deaths by report date",
-             subtitle = "Each death is attributed to its actual day of death. Black line shows estimated total deaths based on average historical reporting lag.",
+        labs(title = paste0("Swedish Covid-19 mortality by report date (total: ", total_deaths, ")"),
+             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average reporting lag.",
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Report date",
              x = "Date of death",
@@ -186,8 +193,7 @@ save_plot <- function(p, f) {
     }
     if (tools::file_ext(f) == "png") {
         ggsave(filename = f, plot = p,
-           height = h, width = w, dpi = 300,
-           bg = "transparent",
-           type = "cairo-png")
+               height = h, width = w, dpi = 300,
+               bg = "transparent", type = "cairo-png")
     }
 }

@@ -1,6 +1,8 @@
-name: make_drake
+name: make_drake_cron
 
 on:
+    push:
+        branches: [master]
     schedule:
         - cron: 05 14 * * *
 

@@ -2,7 +2,7 @@ name: make_drake
 
 on:
     push:
-        branches: master
+        branches: [master]
 
 jobs:
     build:
@@ -13,10 +13,20 @@ jobs:
             - name: Setup R
               uses: r-lib/actions/setup-r@master
 
-            - name: Create report file
-              run: date +%s > report.txt
+            - uses: actions/cache@v1
+              with:
+                  path: ~/.local/share/renv
+                  key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-renv-
 
-            - name: Commit report
+            - name: renv
+              run: Rscript -e "renv::restore()"
+
+            - name: build
+              run: Rscript -e 'drake::r_make()'
+
+            - name: Push
               run: |
                   git config --global user.name 'Adam Altmejd'
                   git config --global user.email 'adamaltmejd@users.noreply.github.com'

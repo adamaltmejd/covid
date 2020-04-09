@@ -1,78 +1,78 @@
 path,index,name,family,style,weight,width,italic,monospace
 /usr/share/fonts/truetype/lato/Lato-ThinItalic.ttf,0,Lato-ThinItalic,Lato,Thin Italic,ultralight,normal,TRUE,FALSE
 /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf,0,LiberationSans-Bold,Liberation Sans,Bold,bold,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/n021023l.pfb,22079,NimbusRomNo9L-ReguItal,Nimbus Roman No9 L,Regular Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/type1/gsfonts/b018032l.pfb,22079,URWBookmanL-LighItal,URW Bookman L,Light Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/truetype/lato/Lato-SemiboldItalic.ttf,22079,Lato-SemiboldItalic,Lato,Semibold Italic,semibold,normal,TRUE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf,22079,LiberationMono-Bold,Liberation Mono,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-MediumItalic.ttf,22079,Lato-MediumItalic,Lato,Medium Italic,medium,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/a010015l.pfb,22079,URWGothicL-Demi,URW Gothic L,Demi,semibold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationMono-Italic.ttf,22079,LiberationMono-Italic,Liberation Mono,Italic,normal,normal,TRUE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf,22079,LiberationSerif-Bold,Liberation Serif,Bold,bold,normal,FALSE,FALSE
-/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf,22079,DejaVuSans,DejaVu Sans,Book,normal,normal,FALSE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationSansNarrow-BoldItalic.ttf,22079,LiberationSansNarrow-BoldItalic,Liberation Sans Narrow,Bold Italic,bold,condensed,TRUE,FALSE
-/usr/share/fonts/type1/gsfonts/n019064l.pfb,22079,NimbusSanL-BoldCondItal,Nimbus Sans L,Bold Condensed Italic,bold,condensed,TRUE,FALSE
-/usr/share/fonts/truetype/lato/Lato-BlackItalic.ttf,22079,Lato-BlackItalic,Lato,Black Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/truetype/lato/Lato-Medium.ttf,22079,Lato-Medium,Lato,Medium,medium,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/n019043l.pfb,22079,NimbusSanL-ReguCond,Nimbus Sans L,Regular Condensed,normal,condensed,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/c059033l.pfb,22079,CenturySchL-Ital,Century Schoolbook L,Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/type1/gsfonts/n021004l.pfb,22079,NimbusRomNo9L-Medi,Nimbus Roman No9 L,Medium,bold,normal,FALSE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf,22079,LiberationSerif-BoldItalic,Liberation Serif,Bold Italic,bold,normal,TRUE,FALSE
-/usr/share/fonts/truetype/lato/Lato-Bold.ttf,22079,Lato-Bold,Lato,Bold,bold,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/a010033l.pfb,22079,URWGothicL-BookObli,URW Gothic L,Book Oblique,normal,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/n019024l.pfb,22079,NimbusSanL-BoldItal,Nimbus Sans L,Bold Italic,bold,normal,TRUE,FALSE
-/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf,22079,DejaVuSerif-Bold,DejaVu Serif,Bold,bold,normal,FALSE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf,22079,LiberationSerif-Italic,Liberation Serif,Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf,22079,LiberationSans-Italic,Liberation Sans,Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/type1/gsfonts/n021003l.pfb,22079,NimbusRomNo9L-Regu,Nimbus Roman No9 L,Regular,normal,normal,FALSE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf,22079,LiberationSans,Liberation Sans,Regular,normal,normal,FALSE,FALSE
-/usr/share/fonts/truetype/noto/NotoMono-Regular.ttf,22079,NotoMono,Noto Mono,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf,22079,DejaVuSansMono,DejaVu Sans Mono,Book,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-Black.ttf,22079,Lato-Black,Lato,Black,normal,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/p052024l.pfb,22079,URWPalladioL-BoldItal,URW Palladio L,Bold Italic,bold,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/c059016l.pfb,22079,CenturySchL-Bold,Century Schoolbook L,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf,22079,DroidSansFallback,Droid Sans Fallback,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/d050000l.pfb,22079,Dingbats,Dingbats,Regular,normal,normal,FALSE,FALSE
-/usr/share/fonts/truetype/lato/Lato-Hairline.ttf,22079,Lato-Hairline,Lato,Hairline,thin,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/n022004l.pfb,22079,NimbusMonL-Bold,Nimbus Mono L,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf,22079,DejaVuSansMono-Bold,DejaVu Sans Mono,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Bold.ttf,22079,LiberationSansNarrow-Bold,Liberation Sans Narrow,Bold,bold,condensed,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/b018012l.pfb,22079,URWBookmanL-Ligh,URW Bookman L,Light,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-Thin.ttf,22079,Lato-Thin,Lato,Thin,ultralight,normal,FALSE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf,22079,LiberationSans-BoldItalic,Liberation Sans,Bold Italic,bold,normal,TRUE,TRUE
-/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf,22079,DejaVuSans-Bold,DejaVu Sans,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/a010035l.pfb,22079,URWGothicL-DemiObli,URW Gothic L,Demi Oblique,semibold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-Semibold.ttf,22079,Lato-Semibold,Lato,Semibold,semibold,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/p052004l.pfb,22079,URWPalladioL-Bold,URW Palladio L,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/n019063l.pfb,22079,NimbusSanL-ReguCondItal,Nimbus Sans L,Regular Condensed Italic,normal,condensed,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/n022003l.pfb,22079,NimbusMonL-Regu,Nimbus Mono L,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationMono-BoldItalic.ttf,22079,LiberationMono-BoldItalic,Liberation Mono,Bold Italic,bold,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/n019004l.pfb,22079,NimbusSanL-Bold,Nimbus Sans L,Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-BoldItalic.ttf,22079,Lato-BoldItalic,Lato,Bold Italic,bold,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/n019023l.pfb,22079,NimbusSanL-ReguItal,Nimbus Sans L,Regular Italic,normal,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/n019003l.pfb,22079,NimbusSanL-Regu,Nimbus Sans L,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/n022024l.pfb,22079,NimbusMonL-BoldObli,Nimbus Mono L,Bold Oblique,bold,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/z003034l.pfb,22079,URWChanceryL-MediItal,URW Chancery L,Medium Italic,medium,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/n021024l.pfb,22079,NimbusRomNo9L-MediItal,Nimbus Roman No9 L,Medium Italic,bold,normal,TRUE,TRUE
-/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf,22079,DejaVuSerif,DejaVu Serif,Book,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf,22079,LiberationSerif,Liberation Serif,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/c059013l.pfb,22079,CenturySchL-Roma,Century Schoolbook L,Roman,medium,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/p052023l.pfb,22079,URWPalladioL-Ital,URW Palladio L,Italic,normal,normal,TRUE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Regular.ttf,22079,LiberationSansNarrow,Liberation Sans Narrow,Regular,normal,condensed,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-Regular.ttf,22079,Lato-Regular,Lato,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/lato/Lato-HairlineItalic.ttf,22079,Lato-HairlineItalic,Lato,Hairline Italic,thin,normal,TRUE,TRUE
-/usr/share/fonts/truetype/lato/Lato-LightItalic.ttf,22079,Lato-LightItalic,Lato,Light Italic,light,normal,TRUE,TRUE
-/usr/share/fonts/type1/gsfonts/b018015l.pfb,22079,URWBookmanL-DemiBold,URW Bookman L,Demi Bold,bold,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/n022023l.pfb,22079,NimbusMonL-ReguObli,Nimbus Mono L,Regular Oblique,normal,normal,FALSE,TRUE
-/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Italic.ttf,22079,LiberationSansNarrow-Italic,Liberation Sans Narrow,Italic,normal,condensed,TRUE,FALSE
-/usr/share/fonts/type1/gsfonts/n019044l.pfb,22079,NimbusSanL-BoldCond,Nimbus Sans L,Bold Condensed,bold,condensed,FALSE,FALSE
-/usr/share/fonts/truetype/lato/Lato-Italic.ttf,22079,Lato-Italic,Lato,Italic,normal,normal,TRUE,FALSE
-/usr/share/fonts/truetype/lato/Lato-Light.ttf,22079,Lato-Light,Lato,Light,light,normal,FALSE,FALSE
-/usr/share/fonts/truetype/lato/Lato-HeavyItalic.ttf,22079,Lato-HeavyItalic,Lato,Heavy Italic,ultrabold,normal,TRUE,FALSE
-/usr/share/fonts/type1/gsfonts/p052003l.pfb,22079,URWPalladioL-Roma,URW Palladio L,Roman,medium,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/s050000l.pfb,22079,StandardSymL,Standard Symbols L,Regular,normal,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/c059036l.pfb,22079,CenturySchL-BoldItal,Century Schoolbook L,Bold Italic,bold,normal,TRUE,FALSE
-/usr/share/fonts/truetype/lato/Lato-Heavy.ttf,22079,Lato-Heavy,Lato,Heavy,ultrabold,normal,FALSE,FALSE
-/usr/share/fonts/type1/gsfonts/a010013l.pfb,22079,URWGothicL-Book,URW Gothic L,Book,normal,normal,FALSE,FALSE
-/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf,22079,LiberationMono,Liberation Mono,Regular,normal,normal,FALSE,TRUE
-/usr/share/fonts/type1/gsfonts/b018035l.pfb,22079,URWBookmanL-DemiBoldItal,URW Bookman L,Demi Bold Italic,bold,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/n021023l.pfb,21964,NimbusRomNo9L-ReguItal,Nimbus Roman No9 L,Regular Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/type1/gsfonts/b018032l.pfb,21964,URWBookmanL-LighItal,URW Bookman L,Light Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/truetype/lato/Lato-SemiboldItalic.ttf,21964,Lato-SemiboldItalic,Lato,Semibold Italic,semibold,normal,TRUE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationMono-Bold.ttf,21964,LiberationMono-Bold,Liberation Mono,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-MediumItalic.ttf,21964,Lato-MediumItalic,Lato,Medium Italic,medium,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/a010015l.pfb,21964,URWGothicL-Demi,URW Gothic L,Demi,semibold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationMono-Italic.ttf,21964,LiberationMono-Italic,Liberation Mono,Italic,normal,normal,TRUE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationSerif-Bold.ttf,21964,LiberationSerif-Bold,Liberation Serif,Bold,bold,normal,FALSE,FALSE
+/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf,21964,DejaVuSans,DejaVu Sans,Book,normal,normal,FALSE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationSansNarrow-BoldItalic.ttf,21964,LiberationSansNarrow-BoldItalic,Liberation Sans Narrow,Bold Italic,bold,condensed,TRUE,FALSE
+/usr/share/fonts/type1/gsfonts/n019064l.pfb,21964,NimbusSanL-BoldCondItal,Nimbus Sans L,Bold Condensed Italic,bold,condensed,TRUE,FALSE
+/usr/share/fonts/truetype/lato/Lato-BlackItalic.ttf,21964,Lato-BlackItalic,Lato,Black Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/truetype/lato/Lato-Medium.ttf,21964,Lato-Medium,Lato,Medium,medium,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/n019043l.pfb,21964,NimbusSanL-ReguCond,Nimbus Sans L,Regular Condensed,normal,condensed,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/c059033l.pfb,21964,CenturySchL-Ital,Century Schoolbook L,Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/type1/gsfonts/n021004l.pfb,21964,NimbusRomNo9L-Medi,Nimbus Roman No9 L,Medium,bold,normal,FALSE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationSerif-BoldItalic.ttf,21964,LiberationSerif-BoldItalic,Liberation Serif,Bold Italic,bold,normal,TRUE,FALSE
+/usr/share/fonts/truetype/lato/Lato-Bold.ttf,21964,Lato-Bold,Lato,Bold,bold,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/a010033l.pfb,21964,URWGothicL-BookObli,URW Gothic L,Book Oblique,normal,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/n019024l.pfb,21964,NimbusSanL-BoldItal,Nimbus Sans L,Bold Italic,bold,normal,TRUE,FALSE
+/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf,21964,DejaVuSerif-Bold,DejaVu Serif,Bold,bold,normal,FALSE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationSerif-Italic.ttf,21964,LiberationSerif-Italic,Liberation Serif,Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf,21964,LiberationSans-Italic,Liberation Sans,Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/type1/gsfonts/n021003l.pfb,21964,NimbusRomNo9L-Regu,Nimbus Roman No9 L,Regular,normal,normal,FALSE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf,21964,LiberationSans,Liberation Sans,Regular,normal,normal,FALSE,FALSE
+/usr/share/fonts/truetype/noto/NotoMono-Regular.ttf,21964,NotoMono,Noto Mono,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf,21964,DejaVuSansMono,DejaVu Sans Mono,Book,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-Black.ttf,21964,Lato-Black,Lato,Black,normal,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/p052024l.pfb,21964,URWPalladioL-BoldItal,URW Palladio L,Bold Italic,bold,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/c059016l.pfb,21964,CenturySchL-Bold,Century Schoolbook L,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf,21964,DroidSansFallback,Droid Sans Fallback,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/d050000l.pfb,21964,Dingbats,Dingbats,Regular,normal,normal,FALSE,FALSE
+/usr/share/fonts/truetype/lato/Lato-Hairline.ttf,21964,Lato-Hairline,Lato,Hairline,thin,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/n022004l.pfb,21964,NimbusMonL-Bold,Nimbus Mono L,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf,21964,DejaVuSansMono-Bold,DejaVu Sans Mono,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Bold.ttf,21964,LiberationSansNarrow-Bold,Liberation Sans Narrow,Bold,bold,condensed,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/b018012l.pfb,21964,URWBookmanL-Ligh,URW Bookman L,Light,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-Thin.ttf,21964,Lato-Thin,Lato,Thin,ultralight,normal,FALSE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationSans-BoldItalic.ttf,21964,LiberationSans-BoldItalic,Liberation Sans,Bold Italic,bold,normal,TRUE,TRUE
+/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf,21964,DejaVuSans-Bold,DejaVu Sans,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/a010035l.pfb,21964,URWGothicL-DemiObli,URW Gothic L,Demi Oblique,semibold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-Semibold.ttf,21964,Lato-Semibold,Lato,Semibold,semibold,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/p052004l.pfb,21964,URWPalladioL-Bold,URW Palladio L,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/n019063l.pfb,21964,NimbusSanL-ReguCondItal,Nimbus Sans L,Regular Condensed Italic,normal,condensed,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/n022003l.pfb,21964,NimbusMonL-Regu,Nimbus Mono L,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationMono-BoldItalic.ttf,21964,LiberationMono-BoldItalic,Liberation Mono,Bold Italic,bold,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/n019004l.pfb,21964,NimbusSanL-Bold,Nimbus Sans L,Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-BoldItalic.ttf,21964,Lato-BoldItalic,Lato,Bold Italic,bold,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/n019023l.pfb,21964,NimbusSanL-ReguItal,Nimbus Sans L,Regular Italic,normal,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/n019003l.pfb,21964,NimbusSanL-Regu,Nimbus Sans L,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/n022024l.pfb,21964,NimbusMonL-BoldObli,Nimbus Mono L,Bold Oblique,bold,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/z003034l.pfb,21964,URWChanceryL-MediItal,URW Chancery L,Medium Italic,medium,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/n021024l.pfb,21964,NimbusRomNo9L-MediItal,Nimbus Roman No9 L,Medium Italic,bold,normal,TRUE,TRUE
+/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf,21964,DejaVuSerif,DejaVu Serif,Book,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf,21964,LiberationSerif,Liberation Serif,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/c059013l.pfb,21964,CenturySchL-Roma,Century Schoolbook L,Roman,medium,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/p052023l.pfb,21964,URWPalladioL-Ital,URW Palladio L,Italic,normal,normal,TRUE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Regular.ttf,21964,LiberationSansNarrow,Liberation Sans Narrow,Regular,normal,condensed,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-Regular.ttf,21964,Lato-Regular,Lato,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/lato/Lato-HairlineItalic.ttf,21964,Lato-HairlineItalic,Lato,Hairline Italic,thin,normal,TRUE,TRUE
+/usr/share/fonts/truetype/lato/Lato-LightItalic.ttf,21964,Lato-LightItalic,Lato,Light Italic,light,normal,TRUE,TRUE
+/usr/share/fonts/type1/gsfonts/b018015l.pfb,21964,URWBookmanL-DemiBold,URW Bookman L,Demi Bold,bold,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/n022023l.pfb,21964,NimbusMonL-ReguObli,Nimbus Mono L,Regular Oblique,normal,normal,FALSE,TRUE
+/usr/share/fonts/truetype/liberation/LiberationSansNarrow-Italic.ttf,21964,LiberationSansNarrow-Italic,Liberation Sans Narrow,Italic,normal,condensed,TRUE,FALSE
+/usr/share/fonts/type1/gsfonts/n019044l.pfb,21964,NimbusSanL-BoldCond,Nimbus Sans L,Bold Condensed,bold,condensed,FALSE,FALSE
+/usr/share/fonts/truetype/lato/Lato-Italic.ttf,21964,Lato-Italic,Lato,Italic,normal,normal,TRUE,FALSE
+/usr/share/fonts/truetype/lato/Lato-Light.ttf,21964,Lato-Light,Lato,Light,light,normal,FALSE,FALSE
+/usr/share/fonts/truetype/lato/Lato-HeavyItalic.ttf,21964,Lato-HeavyItalic,Lato,Heavy Italic,ultrabold,normal,TRUE,FALSE
+/usr/share/fonts/type1/gsfonts/p052003l.pfb,21964,URWPalladioL-Roma,URW Palladio L,Roman,medium,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/s050000l.pfb,21964,StandardSymL,Standard Symbols L,Regular,normal,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/c059036l.pfb,21964,CenturySchL-BoldItal,Century Schoolbook L,Bold Italic,bold,normal,TRUE,FALSE
+/usr/share/fonts/truetype/lato/Lato-Heavy.ttf,21964,Lato-Heavy,Lato,Heavy,ultrabold,normal,FALSE,FALSE
+/usr/share/fonts/type1/gsfonts/a010013l.pfb,21964,URWGothicL-Book,URW Gothic L,Book,normal,normal,FALSE,FALSE
+/usr/share/fonts/truetype/liberation/LiberationMono-Regular.ttf,21964,LiberationMono,Liberation Mono,Regular,normal,normal,FALSE,TRUE
+/usr/share/fonts/type1/gsfonts/b018035l.pfb,21964,URWBookmanL-DemiBoldItal,URW Bookman L,Demi Bold Italic,bold,normal,TRUE,TRUE

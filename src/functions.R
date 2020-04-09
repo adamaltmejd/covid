@@ -206,7 +206,7 @@ update_web <- function(plots, index) {
         "author: Adam Altmejd",
         paste0("date: ", Sys.Date()),
         "---\n",
-        paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', plots, ' "Reporting delay in Swedish covid-19 deaths.")'),
+        paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', basename(plots), ' "Reporting delay in Swedish covid-19 deaths.")'),
         "For code and data, visit <https://github.com/adamaltmejd/covid>.\n"
     )
     con <- file(index, "w")

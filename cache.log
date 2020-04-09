@@ -33,7 +33,7 @@ e1073e8bdef4f618,target,file data/FHM
 cf2fcdc1b3790600,target,file docs/deaths_lag_sweden.pdf
 6e27ba2c614a164f,target,file docs/deaths_lag_sweden.png
 6e27ba2c614a164f,target,file docs/deaths_lag_sweden_2020-04-09.png
-d2532f22cd373e9b,target,file docs/index.md
+0977d4c0d9132f85,target,file docs/index.md
 94e3c2cf63681c79,target,file out/deaths_lag_sweden.pdf
 94e3c2cf63681c79,target,file out/lag_plot.pdf
 88d1ceb284f94b98,import,plot_lagged_deaths
@@ -41,4 +41,4 @@ d2532f22cd373e9b,target,file docs/index.md
 b7381a9d7717a7c6,import,save_plot
 4be3ffa4f5ec7943,import,set_default_theme
 77b4c9d06670888b,import,trigger_new_download
-ecded4595cbc62ee,import,update_web
+423a1143a64194b9,import,update_web

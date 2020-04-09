@@ -115,11 +115,12 @@ set_default_theme <- function() {
         theme(
             plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
-            legend.title = element_blank(),
-            legend.position = c(0.15,0.9),
+            # legend.title = element_blank(),
             legend.background = element_rect(fill = "white", color = "grey80"),
-            legend.margin = margin(1,5,5,5),
+            legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
+            legend.position = "right",
+            # legend.position = c(0.15,0.9),
             # legend.box.margin = margin(0,0,0,0),
             # legend.justification = c(0,0),
             # legend.box.just = "left",
@@ -127,14 +128,18 @@ set_default_theme <- function() {
             # legend.spacing = unit(0, "pt")
             # axis.title = element_text(size = rel(1.5)),
             # axis.text = element_text(size = rel(1)),
+            axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1.1),
 
             # Panels
+            panel.background = element_rect(fill = "transparent"), # bg of the panel
+            plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+            panel.border = element_blank(),
             panel.grid.major = element_line(linetype = "dotted", color = "grey60", size = 0.2),
             panel.grid.minor = element_line(linetype = "dotted", color = "grey80", size = 0.2)
         )
 }
 
-plot_lagged_deaths <- function(death_dt, death_prediction, th) {
+plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     require(ggplot2)
     require(forcats)
 
@@ -144,21 +149,19 @@ plot_lagged_deaths <- function(death_dt, death_prediction, th) {
 
     pal <- wesanderson::wes_palette("Darjeeling1", length(levels(death_dt$publication_date)), type = "continuous")
 
-    p <- ggplot(data = death_dt, aes(y = n_diff, x = date)) +
+    ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_bar(position="stack", stat="identity", aes(fill = publication_date)) +
-        geom_line(data = death_prediction, aes(y = total)) +
+        geom_line(data = death_prediction, aes(y = total), color = "grey70") +
+        geom_point(data = death_prediction, aes(y = total), size = 1.5, color = "grey70") +
         scale_x_date(date_breaks = "2 day", expand = c(0, 0)) +
         scale_fill_manual(values = pal, na.value = "grey50") +
-        th +
-        theme(axis.text.x = element_text(angle = 60, hjust = 1),
-              legend.position = "right") +
-        labs(title = "Covid deaths (Sweden)",
-             subtitle = "Number of deaths by report date, black line shows prediction.",
-             caption = "Predicted deaths based on average historical reporting delay.",
-             x = "Date",
+        my_theme +
+        labs(title = "Swedish Covid-19 deaths by report date.",
+             subtitle = "Each death is attributed to its actual day of death. Black line shows estimated total deaths based on average historical reporting lag.",
+             caption = paste0("Source: Folkhälsomyndigheten. Last updated: ", Sys.Date()),
+             fill = "Report date",
+             x = "Date of death",
              y = "Number of deaths")
-
-    p
 }
 
 save_plot <- function(p, f) {

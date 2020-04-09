@@ -1,0 +1,17 @@
+language: r
+r:
+    - release
+
+latex: false
+
+cache:
+    directories:
+        - $HOME/.local/share/renv
+        - $TRAVIS_BUILD_DIR/renv/library
+    packages: true
+
+install:
+    - Rscript -e "renv::restore()"
+
+script:
+    - Rscript -e 'drake::r_make()'

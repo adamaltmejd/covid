@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: page
 title: Reported Covid-19 deaths in Sweden
 author: Adam Altmejd
 date: 2020-04-09

@@ -164,7 +164,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         my_theme +
         labs(title = "Swedish Covid-19 deaths by report date",
              subtitle = "Each death is attributed to its actual day of death. Black line shows estimated total deaths based on average historical reporting lag.",
-             caption = paste0("Source: Folkhälsomyndigheten. Last updated: ", Sys.Date()),
+             caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Report date",
              x = "Date of death",
              y = "Number of deaths")

@@ -207,7 +207,7 @@ update_web <- function(plots, index) {
         paste0("date: ", Sys.Date()),
         "---\n",
         paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', basename(plots), ' "Reporting delay in Swedish covid-19 deaths.")'),
-        "For code and data, visit <https://github.com/adamaltmejd/covid>.\n"
+        "For code and data, visit <https://github.com/adamaltmejd/covid>."
     )
     con <- file(index, "w")
     writeLines(lines, con = con)

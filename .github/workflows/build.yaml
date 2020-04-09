@@ -1,8 +1,8 @@
 name: make_drake
 
 on:
-    push:
-        branches: [master]
+    schedule:
+        - cron: 05 14 * * *
 
 jobs:
     build:
@@ -13,12 +13,19 @@ jobs:
             - name: Setup R
               uses: r-lib/actions/setup-r@master
 
-            - uses: actions/cache@v1
+            - name: renv cache
+              uses: actions/cache@v1
               with:
                   path: ~/.local/share/renv
                   key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
                   restore-keys: |
                       ${{ runner.os }}-renv-
+
+            - name: drake cache
+              uses: actions/cache@v1
+              with:
+                  path: .drake
+                  key: ${{ runner.os }}-drake-${{ hashFiles('**/cache.log') }}
 
             - name: renv
               run: Rscript -e "renv::restore()"
@@ -26,10 +33,13 @@ jobs:
             - name: build
               run: Rscript -e 'drake::r_make()'
 
-            - name: Push
+            - name: fonts
+              run: fc-list > fonts.txt
+
+            - name: push
               run: |
                   git config --global user.name 'Adam Altmejd'
                   git config --global user.email 'adamaltmejd@users.noreply.github.com'
                   git add --all
-                  git commit -m "Test"
+                  git commit -m "Github Action autocommit"
                   git push

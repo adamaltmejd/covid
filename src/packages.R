@@ -1,6 +1,5 @@
 suppressPackageStartupMessages(library(drake))
 suppressPackageStartupMessages(library(data.table))
-suppressPackageStartupMessages(library(fst))
 suppressPackageStartupMessages(library(readxl))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(cowplot))

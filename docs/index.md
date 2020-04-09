@@ -7,4 +7,3 @@ date: 2020-04-09
 
 ![Graph of Swedish Covid-19 deaths with reporting delay.](deaths_lag_sweden_2020-04-09.png "Reporting delay in Swedish covid-19 deaths.")
 For code and data, visit <https://github.com/adamaltmejd/covid>.
-

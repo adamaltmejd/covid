@@ -1,33 +1,34 @@
 hash,type,name
 b2a66d46940189cf,import,can_be_numeric
-8c332004df220545,target,death_dt
-5c2f4c54417d9427,target,death_dts
+f55bd48710450d8b,target,death_dt
+5e79032e47690c71,target,death_dts
 631158bd55ff2327,target,death_dts_184155c5
 29fa28ad60e6670f,target,death_dts_30410b02
 4b628cf922c3f3af,target,death_dts_4a8bb423
+caab3ab15926120b,target,death_dts_4c0c4095
 21f95e07367bf364,target,death_dts_7ebb63a6
 0442b683f5919ab0,target,death_dts_860d1e8c
 bd0c86fd34ec9e64,target,death_dts_c59a5ac6
 76484cdb8cd671ee,target,death_dts_dcfe792d
 ea357115460d67c4,target,death_dts_fb0e1833
-f673cc3f24738f1d,target,death_prediction
+9e0996f20d821890,target,death_prediction
 bcb7bcaddb063db5,target,default_theme
 eb75a7858e6fe4d7,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_2
 91a78a30a1427488,target,drake_target_3
-31cbaaa0d7eedea7,target,fhm_files
+a2e3af228020ee26,target,fhm_files
 8a9565d4261400f2,import,join_data
-01d8eeb791975129,target,lag_plot
-c85d88fc56f4e042,target,latest_fhm
+08111847a2dc85bf,target,lag_plot
+8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 e65c9d1d067d2aae,import,load_fhm
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
-8423e25238e47995,target,file data/FHM
-82a6038c219a27c6,target,file docs/deaths_lag_sweden.pdf
-37c8e12f4d06c51a,target,file docs/deaths_lag_sweden_2020-04-10.png
+9d1704283a3b0b69,target,file data/FHM
+cb348ae28a22e528,target,file docs/deaths_lag_sweden.pdf
+e51d07587faac9f6,target,file docs/deaths_lag_sweden_2020-04-10.png
 42faff71a5c3ab1c,target,file docs/index.md
 88d1ceb284f94b98,import,plot_lagged_deaths
 5e96f2b50043d9e1,import,predict_lag

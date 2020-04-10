@@ -3,9 +3,20 @@
 
 @import "{{ site.theme }}";
 
-body { background-color: whitesmoke; }
+@import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 
-img { background-color: transparent !important;}
+body {
+    background-color: whitesmoke;
+    font-family: "EB Garamond", serif;
+}
 
-h1 { border: none !important; }
-h1 a { display: none !important; }
+img {
+    background-color: transparent !important;
+}
+
+h1 {
+    border: none !important;
+}
+h1 a {
+    display: none !important;
+}

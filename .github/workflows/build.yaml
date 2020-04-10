@@ -38,9 +38,6 @@ jobs:
             - name: build
               run: Rscript -e 'drake::r_make()'
 
-            - name: fonts
-              run: fc-list > fonts.txt
-
             - name: push
               run: |
                   git config --global user.name 'Adam Altmejd'

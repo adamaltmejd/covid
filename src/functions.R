@@ -112,10 +112,6 @@ set_default_theme <- function() {
     if (font_family_exists(font_family = "Arial")) fam <- "Arial"
     if (font_family_exists(font_family = "EB Garamond")) fam <- "EB Garamond"
     if (font_family_exists(font_family = "Garamond Premier Pro")) fam <- "Garamond Premier Pro"
-    if (fam == "sans") {
-        data.table::fwrite(gdtools::sys_fonts(), "sys_fonts.csv")
-        warning("Couldn't find any fonts, sys_fonts written to csv.")
-    }
 
     theme_ipsum(base_family = fam) %+replace%
         theme(

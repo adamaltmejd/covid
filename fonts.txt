@@ -30,6 +30,7 @@
 /usr/share/fonts/truetype/lato/Lato-Regular.ttf: Lato:style=Regular
 /usr/share/fonts/type1/gsfonts/n019064l.pfb: Nimbus Sans L:style=Bold Condensed Italic
 /usr/share/fonts/truetype/liberation/LiberationSans-Italic.ttf: Liberation Sans:style=Italic
+/usr/share/fonts/opentype/ebgaramond/EBGaramond08-Italic.otf: EB Garamond,EB Garamond 08:style=08 Italic,Cursiva,kurzíva,kursiv,Πλάγια,Italic,Kursivoitu,Italique,Dőlt,Corsivo,Cursief,Kursywa,Itálico,Курсив,İtalik,Poševno,Etzana
 /usr/share/fonts/truetype/droid/DroidSansFallbackFull.ttf: Droid Sans Fallback:style=Regular
 /usr/share/fonts/type1/gsfonts/p052004l.pfb: URW Palladio L:style=Bold
 /usr/share/fonts/truetype/lato/Lato-ThinItalic.ttf: Lato,Lato Thin:style=Thin Italic,Italic
@@ -49,10 +50,12 @@
 /usr/share/fonts/truetype/lato/Lato-HairlineItalic.ttf: Lato,Lato Hairline:style=Hairline Italic,Italic
 /usr/share/fonts/type1/gsfonts/c059033l.pfb: Century Schoolbook L:style=Italic
 /usr/share/fonts/truetype/lato/Lato-Thin.ttf: Lato,Lato Thin:style=Thin,Regular
+/usr/share/fonts/opentype/ebgaramond/EBGaramond12-Regular.otf: EB Garamond,EB Garamond 12:style=12 Regular,Regular
 /usr/share/fonts/type1/gsfonts/a010035l.pfb: URW Gothic L:style=Demi Oblique
 /usr/share/fonts/truetype/liberation/LiberationSerif-Regular.ttf: Liberation Serif:style=Regular
 /usr/share/fonts/truetype/lato/Lato-BoldItalic.ttf: Lato:style=Bold Italic
 /usr/share/fonts/truetype/lato/Lato-Bold.ttf: Lato:style=Bold
+/usr/share/fonts/opentype/ebgaramond/EBGaramond08-Regular.otf: EB Garamond,EB Garamond 08:style=08 Regular,Normal,obyčejné,Standard,Κανονικά,Regular,Normaali,Normál,Normale,Standaard,Normalny,Обычный,Normálne,Navadno,Arrunta
 /usr/share/fonts/type1/gsfonts/n019023l.pfb: Nimbus Sans L:style=Regular Italic
 /usr/share/fonts/type1/gsfonts/b018012l.pfb: URW Bookman L:style=Light
 /usr/share/fonts/truetype/noto/NotoMono-Regular.ttf: Noto Mono:style=Regular
@@ -64,6 +67,7 @@
 /usr/share/fonts/truetype/liberation/LiberationSansNarrow-Bold.ttf: Liberation Sans Narrow:style=Bold
 /usr/share/fonts/truetype/lato/Lato-Heavy.ttf: Lato,Lato Heavy:style=Heavy,Regular
 /usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf: Liberation Sans:style=Bold
+/usr/share/fonts/opentype/ebgaramond/EBGaramond12-Italic.otf: EB Garamond,EB Garamond 12:style=12 Italic,Italic
 /usr/share/fonts/truetype/lato/Lato-Semibold.ttf: Lato,Lato Semibold:style=Semibold,Regular
 /usr/share/fonts/type1/gsfonts/n019004l.pfb: Nimbus Sans L:style=Bold
 /usr/share/fonts/type1/gsfonts/b018015l.pfb: URW Bookman L:style=Demi Bold

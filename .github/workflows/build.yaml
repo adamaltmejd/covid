@@ -12,6 +12,9 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
+            - name: Install fonts
+              run: sudo apt-get install fonts-ebgaramond
+
             - name: Setup R
               uses: r-lib/actions/setup-r@master
 

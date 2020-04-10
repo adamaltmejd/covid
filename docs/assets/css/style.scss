@@ -5,12 +5,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap");
 
-body {
+body,
+.markdown-body {
     background-color: whitesmoke !important;
 }
 
 body,
-p {
+p,
+.markdown-body {
     font-family: "EB Garamond", serif !important;
 }
 

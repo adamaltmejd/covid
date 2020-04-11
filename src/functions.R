@@ -127,19 +127,10 @@ set_default_theme <- function() {
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
-            # legend.position = c(0.15,0.9),
-            # legend.box.margin = margin(0,0,0,0),
-            # legend.justification = c(0,0),
-            # legend.box.just = "left",
-            # legend.text.align = 0,
-            # legend.spacing = unit(0, "pt")
-            # axis.title = element_text(size = rel(1.5)),
-            # axis.text = element_text(size = rel(1)),
             axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1.1),
 
             # Panels
-            # panel.background = element_rect(fill = "transparent"), # bg of the panel
-            plot.background = element_rect(fill = "transparent", color = NA), # bg of the plot
+            plot.background = element_rect(fill = "#f5f5f5", color = NA), # bg of the plot
             panel.border = element_blank(),
             panel.grid.major = element_line(linetype = "dotted", color = "grey60", size = 0.2),
             panel.grid.minor = element_line(linetype = "dotted", color = "grey80", size = 0.2)

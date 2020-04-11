@@ -10,7 +10,6 @@ plan <- drake_plan(
     default_theme = set_default_theme(),
 
     lag_plot = target(plot_lagged_deaths(death_dt, death_prediction, my_theme = default_theme)),
-    save_plot(lag_plot, file_out(!!file.path("docs", "deaths_lag_sweden.pdf"))),
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")))),
     update_web(plots = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
                index = file_out(!!file.path("docs", "index.md")))

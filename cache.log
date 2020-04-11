@@ -29,7 +29,7 @@ e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
 1cd3cac2f52057e9,target,file data/FHM
-c029349ffc30c897,target,file docs/deaths_lag_sweden.pdf
+fb0dcb620db2e885,target,file docs/deaths_lag_sweden.pdf
 d184ab8c707898c8,target,file docs/deaths_lag_sweden_2020-04-11.png
 c20a288295167232,target,file docs/index.md
 88d1ceb284f94b98,import,plot_lagged_deaths

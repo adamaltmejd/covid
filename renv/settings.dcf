@@ -1,5 +1,5 @@
 external.libraries:
-ignored.packages: devtools, remotes, colorout
+ignored.packages: devtools, remotes, colorout, languageserver
 package.dependency.fields: Imports, Depends, LinkingTo
 snapshot.type: implicit
 use.cache: TRUE

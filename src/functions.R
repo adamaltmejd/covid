@@ -9,12 +9,17 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
     latest_record <- max(as.Date(gsub("^.*(2020-[0-9]{2}-[0-9]{2}).xlsx", "\\1", list.files(folder, pattern = "^Folkhalso"))))
 
     # Check if new download is newer than latest record, in that case, archive it.
-    new_record <- max(load_fhm(file.path(folder, "FHM_latest.xlsx"))$publication_date)
+    new_record <- get_record_date(file.path(folder, "FHM_latest.xlsx"))
 
     if (latest_record < new_record) {
         file.copy(file.path(folder, "FHM_latest.xlsx"),
                   file.path("data", "FHM", paste0("Folkhalsomyndigheten_Covid19_", new_record, ".xlsx")))
     }
+}
+
+get_record_date <- function(f) {
+    sheets <- excel_sheets(f)
+    return(as.Date(sub("^FOHM ", "", sheets[length(sheets)]), format="%d %b %Y"))
 }
 
 trigger_new_download <- function(f) {
@@ -24,7 +29,7 @@ trigger_new_download <- function(f) {
         return(TRUE)
     }
 
-    latest_record <- max(load_fhm(f)$publication_date)
+    latest_record <- get_record_date(f)
 
     if (latest_record < Sys.Date()) {
         if (as.ITime(Sys.time(), tz = "Europe/Stockholm") > as.ITime("14:00")) {
@@ -59,7 +64,7 @@ load_fhm <- function(f) {
 
     DT[is.na(N), N := 0]
 
-    DT[, publication_date := max(date, na.rm = TRUE)]
+    DT[, publication_date := get_record_date(f)]
 
     return(as.data.frame(DT))
 }

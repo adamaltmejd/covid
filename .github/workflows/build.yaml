@@ -2,7 +2,7 @@ name: make_drake_cron
 
 on:
   schedule:
-    - cron: 05 14 * * *
+    - cron: "02,30 14 * * *"
 
 jobs:
   build:

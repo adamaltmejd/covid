@@ -2,6 +2,7 @@ name: make_drake_cron
 
 on:
     schedule:
+        # UTC is currently -2 wrt Europe/Stockholm (CEST)
         - cron: "02,30 12 * * *"
 
 jobs:

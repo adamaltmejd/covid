@@ -77,8 +77,8 @@ can_be_numeric <- function(x) {
     return(numNAs_new == numNAs)
 }
 
-join_data <- function(death_dt) {
-    death_dt <- data.table(death_dt)
+join_data <- function(death_dts) {
+    death_dt <- data.table(death_dts)
     setkey(death_dt, publication_date, date)
 
     death_dt[!is.na(date) & publication_date > "2020-04-02", days_since_publication := publication_date - date]
@@ -93,17 +93,18 @@ join_data <- function(death_dt) {
 predict_lag <- function(death_dt) {
     avg_delay <- death_dt[!is.na(days_since_publication) & days_since_publication != 0,
                           .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
+    setorder(avg_delay, -days_since_publication)
     avg_delay[, sum_cum := cumsum(avg_diff)]
     avg_delay[, match := days_since_publication - 1]
 
-    death_dt <- death_dt[!is.na(date)]
+    prediction <- death_dt[!is.na(date)]
 
-    death_dt <- death_dt[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
-    death_dt <- merge(death_dt, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
+    prediction <- prediction[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
+    prediction <- merge(prediction, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
 
-    death_dt <- death_dt[, .(date, sure_deaths = deaths, predicted_deaths = sum_cum, total = deaths + sum_cum)]
+    prediction <- prediction[, .(date, sure_deaths = deaths, predicted_deaths = sum_cum, total = deaths + sum_cum)]
 
-    return(death_dt)
+    return(prediction)
 }
 
 ##

@@ -91,7 +91,9 @@ join_data <- function(death_dts) {
 }
 
 predict_lag <- function(death_dt) {
-    avg_delay <- death_dt[!is.na(days_since_publication) & days_since_publication != 0,
+    # Exclude last 7 days
+    avg_delay <- death_dt[date <= Sys.Date() - 7 &
+                          !is.na(days_since_publication) & days_since_publication != 0,
                           .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
     setorder(avg_delay, -days_since_publication)
     avg_delay[, sum_cum := cumsum(avg_diff)]
@@ -112,23 +114,20 @@ predict_lag <- function(death_dt) {
 
 set_default_theme <- function() {
     require(hrbrthemes)
-    require(gdtools)
 
     fam <- "sans"
     if (font_family_exists(font_family = "Arial")) fam <- "Arial"
     if (font_family_exists(font_family = "EB Garamond")) fam <- "EB Garamond"
-    if (font_family_exists(font_family = "Garamond Premier Pro")) fam <- "Garamond Premier Pro"
 
     theme_ipsum(base_family = fam) %+replace%
         theme(
             plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
-            # legend.title = element_blank(),
             legend.background = element_rect(fill = "grey90", color = "grey80"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
-            axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1.1),
+            axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1.2),
 
             # Panels
             plot.background = element_rect(fill = "#f5f5f5", color = NA), # bg of the plot
@@ -148,24 +147,39 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
     death_dt <- death_dt[n_diff != 0 & !is.na(n_diff)]
 
-    # Labels with total new deaths
-    death_dt[date_diff, on = .(publication_date), new_lab := paste0(publication_date, " (N=", i.V1, ")")]
-    death_dt[, publication_date := forcats::fct_rev(factor(new_lab))]
+    # Categorize by grouped days since publication.
+    # 1, 2, ... > 1 week
+    death_dt[, delay := as.numeric(days_since_publication)]
+    death_dt[delay >= 7, delay := 7]
+    death_dt[, delay := factor(delay,
+                               levels = c(0, 1, 2, 3, 4, 5, 6, 7),
+                               labels = c("Same day", "1 Day", "2 Days",
+                                          "3-4 Days", "3-4 Days", "5-6 Days",
+                                          "5-6 Days", "7 Days or more"))]
+    death_dt[, delay := forcats::fct_rev(delay)]
 
-    pal <- wesanderson::wes_palette("Darjeeling1", length(levels(death_dt$publication_date)), type = "continuous")
+    # Add day of week markers
+    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
+    days[wd %in% c("Sa", "Su"), weekend := TRUE]
+    days[date %between% c("2020-04-09", "2020-04-13"), weekend := TRUE]
+
+    # Drop earliest data
+    death_dt <- death_dt[date >= "2020-03-12"]
+    death_prediction <- death_prediction[date >= "2020-03-12"]
+    days <- days[date >= "2020-03-12"]
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_bar(data = death_prediction, aes(y = total), stat="identity", fill = "grey90") +
-        geom_bar(position="stack", stat="identity", aes(fill = publication_date)) +
-        # geom_line(data = death_prediction, aes(y = total), color = "grey70") +
-        # geom_point(data = death_prediction, aes(y = total), size = 1.5, color = "grey70") +
-        scale_x_date(date_breaks = "2 day", expand = c(0, 0)) +
-        scale_fill_manual(values = pal, na.value = "grey40") +
+        geom_bar(position="stack", stat="identity", aes(fill = delay)) +
+        geom_text(data = days, aes(y = -4.3, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
+        scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
+        scale_color_manual(values = c("black", "red")) +
+        scale_fill_manual(values = rev(wesanderson::wes_palette("Darjeeling1", 6, type = "continuous")), na.value = "grey40") +
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality by report date (total: ", total_deaths, ")"),
-             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average reporting lag.",
+             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lag (excluding last 7 days).\nMore delay during weekends (in red).",
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
-             fill = "Report date",
+             fill = "Days after report",
              x = "Date of death",
              y = "Number of deaths")
 }

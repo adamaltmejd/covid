@@ -109,6 +109,28 @@ predict_lag <- function(death_dt) {
     return(prediction)
 }
 
+poisson_model <- function(death_dt) {
+    loadd(death_dt)
+    start <- Sys.Date() - 21
+
+    DT <- death_dt[date >= start & publication_date == max(publication_date),
+                   .(date, day_n = as.numeric(date - start), N)]
+
+    DT[, y := N]
+    DT[, x1 := day_n]
+    DT[, x2 := (x1 ^ 2) / 2]
+
+    fit <- glm(y ~ x1 + x2, family = "poisson", data = DT[day_n %between% c(0, 14)])
+
+    preds <- predict(fit, newdata = DT, type = "response", se.fit = TRUE)
+
+    ret <- data.table(pred = preds$fit, se = preds$se.fit)
+    ret[, lwr := pred - qnorm(0.975) * se]
+    ret[, upr := pred + qnorm(0.975) * se]
+
+    return(cbind(DT[, .(date, N)], ret[, .(pred, lwr, upr)]))
+}
+
 ##
 # Plots
 

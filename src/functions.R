@@ -149,7 +149,7 @@ set_default_theme <- function() {
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
-            axis.text.x = element_text(angle = 60, hjust = 1, vjust = 1.2),
+            axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1.2),
 
             # Panels
             plot.background = element_rect(fill = "#f5f5f5", color = NA), # bg of the plot
@@ -193,13 +193,13 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_bar(data = death_prediction, aes(y = total), stat="identity", fill = "grey90") +
         geom_bar(position="stack", stat="identity", aes(fill = delay)) +
-        geom_text(data = days, aes(y = -4.3, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
+        geom_text(data = days, aes(y = -4.4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = rev(wesanderson::wes_palette("Darjeeling1", 6, type = "continuous")), na.value = "grey40") +
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality by report date (total: ", total_deaths, ")"),
-             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lag (excluding last 7 days).\nMore delay during weekends (in red).",
+             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lag (excl. last 7 days).\nMore delay during weekends (in red).",
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Days after report",
              x = "Date of death",

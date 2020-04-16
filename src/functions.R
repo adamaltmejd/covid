@@ -120,7 +120,7 @@ poisson_model <- function(death_dt) {
     DT[, x1 := day_n]
     DT[, x2 := (x1 ^ 2) / 2]
 
-    fit <- glm(y ~ x1 + x2, family = "poisson", data = DT[day_n %between% c(0, 14)])
+    fit <- glm(y ~ x1 + x2, family = "poisson", data = DT[day_n %between% c(0, 14)])
 
     preds <- predict(fit, newdata = DT, type = "response", se.fit = TRUE)
 
@@ -198,7 +198,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = rev(wesanderson::wes_palette("Darjeeling1", 6, type = "continuous")), na.value = "grey40") +
         my_theme +
-        labs(title = paste0("Swedish Covid-19 mortality by report date (total: ", total_deaths, ")"),
+        labs(title = paste0("Swedish Covid-19 mortality w. reporting delay (total deaths: ", total_deaths, ")"),
              subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lag (excl. last 7 days).\nMore delay during weekends (in red).",
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Days after report",

@@ -1,6 +1,8 @@
 name: make_drake_cron
 
 on:
+    push:
+        branches: [master]
     schedule:
         # UTC is currently -2 wrt Europe/Stockholm (CEST)
         - cron: "02,30 12 * * *"

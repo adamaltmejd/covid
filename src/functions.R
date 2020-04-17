@@ -92,14 +92,16 @@ join_data <- function(death_dts) {
 
 predict_lag <- function(death_dt) {
     # Exclude last 7 days
-    avg_delay <- death_dt[date <= Sys.Date() - 7 &
+    DT <- copy(death_dt)
+
+    avg_delay <- DT[date <= Sys.Date() - 7 &
                           !is.na(days_since_publication) & days_since_publication != 0,
                           .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
     setorder(avg_delay, -days_since_publication)
     avg_delay[, sum_cum := cumsum(avg_diff)]
     avg_delay[, match := days_since_publication - 1]
 
-    prediction <- death_dt[!is.na(date)]
+    prediction <- DT[!is.na(date)]
 
     prediction <- prediction[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
     prediction <- merge(prediction, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
@@ -193,13 +195,14 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_bar(data = death_prediction, aes(y = total), stat="identity", fill = "grey90") +
         geom_bar(position="stack", stat="identity", aes(fill = delay)) +
-        geom_text(data = days, aes(y = -4.4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
-        scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
+        geom_text(data = days, aes(y = -4.7, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = rev(wesanderson::wes_palette("Darjeeling1", 6, type = "continuous")), na.value = "grey40") +
+        scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
+        scale_y_continuous(minor_breaks = seq(-10,200,10), breaks = seq(0,200,20), expand = expansion(add = c(7,20))) +
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality w. reporting delay (total deaths: ", total_deaths, ")"),
-             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lag (excl. last 7 days).\nMore delay during weekends (in red).",
+             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lags (excl. last 7 days).\nMore delay during weekends (labeled in red on x-axis).",
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Days after report",
              x = "Date of death",

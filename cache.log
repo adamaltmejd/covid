@@ -1,7 +1,7 @@
 hash,type,name
 b2a66d46940189cf,import,can_be_numeric
-994c1471654971f2,target,death_dt
-e6b19bc6e081a14a,target,death_dts
+2f78582bf10cfa9f,target,death_dt
+e172d48d513d9040,target,death_dts
 631158bd55ff2327,target,death_dts_184155c5
 29fa28ad60e6670f,target,death_dts_30410b02
 4b628cf922c3f3af,target,death_dts_4a8bb423
@@ -10,6 +10,7 @@ caab3ab15926120b,target,death_dts_4c0c4095
 4e6dea7737006778,target,death_dts_67021ab9
 21f95e07367bf364,target,death_dts_7ebb63a6
 0442b683f5919ab0,target,death_dts_860d1e8c
+dafb34a53bf9ea9a,target,death_dts_8df05537
 e498aad7e8961246,target,death_dts_9f54e6ba
 79395ca6cf5e7ed6,target,death_dts_b3dbc082
 b2575653dfac944a,target,death_dts_b676ad2d
@@ -18,24 +19,24 @@ ca0ec3f7ecd9095c,target,death_dts_cb8d9864
 76484cdb8cd671ee,target,death_dts_dcfe792d
 b1b068c294cf7dbc,target,death_dts_e8137efb
 ea357115460d67c4,target,death_dts_fb0e1833
-0f6710854b22401d,target,death_prediction
+f98a1f6dd4dbc9a3,target,death_prediction
 5ed576bced8133d0,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 91a78a30a1427488,target,drake_target_2
-4c2e318dc790109e,target,fhm_files
+5209928f334f861a,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 e0ebb58bf5d271f3,import,join_data
-455945033d144175,target,lag_plot
-c85d88fc56f4e042,target,latest_fhm
+b554c3c60ff84b2f,target,lag_plot
+8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
-2e1bead643fabb43,target,file data/FHM
-f1d8766e64db8214,target,file docs/deaths_lag_sweden_2020-04-17.png
-64096c6a1e6f2583,target,file docs/index.md
+ac87e595e1c04333,target,file data/FHM
+05171c77df647437,target,file docs/deaths_lag_sweden_2020-04-18.png
+00ff41ad007254f9,target,file docs/index.md
 82a081c5b38bcaec,import,plot_lagged_deaths
 3bdc682d044882dd,import,predict_lag
 b7381a9d7717a7c6,import,save_plot

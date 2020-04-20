@@ -11,10 +11,10 @@
   "Packages": {
     "Cairo": {
       "Package": "Cairo",
-      "Version": "1.5-11",
+      "Version": "1.5-12",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "8a35dbb4d461e52c0696d14a8604565c"
+      "Hash": "a44aec693253e4eb6c45d2fd789091a0"
     },
     "MASS": {
       "Package": "MASS",
@@ -46,10 +46,10 @@
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.4",
+      "Version": "1.0.4.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "5ef9c463e30f8aea49c293e4b8d9d7be"
+      "Hash": "e652f23d8b1807cc975c51410d05b72f"
     },
     "Rttf2pt1": {
       "Package": "Rttf2pt1",
@@ -67,10 +67,10 @@
     },
     "backports": {
       "Package": "backports",
-      "Version": "1.1.5",
+      "Version": "1.1.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e9f705633dc932bfd5b02b17a5053a06"
+      "Hash": "3997fd62345a616e59e8161ee0a5816f"
     },
     "base64enc": {
       "Package": "base64enc",
@@ -282,10 +282,10 @@
     },
     "isoband": {
       "Package": "isoband",
-      "Version": "0.2.0",
+      "Version": "0.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "15f6d57a664cd953a31ae4ea61e5e60e"
+      "Hash": "9b2f7cf1899f583a36d367702ecf49a3"
     },
     "jsonlite": {
       "Package": "jsonlite",
@@ -359,10 +359,10 @@
     },
     "nlme": {
       "Package": "nlme",
-      "Version": "3.1-145",
+      "Version": "3.1-147",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "0ed9365684dc39cdd0bb5bd2f316dc67"
+      "Hash": "dd4a1423f1472a2a8e05dd2c8945c3af"
     },
     "pillar": {
       "Package": "pillar",
@@ -443,15 +443,15 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.9.3-68",
+      "Version": "0.9.3-80",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteUsername": "rstudio",
       "RemoteRepo": "renv",
       "RemoteRef": "master",
-      "RemoteSha": "aaecb9a4ed1112b5cc481ba395ba78cec281e4f5",
+      "RemoteSha": "da7bffd747b05384a99e0d4be0bf372d0b6364a1",
       "RemoteHost": "api.github.com",
-      "Hash": "f697d1a24816a81e3132e625b7e06db7"
+      "Hash": "0a0d77b05edd86858c439e081a1c83e7"
     },
     "rlang": {
       "Package": "rlang",
@@ -511,10 +511,10 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "0.1.1",
+      "Version": "0.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "95ee5991b25547f27d6ead41767362f4"
+      "Hash": "460703984c7175ca7a830b6cbf86d243"
     },
     "testthat": {
       "Package": "testthat",
@@ -525,17 +525,17 @@
     },
     "tibble": {
       "Package": "tibble",
-      "Version": "3.0.0",
+      "Version": "3.0.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e742bc8d72071ef9aba29f71f132d773"
+      "Hash": "1c61e4cad000e03b1bd687db16a75926"
     },
     "tinytex": {
       "Package": "tinytex",
-      "Version": "0.21",
+      "Version": "0.22",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "02e11a2e5d05f1d5ab19394f19ab2999"
+      "Hash": "8b0712f45a05c8e79ce7ba06b249583c"
     },
     "txtq": {
       "Package": "txtq",
@@ -586,10 +586,10 @@
     },
     "xfun": {
       "Package": "xfun",
-      "Version": "0.12",
+      "Version": "0.13",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "ccd8453a7b9e380628f6cd2862e46cad"
+      "Hash": "3c1eeacd705ff1695db94bfd443b8a84"
     },
     "yaml": {
       "Package": "yaml",

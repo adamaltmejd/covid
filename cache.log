@@ -25,20 +25,38 @@ ea357115460d67c4,target,death_dts_fb0e1833
 5ed576bced8133d0,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
-91a78a30a1427488,target,drake_target_2
+c85d88fc56f4e042,target,drake_target_2
+91a78a30a1427488,target,drake_target_3
 e156b0a17514fcab,target,fhm_files
+43e5b408490c28e0,import,fig_aspect_ratio_pres
+152602b8ff81e5bb,import,fig_height
 a7e7695fe7346a0a,import,get_record_date
 e0ebb58bf5d271f3,import,join_data
-2c9a8140a1116395,target,lag_plot
+5bde0088229e3e6a,target,lag_plot
 c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
+9c51020e6bf5b21d,import,gdtools::sys_fonts
+8a98b0a860d97901,import,data.table::fwrite
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
-1f3c9112b25b5cf0,target,file data/FHM
-5e63baaa57aa38b9,target,file docs/deaths_lag_sweden_2020-04-20.png
+0357a9648e77be92,target,file data/FHM
+a85b6fc728ed5eef,target,file docs/deaths_lag_sweden.pdf
+6e27ba2c614a164f,target,file docs/deaths_lag_sweden.png
+e3757d4b8565c296,target,file docs/deaths_lag_sweden_latest.png
+6e27ba2c614a164f,target,file docs/deaths_lag_sweden_2020-04-09.png
+c27a2244494e65f2,target,file docs/deaths_lag_sweden_2020-04-11.png
+5f2a22511e31fe45,target,file docs/deaths_lag_sweden_2020-04-12.png
+f8e4912e43372355,target,file docs/deaths_lag_sweden_2020-04-13.png
+70c625efb73c492f,target,file docs/deaths_lag_sweden_2020-04-14.png
+c19d7b822924146f,target,file docs/deaths_lag_sweden_2020-04-15.png
+2af135c9380099f6,target,file docs/deaths_lag_sweden_2020-04-16.png
+d05190056f4548c3,target,file docs/deaths_lag_sweden_2020-04-17.png
+e3757d4b8565c296,target,file docs/deaths_lag_sweden_2020-04-20.png
 5a592321e1770a99,target,file docs/index.md
+94e3c2cf63681c79,target,file out/deaths_lag_sweden.pdf
+94e3c2cf63681c79,target,file out/lag_plot.pdf
 82a081c5b38bcaec,import,plot_lagged_deaths
 3bdc682d044882dd,import,predict_lag
 b7381a9d7717a7c6,import,save_plot

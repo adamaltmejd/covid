@@ -1,12 +1,13 @@
 hash,type,name
 b2a66d46940189cf,import,can_be_numeric
-2980e2e73fdeac4f,target,death_dt
-af5147d72bc98ea3,target,death_dts
+087bd9ca11a6610e,target,death_dt
+dfe20e4fd55ae9de,target,death_dts
 631158bd55ff2327,target,death_dts_184155c5
 29fa28ad60e6670f,target,death_dts_30410b02
 4b628cf922c3f3af,target,death_dts_4a8bb423
 caab3ab15926120b,target,death_dts_4c0c4095
 943643ffa51c194a,target,death_dts_4ffa4d6d
+968b5b76a023c78c,target,death_dts_66eb7be7
 4e6dea7737006778,target,death_dts_67021ab9
 21f95e07367bf364,target,death_dts_7ebb63a6
 0442b683f5919ab0,target,death_dts_860d1e8c
@@ -21,26 +22,26 @@ ca0ec3f7ecd9095c,target,death_dts_cb8d9864
 edbefb4bb954c742,target,death_dts_e7d1bf56
 b1b068c294cf7dbc,target,death_dts_e8137efb
 ea357115460d67c4,target,death_dts_fb0e1833
-31c2078b70fb7862,target,death_prediction
+90c92f4601935b0b,target,death_prediction
 5ed576bced8133d0,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_2
 91a78a30a1427488,target,drake_target_3
-e156b0a17514fcab,target,fhm_files
+2e69d33a80401da1,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 e0ebb58bf5d271f3,import,join_data
-2c9a8140a1116395,target,lag_plot
-c85d88fc56f4e042,target,latest_fhm
+f3a52e6eae32a795,target,lag_plot
+8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
 e58487b951031097,import,forcats::fct_rev
 e423aa5df8a6f519,import,wesanderson::wes_palette
 aa2b9c77ad283919,import,tools::file_ext
-1f3c9112b25b5cf0,target,file data/FHM
-5e63baaa57aa38b9,target,file docs/deaths_lag_sweden_latest.png
-5e63baaa57aa38b9,target,file docs/deaths_lag_sweden_2020-04-20.png
-5a592321e1770a99,target,file docs/index.md
+e7d1540c00ed9159,target,file data/FHM
+4c5af17870fead5f,target,file docs/deaths_lag_sweden_latest.png
+4c5af17870fead5f,target,file docs/deaths_lag_sweden_2020-04-21.png
+485b20fcb5075f7e,target,file docs/index.md
 82a081c5b38bcaec,import,plot_lagged_deaths
 3bdc682d044882dd,import,predict_lag
 b7381a9d7717a7c6,import,save_plot

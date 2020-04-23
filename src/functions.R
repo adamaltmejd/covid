@@ -154,12 +154,14 @@ set_default_theme <- function() {
             axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1.2),
 
             # Panels
-            plot.background = element_rect(fill = "#f5f5f5", color = NA), # bg of the plot
+            plot.background = element_rect(fill = "transparent", color = NA),
+            # plot.background = element_rect(fill = "#f5f5f5", color = NA), # bg of the plot
             panel.border = element_blank(),
             panel.grid.major.x = element_blank(),
             panel.grid.minor.x = element_blank(),
             panel.grid.major.y = element_line(linetype = "dotted", color = "grey80", size = 0.2),
-            panel.grid.minor.y = element_line(linetype = "dotted", color = "grey90", size = 0.2)
+            panel.grid.minor. = element_blank(),
+            # panel.grid.minor.y = element_line(linetype = "dotted", color = "grey90", size = 0.2)
         )
 }
 
@@ -229,22 +231,21 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
 
 save_plot <- function(p, f) {
     require(ggplot2)
-    require(Cairo)
     require(tools)
-    require(cowplot)
 
     h <- 6 # inches
     w <- 10 # inches
 
     if (tools::file_ext(f) == "pdf") {
-        ggsave(filename = f, plot = p,
+        ggplot2::ggsave(filename = f, plot = p,
            height = h, width = w,
            device = cairo_pdf)
     }
     if (tools::file_ext(f) == "png") {
-        ggsave(filename = f, plot = p,
-               height = h, width = w, dpi = 300,
-               bg = "transparent", type = "cairo-png")
+        ggplot2::ggsave(filename = f, plot = p,
+               height = h, width = w, dpi = 400,
+               device = png(), type = "cairo",
+               bg = "transparent", canvas = "#f5f5f5")
     }
 }
 

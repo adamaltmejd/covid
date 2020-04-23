@@ -224,8 +224,8 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                  label.r = unit(0, "lines"), label.size = 0.5,
                  x = as.Date("2020-03-14"), y = 130,
                  label = paste0("Reported: ", format(total_deaths, big.mark = ","), "\n",
-                                "Predicted: ", format(predicted_deaths, big.mark = ","), "\n",
-                                "Total:         ", format(total_deaths + predicted_deaths, big.mark = ","))) +
+                                "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
+                                "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +

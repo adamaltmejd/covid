@@ -1,7 +1,7 @@
 hash,type,name
 b2a66d46940189cf,import,can_be_numeric
-8866a3c8c0c7e476,target,death_dt
-17a6e5491f68afaf,target,death_dts
+9419575c838e1bd2,target,death_dt
+5f411b256f49abdd,target,death_dts
 631158bd55ff2327,target,death_dts_184155c5
 29fa28ad60e6670f,target,death_dts_30410b02
 4b628cf922c3f3af,target,death_dts_4a8bb423
@@ -17,31 +17,32 @@ e498aad7e8961246,target,death_dts_9f54e6ba
 79395ca6cf5e7ed6,target,death_dts_b3dbc082
 b2575653dfac944a,target,death_dts_b676ad2d
 bd0c86fd34ec9e64,target,death_dts_c59a5ac6
+fc0f2ea0fd2be9d9,target,death_dts_c5e5e67e
 ca0ec3f7ecd9095c,target,death_dts_cb8d9864
 76484cdb8cd671ee,target,death_dts_dcfe792d
 94ea507457437ccb,target,death_dts_de5204ee
 edbefb4bb954c742,target,death_dts_e7d1bf56
 b1b068c294cf7dbc,target,death_dts_e8137efb
 ea357115460d67c4,target,death_dts_fb0e1833
-0ad4b9aa1929342a,target,death_prediction
+9e77931ba6b0285c,target,death_prediction
 5e8a8f33d127f784,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_2
 91a78a30a1427488,target,drake_target_3
-37f0087a68ea5cf6,target,fhm_files
+55418135b68b7d13,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 e0ebb58bf5d271f3,import,join_data
-323f1688a2c20407,target,lag_plot
-c85d88fc56f4e042,target,latest_fhm
+806e9bcbd062b3c1,target,lag_plot
+8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
 42bcd7336d10def9,import,ggplot2::ggsave
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-6655a0ba5a5b6db0,target,file data/FHM
-d39943fb20b49867,target,file docs/deaths_lag_sweden_latest.png
-d39943fb20b49867,target,file docs/deaths_lag_sweden_2020-04-23.png
+96592188f7475efa,target,file data/FHM
+fc12357a94ba2c3f,target,file docs/deaths_lag_sweden_latest.png
+fc12357a94ba2c3f,target,file docs/deaths_lag_sweden_2020-04-23.png
 3d4c8a7a3ec0db45,target,file docs/index.md
 e86bc9a5405c4ad7,import,plot_lagged_deaths
 5b1625c8f182d3d7,import,predict_lag

@@ -253,7 +253,7 @@ save_plot <- function(p, f, bgcolor = "transparent") {
     require(tools)
 
     h <- 6 # inches
-    w <- 10 # inches
+    w <- 11.46 # inches (twitter ratio 1.91:1)
 
     if (tools::file_ext(f) == "pdf") {
         ggplot2::ggsave(filename = f, plot = p,

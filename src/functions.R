@@ -260,7 +260,7 @@ save_plot <- function(p, f) {
     }
 }
 
-update_web <- function(plots, index) {
+update_web <- function(plots, index, head) {
     lines <- c(
         "---",
         "layout: page",
@@ -274,9 +274,18 @@ update_web <- function(plots, index) {
     con <- file(index, "w")
     writeLines(lines, con = con)
     close(con)
+
+    lines <- c(
+        '<meta name="twitter:card" content="summary_large_image">',
+        '<meta name="twitter:site" content="@adamaltmejd">',
+        '<meta name="twitter:creator" content="@adamaltmejd">',
+        '<meta name="twitter:title" content="">',
+        '<meta name="twitter:description" content="">',
+        paste0('<meta name="twitter:image" content="', basename(plots), '">')
+    )
+    con <- file(head, "w")
+    writeLines(lines, con = con)
+    close(con)
 }
-
-
-
 
 

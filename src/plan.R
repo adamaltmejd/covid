@@ -13,6 +13,7 @@ plan <- drake_plan(
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")))),
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_latest.png")))),
     update_web(plots = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
-               index = file_out(!!file.path("docs", "index.md")))
+               index = file_out(!!file.path("docs", "index.md")),
+               head = file_out(!!file.path("docs", "_includes", "custom-head.html")))
 )
 

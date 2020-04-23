@@ -94,7 +94,7 @@ predict_lag <- function(death_dt) {
     # Exclude last 7 days
     DT <- copy(death_dt)
 
-    avg_delay <- DT[date %between% c(Sys.Date() - 14, Sys.Date())  &
+    avg_delay <- DT[date %between% c(Sys.Date() - 21, Sys.Date())  &
                     !is.na(days_since_publication) & days_since_publication != 0,
                     .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
     setorder(avg_delay, -days_since_publication)
@@ -233,14 +233,14 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality: actual death dates and reporting delay"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Light grey bars show total predicted deaths based on the average lags of the last 14 days."),
+                               "Light grey bars show total predicted deaths based on the average lags of the last 3 weeks."),
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",
              y = "Number of deaths")
 }
 
-save_plot <- function(p, f) {
+save_plot <- function(p, f, bgcolor = "transparent") {
     require(ggplot2)
     require(tools)
 
@@ -256,7 +256,7 @@ save_plot <- function(p, f) {
         ggplot2::ggsave(filename = f, plot = p,
                height = h, width = w, dpi = 400,
                device = png(), type = "cairo",
-               bg = "transparent", canvas = "#f5f5f5")
+               bg = bgcolor, canvas = "#f5f5f5")
     }
 }
 
@@ -272,18 +272,6 @@ update_web <- function(plots, index, head) {
         "For code and data, visit <https://github.com/adamaltmejd/covid>."
     )
     con <- file(index, "w")
-    writeLines(lines, con = con)
-    close(con)
-
-    lines <- c(
-        '<meta name="twitter:card" content="summary_large_image">',
-        '<meta name="twitter:site" content="@adamaltmejd">',
-        '<meta name="twitter:creator" content="@adamaltmejd">',
-        '<meta name="twitter:title" content="">',
-        '<meta name="twitter:description" content="">',
-        paste0('<meta name="twitter:image" content="', basename(plots), '">')
-    )
-    con <- file(head, "w")
     writeLines(lines, con = con)
     close(con)
 }

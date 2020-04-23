@@ -244,8 +244,8 @@ save_plot <- function(p, f, bgcolor = "transparent") {
     require(ggplot2)
     require(tools)
 
-    h <- 9 # inches
-    w <- 16 # inches
+    h <- 6 # inches
+    w <- 10 # inches
 
     if (tools::file_ext(f) == "pdf") {
         ggplot2::ggsave(filename = f, plot = p,

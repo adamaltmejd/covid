@@ -94,9 +94,9 @@ predict_lag <- function(death_dt) {
     # Exclude last 7 days
     DT <- copy(death_dt)
 
-    avg_delay <- DT[date <= Sys.Date() - 7 &
-                          !is.na(days_since_publication) & days_since_publication != 0,
-                          .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
+    avg_delay <- DT[date %between% c(Sys.Date() - 14, Sys.Date())  &
+                    !is.na(days_since_publication) & days_since_publication != 0,
+                    .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
     setorder(avg_delay, -days_since_publication)
     avg_delay[, sum_cum := cumsum(avg_diff)]
     avg_delay[, match := days_since_publication - 1]
@@ -147,7 +147,7 @@ set_default_theme <- function() {
         theme(
             plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
-            legend.background = element_rect(fill = "grey90", color = "grey80"),
+            legend.background = element_rect(fill = "#f5f5f5", color = "grey80"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
@@ -156,8 +156,10 @@ set_default_theme <- function() {
             # Panels
             plot.background = element_rect(fill = "#f5f5f5", color = NA), # bg of the plot
             panel.border = element_blank(),
-            panel.grid.major = element_line(linetype = "dotted", color = "grey60", size = 0.2),
-            panel.grid.minor = element_line(linetype = "dotted", color = "grey80", size = 0.2)
+            panel.grid.major.x = element_blank(),
+            panel.grid.minor.x = element_blank(),
+            panel.grid.major.y = element_line(linetype = "dotted", color = "grey80", size = 0.2),
+            panel.grid.minor.y = element_line(linetype = "dotted", color = "grey90", size = 0.2)
         )
 }
 
@@ -172,39 +174,55 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     death_dt <- death_dt[n_diff != 0 & !is.na(n_diff)]
 
     # Categorize by grouped days since publication.
-    # 1, 2, ... > 1 week
+    # 1, 2, ... > 1 week, 2 weeks
     death_dt[, delay := as.numeric(days_since_publication)]
-    death_dt[delay >= 7, delay := 7]
+    death_dt[delay >= 14, delay := 14]
+    death_dt[delay >= 7 & delay < 14, delay := 7]
+    death_dt[is.na(delay), delay := -1]
     death_dt[, delay := factor(delay,
-                               levels = c(0, 1, 2, 3, 4, 5, 6, 7),
-                               labels = c("Same day", "1 Day", "2 Days",
+                               levels = c(-1, 0, 1, 2, 3, 4, 5, 6, 7, 14),
+                               labels = c("No Data", "Same day", "1 Day", "2 Days",
                                           "3-4 Days", "3-4 Days", "5-6 Days",
-                                          "5-6 Days", "7 Days or more"))]
+                                          "5-6 Days", "7-13 Days", "≥14 Days"))]
     death_dt[, delay := forcats::fct_rev(delay)]
 
     # Add day of week markers
     days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
     days[wd %in% c("Sa", "Su"), weekend := TRUE]
-    days[date %between% c("2020-04-09", "2020-04-13"), weekend := TRUE]
+    days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
 
     # Drop earliest data
     death_dt <- death_dt[date >= "2020-03-12"]
     death_prediction <- death_prediction[date >= "2020-03-12"]
     days <- days[date >= "2020-03-12"]
 
+    fill_colors <- c("No Data" = "gray30",
+                     "Mean historical delay" = "grey90",
+                     "Same day" = "#FF0000",
+                     "1 Day" = "#507159",
+                     "2 Days" = "#55AC62",
+                     "3-4 Days" = "#F2AD00",
+                     "5-6 Days" = "#F69100",
+                     "7-13 Days" = "#5BBCD6",
+                     "≥14 Days" = "#478BAF")
+    label_order <- c("Mean historical delay", "≥14 Days", "7-13 Days", "5-6 Days", "3-4 Days", "2 Days", "1 Day", "Same day", "No Data")
+
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
-        geom_bar(data = death_prediction, aes(y = total), stat="identity", fill = "grey90") +
+        geom_hline(yintercept = 0, linetype = "solid", color = "grey60", size = 0.4) +
+        geom_bar(data = death_prediction, aes(y = total, fill = "Mean historical delay"), stat="identity") +
         geom_bar(position="stack", stat="identity", aes(fill = delay)) +
-        geom_text(data = days, aes(y = -4.7, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
+        # geom_bar(position="stack", stat="identity", aes(fill = delay_num)) +
+        geom_text(data = days, aes(y = -6, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         scale_color_manual(values = c("black", "red")) +
-        scale_fill_manual(values = rev(wesanderson::wes_palette("Darjeeling1", 6, type = "continuous")), na.value = "grey40") +
+        scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
-        scale_y_continuous(minor_breaks = seq(-10,200,10), breaks = seq(0,200,20), expand = expansion(add = c(7,20))) +
+        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(7,20))) +
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality w. reporting delay (total deaths: ", total_deaths, ")"),
-             subtitle = "Each death is attributed to its actual day of death. Light grey bar areas show estimated total deaths based on average lags (excl. last 7 days).\nMore delay during weekends (labeled in red on x-axis).",
+             subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
+                               "Light grey bars show total deaths based on the average lags of the last 14 days, currently at ", round(death_prediction[, sum(predicted_deaths)], 0)," unreported deaths."),
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
-             fill = "Days after report",
+             fill = "Reporting delay",
              x = "Date of death",
              y = "Number of deaths")
 }

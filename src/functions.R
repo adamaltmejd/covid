@@ -145,9 +145,10 @@ set_default_theme <- function() {
 
     theme_ipsum(base_family = fam) %+replace%
         theme(
+            text = element_text(color = "#333333", family = fam),
             plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
-            legend.background = element_rect(fill = "#f5f5f5", color = "grey80"),
+            legend.background = element_rect(fill = "#F5F5F5", color = "#333333"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
@@ -159,7 +160,7 @@ set_default_theme <- function() {
             panel.border = element_blank(),
             panel.grid.major.x = element_blank(),
             panel.grid.minor.x = element_blank(),
-            panel.grid.major.y = element_line(linetype = "dotted", color = "grey80", size = 0.2),
+            panel.grid.major.y = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.2),
             panel.grid.minor. = element_blank(),
             # panel.grid.minor.y = element_line(linetype = "dotted", color = "grey90", size = 0.2)
         )
@@ -170,6 +171,12 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     require(forcats)
 
     total_deaths <- death_dt[publication_date == max(date, na.rm = TRUE), sum(N, na.rm = TRUE)]
+    predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
+
+    # Create day of week markers
+    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
+    days[wd %in% c("Sa", "Su"), weekend := TRUE]
+    days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
 
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
@@ -188,18 +195,16 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                                           "5-6 Days", "7-13 Days", "≥14 Days"))]
     death_dt[, delay := forcats::fct_rev(delay)]
 
-    # Add day of week markers
-    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
-    days[wd %in% c("Sa", "Su"), weekend := TRUE]
-    days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
+    # Only one observation per group
+    death_dt <- death_dt[, .(n_diff = sum(n_diff, na.rm = TRUE)), by = .(date, delay)]
 
     # Drop earliest data
     death_dt <- death_dt[date >= "2020-03-12"]
     death_prediction <- death_prediction[date >= "2020-03-12"]
     days <- days[date >= "2020-03-12"]
 
-    fill_colors <- c("No Data" = "gray30",
-                     "Mean historical delay" = "grey90",
+    fill_colors <- c("No Data" = "gray40",
+                     "Avg. historical lag" = "#E1E1E1",
                      "Same day" = "#FF0000",
                      "1 Day" = "#507159",
                      "2 Days" = "#55AC62",
@@ -207,22 +212,28 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                      "5-6 Days" = "#F69100",
                      "7-13 Days" = "#5BBCD6",
                      "≥14 Days" = "#478BAF")
-    label_order <- c("Mean historical delay", "≥14 Days", "7-13 Days", "5-6 Days", "3-4 Days", "2 Days", "1 Day", "Same day", "No Data")
+    label_order <- c("Avg. historical lag", "≥14 Days", "7-13 Days", "5-6 Days", "3-4 Days", "2 Days", "1 Day", "Same day", "No Data")
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
-        geom_hline(yintercept = 0, linetype = "solid", color = "grey60", size = 0.4) +
-        geom_bar(data = death_prediction, aes(y = total, fill = "Mean historical delay"), stat="identity") +
+        geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
+        geom_bar(data = death_prediction, aes(y = total, fill = "Avg. historical lag"), stat="identity") +
         geom_bar(position="stack", stat="identity", aes(fill = delay)) +
-        # geom_bar(position="stack", stat="identity", aes(fill = delay_num)) +
         geom_text(data = days, aes(y = -6, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
+        annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
+                 hjust = "left", family = "EB Garamond",
+                 label.r = unit(0, "lines"), label.size = 0.5,
+                 x = as.Date("2020-03-14"), y = 130,
+                 label = paste0("Reported: ", format(total_deaths, big.mark = ","), "\n",
+                                "Predicted: ", format(predicted_deaths, big.mark = ","), "\n",
+                                "Total:         ", format(total_deaths + predicted_deaths, big.mark = ","))) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(7,20))) +
         my_theme +
-        labs(title = paste0("Swedish Covid-19 mortality w. reporting delay (total deaths: ", total_deaths, ")"),
+        labs(title = paste0("Swedish Covid-19 mortality: actual death dates and reporting delay"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Light grey bars show total deaths based on the average lags of the last 14 days, currently at ", round(death_prediction[, sum(predicted_deaths)], 0)," unreported deaths."),
+                               "Light grey bars show total predicted deaths based on the average lags of the last 14 days."),
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",

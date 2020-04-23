@@ -240,6 +240,14 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
              y = "Number of deaths")
 }
 
+archive_plots <- function(out_dir) {
+    files <- list.files("docs", pattern = ".png")
+    files <- files[!grepl(Sys.Date(), files)]
+    files <- files[!grepl("latest", files)]
+    file.copy(file.path("docs", files), file.path(out_dir, files), overwrite = TRUE)
+    unlink(file.path("docs", files))
+}
+
 save_plot <- function(p, f, bgcolor = "transparent") {
     require(ggplot2)
     require(tools)

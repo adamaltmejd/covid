@@ -1,0 +1,20 @@
+title: Swedish Covid-19 statistics
+author:
+    name: Adam Altmejd
+    email: adam@altmejd.se
+description: This page contains graphs and statistics related to the Covid-19 outbreak in Sweden.
+show_excerpts: false
+
+# Minima date format
+# refer to https://shopify.github.io/liquid/filters/date/ if you want to customize this
+minima:
+    date_format: "%b %-d, %Y"
+
+    social_links:
+        twitter: adamaltmejd
+        github: adamaltmejd
+theme: minima
+
+plugins:
+    - jekyll-feed
+    - jekyll-seo-tag

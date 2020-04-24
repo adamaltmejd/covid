@@ -36,19 +36,20 @@ c85d88fc56f4e042,target,drake_target_3
 9588f64ca6cf1341,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 e0ebb58bf5d271f3,import,join_data
-1ba28dc25feddb84,target,lag_plot
-8271c9325d9ef093,target,latest_fhm
+9e2d0596332abad7,target,lag_plot
+c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
 42bcd7336d10def9,import,ggplot2::ggsave
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-0283a352746e0733,target,file data/FHM
+7501d893173e9ddf,target,file data/FHM
 6446b732f01350d3,target,file docs/archive
-8962dc44d7f5fa37,target,file docs/deaths_lag_sweden_latest.png
-8960abf69a3eb7e9,target,file docs/deaths_lag_sweden_2020-04-24.png
+22eb1687f245d518,target,file docs/deaths_lag_sweden_latest.png
+a6733a79b3dba067,target,file docs/deaths_lag_sweden_2020-04-23.png
+b56f6489347de5d2,target,file docs/deaths_lag_sweden_2020-04-24.png
 5f49ed9ff0bca189,target,file docs/index.md
-4bf48074a3ea0208,import,plot_lagged_deaths
+d5ed2870f47c3e24,import,plot_lagged_deaths
 a149540b4af7e181,import,predict_lag
 776064016f949790,import,save_plot
 dfe540c0936d937d,import,set_default_theme

@@ -193,26 +193,20 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                                labels = c("No Data", "Same day", "1 Day", "2 Days",
                                           "3-4 Days", "3-4 Days", "5-6 Days",
                                           "5-6 Days", "7-13 Days", "≥14 Days"))]
-    death_dt[, delay := forcats::fct_rev(delay)]
 
     # Only one observation per group
     death_dt <- death_dt[, .(n_diff = sum(n_diff, na.rm = TRUE)), by = .(date, delay)]
+    levels(death_dt$delay) <- death_dt[, sum(n_diff), delay][order(c(1,2,8,7,6,5,4,3))][, paste0(delay, " (N=", V1, ")")]
+
+    fill_colors <- c("gray40", "#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF", "#E1E1E1")
+    fill_colors <- setNames(fill_colors, c(levels(death_dt$delay), "Forecast (avg. lag)"))
+    death_dt[, delay := forcats::fct_rev(delay)]
+    label_order <- c("Forecast (avg. lag)", levels(death_dt$delay))
 
     # Drop earliest data
     death_dt <- death_dt[date >= "2020-03-12"]
     death_prediction <- death_prediction[date >= "2020-03-12"]
     days <- days[date >= "2020-03-12"]
-
-    fill_colors <- c("No Data" = "gray40",
-                     "Forecast (avg. lag)" = "#E1E1E1",
-                     "Same day" = "#FF0000",
-                     "1 Day" = "#507159",
-                     "2 Days" = "#55AC62",
-                     "3-4 Days" = "#F2AD00",
-                     "5-6 Days" = "#F69100",
-                     "7-13 Days" = "#5BBCD6",
-                     "≥14 Days" = "#478BAF")
-    label_order <- c("Forecast (avg. lag)", "≥14 Days", "7-13 Days", "5-6 Days", "3-4 Days", "2 Days", "1 Day", "Same day", "No Data")
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
@@ -230,6 +224,8 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                                 format(total_deaths, big.mark = ","), "\n",
                                 format(predicted_deaths, big.mark = ","), "\n",
                                 format(total_deaths + predicted_deaths, big.mark = ","))) +
+        # geom_line(data = date_diff, aes(x = publication_date, y = V1), color = "grey70") + # line plot with deaths added removed because too messy
+        # geom_point(data = date_diff, aes(x = publication_date, y = V1), color = "grey70") +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +

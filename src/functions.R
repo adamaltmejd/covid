@@ -204,7 +204,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     days <- days[date >= "2020-03-12"]
 
     fill_colors <- c("No Data" = "gray40",
-                     "Avg. historical lag" = "#E1E1E1",
+                     "Forecast (avg. lag)" = "#E1E1E1",
                      "Same day" = "#FF0000",
                      "1 Day" = "#507159",
                      "2 Days" = "#55AC62",
@@ -212,20 +212,24 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                      "5-6 Days" = "#F69100",
                      "7-13 Days" = "#5BBCD6",
                      "≥14 Days" = "#478BAF")
-    label_order <- c("Avg. historical lag", "≥14 Days", "7-13 Days", "5-6 Days", "3-4 Days", "2 Days", "1 Day", "Same day", "No Data")
+    label_order <- c("Forecast (avg. lag)", "≥14 Days", "7-13 Days", "5-6 Days", "3-4 Days", "2 Days", "1 Day", "Same day", "No Data")
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
-        geom_bar(data = death_prediction, aes(y = total, fill = "Avg. historical lag"), stat="identity") +
+        geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity") +
         geom_bar(position="stack", stat="identity", aes(fill = delay)) +
         geom_text(data = days, aes(y = -6, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = "left", family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-03-14"), y = 130,
-                 label = paste0("Reported: ", format(total_deaths, big.mark = ","), "\n",
-                                "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
-                                "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
+                 x = as.Date("2020-03-14"), y = 110,
+                 label = paste0("\nReported:             \nPredicted: \nTotal: ")) +
+        annotate(geom = "text", color = "#333333", hjust = "right", family = "EB Garamond",
+                 x = as.Date("2020-03-19"), y = 110,
+                 label = paste0(death_dt[, max(date)], "\n",
+                                format(total_deaths, big.mark = ","), "\n",
+                                format(predicted_deaths, big.mark = ","), "\n",
+                                format(total_deaths + predicted_deaths, big.mark = ","))) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
@@ -233,7 +237,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality: actual death dates and reporting delay"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Light grey bars show total predicted deaths based on the average lags of the last 3 weeks."),
+                               "Light grey bars show total predicted deaths based on the average lags during the last 3 weeks."),
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",

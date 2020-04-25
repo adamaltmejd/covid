@@ -87,6 +87,18 @@ join_data <- function(death_dts) {
     death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
     death_dt[!is.na(date), n_diff := N - n_m1]
 
+    # If no death reported on publication date
+    for (i in seq_along(unique(death_dt$publication_date))) {
+        pub <- unique(death_dt$publication_date)[i]
+        if (death_dt[date == publication_date & publication_date == pub, .N] == 0) {
+            death_dt <- rbind(death_dt,
+                              data.table(date = pub, N = 0,
+                                         publication_date = pub,
+                                         days_since_publication = as.difftime(0, units = "days"),
+                                         n_m1 = 0, n_diff = 0))
+        }
+    }
+
     return(death_dt)
 }
 
@@ -170,8 +182,9 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     require(ggplot2)
     require(forcats)
 
-    total_deaths <- death_dt[publication_date == max(date, na.rm = TRUE), sum(N, na.rm = TRUE)]
+    total_deaths <- death_dt[publication_date == max(publication_date, na.rm = TRUE), sum(N, na.rm = TRUE)]
     predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
+    latest_date <- death_dt[, max(publication_date)]
 
     # Create day of week markers
     days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
@@ -211,25 +224,23 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity") +
-        geom_bar(position="stack", stat="identity", aes(fill = delay)) +
-        geom_text(data = days, aes(y = -6, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
+        geom_bar(position = "stack", stat = "identity", aes(fill = delay)) +
+        geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
-                 hjust = "left", family = "EB Garamond",
+                 hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-03-14"), y = 110,
-                 label = paste0("\nReported:             \nPredicted: \nTotal: ")) +
-        annotate(geom = "text", color = "#333333", hjust = "right", family = "EB Garamond",
-                 x = as.Date("2020-03-19"), y = 110,
-                 label = paste0(death_dt[, max(date)], "\n",
+                 x = as.Date("2020-03-12"), y = 110,
+                 label = paste0("\nReported:                \nPredicted: \nTotal: ")) +
+        annotate(geom = "text", color = "#333333", hjust = 1, family = "EB Garamond",
+                 x = as.Date("2020-03-18"), y = 110,
+                 label = paste0(latest_date, "\n",
                                 format(total_deaths, big.mark = ","), "\n",
                                 format(predicted_deaths, big.mark = ","), "\n",
                                 format(total_deaths + predicted_deaths, big.mark = ","))) +
-        # geom_line(data = date_diff, aes(x = publication_date, y = V1), color = "grey70") + # line plot with deaths added removed because too messy
-        # geom_point(data = date_diff, aes(x = publication_date, y = V1), color = "grey70") +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
-        scale_x_date(date_breaks = "3 day", expand = c(0, 0)) +
-        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(7,20))) +
+        scale_x_date(date_breaks = "3 day", date_labels = "%b %d", expand = expansion(add = 0.8)) +
+        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(5, 10))) +
         my_theme +
         labs(title = paste0("Swedish Covid-19 mortality: actual death dates and reporting delay"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",

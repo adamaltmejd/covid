@@ -87,6 +87,18 @@ join_data <- function(death_dts) {
     death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
     death_dt[!is.na(date), n_diff := N - n_m1]
 
+    # Categorize by grouped days since publication.
+    # 1, 2, ... > 1 week, 2 weeks
+    death_dt[, delay := as.numeric(days_since_publication)]
+    death_dt[delay >= 14, delay := 14]
+    death_dt[delay >= 7 & delay < 14, delay := 7]
+    death_dt[is.na(delay), delay := -1]
+    death_dt[, delay := factor(delay,
+                               levels = c(-1, 0, 1, 2, 3, 4, 5, 6, 7, 14),
+                               labels = c("No Data", "Same day", "1 Day", "2 Days",
+                                          "3-4 Days", "3-4 Days", "5-6 Days",
+                                          "5-6 Days", "7-13 Days", "≥14 Days"))]
+
     return(death_dt)
 }
 
@@ -139,13 +151,9 @@ poisson_model <- function(death_dt) {
 set_default_theme <- function() {
     require(hrbrthemes)
 
-    fam <- "sans"
-    if (font_family_exists(font_family = "Arial")) fam <- "Arial"
-    if (font_family_exists(font_family = "EB Garamond")) fam <- "EB Garamond"
-
-    theme_ipsum(base_family = fam) %+replace%
+    theme_ipsum(base_family = "EB Garamond") %+replace%
         theme(
-            text = element_text(color = "#333333", family = fam),
+            text = element_text(color = "#333333", family = "EB Garamond"),
             plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             legend.background = element_rect(fill = "#F5F5F5", color = "#333333"),
@@ -182,18 +190,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
     death_dt <- death_dt[n_diff != 0 & !is.na(n_diff)]
 
-    # Categorize by grouped days since publication.
-    # 1, 2, ... > 1 week, 2 weeks
-    death_dt[, delay := as.numeric(days_since_publication)]
-    death_dt[delay >= 14, delay := 14]
-    death_dt[delay >= 7 & delay < 14, delay := 7]
-    death_dt[is.na(delay), delay := -1]
-    death_dt[, delay := factor(delay,
-                               levels = c(-1, 0, 1, 2, 3, 4, 5, 6, 7, 14),
-                               labels = c("No Data", "Same day", "1 Day", "2 Days",
-                                          "3-4 Days", "3-4 Days", "5-6 Days",
-                                          "5-6 Days", "7-13 Days", "≥14 Days"))]
-
     # Only one observation per group
     death_dt <- death_dt[, .(n_diff = sum(n_diff, na.rm = TRUE)), by = .(date, delay)]
     levels(death_dt$delay) <- death_dt[, sum(n_diff), delay][order(c(1,2,8,7,6,5,4,3))][, paste0(delay, " (N=", V1, ")")]
@@ -217,7 +213,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
                  hjust = "left", family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
                  x = as.Date("2020-03-14"), y = 110,
-                 label = paste0("\nReported:             \nPredicted: \nTotal: ")) +
+                 label = paste0("\nReported:            \nPredicted: \nTotal: ")) +
         annotate(geom = "text", color = "#333333", hjust = "right", family = "EB Garamond",
                  x = as.Date("2020-03-19"), y = 110,
                  label = paste0(death_dt[, max(date)], "\n",
@@ -239,6 +235,37 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
              x = "Date of death",
              y = "Number of deaths")
 }
+
+plot_lag_trends <- function(death_dt, my_theme) {
+    loadd(death_dt)
+    my_theme <- readd(default_theme)
+
+    DT <- death_dt[, .(N = sum(n_diff, na.rm = TRUE)), by = .(publication_date, delay)]
+    DT <- DT[publication_date > "2020-04-02"]
+
+    DT[, total := sum(N, na.rm = TRUE), by = publication_date]
+    DT[, share := N / total]
+
+    fill_colors <- c("gray40", "#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF")
+    fill_colors <- setNames(fill_colors, c(levels(death_dt$delay)))
+    death_dt[, delay := forcats::fct_rev(delay)]
+    label_order <- c(levels(death_dt$delay))
+
+    g <- ggplot(data = DT[order(-delay)],
+                aes(x = publication_date, y = share, fill = reorder(delay, label_order))) +
+        geom_bar(stat="identity") +
+        scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
+        my_theme
+    g
+
+    # g <- ggplot(data = death_dt[!is.na(days_since_publication)],
+    #             aes(x = days_since_publication, y = share_added, group = publication_date, color = publication_date, alpha = 0.5)) +
+    #     geom_smooth(se = FALSE) +
+    #     scale_date_gradient(low = "#55AC62", high = "#F69100") +
+    #     my_theme
+    # g
+}
+# plot_lag_trends(loadd(death_dt), readd(default_theme))
 
 archive_plots <- function(out_dir) {
     files <- list.files("docs", pattern = ".png")

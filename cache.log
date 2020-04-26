@@ -1,8 +1,8 @@
 hash,type,name
 21258858219d6dcf,import,archive_plots
 b2a66d46940189cf,import,can_be_numeric
-ede48ab474562e51,target,death_dt
-027b4bc52d74b349,target,death_dts
+3c6a7fa7024b09e8,target,death_dt
+cef6893b0ca8e2c5,target,death_dts
 53c3fede45a1d33b,target,death_dts_1145a8a5
 631158bd55ff2327,target,death_dts_184155c5
 4c87ab0c58461f35,target,death_dts_2d1d94ea
@@ -12,6 +12,7 @@ caab3ab15926120b,target,death_dts_4c0c4095
 943643ffa51c194a,target,death_dts_4ffa4d6d
 968b5b76a023c78c,target,death_dts_66eb7be7
 4e6dea7737006778,target,death_dts_67021ab9
+5746913add3a0454,target,death_dts_6a11271e
 21f95e07367bf364,target,death_dts_7ebb63a6
 0442b683f5919ab0,target,death_dts_860d1e8c
 dafb34a53bf9ea9a,target,death_dts_8df05537
@@ -27,28 +28,28 @@ ca0ec3f7ecd9095c,target,death_dts_cb8d9864
 edbefb4bb954c742,target,death_dts_e7d1bf56
 b1b068c294cf7dbc,target,death_dts_e8137efb
 ea357115460d67c4,target,death_dts_fb0e1833
-031173946dfd6300,target,death_prediction
+1c2c1a43fc56813b,target,death_prediction
 5e8a8f33d127f784,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
 91a78a30a1427488,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_2
 c85d88fc56f4e042,target,drake_target_3
 91a78a30a1427488,target,drake_target_4
-ef1c6a3f5db6f984,target,fhm_files
+c6c7e2a85ad1f073,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 d3a5e79c00f15f8d,import,join_data
-3edb3f190f80db68,target,lag_plot
-c85d88fc56f4e042,target,latest_fhm
+d52cf2b1f7068f3b,target,lag_plot
+8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
 42bcd7336d10def9,import,ggplot2::ggsave
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-c9299d18e8a1bf4b,target,file data/FHM
-ed9c964dc466294a,target,file docs/archive
-981c23c6795d87f1,target,file docs/deaths_lag_sweden_latest.png
-4fa610d74c6e1322,target,file docs/deaths_lag_sweden_2020-04-25.png
-20eec844490d5587,target,file docs/index.md
+10ea7a24aab87642,target,file data/FHM
+66a994d5bc919fad,target,file docs/archive
+2d1fe14bb1ab0ee4,target,file docs/deaths_lag_sweden_latest.png
+ab567e70f44f9db4,target,file docs/deaths_lag_sweden_2020-04-26.png
+efac621afbc3ce3a,target,file docs/index.md
 fb8d09bb2fb1a529,import,plot_lagged_deaths
 a149540b4af7e181,import,predict_lag
 776064016f949790,import,save_plot

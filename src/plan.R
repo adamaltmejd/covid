@@ -4,8 +4,10 @@ plan <- drake_plan(
     fhm_files = target(list_fhm_files(folder = file_in(!!file.path("data", "FHM"))), format = "file"),
     death_dts = target(load_fhm(fhm_files), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),
-    write.csv(death_dt, file_out(!!file.path("data", "FHM", "covid_deaths_latest.csv"))),
     death_prediction = predict_lag(death_dt),
+
+    # Save data
+    fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
 
     # Plots
     default_theme = set_default_theme(),

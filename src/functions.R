@@ -297,30 +297,6 @@ plot_lag_trends <- function(death_dt, default_theme) {
 
     g
 }
-plot_lag_trends(readd(death_dt), readd(default_theme))
-
-calculate_lag <- function(death_dt) {
-    loadd(death_dt)
-
-    # Count a day as "finished" when no new deaths are added for 3? consecutive days.
-    d <- 0:2
-    death_dt <- death_dt[!is.na(date)]
-    setorder(death_dt, date, publication_date)
-    death_dt[!is.na(date), paste0("n_m", d) := shift(n_diff, n = d, type = "lag", fill = NA), by = date]
-    death_dt[, max_added := do.call(pmax, mget(paste0("n_m", d)))]
-    death_dt[!is.na(max_added), lagged_increase := cummin(max_added), by = date]
-
-    frollmean
-    death_dt[, rolled :=frollsum(n_diff, 3)]
-
-    death_dt[,]
-
-
-    death_dt[, min(max_added, na.rm = TRUE), by = date][order(V1)]
-    death_dt[date == "2020-04-15"]
-    death_dt[max_added == 0, date]
-    list(mget(paste0("n_m", c(1,2,3))))
-}
 
 archive_plots <- function(out_dir) {
     files <- list.files("docs", pattern = ".png")

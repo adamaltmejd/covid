@@ -8,12 +8,20 @@ plan <- drake_plan(
 
     # Plots
     default_theme = set_default_theme(),
+    death_plot = target(plot_lagged_deaths(death_dt, death_prediction, my_theme = default_theme)),
+    lag_plot = plot_lag_trends(death_dt, default_theme),
 
-    lag_plot = target(plot_lagged_deaths(death_dt, death_prediction, my_theme = default_theme)),
+    # Save plots
     target(archive_plots(file_out(!!file.path("docs", "archive"))), trigger = trigger(change = Sys.Date())),
-    save_plot(lag_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")))),
-    save_plot(lag_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_latest.png"))), bgcolor = "white"),
-    update_web(plots = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
+
+    save_plot(death_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")))),
+    save_plot(death_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_latest.png"))), bgcolor = "white"),
+
+    save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png")))),
+    save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_latest.png"))), bgcolor = "white"),
+
+    update_web(death_plot = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
+               lag_plot = file_in(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png"))),
                index = file_out(!!file.path("docs", "index.md")))
 )
 

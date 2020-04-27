@@ -86,6 +86,7 @@ join_data <- function(death_dts) {
 
     death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
     death_dt[!is.na(date), n_diff := N - n_m1]
+    death_dt[, n_m1 := NULL]
 
     # If no death reported on publication date
     for (i in seq_along(unique(death_dt$publication_date))) {
@@ -95,7 +96,7 @@ join_data <- function(death_dts) {
                               data.table(date = pub, N = 0,
                                          publication_date = pub,
                                          days_since_publication = as.difftime(0, units = "days"),
-                                         n_m1 = 0, n_diff = 0))
+                                         n_diff = 0))
         }
     }
 
@@ -159,20 +160,25 @@ poisson_model <- function(death_dt) {
 
 ##
 # Plots
+theme_ipsum(base_family = "EB Garamond")$plot.caption
 
 set_default_theme <- function() {
     require(hrbrthemes)
 
     theme_ipsum(base_family = "EB Garamond") %+replace%
         theme(
-            text = element_text(color = "#333333", family = "EB Garamond"),
-            plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
+            text = element_text(size = 12, color = "#333333", family = "EB Garamond"),
+            plot.title = element_text(size = rel(2), face = "bold", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
+            plot.caption = element_text(size = rel(0.7), family = "EB Garamond", face = "italic", hjust = 1, vjust = 1, margin = margin(12,0,0,0)),
             legend.background = element_rect(fill = "#F5F5F5", color = "#333333"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
             legend.position = "right",
-            axis.text.x = element_text(angle = 40, hjust = 1, vjust = 1.2),
+
+            axis.title.y = element_text(size = rel(1.2), face = "bold", angle = 90, hjust = 1, vjust = 1, margin = margin(0,2.88,0,0)),
+            axis.title.x = element_text(size = rel(1.2), face = "bold", hjust = 1, vjust = 1, margin = margin(2.88,0,0,0)),
+            axis.text.x = element_text(angle = 35, hjust = 1, vjust = 1.1),
 
             # Panels
             plot.background = element_rect(fill = "transparent", color = NA),
@@ -180,9 +186,8 @@ set_default_theme <- function() {
             panel.border = element_blank(),
             panel.grid.major.x = element_blank(),
             panel.grid.minor.x = element_blank(),
-            panel.grid.major.y = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.2),
-            panel.grid.minor. = element_blank(),
-            # panel.grid.minor.y = element_line(linetype = "dotted", color = "grey90", size = 0.2)
+            panel.grid.major.y = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
+            panel.grid.minor.y = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)
         )
 }
 
@@ -193,6 +198,10 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     total_deaths <- death_dt[publication_date == max(publication_date, na.rm = TRUE), sum(N, na.rm = TRUE)]
     predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
     latest_date <- death_dt[, max(publication_date)]
+    # moving_avg <- death_dt[publication_date > "2020-04-02",
+    #                        sum(n_diff, na.rm = TRUE),
+    #                        by = publication_date]
+    # moving_avg <- moving_avg[, .(publication_date, avg = frollmean(V1, 7, algo = "exact"))]
 
     # Create day of week markers
     days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
@@ -221,14 +230,15 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity") +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay)) +
+        # geom_line(data = moving_avg[!is.na(avg)], aes(x = publication_date, y = avg), color = "black") +
         geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-03-12"), y = 110,
+                 x = as.Date("2020-03-12"), y = 100,
                  label = paste0("\nReported:                \nPredicted: \nTotal: ")) +
         annotate(geom = "text", color = "#333333", hjust = 1, family = "EB Garamond",
-                 x = as.Date("2020-03-18"), y = 110,
+                 x = as.Date("2020-03-18"), y = 100,
                  label = paste0(latest_date, "\n",
                                 format(total_deaths, big.mark = ","), "\n",
                                 format(predicted_deaths, big.mark = ","), "\n",
@@ -247,36 +257,70 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
              y = "Number of deaths")
 }
 
-plot_lag_trends <- function(death_dt, my_theme) {
+plot_lag_trends <- function(death_dt, default_theme) {
     loadd(death_dt)
-    my_theme <- readd(default_theme)
+    loadd(default_theme)
+    DT <- copy(death_dt)
 
-    DT <- death_dt[, .(N = sum(n_diff, na.rm = TRUE)), by = .(publication_date, delay)]
-    DT <- DT[publication_date > "2020-04-02"]
+    DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
+    DT[, lag := as.numeric(days_since_publication)]
 
-    DT[, total := sum(N, na.rm = TRUE), by = publication_date]
-    DT[, share := N / total]
+    # Create day of week markers
+    days <- unique(death_dt[!is.na(publication_date), .(publication_date, wd = substr(weekdays(publication_date),1, 2), weekend = FALSE)])
+    days[wd %in% c("Sa", "Su"), weekend := TRUE]
+    days[publication_date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
 
-    fill_colors <- c("gray40", "#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF")
-    fill_colors <- setNames(fill_colors, c(levels(death_dt$delay)))
-    death_dt[, delay := forcats::fct_rev(delay)]
-    label_order <- c(levels(death_dt$delay))
+    colors <- c("#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF", "#FF0000", "#000000")
+    names <- c(levels(DT$delay)[!grepl("No Data", levels(DT$delay))], "Weekend", "Weekday")
+    colors <- setNames(colors, names)
+    DT[, delay := forcats::fct_rev(delay)]
+    label_order <- c(levels(DT$delay)[!grepl("No Data", levels(DT$delay))], "Weekend", "Weekday")
 
-    g <- ggplot(data = DT[order(-delay)],
-                aes(x = publication_date, y = share, fill = reorder(delay, label_order))) +
-        geom_bar(stat="identity") +
-        scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
-        my_theme
+    g <- ggplot(data = DT,
+                aes(x = publication_date, y = lag)) +
+        geom_point(aes(size = n_diff, color = delay)) +
+        geom_text(data = days[weekend == TRUE], aes(y = -1.5, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
+        geom_text(data = days[weekend == FALSE], aes(y = -1.5, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
+        scale_color_manual(values = colors) + #limits = label_order
+        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.05,0.05)) +
+        scale_y_continuous(expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
+        scale_size(range = c(0.5, 5)) +
+        default_theme +
+        labs(title = paste0("Swedish Covid-19 mortality: delay by report date"),
+             subtitle = paste0("Deaths are sorted by report date along horizontal axis. Vertical axis shows delay in number of deaths.\n",
+                               "Size of points indicate the number of deaths reported that day."),
+             caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
+             size = "Number of deaths",
+             color = "Reporting delay",
+             x = "Report date",
+             y = "Reporting delay (days)")
+
     g
-
-    # g <- ggplot(data = death_dt[!is.na(days_since_publication)],
-    #             aes(x = days_since_publication, y = share_added, group = publication_date, color = publication_date, alpha = 0.5)) +
-    #     geom_smooth(se = FALSE) +
-    #     scale_date_gradient(low = "#55AC62", high = "#F69100") +
-    #     my_theme
-    # g
 }
-# plot_lag_trends(loadd(death_dt), readd(default_theme))
+plot_lag_trends(readd(death_dt), readd(default_theme))
+
+calculate_lag <- function(death_dt) {
+    loadd(death_dt)
+
+    # Count a day as "finished" when no new deaths are added for 3? consecutive days.
+    d <- 0:2
+    death_dt <- death_dt[!is.na(date)]
+    setorder(death_dt, date, publication_date)
+    death_dt[!is.na(date), paste0("n_m", d) := shift(n_diff, n = d, type = "lag", fill = NA), by = date]
+    death_dt[, max_added := do.call(pmax, mget(paste0("n_m", d)))]
+    death_dt[!is.na(max_added), lagged_increase := cummin(max_added), by = date]
+
+    frollmean
+    death_dt[, rolled :=frollsum(n_diff, 3)]
+
+    death_dt[,]
+
+
+    death_dt[, min(max_added, na.rm = TRUE), by = date][order(V1)]
+    death_dt[date == "2020-04-15"]
+    death_dt[max_added == 0, date]
+    list(mget(paste0("n_m", c(1,2,3))))
+}
 
 archive_plots <- function(out_dir) {
     files <- list.files("docs", pattern = ".png")
@@ -306,7 +350,7 @@ save_plot <- function(p, f, bgcolor = "transparent") {
     }
 }
 
-update_web <- function(plots, index, head) {
+update_web <- function(death_plot, lag_plot, index) {
     lines <- c(
         "---",
         "layout: page",
@@ -314,7 +358,8 @@ update_web <- function(plots, index, head) {
         "author: Adam Altmejd",
         paste0("date: ", Sys.Date()),
         "---\n",
-        paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', basename(plots), ' "Reporting delay in Swedish covid-19 deaths.")'),
+        paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', basename(death_plot), ' "Swedish Covid-19 deaths.")'),
+        paste0('![Graph of Swedish Covid-19 reporting delay in daily deaths.](', basename(lag_plot), ' "Trend in Swedish Covid-19 mortality reporting delay.")'),
         "For code and data, visit <https://github.com/adamaltmejd/covid>."
     )
     con <- file(index, "w")

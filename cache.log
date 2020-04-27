@@ -37,7 +37,7 @@ c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_3
 c85d88fc56f4e042,target,drake_target_4
 c85d88fc56f4e042,target,drake_target_5
-91a78a30a1427488,target,drake_target_6
+c85d88fc56f4e042,target,drake_target_6
 91a78a30a1427488,target,drake_target_7
 c6c7e2a85ad1f073,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
@@ -53,7 +53,7 @@ e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
 15094e25cbcce3e7,target,file data/FHM
 711c036e57927926,target,file data/FHM/covid_deaths_latest.csv
-5e23f9f7149baaf6,target,file data/covid_deaths_latest.csv
+65db93fa00a16447,target,file data/covid_deaths_latest.csv
 e834694c4639bde1,target,file docs/archive
 170c0aab13d16a62,target,file docs/deaths_lag_sweden_latest.png
 a6733a79b3dba067,target,file docs/deaths_lag_sweden_2020-04-23.png

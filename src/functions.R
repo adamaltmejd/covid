@@ -208,10 +208,10 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-03-12"), y = 110,
+                 x = as.Date("2020-03-12"), y = 100,
                  label = paste0("\nReported:                \nPredicted: \nTotal: ")) +
         annotate(geom = "text", color = "#333333", hjust = 1, family = "EB Garamond",
-                 x = as.Date("2020-03-18"), y = 110,
+                 x = as.Date("2020-03-18"), y = 100,
                  label = paste0(latest_date, "\n",
                                 format(total_deaths, big.mark = ","), "\n",
                                 format(predicted_deaths, big.mark = ","), "\n",

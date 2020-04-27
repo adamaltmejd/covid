@@ -86,6 +86,8 @@ join_data <- function(death_dts) {
 
     death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
     death_dt[!is.na(date), n_diff := N - n_m1]
+    death_dt[!is.na(date) & n_m1 > 0 & !is.na(n_m1), n_diff_pct := N/n_m1 - 1]
+    death_dt[!is.na(date) & n_m1 == 0 & N == 0, n_diff_pct := 0]
     death_dt[, n_m1 := NULL]
 
     # If no death reported on publication date
@@ -96,7 +98,7 @@ join_data <- function(death_dts) {
                               data.table(date = pub, N = 0,
                                          publication_date = pub,
                                          days_since_publication = as.difftime(0, units = "days"),
-                                         n_diff = 0))
+                                         n_diff = 0, n_diff_pct = 0))
         }
     }
 

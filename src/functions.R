@@ -138,32 +138,8 @@ predict_lag <- function(death_dt) {
     return(prediction)
 }
 
-poisson_model <- function(death_dt) {
-    loadd(death_dt)
-    start <- Sys.Date() - 21
-
-    DT <- death_dt[date >= start & publication_date == max(publication_date),
-                   .(date, day_n = as.numeric(date - start), N)]
-
-    DT[, y := N]
-    DT[, x1 := day_n]
-    DT[, x2 := (x1 ^ 2) / 2]
-
-    fit <- glm(y ~ x1 + x2, family = "poisson", data = DT[day_n %between% c(0, 14)])
-
-    preds <- predict(fit, newdata = DT, type = "response", se.fit = TRUE)
-
-    ret <- data.table(pred = preds$fit, se = preds$se.fit)
-    ret[, lwr := pred - qnorm(0.975) * se]
-    ret[, upr := pred + qnorm(0.975) * se]
-
-    return(cbind(DT[, .(date, N)], ret[, .(pred, lwr, upr)]))
-}
-
 ##
 # Plots
-theme_ipsum(base_family = "EB Garamond")$plot.caption
-
 set_default_theme <- function() {
     require(hrbrthemes)
 
@@ -200,10 +176,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
     total_deaths <- death_dt[publication_date == max(publication_date, na.rm = TRUE), sum(N, na.rm = TRUE)]
     predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
     latest_date <- death_dt[, max(publication_date)]
-    # moving_avg <- death_dt[publication_date > "2020-04-02",
-    #                        sum(n_diff, na.rm = TRUE),
-    #                        by = publication_date]
-    # moving_avg <- moving_avg[, .(publication_date, avg = frollmean(V1, 7, algo = "exact"))]
 
     # Create day of week markers
     days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
@@ -232,7 +204,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity") +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay)) +
-        # geom_line(data = moving_avg[!is.na(avg)], aes(x = publication_date, y = avg), color = "black") +
         geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",

@@ -6,6 +6,9 @@ plan <- drake_plan(
     death_dt = join_data(death_dts),
     death_prediction = predict_lag(death_dt),
 
+    # Save data
+    fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
+
     # Plots
     default_theme = set_default_theme(),
 

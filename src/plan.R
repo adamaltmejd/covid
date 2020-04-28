@@ -11,7 +11,7 @@ plan <- drake_plan(
 
     # Plots
     default_theme = set_default_theme(),
-    death_plot = target(plot_lagged_deaths(death_dt, death_prediction, my_theme = default_theme)),
+    death_plot = target(plot_lagged_deaths(death_dt, death_prediction, default_theme)),
     lag_plot = plot_lag_trends(death_dt, default_theme),
 
     # Save plots

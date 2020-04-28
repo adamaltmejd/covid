@@ -169,7 +169,7 @@ set_default_theme <- function() {
         )
 }
 
-plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
+plot_lagged_deaths <- function(death_dt, death_prediction, default_theme) {
     require(ggplot2)
     require(forcats)
 
@@ -220,7 +220,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "3 day", date_labels = "%b %d", expand = expansion(add = 0.8)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(5, 10))) +
-        my_theme +
+        default_theme +
         labs(title = paste0("Swedish Covid-19 mortality: actual death dates and reporting delay"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
                                "Light grey bars show total predicted deaths based on the average lags during the last 3 weeks."),

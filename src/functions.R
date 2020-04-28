@@ -234,7 +234,6 @@ plot_lag_trends <- function(death_dt, default_theme) {
     # loadd(death_dt)
     # loadd(default_theme)
     # print(plot_lag_trends(readd(death_dt), readd(default_theme)))
-
     DT <- copy(death_dt)
 
     DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
@@ -256,14 +255,14 @@ plot_lag_trends <- function(death_dt, default_theme) {
     g <- ggplot(data = DT,
                 aes(x = publication_date, y = lag)) +
         geom_point(aes(size = n_diff, color = delay)) +
-        geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#222222", alpha = 0.8) +
+        geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
         geom_text(data = days[weekend == TRUE], aes(y = -1.5, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
         geom_text(data = days[weekend == FALSE], aes(y = -1.5, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
         scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.05,0.05)) +
         scale_y_continuous(expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
         scale_color_manual(values = colors) + #limits = label_order
-        scale_linetype_manual(values = c("90th Percentile" = "dotted"), name = "Statistics") +
+        scale_linetype_manual(values = c("90th Percentile" = "dashed"), name = "Statistics") +
         default_theme +
         labs(title = paste0("Swedish Covid-19 mortality: delay by report date"),
              subtitle = paste0("Deaths are sorted by report date along horizontal axis. Vertical axis shows delay in number of deaths.\n",
@@ -273,6 +272,26 @@ plot_lag_trends <- function(death_dt, default_theme) {
              color = "Reporting delay",
              x = "Report date",
              y = "Reporting delay (days)")
+}
+
+calculate_lag <- function(death_dt) {
+    # Count a day as "finished" when for the first time 3-day increase is less
+    # than 5%.
+    finished <- copy(death_dt)
+    setorder(finished, date, publication_date)
+    finished[!is.na(date), n_3_days_ago := shift(N, n = 3), by = date]
+    finished[, chng_3_day := N / n_3_days_ago]
+    finished[!is.na(chng_3_day), cummin_increase := cummin(chng_3_day), by = date]
+    finished[, finished := FALSE]
+    finished[cummin_increase <= 1.05, finished := TRUE] # 5%
+    finished[finished == TRUE, finished_date := min(publication_date), by = date]
+    finished[finished == TRUE, days_until_finished := min(days_since_publication), by = date]
+
+    finished <- finished[publication_date == max(publication_date),
+                         .(date, publication_date, finished, days_until_finished, finished_date)]
+
+    return(finished)
+
 }
 
 archive_plots <- function(out_dir) {

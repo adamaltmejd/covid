@@ -5,6 +5,5 @@ author: Adam Altmejd
 date: 2020-04-28
 ---
 
-![Graph of Swedish Covid-19 deaths with reporting delay.](deaths_lag_sweden_2020-04-28.png "Swedish Covid-19 deaths.")
-![Graph of Swedish Covid-19 reporting delay in daily deaths.](lag_trend_sweden_2020-04-28.png "Trend in Swedish Covid-19 mortality reporting delay.")
+![Graph of Swedish Covid-19 deaths with reporting delay.](deaths_lag_sweden_2020-04-28.png "Reporting delay in Swedish covid-19 deaths.")
 For code and data, visit <https://github.com/adamaltmejd/covid>.

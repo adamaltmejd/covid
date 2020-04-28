@@ -231,8 +231,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
 }
 
 plot_lag_trends <- function(death_dt, default_theme) {
-    loadd(death_dt)
-    loadd(default_theme)
     DT <- copy(death_dt)
 
     DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
@@ -261,14 +259,12 @@ plot_lag_trends <- function(death_dt, default_theme) {
         default_theme +
         labs(title = paste0("Swedish Covid-19 mortality: delay by report date"),
              subtitle = paste0("Deaths are sorted by report date along horizontal axis. Vertical axis shows delay in number of deaths.\n",
-                               "Size of points indicate the number of deaths reported that day."),
+                               "Size of points indicate the number of deaths reported for each day."),
              caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              size = "Number of deaths",
              color = "Reporting delay",
              x = "Report date",
              y = "Reporting delay (days)")
-
-    g
 }
 
 archive_plots <- function(out_dir) {

@@ -231,10 +231,16 @@ plot_lagged_deaths <- function(death_dt, death_prediction, my_theme) {
 }
 
 plot_lag_trends <- function(death_dt, default_theme) {
+    # loadd(death_dt)
+    # loadd(default_theme)
+    # print(plot_lag_trends(readd(death_dt), readd(default_theme)))
+
     DT <- copy(death_dt)
 
     DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
     DT[, lag := as.numeric(days_since_publication)]
+
+    DT[, perc90_days := quantile(rep(lag, times = n_diff), probs = c(0.90)), by = publication_date]
 
     # Create day of week markers
     days <- unique(death_dt[!is.na(publication_date), .(publication_date, wd = substr(weekdays(publication_date),1, 2), weekend = FALSE)])
@@ -250,12 +256,14 @@ plot_lag_trends <- function(death_dt, default_theme) {
     g <- ggplot(data = DT,
                 aes(x = publication_date, y = lag)) +
         geom_point(aes(size = n_diff, color = delay)) +
+        geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#222222", alpha = 0.8) +
         geom_text(data = days[weekend == TRUE], aes(y = -1.5, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
         geom_text(data = days[weekend == FALSE], aes(y = -1.5, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
-        scale_color_manual(values = colors) + #limits = label_order
         scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.05,0.05)) +
         scale_y_continuous(expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
+        scale_color_manual(values = colors) + #limits = label_order
+        scale_linetype_manual(values = c("90th Percentile" = "dotted"), name = "Statistics") +
         default_theme +
         labs(title = paste0("Swedish Covid-19 mortality: delay by report date"),
              subtitle = paste0("Deaths are sorted by report date along horizontal axis. Vertical axis shows delay in number of deaths.\n",

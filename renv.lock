@@ -443,22 +443,22 @@
     },
     "renv": {
       "Package": "renv",
-      "Version": "0.9.3-102",
+      "Version": "0.9.3-106",
       "Source": "GitHub",
       "RemoteType": "github",
-      "RemoteHost": "api.github.com",
       "RemoteUsername": "rstudio",
       "RemoteRepo": "renv",
       "RemoteRef": "master",
-      "RemoteSha": "d3960c2ef51835fe6fbc1d1f50c8810d1edf9170",
-      "Hash": "d29986ee9010de7c961cd52465723154"
+      "RemoteSha": "96b638a6848a5d21026b4ad574dbfaa462062d7e",
+      "RemoteHost": "api.github.com",
+      "Hash": "673690bce7b9553b70bc27755d5b429e"
     },
     "rlang": {
       "Package": "rlang",
-      "Version": "0.4.5",
+      "Version": "0.4.6",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "1cc1b38e4db40ea6eb19ab8080bbed3b"
+      "Hash": "aa263e3ce17b177c49e0daade2ee3cdc"
     },
     "rmarkdown": {
       "Package": "rmarkdown",
@@ -511,10 +511,10 @@
     },
     "systemfonts": {
       "Package": "systemfonts",
-      "Version": "0.2.0",
+      "Version": "0.2.1",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "460703984c7175ca7a830b6cbf86d243"
+      "Hash": "b9cbe1031f93e8d06e36a330705c654f"
     },
     "testthat": {
       "Package": "testthat",

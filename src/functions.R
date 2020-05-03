@@ -17,6 +17,11 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
     }
 }
 
+get_remote_data <- function(url, f) {
+    download.file(url = url, destfile = f)
+    fread(f)
+}
+
 get_record_date <- function(f) {
     sheets <- excel_sheets(f)
     return(as.Date(sub("^FOHM ", "", sheets[length(sheets)]), format="%d %b %Y"))
@@ -169,18 +174,38 @@ set_default_theme <- function() {
         )
 }
 
-plot_lagged_deaths <- function(death_dt, death_prediction, default_theme) {
+plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, default_theme) {
     require(ggplot2)
     require(forcats)
 
-    total_deaths <- death_dt[publication_date == max(publication_date, na.rm = TRUE), sum(N, na.rm = TRUE)]
+    latest_date <- death_dt[, max(publication_date, na.rm = TRUE)]
+    total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]
     predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
-    latest_date <- death_dt[, max(publication_date)]
+
+    # Deaths by actual date
+    actual_deaths <- death_dt[publication_date == latest_date & !is.na(date), .(date, N)]
+    actual_deaths <- merge(actual_deaths, death_prediction[, .(date, predicted = total)],
+                           by = "date", all = TRUE)
+    actual_deaths[is.na(predicted), predicted := N]
+    setkey(actual_deaths, date)
+    actual_deaths[, avg := frollmean(N, 7, algo = "exact", align = "center")]
+    actual_deaths[, avg_pred := frollmean(predicted, 7, algo = "exact", align = "center")]
+
+    # ECDC data of reported deaths per day
+    # Moving average (centered)
+    ecdc <- ecdc[countryterritoryCode == "SWE",
+                 .(date = as.Date(dateRep, format = "%d/%m/%Y"),
+                   cases, deaths)]
+    ecdc <- ecdc[, date := date - 1]
+    ecdc <- ecdc[date >= "2020-03-12"]
+    setkey(ecdc, date)
+    ecdc[, avg := frollmean(deaths, 7, algo = "exact", align = "center")]
 
     # Create day of week markers
     days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
     days[wd %in% c("Sa", "Su"), weekend := TRUE]
     days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
+    days[date == "2020-05-01", weekend := TRUE]
 
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
@@ -204,20 +229,26 @@ plot_lagged_deaths <- function(death_dt, death_prediction, default_theme) {
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity") +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay)) +
+
+        geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
+        geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
+        geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
+
         geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
                  x = as.Date("2020-03-12"), y = 100,
-                 label = paste0("\nReported:                \nPredicted: \nTotal: ")) +
+                 label = paste0("\nReported:                 \nPredicted: \nTotal: ")) +
         annotate(geom = "text", color = "#333333", hjust = 1, family = "EB Garamond",
-                 x = as.Date("2020-03-18"), y = 100,
+                 x = as.Date("2020-03-19"), y = 100,
                  label = paste0(latest_date, "\n",
                                 format(total_deaths, big.mark = ","), "\n",
                                 format(predicted_deaths, big.mark = ","), "\n",
                                 format(total_deaths + predicted_deaths, big.mark = ","))) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
+        scale_linetype_manual(values = c("By report date" = "dotted", "By death date" = "solid", "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +
         scale_x_date(date_breaks = "3 day", date_labels = "%b %d", expand = expansion(add = 0.8)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(5, 10))) +
         default_theme +

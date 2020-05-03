@@ -18,8 +18,9 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
 }
 
 get_remote_data <- function(url, f) {
-    download.file(url = url, destfile = f)
-    fread(f)
+    DT <- fread(url)
+    fwrite(DT, f)
+    return(DT)
 }
 
 get_record_date <- function(f) {
@@ -262,9 +263,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, default_theme) 
 }
 
 plot_lag_trends <- function(death_dt, default_theme) {
-    # loadd(death_dt)
-    # loadd(default_theme)
-    # print(plot_lag_trends(readd(death_dt), readd(default_theme)))
     DT <- copy(death_dt)
 
     DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
@@ -305,24 +303,68 @@ plot_lag_trends <- function(death_dt, default_theme) {
              y = "Reporting delay (days)")
 }
 
-calculate_lag <- function(death_dt) {
-    # Count a day as "finished" when for the first time 3-day increase is less
-    # than 5%.
-    finished <- copy(death_dt)
-    setorder(finished, date, publication_date)
-    finished[!is.na(date), n_3_days_ago := shift(N, n = 3), by = date]
-    finished[, chng_3_day := N / n_3_days_ago]
-    finished[!is.na(chng_3_day), cummin_increase := cummin(chng_3_day), by = date]
-    finished[, finished := FALSE]
-    finished[cummin_increase <= 1.05, finished := TRUE] # 5%
-    finished[finished == TRUE, finished_date := min(publication_date), by = date]
-    finished[finished == TRUE, days_until_finished := min(days_since_publication), by = date]
+calculate_lag <- function(death_dt, thresholds = c(0, 0.01, 0.02, 0.05, 0.10)) {
+    # Count as finished when for 3 consecutive days, the daily increase is below threshold
+    DT <- copy(death_dt)[!is.na(date) & date >= "2020-04-02"]
+    setorder(DT, date, publication_date)
 
-    finished <- finished[publication_date == max(publication_date),
-                         .(date, publication_date, finished, days_until_finished, finished_date)]
+    # Calculate threshold values
+    # As max of daily increase over last 3 days
+    # DT[!is.na(date), paste0("n_diff_pct_m", 1:3) := shift(n_diff_pct, n = 1:3), by = date]
+    # DT[, max_diff := pmax(n_diff_pct, n_diff_pct_m1, n_diff_pct_m2, n_diff_pct_m3, na.rm = TRUE)]
+    # DT[!is.na(max_diff), forcing_var := cummin(max_diff), by = date]
 
-    return(finished)
+    # Or as total 3-day increase
+    DT[!is.na(date), paste0("N_m", 3) := shift(N, n = 3), by = date]
+    DT[, forcing_var := (N / N_m3) - 1]
 
+    # Often nothing is added in the first days, ensure its not counted as finished
+    DT[days_since_publication %in% c(0,1,2,3) & is.na(forcing_var), forcing_var := Inf]
+
+    DT <- DT[, .(publication_date, date, n_diff, forcing_var, days_since_publication)]
+    setkey(DT, publication_date, date)
+
+    for (t in thresholds) {
+        DT[, finished := FALSE]
+        DT[forcing_var <= t, finished := TRUE]
+
+        # Days until finished
+        DT[DT[finished == TRUE, min(as.numeric(days_since_publication), na.rm = TRUE), by = date],
+           paste0("days_to_finished_", 100 * t) := i.V1, on = .(date)]
+
+        # Rolling average
+        DT[, paste0("days_to_finished_", 100 * t, "_avg") :=
+            frollmean(get(paste0("days_to_finished_", 100 * t)), 4, algo = "exact", align = "center")]
+
+        # Error (number of deaths added after tagged as finished)
+        DT[DT[finished == TRUE, sum(n_diff, na.rm = TRUE), by = date],
+           paste0("N_added_after_finished_", 100 * t) := i.V1, on = .(date)]
+
+    }
+
+    DT <- DT[publication_date == max(publication_date, na.rm = TRUE)]
+    DT[, c("finished", "n_diff", "forcing_var", "publication_date", "days_since_publication") := NULL]
+
+    setkey(DT, date)
+    return(DT)
+}
+
+plot_lag_trends2 <- function(time_to_finished, default_theme) {
+    loadd(time_to_finished)
+    DT <- time_to_finished[, c(1, grep("days_to_finished_[0-9]+_avg$", names(time_to_finished))), with = FALSE]
+    DT <- melt(DT, id.vars = "date", variable.factor = FALSE)
+    DT[, variable := factor(as.numeric(gsub("[a-z_]*", "", variable)))]
+    levels(DT$variable) <- paste0(levels(DT$variable), "%")
+
+    ggplot(data = DT[!is.na(value)], aes(x = date, y = value, group = variable, color = variable)) +
+        geom_line(linetype = "twodash", size = 0.9, alpha = 0.9) +
+        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.05,0.05)) +
+        scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,2))) +
+        scale_color_manual(values = wes_palette("Darjeeling2")) +
+        default_theme +
+        labs(color = 'Completed = \nFirst time 3-day\nincrease is below:',
+             x = "Death date",
+             y = 'Days until date is "completed"')
 }
 
 archive_plots <- function(out_dir) {

@@ -384,44 +384,44 @@ dateRep,day,month,year,cases,deaths,countriesAndTerritories,geoId,countryterrito
 24/03/2020,24,3,2020,0,0,Angola,AO,AGO,30809762,Africa
 23/03/2020,23,3,2020,0,0,Angola,AO,AGO,30809762,Africa
 22/03/2020,22,3,2020,2,0,Angola,AO,AGO,30809762,Africa
-03/05/2020,3,5,2020,0,0,Anguilla,AI,,,America
-02/05/2020,2,5,2020,0,0,Anguilla,AI,,,America
-01/05/2020,1,5,2020,0,0,Anguilla,AI,,,America
-30/04/2020,30,4,2020,0,0,Anguilla,AI,,,America
-29/04/2020,29,4,2020,0,0,Anguilla,AI,,,America
-28/04/2020,28,4,2020,0,0,Anguilla,AI,,,America
-27/04/2020,27,4,2020,0,0,Anguilla,AI,,,America
-26/04/2020,26,4,2020,0,0,Anguilla,AI,,,America
-25/04/2020,25,4,2020,0,0,Anguilla,AI,,,America
-24/04/2020,24,4,2020,0,0,Anguilla,AI,,,America
-23/04/2020,23,4,2020,0,0,Anguilla,AI,,,America
-22/04/2020,22,4,2020,0,0,Anguilla,AI,,,America
-21/04/2020,21,4,2020,0,0,Anguilla,AI,,,America
-20/04/2020,20,4,2020,0,0,Anguilla,AI,,,America
-19/04/2020,19,4,2020,0,0,Anguilla,AI,,,America
-18/04/2020,18,4,2020,0,0,Anguilla,AI,,,America
-17/04/2020,17,4,2020,0,0,Anguilla,AI,,,America
-16/04/2020,16,4,2020,0,0,Anguilla,AI,,,America
-15/04/2020,15,4,2020,0,0,Anguilla,AI,,,America
-14/04/2020,14,4,2020,0,0,Anguilla,AI,,,America
-13/04/2020,13,4,2020,0,0,Anguilla,AI,,,America
-12/04/2020,12,4,2020,0,0,Anguilla,AI,,,America
-11/04/2020,11,4,2020,0,0,Anguilla,AI,,,America
-10/04/2020,10,4,2020,0,0,Anguilla,AI,,,America
-09/04/2020,9,4,2020,0,0,Anguilla,AI,,,America
-08/04/2020,8,4,2020,0,0,Anguilla,AI,,,America
-07/04/2020,7,4,2020,0,0,Anguilla,AI,,,America
-06/04/2020,6,4,2020,0,0,Anguilla,AI,,,America
-05/04/2020,5,4,2020,0,0,Anguilla,AI,,,America
-04/04/2020,4,4,2020,0,0,Anguilla,AI,,,America
-03/04/2020,3,4,2020,1,0,Anguilla,AI,,,America
-02/04/2020,2,4,2020,0,0,Anguilla,AI,,,America
-01/04/2020,1,4,2020,0,0,Anguilla,AI,,,America
-31/03/2020,31,3,2020,0,0,Anguilla,AI,,,America
-30/03/2020,30,3,2020,0,0,Anguilla,AI,,,America
-29/03/2020,29,3,2020,0,0,Anguilla,AI,,,America
-28/03/2020,28,3,2020,0,0,Anguilla,AI,,,America
-27/03/2020,27,3,2020,2,0,Anguilla,AI,,,America
+03/05/2020,3,5,2020,0,0,Anguilla,AI,"",,America
+02/05/2020,2,5,2020,0,0,Anguilla,AI,"",,America
+01/05/2020,1,5,2020,0,0,Anguilla,AI,"",,America
+30/04/2020,30,4,2020,0,0,Anguilla,AI,"",,America
+29/04/2020,29,4,2020,0,0,Anguilla,AI,"",,America
+28/04/2020,28,4,2020,0,0,Anguilla,AI,"",,America
+27/04/2020,27,4,2020,0,0,Anguilla,AI,"",,America
+26/04/2020,26,4,2020,0,0,Anguilla,AI,"",,America
+25/04/2020,25,4,2020,0,0,Anguilla,AI,"",,America
+24/04/2020,24,4,2020,0,0,Anguilla,AI,"",,America
+23/04/2020,23,4,2020,0,0,Anguilla,AI,"",,America
+22/04/2020,22,4,2020,0,0,Anguilla,AI,"",,America
+21/04/2020,21,4,2020,0,0,Anguilla,AI,"",,America
+20/04/2020,20,4,2020,0,0,Anguilla,AI,"",,America
+19/04/2020,19,4,2020,0,0,Anguilla,AI,"",,America
+18/04/2020,18,4,2020,0,0,Anguilla,AI,"",,America
+17/04/2020,17,4,2020,0,0,Anguilla,AI,"",,America
+16/04/2020,16,4,2020,0,0,Anguilla,AI,"",,America
+15/04/2020,15,4,2020,0,0,Anguilla,AI,"",,America
+14/04/2020,14,4,2020,0,0,Anguilla,AI,"",,America
+13/04/2020,13,4,2020,0,0,Anguilla,AI,"",,America
+12/04/2020,12,4,2020,0,0,Anguilla,AI,"",,America
+11/04/2020,11,4,2020,0,0,Anguilla,AI,"",,America
+10/04/2020,10,4,2020,0,0,Anguilla,AI,"",,America
+09/04/2020,9,4,2020,0,0,Anguilla,AI,"",,America
+08/04/2020,8,4,2020,0,0,Anguilla,AI,"",,America
+07/04/2020,7,4,2020,0,0,Anguilla,AI,"",,America
+06/04/2020,6,4,2020,0,0,Anguilla,AI,"",,America
+05/04/2020,5,4,2020,0,0,Anguilla,AI,"",,America
+04/04/2020,4,4,2020,0,0,Anguilla,AI,"",,America
+03/04/2020,3,4,2020,1,0,Anguilla,AI,"",,America
+02/04/2020,2,4,2020,0,0,Anguilla,AI,"",,America
+01/04/2020,1,4,2020,0,0,Anguilla,AI,"",,America
+31/03/2020,31,3,2020,0,0,Anguilla,AI,"",,America
+30/03/2020,30,3,2020,0,0,Anguilla,AI,"",,America
+29/03/2020,29,3,2020,0,0,Anguilla,AI,"",,America
+28/03/2020,28,3,2020,0,0,Anguilla,AI,"",,America
+27/03/2020,27,3,2020,2,0,Anguilla,AI,"",,America
 03/05/2020,3,5,2020,0,0,Antigua_and_Barbuda,AG,ATG,96286,America
 02/05/2020,2,5,2020,1,0,Antigua_and_Barbuda,AG,ATG,96286,America
 01/05/2020,1,5,2020,0,0,Antigua_and_Barbuda,AG,ATG,96286,America
@@ -1798,38 +1798,38 @@ dateRep,day,month,year,cases,deaths,countriesAndTerritories,geoId,countryterrito
 14/03/2020,14,3,2020,7,0,Bolivia,BO,BOL,11353142,America
 13/03/2020,13,3,2020,1,0,Bolivia,BO,BOL,11353142,America
 12/03/2020,12,3,2020,2,0,Bolivia,BO,BOL,11353142,America
-03/05/2020,3,5,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-02/05/2020,2,5,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-01/05/2020,1,5,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-30/04/2020,30,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-29/04/2020,29,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-28/04/2020,28,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-27/04/2020,27,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-26/04/2020,26,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-25/04/2020,25,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-24/04/2020,24,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-23/04/2020,23,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-22/04/2020,22,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-21/04/2020,21,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-20/04/2020,20,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-19/04/2020,19,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-18/04/2020,18,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-17/04/2020,17,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-16/04/2020,16,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-15/04/2020,15,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-14/04/2020,14,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-13/04/2020,13,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-12/04/2020,12,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-11/04/2020,11,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-10/04/2020,10,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-09/04/2020,9,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-08/04/2020,8,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-07/04/2020,7,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-06/04/2020,6,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-05/04/2020,5,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-04/04/2020,4,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-03/04/2020,3,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
-02/04/2020,2,4,2020,2,0,"Bonaire, Saint Eustatius and Saba",BQ,,,America
+03/05/2020,3,5,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+02/05/2020,2,5,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+01/05/2020,1,5,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+30/04/2020,30,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+29/04/2020,29,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+28/04/2020,28,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+27/04/2020,27,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+26/04/2020,26,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+25/04/2020,25,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+24/04/2020,24,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+23/04/2020,23,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+22/04/2020,22,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+21/04/2020,21,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+20/04/2020,20,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+19/04/2020,19,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+18/04/2020,18,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+17/04/2020,17,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+16/04/2020,16,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+15/04/2020,15,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+14/04/2020,14,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+13/04/2020,13,4,2020,1,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+12/04/2020,12,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+11/04/2020,11,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+10/04/2020,10,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+09/04/2020,9,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+08/04/2020,8,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+07/04/2020,7,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+06/04/2020,6,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+05/04/2020,5,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+04/04/2020,4,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+03/04/2020,3,4,2020,0,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
+02/04/2020,2,4,2020,2,0,"Bonaire, Saint Eustatius and Saba",BQ,"",,America
 03/05/2020,3,5,2020,58,2,Bosnia_and_Herzegovina,BA,BIH,3323929,Europe
 02/05/2020,2,5,2020,92,6,Bosnia_and_Herzegovina,BA,BIH,3323929,Europe
 01/05/2020,1,5,2020,101,2,Bosnia_and_Herzegovina,BA,BIH,3323929,Europe
@@ -4583,36 +4583,36 @@ dateRep,day,month,year,cases,deaths,countriesAndTerritories,geoId,countryterrito
 16/03/2020,16,3,2020,3,0,Ethiopia,ET,ETH,109224559,Africa
 15/03/2020,15,3,2020,0,0,Ethiopia,ET,ETH,109224559,Africa
 14/03/2020,14,3,2020,1,0,Ethiopia,ET,ETH,109224559,Africa
-03/05/2020,3,5,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-02/05/2020,2,5,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-01/05/2020,1,5,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-30/04/2020,30,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-29/04/2020,29,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-28/04/2020,28,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-27/04/2020,27,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-26/04/2020,26,4,2020,1,0,Falkland_Islands_(Malvinas),FK,,,America
-25/04/2020,25,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-24/04/2020,24,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-23/04/2020,23,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-22/04/2020,22,4,2020,1,0,Falkland_Islands_(Malvinas),FK,,,America
-21/04/2020,21,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-20/04/2020,20,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-19/04/2020,19,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-18/04/2020,18,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-17/04/2020,17,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-16/04/2020,16,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-15/04/2020,15,4,2020,6,0,Falkland_Islands_(Malvinas),FK,,,America
-14/04/2020,14,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-13/04/2020,13,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-12/04/2020,12,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-11/04/2020,11,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-10/04/2020,10,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-09/04/2020,9,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-08/04/2020,8,4,2020,3,0,Falkland_Islands_(Malvinas),FK,,,America
-07/04/2020,7,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-06/04/2020,6,4,2020,1,0,Falkland_Islands_(Malvinas),FK,,,America
-05/04/2020,5,4,2020,0,0,Falkland_Islands_(Malvinas),FK,,,America
-04/04/2020,4,4,2020,1,0,Falkland_Islands_(Malvinas),FK,,,America
+03/05/2020,3,5,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+02/05/2020,2,5,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+01/05/2020,1,5,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+30/04/2020,30,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+29/04/2020,29,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+28/04/2020,28,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+27/04/2020,27,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+26/04/2020,26,4,2020,1,0,Falkland_Islands_(Malvinas),FK,"",,America
+25/04/2020,25,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+24/04/2020,24,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+23/04/2020,23,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+22/04/2020,22,4,2020,1,0,Falkland_Islands_(Malvinas),FK,"",,America
+21/04/2020,21,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+20/04/2020,20,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+19/04/2020,19,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+18/04/2020,18,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+17/04/2020,17,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+16/04/2020,16,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+15/04/2020,15,4,2020,6,0,Falkland_Islands_(Malvinas),FK,"",,America
+14/04/2020,14,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+13/04/2020,13,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+12/04/2020,12,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+11/04/2020,11,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+10/04/2020,10,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+09/04/2020,9,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+08/04/2020,8,4,2020,3,0,Falkland_Islands_(Malvinas),FK,"",,America
+07/04/2020,7,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+06/04/2020,6,4,2020,1,0,Falkland_Islands_(Malvinas),FK,"",,America
+05/04/2020,5,4,2020,0,0,Falkland_Islands_(Malvinas),FK,"",,America
+04/04/2020,4,4,2020,1,0,Falkland_Islands_(Malvinas),FK,"",,America
 03/05/2020,3,5,2020,0,0,Faroe_Islands,FO,FRO,48497,Europe
 02/05/2020,2,5,2020,0,0,Faroe_Islands,FO,FRO,48497,Europe
 01/05/2020,1,5,2020,0,0,Faroe_Islands,FO,FRO,48497,Europe
@@ -9352,56 +9352,56 @@ dateRep,day,month,year,cases,deaths,countriesAndTerritories,geoId,countryterrito
 25/03/2020,25,3,2020,1,0,Myanmar,MM,MMR,53708395,Asia
 24/03/2020,24,3,2020,2,0,Myanmar,MM,MMR,53708395,Asia
 17/03/2020,17,3,2020,0,0,Myanmar,MM,MMR,53708395,Asia
-03/05/2020,3,5,2020,0,0,Namibia,NA,NAM,2448255,Africa
-02/05/2020,2,5,2020,0,0,Namibia,NA,NAM,2448255,Africa
-01/05/2020,1,5,2020,0,0,Namibia,NA,NAM,2448255,Africa
-30/04/2020,30,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-29/04/2020,29,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-28/04/2020,28,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-27/04/2020,27,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-26/04/2020,26,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-25/04/2020,25,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-24/04/2020,24,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-23/04/2020,23,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-22/04/2020,22,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-21/04/2020,21,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-20/04/2020,20,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-19/04/2020,19,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-18/04/2020,18,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-17/04/2020,17,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-16/04/2020,16,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-15/04/2020,15,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-14/04/2020,14,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-13/04/2020,13,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-12/04/2020,12,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-11/04/2020,11,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-10/04/2020,10,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-09/04/2020,9,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-08/04/2020,8,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-07/04/2020,7,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-06/04/2020,6,4,2020,2,0,Namibia,NA,NAM,2448255,Africa
-05/04/2020,5,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-04/04/2020,4,4,2020,1,0,Namibia,NA,NAM,2448255,Africa
-03/04/2020,3,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-02/04/2020,2,4,2020,2,0,Namibia,NA,NAM,2448255,Africa
-01/04/2020,1,4,2020,0,0,Namibia,NA,NAM,2448255,Africa
-31/03/2020,31,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-30/03/2020,30,3,2020,3,0,Namibia,NA,NAM,2448255,Africa
-29/03/2020,29,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-28/03/2020,28,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-27/03/2020,27,3,2020,4,0,Namibia,NA,NAM,2448255,Africa
-26/03/2020,26,3,2020,1,0,Namibia,NA,NAM,2448255,Africa
-25/03/2020,25,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-24/03/2020,24,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-23/03/2020,23,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-22/03/2020,22,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-21/03/2020,21,3,2020,1,0,Namibia,NA,NAM,2448255,Africa
-20/03/2020,20,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-19/03/2020,19,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-18/03/2020,18,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-17/03/2020,17,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-16/03/2020,16,3,2020,0,0,Namibia,NA,NAM,2448255,Africa
-15/03/2020,15,3,2020,2,0,Namibia,NA,NAM,2448255,Africa
+03/05/2020,3,5,2020,0,0,Namibia,,NAM,2448255,Africa
+02/05/2020,2,5,2020,0,0,Namibia,,NAM,2448255,Africa
+01/05/2020,1,5,2020,0,0,Namibia,,NAM,2448255,Africa
+30/04/2020,30,4,2020,0,0,Namibia,,NAM,2448255,Africa
+29/04/2020,29,4,2020,0,0,Namibia,,NAM,2448255,Africa
+28/04/2020,28,4,2020,0,0,Namibia,,NAM,2448255,Africa
+27/04/2020,27,4,2020,0,0,Namibia,,NAM,2448255,Africa
+26/04/2020,26,4,2020,0,0,Namibia,,NAM,2448255,Africa
+25/04/2020,25,4,2020,0,0,Namibia,,NAM,2448255,Africa
+24/04/2020,24,4,2020,0,0,Namibia,,NAM,2448255,Africa
+23/04/2020,23,4,2020,0,0,Namibia,,NAM,2448255,Africa
+22/04/2020,22,4,2020,0,0,Namibia,,NAM,2448255,Africa
+21/04/2020,21,4,2020,0,0,Namibia,,NAM,2448255,Africa
+20/04/2020,20,4,2020,0,0,Namibia,,NAM,2448255,Africa
+19/04/2020,19,4,2020,0,0,Namibia,,NAM,2448255,Africa
+18/04/2020,18,4,2020,0,0,Namibia,,NAM,2448255,Africa
+17/04/2020,17,4,2020,0,0,Namibia,,NAM,2448255,Africa
+16/04/2020,16,4,2020,0,0,Namibia,,NAM,2448255,Africa
+15/04/2020,15,4,2020,0,0,Namibia,,NAM,2448255,Africa
+14/04/2020,14,4,2020,0,0,Namibia,,NAM,2448255,Africa
+13/04/2020,13,4,2020,0,0,Namibia,,NAM,2448255,Africa
+12/04/2020,12,4,2020,0,0,Namibia,,NAM,2448255,Africa
+11/04/2020,11,4,2020,0,0,Namibia,,NAM,2448255,Africa
+10/04/2020,10,4,2020,0,0,Namibia,,NAM,2448255,Africa
+09/04/2020,9,4,2020,0,0,Namibia,,NAM,2448255,Africa
+08/04/2020,8,4,2020,0,0,Namibia,,NAM,2448255,Africa
+07/04/2020,7,4,2020,0,0,Namibia,,NAM,2448255,Africa
+06/04/2020,6,4,2020,2,0,Namibia,,NAM,2448255,Africa
+05/04/2020,5,4,2020,0,0,Namibia,,NAM,2448255,Africa
+04/04/2020,4,4,2020,1,0,Namibia,,NAM,2448255,Africa
+03/04/2020,3,4,2020,0,0,Namibia,,NAM,2448255,Africa
+02/04/2020,2,4,2020,2,0,Namibia,,NAM,2448255,Africa
+01/04/2020,1,4,2020,0,0,Namibia,,NAM,2448255,Africa
+31/03/2020,31,3,2020,0,0,Namibia,,NAM,2448255,Africa
+30/03/2020,30,3,2020,3,0,Namibia,,NAM,2448255,Africa
+29/03/2020,29,3,2020,0,0,Namibia,,NAM,2448255,Africa
+28/03/2020,28,3,2020,0,0,Namibia,,NAM,2448255,Africa
+27/03/2020,27,3,2020,4,0,Namibia,,NAM,2448255,Africa
+26/03/2020,26,3,2020,1,0,Namibia,,NAM,2448255,Africa
+25/03/2020,25,3,2020,0,0,Namibia,,NAM,2448255,Africa
+24/03/2020,24,3,2020,0,0,Namibia,,NAM,2448255,Africa
+23/03/2020,23,3,2020,0,0,Namibia,,NAM,2448255,Africa
+22/03/2020,22,3,2020,0,0,Namibia,,NAM,2448255,Africa
+21/03/2020,21,3,2020,1,0,Namibia,,NAM,2448255,Africa
+20/03/2020,20,3,2020,0,0,Namibia,,NAM,2448255,Africa
+19/03/2020,19,3,2020,0,0,Namibia,,NAM,2448255,Africa
+18/03/2020,18,3,2020,0,0,Namibia,,NAM,2448255,Africa
+17/03/2020,17,3,2020,0,0,Namibia,,NAM,2448255,Africa
+16/03/2020,16,3,2020,0,0,Namibia,,NAM,2448255,Africa
+15/03/2020,15,3,2020,2,0,Namibia,,NAM,2448255,Africa
 03/05/2020,3,5,2020,0,0,Nepal,NP,NPL,28087871,Asia
 02/05/2020,2,5,2020,2,0,Nepal,NP,NPL,28087871,Asia
 01/05/2020,1,5,2020,0,0,Nepal,NP,NPL,28087871,Asia
@@ -14535,14 +14535,14 @@ dateRep,day,month,year,cases,deaths,countriesAndTerritories,geoId,countryterrito
 02/01/2020,2,1,2020,0,0,Vietnam,VN,VNM,95540395,Asia
 01/01/2020,1,1,2020,0,0,Vietnam,VN,VNM,95540395,Asia
 31/12/2019,31,12,2019,0,0,Vietnam,VN,VNM,95540395,Asia
-03/05/2020,3,5,2020,0,0,Western_Sahara,EH,,,Africa
-02/05/2020,2,5,2020,0,0,Western_Sahara,EH,,,Africa
-01/05/2020,1,5,2020,0,0,Western_Sahara,EH,,,Africa
-30/04/2020,30,4,2020,0,0,Western_Sahara,EH,,,Africa
-29/04/2020,29,4,2020,0,0,Western_Sahara,EH,,,Africa
-28/04/2020,28,4,2020,0,0,Western_Sahara,EH,,,Africa
-27/04/2020,27,4,2020,0,0,Western_Sahara,EH,,,Africa
-26/04/2020,26,4,2020,6,0,Western_Sahara,EH,,,Africa
+03/05/2020,3,5,2020,0,0,Western_Sahara,EH,"",,Africa
+02/05/2020,2,5,2020,0,0,Western_Sahara,EH,"",,Africa
+01/05/2020,1,5,2020,0,0,Western_Sahara,EH,"",,Africa
+30/04/2020,30,4,2020,0,0,Western_Sahara,EH,"",,Africa
+29/04/2020,29,4,2020,0,0,Western_Sahara,EH,"",,Africa
+28/04/2020,28,4,2020,0,0,Western_Sahara,EH,"",,Africa
+27/04/2020,27,4,2020,0,0,Western_Sahara,EH,"",,Africa
+26/04/2020,26,4,2020,6,0,Western_Sahara,EH,"",,Africa
 03/05/2020,3,5,2020,3,0,Yemen,YE,YEM,28498687,Asia
 02/05/2020,2,5,2020,1,0,Yemen,YE,YEM,28498687,Asia
 01/05/2020,1,5,2020,0,2,Yemen,YE,YEM,28498687,Asia

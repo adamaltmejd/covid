@@ -1,5 +1,6 @@
 hash,type,name
 21258858219d6dcf,import,archive_plots
+10bb347b4b6546b0,import,calculate_lag
 b2a66d46940189cf,import,can_be_numeric
 f3476b1dbc74dc4c,target,death_dt
 9f01ea79cf62bbb8,target,death_dts
@@ -35,7 +36,7 @@ edbefb4bb954c742,target,death_dts_e7d1bf56
 b1b068c294cf7dbc,target,death_dts_e8137efb
 6cfe585850e865a2,target,death_dts_e9de976d
 ea357115460d67c4,target,death_dts_fb0e1833
-25cf8528834c304a,target,death_plot
+814ddf99577cca95,target,death_plot
 a8b11969c02f9735,target,death_prediction
 a2e0599b3d970c53,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
@@ -49,7 +50,7 @@ c85d88fc56f4e042,target,drake_target_6
 1551d3e110169be0,target,ecdc
 ae75d11092c21fa5,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
-0a25edc8b67502b3,import,get_remote_data
+5e22cb56c0575412,import,get_remote_data
 ee443a62af376d9f,import,join_data
 0f47e1d49d54b513,target,lag_plot
 c85d88fc56f4e042,target,latest_fhm
@@ -60,7 +61,7 @@ e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
 3ea8d2dc9b9879ac,target,file ECDC.csv
 8a09760538970a3f,target,file data
-b50cbdb3c8cfcb28,target,file data/ECDC.csv
+db63064f897d6bab,target,file data/ECDC.csv
 9f5c171e70cb95a5,target,file data/FHM
 9a21e1985c1eeb2a,target,file data/covid_deaths_latest.csv
 a8fd8109605d2209,target,file docs/archive
@@ -81,5 +82,6 @@ ab1d7c78863f1856,import,plot_lagged_deaths
 a149540b4af7e181,import,predict_lag
 776064016f949790,import,save_plot
 97b846aa84791933,import,set_default_theme
+238cec6a99e001c7,target,time_to_finished
 0366744790fccd40,import,trigger_new_download
 5e3958bb98785e35,import,update_web

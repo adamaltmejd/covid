@@ -8,6 +8,8 @@ plan <- drake_plan(
     death_dts = target(load_fhm(fhm_files), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),
     death_prediction = predict_lag(death_dt),
+    time_to_finished = calculate_lag(death_dt),
+
     # Save data
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
 

@@ -217,6 +217,7 @@ set_default_theme <- function() {
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.caption = element_text(size = rel(0.7), family = "EB Garamond", face = "italic", hjust = 1, vjust = 1, margin = margin(12,0,0,0)),
 
+            legend.text = element_text(size = rel(0.7), family = "EB Garamond", hjust = 0, margin = margin(0, 0, 0, 0)),
             legend.background = element_rect(fill = "#F5F5F5", color = "#333333"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
@@ -342,9 +343,6 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
         default_theme +
         theme(legend.direction = "horizontal",
               legend.position = c(0.5, 0.8), legend.justification = "center",
-              legend.margin = margin(5, -10, 5, 5),
-              legend.key = element_rect(fill = "blue"),
-              # legend.spacing = unit(1, 'pt'),
               panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
               panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)) +
         labs(color = "Completed = days until 3-day change is below:",

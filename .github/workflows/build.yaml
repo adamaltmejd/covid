@@ -13,7 +13,7 @@ jobs:
         steps:
             - uses: actions/checkout@v2
 
-            - name: Install fonts
+            - name: Install dependencies
               run: sudo apt-get install fonts-ebgaramond libcurl4-openssl-dev
 
             - name: Setup R

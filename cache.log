@@ -62,11 +62,14 @@ a0b0a1eeb0fdcffa,target,lag_plot1
 c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
+42bcd7336d10def9,import,ggplot2::ggsave
 fbd72e1ecb071672,import,cowplot::ggsave2
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
+3ea8d2dc9b9879ac,target,file ECDC.csv
+8a09760538970a3f,target,file data
 db63064f897d6bab,target,file data/ECDC.csv
-16ba6249fc3bb0ad,target,file data/FHM
+909022e96ef7cfe6,target,file data/FHM
 9dde9f1fcde54c8b,target,file data/covid_deaths_latest.csv
 12de1f0408162f72,target,file data/prediction_latest.csv
 9133b3ebe482345e,target,file docs/archive

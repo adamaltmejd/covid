@@ -391,7 +391,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
     lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
     lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
     pgrid <- plot_grid(lag_plot1, lag_plot2,
-                       rel_widths = c(1, 1.55),
+                       rel_widths = c(1, 1),
                        align = "hv", axis = "bt")
 
     title_theme <- calc_element("plot.title", default_theme)
@@ -422,7 +422,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
         ) +
         theme(plot.margin = margin(10, 134.5, 30, 30))
 
-    pgrid_labels <- plot_grid(title, subtitle, pgrid, caption, ncol = 1, rel_heights = c(0.1, 0.105, 0.74, 0.09))
+    pgrid_labels <- plot_grid(title, subtitle, pgrid, caption, ncol = 1, rel_heights = c(0.1, 0.105, 1, 0.09))
 
     return(pgrid_labels)
 }

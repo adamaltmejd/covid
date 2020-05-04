@@ -342,8 +342,9 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
         default_theme +
         theme(legend.direction = "horizontal",
               legend.position = c(0.5, 0.8), legend.justification = "center",
-              legend.margin = margin(0,0,0,0),
-              legend.spacing = unit(1, 'pt'),
+              legend.margin = margin(5, -10, 5, 5),
+              legend.key = element_rect(fill = "blue"),
+              # legend.spacing = unit(1, 'pt'),
               panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
               panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)) +
         labs(color = "Completed = days until 3-day change is below:",
@@ -391,7 +392,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
     lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
     lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
     pgrid <- plot_grid(lag_plot1, lag_plot2,
-                       rel_widths = c(1, 1),
+                       rel_widths = c(1, 1.55),
                        align = "hv", axis = "bt")
 
     title_theme <- calc_element("plot.title", default_theme)
@@ -422,7 +423,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
         ) +
         theme(plot.margin = margin(10, 134.5, 30, 30))
 
-    pgrid_labels <- plot_grid(title, subtitle, pgrid, caption, ncol = 1, rel_heights = c(0.1, 0.105, 1, 0.09))
+    pgrid_labels <- plot_grid(title, subtitle, pgrid, caption, ncol = 1, rel_heights = c(0.1, 0.105, 0.74, 0.09))
 
     return(pgrid_labels)
 }
@@ -443,12 +444,12 @@ save_plot <- function(p, f, bgcolor = "transparent") {
     w <- 11.46 # inches (twitter ratio 1.91:1)
 
     if (tools::file_ext(f) == "pdf") {
-        ggplot2::ggsave(filename = f, plot = p,
+        cowplot::ggsave2(filename = f, plot = p,
            height = h, width = w,
            device = cairo_pdf)
     }
     if (tools::file_ext(f) == "png") {
-        ggplot2::ggsave(filename = f, plot = p,
+        cowplot::ggsave2(filename = f, plot = p,
                height = h, width = w, dpi = 400,
                device = png(), type = "cairo",
                bg = bgcolor, canvas = "#f5f5f5")

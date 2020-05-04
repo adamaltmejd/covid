@@ -338,7 +338,7 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
               legend.position = c(0.5, 0.8), legend.justification = "center",
               panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
               panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)) +
-        labs(color = 'Days until first time 3-day change is below:',
+        labs(color = 'Completed = days until 3-day change is below:',
              x = "Death date",
              y = 'Days until date is "completed"')
 }
@@ -383,7 +383,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
     lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
     lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
     pgrid <- plot_grid(lag_plot1, lag_plot2,
-                       rel_widths = c(1, 1.6),
+                       rel_widths = c(1, 1.55),
                        align = "hv", axis = "bt")
 
     title_theme <- calc_element("plot.title", default_theme)

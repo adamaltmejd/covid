@@ -18,6 +18,9 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
 }
 
 get_remote_data <- function(url, f) {
+    require(curl)
+    require(data.table)
+
     DT <- fread(url)
     fwrite(DT, f)
     return(DT)
@@ -118,7 +121,7 @@ join_data <- function(death_dts) {
                                levels = c(-1, 0, 1, 2, 3, 4, 5, 6, 7, 14),
                                labels = c("No Data", "Same day", "1 Day", "2 Days",
                                           "3-4 Days", "3-4 Days", "5-6 Days",
-                                          "5-6 Days", "7-13 Days", "≥14 Days"))]
+                                          "5-6 Days", "7-13 Days", "14 Days +"))]
 
     return(death_dt)
 }
@@ -144,6 +147,62 @@ predict_lag <- function(death_dt) {
     return(prediction)
 }
 
+calculate_lag <- function(death_dt, thresholds = c(0, 0.01, 0.02, 0.05, 0.10)) {
+    # Count as finished when for 3 consecutive days, the daily increase is below threshold
+    DT <- copy(death_dt)[!is.na(date) & date >= "2020-04-02"]
+    setorder(DT, date, publication_date)
+
+    # Calculate threshold values
+    # As max of daily increase over last 3 days
+    # DT[!is.na(date), paste0("n_diff_pct_m", 1:3) := shift(n_diff_pct, n = 1:3), by = date]
+    # DT[, max_diff := pmax(n_diff_pct, n_diff_pct_m1, n_diff_pct_m2, n_diff_pct_m3, na.rm = TRUE)]
+    # DT[!is.na(max_diff), forcing_var := cummin(max_diff), by = date]
+
+    # Or as total 3-day increase
+    DT[!is.na(date), paste0("N_m", 3) := shift(N, n = 3), by = date]
+    DT[, forcing_var := (N / N_m3) - 1]
+
+    # Often nothing is added in the first days, ensure its not counted as finished
+    DT[days_since_publication %in% c(0,1,2,3) & is.na(forcing_var), forcing_var := Inf]
+
+    DT <- DT[, .(publication_date, date, n_diff, forcing_var, days_since_publication)]
+    setkey(DT, publication_date, date)
+
+    for (t in thresholds) {
+        DT[, finished := FALSE]
+        DT[forcing_var <= t, finished := TRUE]
+
+        # Days until finished
+        DT[DT[finished == TRUE, min(as.numeric(days_since_publication), na.rm = TRUE), by = date],
+           paste0("days_to_finished_", 100 * t) := i.V1, on = .(date)]
+
+        # Rolling average
+        DT[, paste0("days_to_finished_", 100 * t, "_avg") :=
+            frollmean(get(paste0("days_to_finished_", 100 * t)), 4, algo = "exact", align = "center")]
+
+        # Error (number of deaths added after tagged as finished)
+        DT[DT[finished == TRUE, sum(n_diff, na.rm = TRUE), by = date],
+           paste0("N_added_after_finished_", 100 * t) := i.V1, on = .(date)]
+
+    }
+
+    DT <- DT[publication_date == max(publication_date, na.rm = TRUE)]
+    DT[, c("finished", "n_diff", "forcing_var", "publication_date", "days_since_publication") := NULL]
+
+    setkey(DT, date)
+    return(DT)
+}
+
+day_of_week <- function(death_dt) {
+    # Create day of week markers
+    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
+    days[wd %in% c("Sa", "Su"), weekend := TRUE]
+    days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
+    days[date == "2020-05-01", weekend := TRUE]
+
+    return(days)
+}
+
 ##
 # Plots
 set_default_theme <- function() {
@@ -160,8 +219,8 @@ set_default_theme <- function() {
             legend.direction = "vertical",
             legend.position = "right",
 
-            axis.title.y = element_text(size = rel(1.2), face = "bold", angle = 90, hjust = 1, vjust = 1, margin = margin(0,2.88,0,0)),
-            axis.title.x = element_text(size = rel(1.2), face = "bold", hjust = 1, vjust = 1, margin = margin(2.88,0,0,0)),
+            axis.title.y = element_text(size = rel(1.2), face = "bold", angle = 90, hjust = 1, vjust = 1, margin = margin(0, 4, 0, 0)),
+            axis.title.x = element_text(size = rel(1.2), face = "bold", hjust = 1, vjust = 1, margin = margin(4, 0, 0, 0)),
             axis.text.x = element_text(angle = 35, hjust = 1, vjust = 1.1),
 
             # Panels
@@ -175,7 +234,7 @@ set_default_theme <- function() {
         )
 }
 
-plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, default_theme) {
+plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_theme) {
     require(ggplot2)
     require(forcats)
 
@@ -201,12 +260,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, default_theme) 
     ecdc <- ecdc[date >= "2020-03-12"]
     setkey(ecdc, date)
     ecdc[, avg := frollmean(deaths, 7, algo = "exact", align = "center")]
-
-    # Create day of week markers
-    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
-    days[wd %in% c("Sa", "Su"), weekend := TRUE]
-    days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
-    days[date == "2020-05-01", weekend := TRUE]
 
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
@@ -256,13 +309,41 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, default_theme) 
         labs(title = paste0("Swedish Covid-19 mortality: actual death dates and reporting delay"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
                                "Light grey bars show total predicted deaths based on the average lags during the last 3 weeks."),
-             caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
+             caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",
              y = "Number of deaths")
 }
 
-plot_lag_trends <- function(death_dt, default_theme) {
+plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
+    DT <- time_to_finished[, c(1, grep("days_to_finished_[0-9]+_avg$", names(time_to_finished))), with = FALSE]
+    DT <- melt(DT, id.vars = "date", variable.factor = FALSE)
+    DT <- DT[!is.na(value)]
+
+    DT[, variable := factor(as.numeric(gsub("[a-z_]*", "", variable)))]
+    levels(DT$variable) <- paste0(levels(DT$variable), "%")
+
+    days <- days[date %between% c(DT[, min(date)], DT[, max(date)])]
+
+    ggplot(data = DT, aes(x = date, y = value)) +
+        geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
+        geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
+        geom_line(aes(group = variable, color = variable), linetype = "twodash", size = 0.9, alpha = 0.8) +
+        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
+        scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
+        # scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,3))) +
+        scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
+        default_theme +
+        theme(legend.direction = "horizontal",
+              legend.position = c(0.5, 0.8), legend.justification = "center",
+              panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
+              panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)) +
+        labs(color = 'Days until first time 3-day change is below:',
+             x = "Death date",
+             y = 'Days until date is "completed"')
+}
+
+plot_lag_trends2 <- function(death_dt, days, default_theme) {
     DT <- copy(death_dt)
 
     DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
@@ -270,101 +351,72 @@ plot_lag_trends <- function(death_dt, default_theme) {
 
     DT[, perc90_days := quantile(rep(lag, times = n_diff), probs = c(0.90)), by = publication_date]
 
-    # Create day of week markers
-    days <- unique(death_dt[!is.na(publication_date), .(publication_date, wd = substr(weekdays(publication_date),1, 2), weekend = FALSE)])
-    days[wd %in% c("Sa", "Su"), weekend := TRUE]
-    days[publication_date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
-
     colors <- c("#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF", "#FF0000", "#000000")
     names <- c(levels(DT$delay)[!grepl("No Data", levels(DT$delay))], "Weekend", "Weekday")
     colors <- setNames(colors, names)
     DT[, delay := forcats::fct_rev(delay)]
     label_order <- c(levels(DT$delay)[!grepl("No Data", levels(DT$delay))], "Weekend", "Weekday")
 
-    g <- ggplot(data = DT,
+    g <- ggplot(data = DT[lag <= 30],
                 aes(x = publication_date, y = lag)) +
+        geom_text(data = days[weekend == TRUE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
+        geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
         geom_point(aes(size = n_diff, color = delay)) +
         geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
-        geom_text(data = days[weekend == TRUE], aes(y = -1.5, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
-        geom_text(data = days[weekend == FALSE], aes(y = -1.5, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
-        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.05,0.05)) +
-        scale_y_continuous(expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
+        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
+        scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
         scale_color_manual(values = colors) + #limits = label_order
         scale_linetype_manual(values = c("90th Percentile" = "dashed"), name = "Statistics") +
         default_theme +
-        labs(title = paste0("Swedish Covid-19 mortality: delay by report date"),
-             subtitle = paste0("Deaths are sorted by report date along horizontal axis. Vertical axis shows delay in number of deaths.\n",
-                               "Size of points indicate the number of deaths reported for each day."),
-             caption = paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
-             size = "Number of deaths",
+        labs(size = "Number of deaths",
              color = "Reporting delay",
              x = "Report date",
              y = "Reporting delay (days)")
 }
 
-calculate_lag <- function(death_dt, thresholds = c(0, 0.01, 0.02, 0.05, 0.10)) {
-    # Count as finished when for 3 consecutive days, the daily increase is below threshold
-    DT <- copy(death_dt)[!is.na(date) & date >= "2020-04-02"]
-    setorder(DT, date, publication_date)
+plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
+    loadd(default_theme)
+    lag_plot1 <- plot_lag_trends1(readd(time_to_finished), readd(days), default_theme)
+    lag_plot2 <- plot_lag_trends2(readd(death_dt), readd(days), default_theme)
 
-    # Calculate threshold values
-    # As max of daily increase over last 3 days
-    # DT[!is.na(date), paste0("n_diff_pct_m", 1:3) := shift(n_diff_pct, n = 1:3), by = date]
-    # DT[, max_diff := pmax(n_diff_pct, n_diff_pct_m1, n_diff_pct_m2, n_diff_pct_m3, na.rm = TRUE)]
-    # DT[!is.na(max_diff), forcing_var := cummin(max_diff), by = date]
+    lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
+    lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
+    pgrid <- plot_grid(lag_plot1, lag_plot2,
+                       rel_widths = c(1, 1.6),
+                       align = "hv", axis = "bt")
 
-    # Or as total 3-day increase
-    DT[!is.na(date), paste0("N_m", 3) := shift(N, n = 3), by = date]
-    DT[, forcing_var := (N / N_m3) - 1]
+    title_theme <- calc_element("plot.title", default_theme)
+    title <- ggdraw() +
+        draw_label("Swedish Covid-19 reporting delay",
+                   fontface = title_theme$face, fontfamily = title_theme$family,
+                   size = title_theme$size, lineheight = title_theme$lineheight,
+                   x = 0, hjust = 0, y = 0) +
+        theme(plot.margin = margin(30, 30, 0, 65))
 
-    # Often nothing is added in the first days, ensure its not counted as finished
-    DT[days_since_publication %in% c(0,1,2,3) & is.na(forcing_var), forcing_var := Inf]
+    subtitle_theme <- calc_element("plot.subtitle", default_theme)
+    subtitle <- ggdraw() +
+        draw_label(paste0("Left: Length of delay per death date, measured as the number of days until date is completed.\n",
+                          "Right: Shows how far back in time each daily report adds deaths. Point size is number of deaths added."),
+                   fontface = subtitle_theme$face, fontfamily = subtitle_theme$family,
+                   size = subtitle_theme$size, lineheight = subtitle_theme$lineheight,
+                   x = 0, hjust = 0, y = 0) +
+        theme(plot.margin = margin(0, 30, 15, 65))
 
-    DT <- DT[, .(publication_date, date, n_diff, forcing_var, days_since_publication)]
-    setkey(DT, publication_date, date)
+    caption_theme <- calc_element("plot.caption", default_theme)
+    caption <- ggdraw() +
+        draw_label(
+            paste0("Source: Folkhälsomyndigheten. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
+            fontface = caption_theme$face, fontfamily = caption_theme$family,
+            size = caption_theme$size, lineheight = caption_theme$lineheight,
+            color = caption_theme$colour,
+            hjust = 1, x = 1
+        ) +
+        theme(plot.margin = margin(10, 134.5, 30, 30))
 
-    for (t in thresholds) {
-        DT[, finished := FALSE]
-        DT[forcing_var <= t, finished := TRUE]
+    pgrid_labels <- plot_grid(title, subtitle, pgrid, caption, ncol = 1, rel_heights = c(0.1, 0.105, 0.74, 0.09))
 
-        # Days until finished
-        DT[DT[finished == TRUE, min(as.numeric(days_since_publication), na.rm = TRUE), by = date],
-           paste0("days_to_finished_", 100 * t) := i.V1, on = .(date)]
-
-        # Rolling average
-        DT[, paste0("days_to_finished_", 100 * t, "_avg") :=
-            frollmean(get(paste0("days_to_finished_", 100 * t)), 4, algo = "exact", align = "center")]
-
-        # Error (number of deaths added after tagged as finished)
-        DT[DT[finished == TRUE, sum(n_diff, na.rm = TRUE), by = date],
-           paste0("N_added_after_finished_", 100 * t) := i.V1, on = .(date)]
-
-    }
-
-    DT <- DT[publication_date == max(publication_date, na.rm = TRUE)]
-    DT[, c("finished", "n_diff", "forcing_var", "publication_date", "days_since_publication") := NULL]
-
-    setkey(DT, date)
-    return(DT)
-}
-
-plot_lag_trends2 <- function(time_to_finished, default_theme) {
-    loadd(time_to_finished)
-    DT <- time_to_finished[, c(1, grep("days_to_finished_[0-9]+_avg$", names(time_to_finished))), with = FALSE]
-    DT <- melt(DT, id.vars = "date", variable.factor = FALSE)
-    DT[, variable := factor(as.numeric(gsub("[a-z_]*", "", variable)))]
-    levels(DT$variable) <- paste0(levels(DT$variable), "%")
-
-    ggplot(data = DT[!is.na(value)], aes(x = date, y = value, group = variable, color = variable)) +
-        geom_line(linetype = "twodash", size = 0.9, alpha = 0.9) +
-        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.05,0.05)) +
-        scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,2))) +
-        scale_color_manual(values = wes_palette("Darjeeling2")) +
-        default_theme +
-        labs(color = 'Completed = \nFirst time 3-day\nincrease is below:',
-             x = "Death date",
-             y = 'Days until date is "completed"')
+    return(pgrid_labels)
 }
 
 archive_plots <- function(out_dir) {

@@ -1,11 +1,17 @@
 suppressPackageStartupMessages(library(drake))
 suppressPackageStartupMessages(library(data.table))
 suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(Cairo))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(cowplot))
+suppressPackageStartupMessages(library(extrafont))
 suppressPackageStartupMessages(library(hrbrthemes))
 suppressPackageStartupMessages(library(wesanderson))
 suppressPackageStartupMessages(library(forcats))
 suppressPackageStartupMessages(library(gdtools))
-suppressPackageStartupMessages(library(Cairo))
 suppressPackageStartupMessages(library(tools))
+suppressPackageStartupMessages(library(curl))
+
+# Setup drawing
+extrafont::loadfonts(device = "pdf", quiet = TRUE)
+cowplot::set_null_device("pdf")

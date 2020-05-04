@@ -217,7 +217,7 @@ set_default_theme <- function() {
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.caption = element_text(size = rel(0.7), family = "EB Garamond", face = "italic", hjust = 1, vjust = 1, margin = margin(12,0,0,0)),
 
-            legend.text = element_text(size = rel(0.7), family = "EB Garamond", hjust = 0, margin = margin(0, 0, 0, 0)),
+            legend.text = element_text(size = rel(0.9), family = "EB Garamond", hjust = 0, margin = margin(0, 0, 0, 0)),
             legend.background = element_rect(fill = "#F5F5F5", color = "#333333"),
             legend.margin = margin(5,5,5,5),
             legend.direction = "vertical",
@@ -390,7 +390,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
     lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
     lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
     pgrid <- plot_grid(lag_plot1, lag_plot2,
-                       rel_widths = c(1, 1),
+                       rel_widths = c(1, 1.5),
                        align = "hv", axis = "bt")
 
     title_theme <- calc_element("plot.title", default_theme)

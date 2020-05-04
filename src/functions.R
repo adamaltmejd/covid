@@ -390,7 +390,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
     lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
     lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
     pgrid <- plot_grid(lag_plot1, lag_plot2,
-                       rel_widths = c(1, 1),
+                       rel_widths = c(1, 1.5),
                        align = "hv", axis = "bt")
 
     title_theme <- calc_element("plot.title", default_theme)
@@ -448,8 +448,8 @@ save_plot <- function(p, f, bgcolor = "transparent") {
     }
     if (tools::file_ext(f) == "png") {
         cowplot::ggsave2(filename = f, plot = p,
-               height = h, width = w, dpi = 400,
-               device = png(), type = "cairo",
+               height = h, width = w, dpi = 300,
+               device = grDevices::png(), type = "cairo",
                bg = bgcolor, canvas = "#f5f5f5")
     }
 }

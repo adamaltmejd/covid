@@ -56,38 +56,26 @@ f64f6345e46f965f,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 be4f6b6f00240fec,import,get_remote_data
 9ac963b06c9b4303,import,join_data
-df729401c8d9a003,target,lag_plot
+cbee627bb3e3b19e,target,lag_plot
 775c81eee56a0318,target,lag_plot1
 cbb7ffe12c0952f6,target,lag_plot2
 c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 28e7347b7f6eafd2,import,load_fhm
-42bcd7336d10def9,import,ggplot2::ggsave
 fbd72e1ecb071672,import,cowplot::ggsave2
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-3ea8d2dc9b9879ac,target,file ECDC.csv
-8a09760538970a3f,target,file data
 db63064f897d6bab,target,file data/ECDC.csv
-909022e96ef7cfe6,target,file data/FHM
+16ba6249fc3bb0ad,target,file data/FHM
 9dde9f1fcde54c8b,target,file data/covid_deaths_latest.csv
 12de1f0408162f72,target,file data/prediction_latest.csv
 9133b3ebe482345e,target,file docs/archive
-4d8d95e1646924fc,target,file docs/deaths_lag_sweden_latest.png
-a6b803d6dc74b20c,target,file docs/deaths_lag_sweden_2020-04-29.png
-a299529437448708,target,file docs/deaths_lag_sweden_2020-05-01.png
-5b6820e9ace584a7,target,file docs/deaths_lag_sweden_2020-05-02.png
-9c209419ee8c767f,target,file docs/deaths_lag_sweden_2020-05-03.png
-d1cee3eafb0ec0e3,target,file docs/deaths_lag_sweden_2020-05-04.png
+1a7ecfa539fcec7a,target,file docs/deaths_lag_sweden_latest.png
+20e6a16a85d33daa,target,file docs/deaths_lag_sweden_2020-05-04.png
 453091211634f718,target,file docs/index.md
-92c4b7796456d505,target,file docs/lag_trend_sweden_2020-04-29.png
-5a74d12a1e96eb58,target,file docs/lag_trend_sweden_2020-05-04.png
-60b2bd8d5ac23a3f,target,file docs/lag_trend_sweden_2020-05-01.png
-7c34d872a267d260,target,file docs/lag_trend_sweden_2020-05-02.png
-9cbed4a55bf4ccc0,import,file docs/lag_trend_sweden_2020-05-03.png
-102a8afb321076ee,target,file docs/lag_trend_sweden_latest.png
+5f90ccb8de19d273,target,file docs/lag_trend_sweden_2020-05-04.png
+59944f49e1595ce1,target,file docs/lag_trend_sweden_latest.png
 f650ea848b44db8d,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
-29b99a2cbc9c6276,import,plot_lag_trends
 58c8c57f47cdb87a,import,plot_lag_trends_grid
 3bd7e1ea7a0b5922,import,plot_lag_trends1
 761afefa07a15fcc,import,plot_lag_trends2

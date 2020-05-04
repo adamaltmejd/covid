@@ -55,7 +55,7 @@ ae75d11092c21fa5,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 be4f6b6f00240fec,import,get_remote_data
 9ac963b06c9b4303,import,join_data
-d9ab41adf8632fd3,target,lag_plot
+2e55ad80375bcd97,target,lag_plot
 afc104fc6a5adf4c,target,lag_plot1
 5f96776d823ca470,target,lag_plot2
 c85d88fc56f4e042,target,latest_fhm
@@ -64,28 +64,17 @@ c85d88fc56f4e042,target,latest_fhm
 42bcd7336d10def9,import,ggplot2::ggsave
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-3ea8d2dc9b9879ac,target,file ECDC.csv
-8a09760538970a3f,target,file data
 db63064f897d6bab,target,file data/ECDC.csv
-9f5c171e70cb95a5,target,file data/FHM
+fb7b9d81d4f21e7c,target,file data/FHM
 3601fe2d1973b073,target,file data/covid_deaths_latest.csv
 4116553e0763aeab,target,file data/prediction_latest.csv
 9133b3ebe482345e,target,file docs/archive
-f6aca73fa45adff7,target,file docs/deaths_lag_sweden_latest.png
-a6b803d6dc74b20c,target,file docs/deaths_lag_sweden_2020-04-29.png
-a299529437448708,target,file docs/deaths_lag_sweden_2020-05-01.png
-5b6820e9ace584a7,target,file docs/deaths_lag_sweden_2020-05-02.png
-9c209419ee8c767f,target,file docs/deaths_lag_sweden_2020-05-03.png
-c1b9eb2daed38656,target,file docs/deaths_lag_sweden_2020-05-04.png
+473c1842f18f2cba,target,file docs/deaths_lag_sweden_latest.png
+e91f224f87fc2122,target,file docs/deaths_lag_sweden_2020-05-04.png
 453091211634f718,target,file docs/index.md
-92c4b7796456d505,target,file docs/lag_trend_sweden_2020-04-29.png
-be55e857232020b4,target,file docs/lag_trend_sweden_2020-05-04.png
-60b2bd8d5ac23a3f,target,file docs/lag_trend_sweden_2020-05-01.png
-7c34d872a267d260,target,file docs/lag_trend_sweden_2020-05-02.png
-9cbed4a55bf4ccc0,import,file docs/lag_trend_sweden_2020-05-03.png
-745b95c75adfba6b,target,file docs/lag_trend_sweden_latest.png
+9d0f9a86b4784e0e,target,file docs/lag_trend_sweden_2020-05-04.png
+cfa44ed8c025e81f,target,file docs/lag_trend_sweden_latest.png
 f650ea848b44db8d,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
-29b99a2cbc9c6276,import,plot_lag_trends
 2ed80ff6f4e6ee21,import,plot_lag_trends_grid
 85a15d47019ecdfa,import,plot_lag_trends1
 761afefa07a15fcc,import,plot_lag_trends2

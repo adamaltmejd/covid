@@ -12,3 +12,5 @@ To build the graphs locally, clone the repository, set the top directory as the 
 renv::restore()
 drake::r_make()
 ```
+
+If you prefer working in Python, @morberg has put together a [Python notebook](https://github.com/morberg/covid-notebook) using the same data.

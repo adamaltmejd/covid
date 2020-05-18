@@ -123,26 +123,61 @@ join_data <- function(death_dts) {
 }
 
 predict_lag <- function(death_dt) {
-    # Exclude last 7 days
-    DT <- copy(death_dt)
+    # Calculate the average lag from the last 21 days for each report
+    # So when calculating the average number of deaths added on day 3,
+    # include day-3 reports from three weeks back from that date.
+    DT <- death_dt[days_since_publication != 0 &
+                   !is.na(days_since_publication) &
+                   !is.na(date) &
+                   date >= "2020-04-02",
+                   .(date, publication_date, days_since_publication, n_diff)]
 
-    avg_delay <- DT[date %between% c(Sys.Date() - 21, Sys.Date())  &
-                    !is.na(days_since_publication) & days_since_publication != 0,
-                    .(avg_diff = mean(n_diff, na.rm = TRUE)), by = days_since_publication]
-    setorder(avg_delay, -days_since_publication)
-    avg_delay[, sum_cum := cumsum(avg_diff)]
-    avg_delay[, match := days_since_publication - 1]
+    # Create predictions for each publication date so we can track and evaluate
+    # historical predictions
+    report_dates <- seq(as.Date("2020-04-14"), death_dt[, max(publication_date)], 1)
+    dts <- vector(mode = "list", length = length(report_dates))
+    for (i in seq_along(report_dates)) {
+        avg_delay <- DT[publication_date <= report_dates[i]]
 
-    prediction <- DT[!is.na(date)]
+        # For each delay day, calculate the mean additional deaths added
+        # for the two weeks of reports preceding that date.
+        # --> If we are calculating deaths added 7 days after, we look at
+        #     deaths added 1 week ago back to deaths added 3 weeks ago.
+        #     This way, we always take the mean of 2 weeks of reports (when available).
+        avg_delay[, ref_date := max(date), by = days_since_publication]
+        dts[[i]] <- avg_delay[date %between% list(ref_date - 14, ref_date),
+                              .(avg_diff = mean(n_diff, na.rm = TRUE),
+                                sd_diff = sd(n_diff, na.rm = TRUE)),
+                              by = days_since_publication]
+    }
 
-    prediction <- prediction[, .(days_since_publication = max(days_since_publication, na.rm = TRUE), deaths = max(N, na.rm = TRUE)), by = date][order(date)]
-    prediction <- merge(prediction, avg_delay[, .(match, sum_cum)], by.x = "days_since_publication", by.y = "match")
+    names(dts) <- report_dates
+    avg_delay <- rbindlist(dts, idcol = "publication_date")
+    avg_delay[, publication_date := as.Date(publication_date)]
 
-    prediction <- prediction[, .(date, sure_deaths = deaths, predicted_deaths = sum_cum, total = deaths + sum_cum)]
+    setkey(avg_delay, publication_date, days_since_publication)
 
-    setkey(prediction, date)
+    # To create actual predictions of totals per day
+    # we need to add the averages to the reported data
+    predictions <- avg_delay[death_dt[date >= "2020-04-02" & publication_date >= "2020-04-14"],
+              on = .(publication_date,
+                     days_since_publication > days_since_publication),
+              by = .EACHI,
+              .(date,
+                sure_deaths = N,
+                predicted_deaths = sum(avg_diff, na.rm = TRUE),
+                predicted_deaths_SD = sqrt(sum(sd_diff^2, na.rm = TRUE)))] # assuming independently normal
 
-    return(prediction)
+    setnames(predictions, "publication_date", "prediction_date")
+    predictions[, total := sure_deaths + predicted_deaths]
+
+    # Assume no more deaths after 28 days just to have a cleaner data set
+    predictions <- predictions[days_since_publication <= 28]
+    predictions[, days_since_publication := NULL]
+
+    setkey(predictions, prediction_date, date)
+
+    return(predictions)
 }
 
 calculate_lag <- function(death_dt, thresholds = c(0, 0.01, 0.02, 0.05, 0.10)) {
@@ -242,6 +277,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
     require(forcats)
 
     death_dt <- death_dt[date >= "2020-03-12"]
+    death_prediction <- death_prediction[prediction_date == max(prediction_date)]
 
     latest_date <- death_dt[, max(publication_date, na.rm = TRUE)]
     total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]

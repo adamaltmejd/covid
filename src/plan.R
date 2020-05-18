@@ -13,7 +13,7 @@ plan <- drake_plan(
 
     # Save data
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
-    fwrite(death_prediction, file_out(!!file.path("data", "prediction_latest.csv"))),
+    fwrite(death_prediction, file_out(!!file.path("data", "predictions.csv"))),
 
     # Plots
     default_theme = set_default_theme(),

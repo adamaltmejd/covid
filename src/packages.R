@@ -1,6 +1,7 @@
 suppressPackageStartupMessages(library(drake))
 suppressPackageStartupMessages(library(data.table))
 suppressPackageStartupMessages(library(readxl))
+suppressPackageStartupMessages(library(stringr))
 suppressPackageStartupMessages(library(Cairo))
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(cowplot))
@@ -13,7 +14,6 @@ suppressPackageStartupMessages(library(tools))
 suppressPackageStartupMessages(library(curl))
 
 # Setup drawing
-# extrafont::loadfonts(device = "pdf", quiet = TRUE)
 my_null_device <- function(width, height) {
     grDevices::png(
         filename = tempfile(pattern = "cowplot_null_plot", fileext = ".png"),
@@ -23,4 +23,3 @@ my_null_device <- function(width, height) {
     grDevices::dev.control("enable")
 }
 cowplot::set_null_device(my_null_device)
-# cowplot::set_null_device(cairo_null_device)

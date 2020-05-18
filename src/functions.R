@@ -53,9 +53,14 @@ list_fhm_files <- function(folder = file.path("data", "FHM")) {
     list.files(folder, pattern = "^Folkhalso", full.names = TRUE)
 }
 
-load_fhm <- function(f) {
+load_fhm_deaths <- function(f) {
     require(data.table)
     require(readxl)
+    require(stringr)
+
+    # Skip early reports that do not contain death data
+    date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+    if (date <= as.Date("2020-04-01")) return(NULL)
 
     DT <- data.table((
         read_excel(path = f, sheet = 2, col_types = c("text", "numeric"))
@@ -71,9 +76,12 @@ load_fhm <- function(f) {
         DT[, date := as.Date(date)]
     }
 
+    # Ensure starting point is March 1st, and that all dates have a value
+    publication_date <- get_record_date(f)
+    DT <- merge(DT, data.table(date = seq(as.Date("2020-03-01"), publication_date, by = 1)), all = TRUE)
     DT[is.na(N), N := 0]
 
-    DT[, publication_date := get_record_date(f)]
+    DT[, publication_date := publication_date]
 
     return(as.data.frame(DT))
 }
@@ -98,18 +106,6 @@ join_data <- function(death_dts) {
     death_dt[!is.na(date) & n_m1 > 0 & !is.na(n_m1), n_diff_pct := N/n_m1 - 1]
     death_dt[!is.na(date) & n_m1 == 0 & N == 0, n_diff_pct := 0]
     death_dt[, n_m1 := NULL]
-
-    # If no death reported on publication date
-    for (i in seq_along(unique(death_dt$publication_date))) {
-        pub <- unique(death_dt$publication_date)[i]
-        if (death_dt[date == publication_date & publication_date == pub, .N] == 0) {
-            death_dt <- rbind(death_dt,
-                              data.table(date = pub, N = 0,
-                                         publication_date = pub,
-                                         days_since_publication = as.difftime(0, units = "days"),
-                                         n_diff = 0, n_diff_pct = 0))
-        }
-    }
 
     # Categorize by grouped days since publication.
     # 1, 2, ... > 1 week, 2 weeks
@@ -197,8 +193,8 @@ calculate_lag <- function(death_dt, thresholds = c(0, 0.01, 0.02, 0.05, 0.10)) {
 
 day_of_week <- function(death_dt) {
     # Create day of week markers
-    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 2), weekend = FALSE)])
-    days[wd %in% c("Sa", "Su"), weekend := TRUE]
+    days <- unique(death_dt[!is.na(date), .(date, wd = substr(weekdays(date),1, 1), weekend = FALSE)])
+    days[wd %in% c("S", "S"), weekend := TRUE]
     days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
     days[date == "2020-05-01", weekend := TRUE]
 
@@ -244,6 +240,8 @@ set_default_theme <- function() {
 plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_theme) {
     require(ggplot2)
     require(forcats)
+
+    death_dt <- death_dt[date >= "2020-03-12"]
 
     latest_date <- death_dt[, max(publication_date, na.rm = TRUE)]
     total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]
@@ -300,13 +298,10 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
                  x = as.Date("2020-03-12"), y = 100,
-                 label = paste0("\nReported:                 \nPredicted: \nTotal: ")) +
-        annotate(geom = "text", color = "#333333", hjust = 1, family = "EB Garamond",
-                 x = as.Date("2020-03-19"), y = 100,
                  label = paste0(latest_date, "\n",
-                                format(total_deaths, big.mark = ","), "\n",
-                                format(predicted_deaths, big.mark = ","), "\n",
-                                format(total_deaths + predicted_deaths, big.mark = ","))) +
+                                "Reported: ", format(total_deaths, big.mark = ","), "\n",
+                                "Predicted:     ", format(predicted_deaths, big.mark = ","), "\n",
+                                "Total:         ", format(total_deaths + predicted_deaths, big.mark = ","))) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_linetype_manual(values = c("By report date" = "dotted", "By death date" = "solid", "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +
@@ -336,7 +331,7 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
         geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
         geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
         geom_line(aes(group = variable, color = variable), linetype = "twodash", size = 0.9, alpha = 0.8) +
-        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
+        scale_x_date(date_breaks = "3 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
         scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
         # scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,3))) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
@@ -370,7 +365,7 @@ plot_lag_trends2 <- function(death_dt, days, default_theme) {
         geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
         geom_point(aes(size = n_diff, color = delay)) +
         geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
-        scale_x_date(date_breaks = "2 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
+        scale_x_date(date_breaks = "3 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
         scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
         scale_color_manual(values = colors) + #limits = label_order

@@ -308,7 +308,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
 
     # Only one observation per group
     death_dt <- death_dt[, .(n_diff = sum(n_diff, na.rm = TRUE)), by = .(date, delay)]
-    levels(death_dt$delay) <- death_dt[, sum(n_diff), delay][order(c(1,2,8,7,6,5,4,3))][, paste0(delay, " (N=", V1, ")")]
+    levels(death_dt$delay) <- death_dt[, sum(n_diff), delay][order(c(1,2,7,6,5,4,3,8))][, paste0(delay, " (N=", V1, ")")]
 
     fill_colors <- c("gray40", "#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF", "#E1E1E1")
     fill_colors <- setNames(fill_colors, c(levels(death_dt$delay), "Forecast (avg. lag)"))
@@ -336,8 +336,8 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
                  x = as.Date("2020-03-12"), y = 100,
                  label = paste0(latest_date, "\n",
                                 "Reported: ", format(total_deaths, big.mark = ","), "\n",
-                                "Predicted:     ", format(predicted_deaths, big.mark = ","), "\n",
-                                "Total:         ", format(total_deaths + predicted_deaths, big.mark = ","))) +
+                                "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
+                                "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
         scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_linetype_manual(values = c("By report date" = "dotted", "By death date" = "solid", "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +

@@ -232,6 +232,7 @@ day_of_week <- function(death_dt) {
     days[wd %in% c("S", "S"), weekend := TRUE]
     days[date %between% c("2020-04-10", "2020-04-13"), weekend := TRUE]
     days[date == "2020-05-01", weekend := TRUE]
+    days[date == "2020-05-21", weekend := TRUE]
 
     return(days)
 }
@@ -364,10 +365,10 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
     days <- days[date %between% c(DT[, min(date)], DT[, max(date)])]
 
     ggplot(data = DT, aes(x = date, y = value)) +
-        geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
-        geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
+        geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
+        geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
         geom_line(aes(group = variable, color = variable), linetype = "twodash", size = 0.9, alpha = 0.8) +
-        scale_x_date(date_breaks = "3 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
+        scale_x_date(date_breaks = "5 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
         scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
         # scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,3))) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
@@ -397,11 +398,11 @@ plot_lag_trends2 <- function(death_dt, days, default_theme) {
 
     g <- ggplot(data = DT[lag <= 30],
                 aes(x = publication_date, y = lag)) +
-        geom_text(data = days[weekend == TRUE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "red", size = 2.5, family = "EB Garamond") +
-        geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2.5, family = "EB Garamond") +
+        geom_text(data = days[weekend == TRUE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
+        geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
         geom_point(aes(size = n_diff, color = delay)) +
         geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
-        scale_x_date(date_breaks = "3 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
+        scale_x_date(date_breaks = "5 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
         scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
         scale_color_manual(values = colors) + #limits = label_order

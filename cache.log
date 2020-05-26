@@ -85,26 +85,34 @@ dac480630524e9bc,target,ecdc
 a7e7695fe7346a0a,import,get_record_date
 be4f6b6f00240fec,import,get_remote_data
 a100bf8df12f05b3,import,join_data
-3d0c0f7fae252149,target,lag_plot
+c1acbadb031c3bbf,target,lag_plot
 4b01cb6c247da6df,target,lag_plot1
 9cb32192198e4753,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
+28e7347b7f6eafd2,import,load_fhm
 df991870c4eef623,import,load_fhm_deaths
 b8c36ee2ceda2d70,import,grDevices::png
 fbd72e1ecb071672,import,cowplot::ggsave2
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
 b94d0d9928b78d47,target,file data/ECDC.csv
-748ed7752d681a47,target,file data/FHM
+6dba62768d06a16b,target,file data/FHM
 6e80dcb01d6a0bb0,target,file data/covid_deaths_latest.csv
+1985f20a3917551d,target,file data/prediction_latest.csv
 53a64be2ad62babd,target,file data/predictions.csv
 cde353fe064abde1,target,file docs/archive
-7713d5a32294d1b2,target,file docs/deaths_lag_sweden_latest.png
-4c2ce71ee47a4216,target,file docs/deaths_lag_sweden_2020-05-26.png
+2af2bbcb921688e5,target,file docs/deaths_lag_sweden_latest.png
+92c93ac58520a5ac,target,file docs/deaths_lag_sweden_2020-05-04.png
+42645e755197e3b6,target,file docs/deaths_lag_sweden_2020-05-18.png
+7a62099c4deb38c1,target,file docs/deaths_lag_sweden_2020-05-23.png
+098b1256bf244b3d,target,file docs/deaths_lag_sweden_2020-05-26.png
 a001cf41ecaa3cba,target,file docs/index.md
-ec71d35179907823,target,file docs/lag_trend_sweden_2020-05-26.png
-45bd900afc0420e3,target,file docs/lag_trend_sweden_latest.png
+58e42c5f9e427c4f,target,file docs/lag_trend_sweden_2020-05-04.png
+b699bc7507236ffa,target,file docs/lag_trend_sweden_2020-05-18.png
+183a4f5247cf1556,target,file docs/lag_trend_sweden_2020-05-26.png
+c770cf4b6b4d92dc,target,file docs/lag_trend_sweden_2020-05-23.png
+798620261741f497,target,file docs/lag_trend_sweden_latest.png
 6784ad8c92a30171,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
 0f8b1fca30c0973c,import,plot_lag_trends_grid
 0158a4a345f328c2,import,plot_lag_trends1

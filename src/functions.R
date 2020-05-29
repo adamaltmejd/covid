@@ -277,11 +277,11 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
     require(ggplot2)
     require(forcats)
 
-    death_dt <- death_dt[date >= "2020-03-12"]
-    death_prediction <- death_prediction[prediction_date == max(prediction_date)]
-
     latest_date <- death_dt[, max(publication_date, na.rm = TRUE)]
     total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]
+
+    death_dt <- death_dt[date >= "2020-03-12"]
+    death_prediction <- death_prediction[prediction_date == latest_date]
     predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
 
     # Deaths by actual date

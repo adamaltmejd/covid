@@ -79,7 +79,7 @@ adf0cec720009a36,target,death_dts_e8137efb
 f42d2d9d70327597,target,death_dts_f33ae368
 9df89e1fd86ab2b0,target,death_dts_fb0e1833
 37bb99d6bc5b30b6,target,death_dts_fb6a5b78
-89b24e03bdc68be5,target,death_plot
+89608d08123737fd,target,death_plot
 0db40b8ec41218dd,target,death_prediction
 c8235daf8817d7f8,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
@@ -96,9 +96,9 @@ c85d88fc56f4e042,target,drake_target_7
 a7e7695fe7346a0a,import,get_record_date
 be4f6b6f00240fec,import,get_remote_data
 a100bf8df12f05b3,import,join_data
-73ec10ebccc49f47,target,lag_plot
-95f787bb5d762bc3,target,lag_plot1
-ae512a70e65211cf,target,lag_plot2
+dbd52b223b28632a,target,lag_plot
+0372d7a210325b9b,target,lag_plot1
+140463919b710618,target,lag_plot2
 c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 2cdc0f47875ff509,import,load_fhm_deaths

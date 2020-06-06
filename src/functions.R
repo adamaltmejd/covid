@@ -68,7 +68,7 @@ load_fhm_deaths <- function(f) {
 
     setnames(DT, c("date", "N"))
 
-    DT[date == "Uppgift saknas" | date == "uppgift saknas", date := NA]
+    DT[(tolower(date) %in% c("uppgift saknas", "uppgift saknaa")), date := NA]
 
     if (can_be_numeric(DT[, date])) {
         DT[, date := as.Date(as.numeric(date), origin = "1899-12-30")]

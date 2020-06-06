@@ -14,3 +14,8 @@ drake::r_make()
 ```
 
 If you prefer working in Python, @morberg has put together a [Python notebook](https://github.com/morberg/covid-notebook) using the same data.
+
+Other useful sites to track Swedish Covid-19 statistics:
+
+* <https://platz.se/coronavirus/>
+* <https://c19.se>

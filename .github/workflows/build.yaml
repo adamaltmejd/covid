@@ -1,50 +1,52 @@
 name: make_drake_cron
 
 on:
-  push:
-    branches: [master]
-  schedule:
-    # UTC is currently -2 wrt Europe/Stockholm (CEST)
-    - cron: "02,30 12 * * *"
+    push:
+        branches: [master]
+    schedule:
+        # UTC is currently -2 wrt Europe/Stockholm (CEST)
+        - cron: "02,30 12 * * *"
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: sudo apt-get install fonts-ebgaramond libcurl4-openssl-dev
+            - name: Install dependencies
+              run: sudo apt-get install fonts-ebgaramond libcurl4-openssl-dev
 
-      - name: Setup R
-        uses: r-lib/actions/setup-r@master
-        with:
-          r-version: "4.0.0"
+            - name: Setup R
+              uses: r-lib/actions/setup-r@master
+              with:
+                  r-version: "4.0.0"
 
-      - name: renv cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.local/share/renv
-          key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-          restore-keys: |
-            ${{ runner.os }}-renv-
+            - name: renv cache
+              uses: actions/cache@v2
+              with:
+                  path: ~/.local/share/renv
+                  key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-renv-
 
-      - name: drake cache
-        uses: actions/cache@v2
-        with:
-          path: .drake
-          key: ${{ runner.os }}-drake-${{ hashFiles('**/cache.log') }}
+            - name: drake cache
+              uses: actions/cache@v2
+              with:
+                  path: .drake
+                  key: ${{ runner.os }}-drake-${{ hashFiles('**/cache.log') }}
+                  restore-keys: |
+                      ${{ runner.os }}-drake-
 
-      - name: renv
-        run: Rscript -e "renv::restore()"
+            - name: renv
+              run: Rscript -e "renv::restore()"
 
-      - name: build
-        run: Rscript -e 'drake::r_make()'
+            - name: build
+              run: Rscript -e 'drake::r_make()'
 
-      - name: push
-        run: |
-          git config --global user.name 'Adam Altmejd'
-          git config --global user.email 'adamaltmejd@users.noreply.github.com'
-          git add --all
-          git commit -m "Github Action autocommit"
-          git push
+            - name: push
+              run: |
+                  git config --global user.name 'Adam Altmejd'
+                  git config --global user.email 'adamaltmejd@users.noreply.github.com'
+                  git add --all
+                  git commit -m "Github Action autocommit"
+                  git push

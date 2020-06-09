@@ -3,6 +3,7 @@
 .Rhistory
 .Rapp.history
 .RData
+Rplots.pdf
 *-Ex.R
 /*.tar.gz
 /*.Rcheck/

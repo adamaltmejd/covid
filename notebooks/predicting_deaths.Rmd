@@ -1,0 +1,81 @@
+---
+title: "Predicting Covid Deaths"
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r setup}
+knitr::opts_knit$set(root.dir = normalizePath("..")) 
+```
+
+```{r}
+source("_drake.R")
+```
+
+
+```{r load_data}
+loadd(ecdc)
+ecdc[, date := as.Date(dateRep, format = "%d/%m/%Y")]
+ecdc <- ecdc[!is.na(countryterritoryCode) & countryterritoryCode != "" & !is.na(date), 
+            .(country = countriesAndTerritories, country_code = countryterritoryCode, date, cases, deaths, pop = popData2018)]
+setkey(ecdc, country_code, date)
+ecdc[, deaths_cum := cumsum(deaths), by = country_code]
+ecdc[, cases_cum := cumsum(cases), by = country_code]
+ecdc <- ecdc[ecdc[, any(deaths_cum > 10), by = country_code][V1 == TRUE, .(country_code)], on = "country_code"]
+
+stringency <- fread("data/index_stringency.csv", header = TRUE)[!is.na(V2) & V2 != ""]
+setnames(stringency, c("V1", "V2"), c("country", "countryterritoryCode"))
+stringency <- melt(stringency, id.vars = c("country", "countryterritoryCode"), variable.name = "date", value.name = "stringency")
+stringency[, date := as.Date(date, format = "%d%b%Y")]
+stringency <- stringency[!is.na(countryterritoryCode) & !is.na(date), 
+                         .(country, country_code = countryterritoryCode, date, stringency = as.numeric(stringency))]
+stringency <- stringency[country_code %in% ecdc[, unique(country_code)]]
+setkey(stringency, country_code, date)
+
+```
+
+# Predicting total deaths
+
+How well does stringency *level* vs stringency *timing* predict total deaths?
+
+```{r}
+ecdc[, date_at_death1 := min(date[deaths_cum >= 1]), by = country_code]
+ecdc[, date_at_death10 := min(date[deaths_cum >= 10]), by = country_code]
+stringency[, over_20_ever := any(stringency >= 20), by = country_code]
+
+DT <- unique(ecdc[date == date_at_death10 + 60, .(country, country_code, date_at_death10, deaths_cum_10p60 = deaths_cum, pop)], by = "country_code")
+setkey(DT, country_code)
+
+DT <- merge(DT,
+            stringency[over_20_ever == TRUE, .(date_when_stringency_passed_20 = min(date[stringency >= 20], na.rm = TRUE),
+                                               peak_stringency = max(stringency, na.rm = TRUE)), by = country_code])
+DT[, days_from_10_deaths_to_stringency_20 := as.integer(date_when_stringency_passed_20 - date_at_death10)]
+DT <- DT[!is.na(days_from_10_deaths_to_stringency_20) & !is.na(peak_stringency)]
+```
+
+Clear differences between Nordic countries:
+
+```{r}
+DT[country_code %in% c("SWE", "NOR", "DNK", "FIN")]
+DT[, summary(days_from_10_deaths_to_stringency_20)]
+DT[, summary(peak_stringency)]
+```
+
+Running regressions:
+
+Predicting deaths 60 days after 10th death with the number of days from the date when deaths reached 10 to the date when stringency reached 20.
+
+```{r}
+summary(lm(deaths_cum_10p60 ~ days_from_10_deaths_to_stringency_20, DT))
+```
+
+Predicting deaths 60 days after 10th death with the peak stringency level.
+
+```{r}
+summary(lm(deaths_cum_10p60 ~ peak_stringency, DT))
+```
+
+
+
+

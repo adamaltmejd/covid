@@ -1,12 +1,13 @@
 ---
-title: "Predicting Covid Deaths"
+title: "Cross-country variation in Covid deaths and policy stringency"
 output:
   html_document:
     df_print: paged
+    code_folding: hide
 ---
 
 ```{r setup}
-knitr::opts_knit$set(root.dir = normalizePath("..")) 
+knitr::opts_knit$set(root.dir = normalizePath("../..")) 
 ```
 
 ```{r}
@@ -28,16 +29,13 @@ stringency <- fread("data/index_stringency.csv", header = TRUE)[!is.na(V2) & V2 
 setnames(stringency, c("V1", "V2"), c("country", "countryterritoryCode"))
 stringency <- melt(stringency, id.vars = c("country", "countryterritoryCode"), variable.name = "date", value.name = "stringency")
 stringency[, date := as.Date(date, format = "%d%b%Y")]
-stringency <- stringency[!is.na(countryterritoryCode) & !is.na(date), 
+stringency <- stringency[!is.na(countryterritoryCode) & !is.na(date) & !(stringency %in% c(".", "", NA_character_)), 
                          .(country, country_code = countryterritoryCode, date, stringency = as.numeric(stringency))]
 stringency <- stringency[country_code %in% ecdc[, unique(country_code)]]
 setkey(stringency, country_code, date)
-
 ```
 
-# Predicting total deaths
-
-How well does stringency *level* vs stringency *timing* predict total deaths?
+How well does stringency *level* vs stringency *timing* predict total deaths? We use the Oxford policy stringency index.
 
 ```{r}
 ecdc[, date_at_death1 := min(date[deaths_cum >= 1]), by = country_code]
@@ -52,29 +50,45 @@ DT <- merge(DT,
                                                peak_stringency = max(stringency, na.rm = TRUE)), by = country_code])
 DT[, days_from_10_deaths_to_stringency_20 := as.integer(date_when_stringency_passed_20 - date_at_death10)]
 DT <- DT[!is.na(days_from_10_deaths_to_stringency_20) & !is.na(peak_stringency)]
+DT[, deaths_cum_10p60_pc := deaths_cum_10p60 / pop]
 ```
 
 Clear differences between Nordic countries:
 
 ```{r}
 DT[country_code %in% c("SWE", "NOR", "DNK", "FIN")]
+```
+
+We compare two predictors. 
+
+(1) The **number of days between the 10th death occurred in a country and the date when the country reached 20 on the stringency level scale**. 20 is a really mild stringency level. Sweden, who never had any stay-at-home orders and did not close restaurants or primary schools has a peak stringency level of 46.3. We see that most countries have negative values, meaning that at least some interventions were put in place before the country reached 10 deaths. Sweden has a value of -1 days, among the `r DT[, .N]` countries in our sample, this is the `r sum(sort(DT[, days_from_10_deaths_to_stringency_20]) <= DT[country_code == "SWE", days_from_10_deaths_to_stringency_20])` slowest.
+
+```{r}
 DT[, summary(days_from_10_deaths_to_stringency_20)]
+```
+
+And (2) the **stringency level at peak stringency**.
+
+```{r}
 DT[, summary(peak_stringency)]
 ```
 
-Running regressions:
 
-Predicting deaths 60 days after 10th death with the number of days from the date when deaths reached 10 to the date when stringency reached 20.
+## Running regressions
+
+The question is how well these two variables correlate with the variation in deaths. We use the cumulative number of deaths within 60 days from the 10th death per capita as our dependent variable.
 
 ```{r}
-summary(lm(deaths_cum_10p60 ~ days_from_10_deaths_to_stringency_20, DT))
+summary(lm(deaths_cum_10p60_pc ~ days_from_10_deaths_to_stringency_20, DT))
 ```
 
 Predicting deaths 60 days after 10th death with the peak stringency level.
 
 ```{r}
-summary(lm(deaths_cum_10p60 ~ peak_stringency, DT))
+summary(lm(deaths_cum_10p60_pc ~ peak_stringency, DT))
 ```
+
+R^2 is 6.5 times higher for timing of interventions vs level of stringency.
 
 
 

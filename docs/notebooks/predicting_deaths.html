@@ -11,7 +11,7 @@
 
 
 
-<title>Predicting Covid Deaths</title>
+<title>Cross-country variation in Covid deaths and policy stringency</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -200,6 +200,66 @@ window.buildTabsets = function(tocID) {
   });
 };
 
+</script>
+<script>
+window.initializeCodeFolding = function(show) {
+
+  // handlers for show-all and hide all
+  $("#rmd-show-all-code").click(function() {
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('show');
+    });
+  });
+  $("#rmd-hide-all-code").click(function() {
+    $('div.r-code-collapse').each(function() {
+      $(this).collapse('hide');
+    });
+  });
+
+  // index for unique code element ids
+  var currentIndex = 1;
+
+  // select all R code blocks
+  var rCodeBlocks = $('pre.r, pre.python, pre.bash, pre.sql, pre.cpp, pre.stan, pre.julia');
+  rCodeBlocks.each(function() {
+
+    // create a collapsable div to wrap the code in
+    var div = $('<div class="collapse r-code-collapse"></div>');
+    show = (show || $(this).hasClass('fold-show')) && !$(this).hasClass('fold-hide');
+    if (show) div.addClass('in');
+    var id = 'rcode-643E0F36' + currentIndex++;
+    div.attr('id', id);
+    $(this).before(div);
+    $(this).detach().appendTo(div);
+
+    // add a show code button right above
+    var showCodeText = $('<span>' + (show ? 'Hide' : 'Code') + '</span>');
+    var showCodeButton = $('<button type="button" class="btn btn-default btn-xs code-folding-btn pull-right"></button>');
+    showCodeButton.append(showCodeText);
+    showCodeButton
+        .attr('data-toggle', 'collapse')
+        .attr('data-target', '#' + id)
+        .attr('aria-expanded', show)
+        .attr('aria-controls', id);
+
+    var buttonRow = $('<div class="row"></div>');
+    var buttonCol = $('<div class="col-md-12"></div>');
+
+    buttonCol.append(showCodeButton);
+    buttonRow.append(buttonCol);
+
+    div.before(buttonRow);
+
+    // update state of button on show/hide
+    div.on('hidden.bs.collapse', function () {
+      showCodeText.text('Code');
+    });
+    div.on('show.bs.collapse', function () {
+      showCodeText.text('Hide');
+    });
+  });
+
+}
 </script>
 <style type="text/css">.hljs-literal {
 color: #990073;
@@ -1627,6 +1687,9 @@ summary {
 </style>
 
 <!-- code folding -->
+<style type="text/css">
+.code-folding-btn { margin-bottom: 4px; }
+</style>
 
 
 
@@ -1643,14 +1706,22 @@ summary {
 
 <div class="fluid-row" id="header">
 
+<div class="btn-group pull-right">
+<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span>Code</span> <span class="caret"></span></button>
+<ul class="dropdown-menu" style="min-width: 50px;">
+<li><a id="rmd-show-all-code" href="#">Show All Code</a></li>
+<li><a id="rmd-hide-all-code" href="#">Hide All Code</a></li>
+</ul>
+</div>
 
 
-<h1 class="title toc-ignore">Predicting Covid Deaths</h1>
+
+<h1 class="title toc-ignore">Cross-country variation in Covid deaths and policy stringency</h1>
 
 </div>
 
 
-<pre class="r"><code>knitr::opts_knit$set(root.dir = normalizePath(&quot;..&quot;)) </code></pre>
+<pre class="r"><code>knitr::opts_knit$set(root.dir = normalizePath(&quot;../..&quot;)) </code></pre>
 <pre class="r"><code>source(&quot;_drake.R&quot;)</code></pre>
 <pre class="r"><code>loadd(ecdc)
 ecdc[, date := as.Date(dateRep, format = &quot;%d/%m/%Y&quot;)]
@@ -1665,14 +1736,11 @@ stringency &lt;- fread(&quot;data/index_stringency.csv&quot;, header = TRUE)[!is
 setnames(stringency, c(&quot;V1&quot;, &quot;V2&quot;), c(&quot;country&quot;, &quot;countryterritoryCode&quot;))
 stringency &lt;- melt(stringency, id.vars = c(&quot;country&quot;, &quot;countryterritoryCode&quot;), variable.name = &quot;date&quot;, value.name = &quot;stringency&quot;)
 stringency[, date := as.Date(date, format = &quot;%d%b%Y&quot;)]
-stringency &lt;- stringency[!is.na(countryterritoryCode) &amp; !is.na(date), 
-                         .(country, country_code = countryterritoryCode, date, stringency = as.numeric(stringency))]</code></pre>
-<pre><code>## Warning in eval(jsub, SDenv, parent.frame()): NAs introduced by coercion</code></pre>
-<pre class="r"><code>stringency &lt;- stringency[country_code %in% ecdc[, unique(country_code)]]
+stringency &lt;- stringency[!is.na(countryterritoryCode) &amp; !is.na(date) &amp; !(stringency %in% c(&quot;.&quot;, &quot;&quot;, NA_character_)), 
+                         .(country, country_code = countryterritoryCode, date, stringency = as.numeric(stringency))]
+stringency &lt;- stringency[country_code %in% ecdc[, unique(country_code)]]
 setkey(stringency, country_code, date)</code></pre>
-<div id="predicting-total-deaths" class="section level1">
-<h1>Predicting total deaths</h1>
-<p>How well does stringency <em>level</em> vs stringency <em>timing</em> predict total deaths?</p>
+<p>How well does stringency <em>level</em> vs stringency <em>timing</em> predict total deaths? We use the Oxford policy stringency index.</p>
 <pre class="r"><code>ecdc[, date_at_death1 := min(date[deaths_cum &gt;= 1]), by = country_code]
 ecdc[, date_at_death10 := min(date[deaths_cum &gt;= 10]), by = country_code]
 stringency[, over_20_ever := any(stringency &gt;= 20), by = country_code]
@@ -1684,60 +1752,70 @@ DT &lt;- merge(DT,
             stringency[over_20_ever == TRUE, .(date_when_stringency_passed_20 = min(date[stringency &gt;= 20], na.rm = TRUE),
                                                peak_stringency = max(stringency, na.rm = TRUE)), by = country_code])
 DT[, days_from_10_deaths_to_stringency_20 := as.integer(date_when_stringency_passed_20 - date_at_death10)]
-DT &lt;- DT[!is.na(days_from_10_deaths_to_stringency_20) &amp; !is.na(peak_stringency)]</code></pre>
+DT &lt;- DT[!is.na(days_from_10_deaths_to_stringency_20) &amp; !is.na(peak_stringency)]
+DT[, deaths_cum_10p60_pc := deaths_cum_10p60 / pop]</code></pre>
 <p>Clear differences between Nordic countries:</p>
 <pre class="r"><code>DT[country_code %in% c(&quot;SWE&quot;, &quot;NOR&quot;, &quot;DNK&quot;, &quot;FIN&quot;)]</code></pre>
 <div data-pagedtable="false">
 <script data-pagedtable-source type="application/json">
-{"columns":[{"label":["country_code"],"name":[1],"type":["chr"],"align":["left"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date_at_death10"],"name":[3],"type":["date"],"align":["right"]},{"label":["deaths_cum_10p60"],"name":[4],"type":["int"],"align":["right"]},{"label":["pop"],"name":[5],"type":["int"],"align":["right"]},{"label":["date_when_stringency_passed_20"],"name":[6],"type":["date"],"align":["right"]},{"label":["peak_stringency"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["days_from_10_deaths_to_stringency_20"],"name":[8],"type":["int"],"align":["right"]}],"data":[{"1":"DNK","2":"Denmark","3":"2020-03-22","4":"554","5":"5797446","6":"2020-03-03","7":"72.22","8":"-19"},{"1":"FIN","2":"Finland","3":"2020-03-30","4":"313","5":"5518050","6":"2020-03-12","7":"60.19","8":"-18"},{"1":"NOR","2":"Norway","3":"2020-03-25","4":"235","5":"5314336","6":"2020-03-11","7":"75.93","8":"-14"},{"1":"SWE","2":"Sweden","3":"2020-03-19","4":"3679","5":"10183175","6":"2020-03-18","7":"46.30","8":"-1"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+{"columns":[{"label":["country_code"],"name":[1],"type":["chr"],"align":["left"]},{"label":["country"],"name":[2],"type":["chr"],"align":["left"]},{"label":["date_at_death10"],"name":[3],"type":["date"],"align":["right"]},{"label":["deaths_cum_10p60"],"name":[4],"type":["int"],"align":["right"]},{"label":["pop"],"name":[5],"type":["int"],"align":["right"]},{"label":["date_when_stringency_passed_20"],"name":[6],"type":["date"],"align":["right"]},{"label":["peak_stringency"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["days_from_10_deaths_to_stringency_20"],"name":[8],"type":["int"],"align":["right"]},{"label":["deaths_cum_10p60_pc"],"name":[9],"type":["dbl"],"align":["right"]}],"data":[{"1":"DNK","2":"Denmark","3":"2020-03-22","4":"554","5":"5797446","6":"2020-03-03","7":"72.22","8":"-19","9":"9.555932e-05"},{"1":"FIN","2":"Finland","3":"2020-03-30","4":"313","5":"5518050","6":"2020-03-12","7":"60.19","8":"-18","9":"5.672294e-05"},{"1":"NOR","2":"Norway","3":"2020-03-25","4":"235","5":"5314336","6":"2020-03-11","7":"75.93","8":"-14","9":"4.422001e-05"},{"1":"SWE","2":"Sweden","3":"2020-03-19","4":"3679","5":"10183175","6":"2020-03-18","7":"46.30","8":"-1","9":"3.612822e-04"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
   </script>
 </div>
+<p>We compare two predictors.</p>
+<ol style="list-style-type: decimal">
+<li>The <strong>number of days between the 10th death occurred in a country and the date when the country reached 20 on the stringency level scale</strong>. 20 is a really mild stringency level. Sweden, who never had any stay-at-home orders and did not close restaurants or primary schools has a peak stringency level of 46.3. We see that most countries have negative values, meaning that at least some interventions were put in place before the country reached 10 deaths. Sweden has a value of -1 days, among the 74 countries in our sample, this is the 70 slowest.</li>
+</ol>
 <pre class="r"><code>DT[, summary(days_from_10_deaths_to_stringency_20)]</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##  -46.00  -21.75  -17.50  -16.36  -12.00    9.00</code></pre>
+<p>And (2) the <strong>stringency level at peak stringency</strong>.</p>
 <pre class="r"><code>DT[, summary(peak_stringency)]</code></pre>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##   46.30   77.89   86.11   84.19   93.29  100.00</code></pre>
-<p>Running regressions:</p>
-<p>Predicting deaths 60 days after 10th death with the number of days from the date when deaths reached 10 to the date when stringency reached 20.</p>
-<pre class="r"><code>summary(lm(deaths_cum_10p60 ~ days_from_10_deaths_to_stringency_20, DT))</code></pre>
+<div id="running-regressions" class="section level2">
+<h2>Running regressions</h2>
+<p>The question is how well these two variables correlate with the variation in deaths. We use the cumulative number of deaths within 60 days from the 10th death per capita as our dependent variable.</p>
+<pre class="r"><code>summary(lm(deaths_cum_10p60_pc ~ days_from_10_deaths_to_stringency_20, DT))</code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = deaths_cum_10p60 ~ days_from_10_deaths_to_stringency_20, 
+## lm(formula = deaths_cum_10p60_pc ~ days_from_10_deaths_to_stringency_20, 
 ##     data = DT)
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-## -11963  -3907  -1909    414  54980 
+##        Min         1Q     Median         3Q        Max 
+## -2.462e-04 -8.222e-05 -4.745e-05  2.800e-06  1.113e-03 
 ## 
 ## Coefficients:
-##                                      Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                           12701.9     2093.6   6.067 5.50e-08 ***
-## days_from_10_deaths_to_stringency_20    537.2      111.7   4.809 8.07e-06 ***
+##                                       Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)                          2.430e-04  4.644e-05   5.233 1.58e-06 ***
+## days_from_10_deaths_to_stringency_20 7.921e-06  2.478e-06   3.196  0.00207 ** 
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 8778 on 72 degrees of freedom
-## Multiple R-squared:  0.2431, Adjusted R-squared:  0.2326 
-## F-statistic: 23.13 on 1 and 72 DF,  p-value: 8.075e-06</code></pre>
+## Residual standard error: 0.0001947 on 72 degrees of freedom
+## Multiple R-squared:  0.1243, Adjusted R-squared:  0.1121 
+## F-statistic: 10.22 on 1 and 72 DF,  p-value: 0.002068</code></pre>
 <p>Predicting deaths 60 days after 10th death with the peak stringency level.</p>
-<pre class="r"><code>summary(lm(deaths_cum_10p60 ~ peak_stringency, DT))</code></pre>
+<pre class="r"><code>summary(lm(deaths_cum_10p60_pc ~ peak_stringency, DT))</code></pre>
 <pre><code>## 
 ## Call:
-## lm(formula = deaths_cum_10p60 ~ peak_stringency, data = DT)
+## lm(formula = deaths_cum_10p60_pc ~ peak_stringency, data = DT)
 ## 
 ## Residuals:
-##    Min     1Q Median     3Q    Max 
-##  -6950  -3693  -2720  -1480  62635 
+##        Min         1Q     Median         3Q        Max 
+## -1.996e-04 -8.943e-05 -7.128e-05 -2.308e-05  1.121e-03 
 ## 
 ## Coefficients:
-##                 Estimate Std. Error t value Pr(&gt;|t|)
-## (Intercept)      12228.4     8600.8   1.422    0.159
-## peak_stringency    -98.8      101.2  -0.976    0.332
+##                   Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)      3.207e-04  1.768e-04   1.813    0.074 .
+## peak_stringency -2.462e-06  2.081e-06  -1.183    0.241  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 10020 on 72 degrees of freedom
-## Multiple R-squared:  0.01306,    Adjusted R-squared:  -0.0006476 
-## F-statistic: 0.9528 on 1 and 72 DF,  p-value: 0.3323</code></pre>
+## Residual standard error: 0.0002061 on 72 degrees of freedom
+## Multiple R-squared:  0.01906,    Adjusted R-squared:  0.005439 
+## F-statistic: 1.399 on 1 and 72 DF,  p-value: 0.2407</code></pre>
+<p>R^2 is 18 times higher for timing of interventions vs level of stringency.</p>
 </div>
 
 
@@ -1773,6 +1851,11 @@ $(document).ready(function () {
 </script>
 
 <!-- code folding -->
+<script>
+$(document).ready(function () {
+  window.initializeCodeFolding("hide" === "show");
+});
+</script>
 
 
 <!-- dynamically load mathjax for compatibility with self-contained -->

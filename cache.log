@@ -3,9 +3,9 @@ hash,type,name
 10bb347b4b6546b0,import,calculate_lag
 b2a66d46940189cf,import,can_be_numeric
 ae304016eb4a33b9,import,day_of_week
-cfbc5a67df1568e3,target,days
-59c03d4b108b7d9d,target,death_dt
-cfd9acaa92a48864,target,death_dts
+7cbdaabad7458538,target,days
+66d4050e5f73e312,target,death_dt
+50de5b263f4273b2,target,death_dts
 574d448303deb7f5,target,death_dts_0c9c4e38
 b86ca5a15b163978,target,death_dts_1145a8a5
 46323f4044fe737e,target,death_dts_13e1644c
@@ -16,6 +16,7 @@ b86ca5a15b163978,target,death_dts_1145a8a5
 a2672691a914317b,target,death_dts_2af60d6f
 70356813b14579c1,target,death_dts_2d1d94ea
 6ddcadd82cef6eee,target,death_dts_2dae56bb
+0579ed7bd202ae35,target,death_dts_2f7f75c5
 cce6ac991ac0b2ae,target,death_dts_30410b02
 3a88ddb919e883cf,target,death_dts_335036a9
 19fdefc225781359,target,death_dts_398e1270
@@ -82,8 +83,8 @@ adf0cec720009a36,target,death_dts_e8137efb
 f42d2d9d70327597,target,death_dts_f33ae368
 9df89e1fd86ab2b0,target,death_dts_fb0e1833
 37bb99d6bc5b30b6,target,death_dts_fb6a5b78
-406a8304885fb928,target,death_plot
-617b57aedaa42bf4,target,death_prediction
+757f3f0bfab9b8e1,target,death_plot
+027a0d3cbd4010ad,target,death_prediction
 c8235daf8817d7f8,target,default_theme
 5692f142ff698b42,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
@@ -94,14 +95,14 @@ c85d88fc56f4e042,target,drake_target_5
 c85d88fc56f4e042,target,drake_target_6
 c85d88fc56f4e042,target,drake_target_7
 91a78a30a1427488,target,drake_target_8
-0faa624a2f9b1f0b,target,ecdc
-e899b82849c32b16,target,fhm_files
+39ff47fb9c8c3eb3,target,ecdc
+5f1c199aa9b7cb8e,target,fhm_files
 a7e7695fe7346a0a,import,get_record_date
 be4f6b6f00240fec,import,get_remote_data
 a100bf8df12f05b3,import,join_data
-ec1744876aab8c57,target,lag_plot
-ce2603c89c261c88,target,lag_plot1
-5d0bc66211a306aa,target,lag_plot2
+d1559229745fad1f,target,lag_plot
+f3e2530db6496c69,target,lag_plot1
+731ca6600f5f1090,target,lag_plot2
 8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 2cdc0f47875ff509,import,load_fhm_deaths
@@ -109,19 +110,21 @@ b8c36ee2ceda2d70,import,grDevices::png
 fbd72e1ecb071672,import,cowplot::ggsave2
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-d7b49c80409c4880,target,file data/ECDC.csv
-c4c8a7172d9007db,target,file data/FHM
-5a96608b59ea29e9,target,file data/covid_deaths_latest.csv
-4e9957d7c1592918,target,file data/predictions.csv
-76258f64f8dd0063,target,file docs/archive
-a439be9d2afa992c,target,file docs/deaths_lag_sweden_latest.png
+a6af1390e13d0fd4,target,file data/ECDC.csv
+f33f5c76ac9eff1f,target,file data/FHM
+f369e8703e07d088,target,file data/covid_deaths_latest.csv
+a8ff8ad2c3fb70bf,target,file data/predictions.csv
+b9083ab10fe914d7,target,file docs/archive
+5eab5c1a468525c5,target,file docs/deaths_lag_sweden_latest.png
 550f77d43af1dea9,target,file docs/deaths_lag_sweden_2020-06-08.png
 107896a4182cf814,target,file docs/deaths_lag_sweden_2020-06-09.png
-392f104eb0e0ed27,target,file docs/index.md
+6f2d87b88fe36cc3,target,file docs/deaths_lag_sweden_2020-06-10.png
+fae2476cba08d58f,target,file docs/index.md
 60edc3a7ab543249,target,file docs/lag_trend_sweden_2020-06-08.png
 82484c8aa35e692a,target,file docs/lag_trend_sweden_2020-06-09.png
-394ef67637b24206,target,file docs/lag_trend_sweden_latest.png
-3d6e6d5b53035747,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
+37eea621a4632a3d,target,file docs/lag_trend_sweden_2020-06-10.png
+c3d0b8459afc7e3b,target,file docs/lag_trend_sweden_latest.png
+194395ffc4644604,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
 0f8b1fca30c0973c,import,plot_lag_trends_grid
 0158a4a345f328c2,import,plot_lag_trends1
 c5869ca67234ebf5,import,plot_lag_trends2
@@ -129,6 +132,6 @@ c5869ca67234ebf5,import,plot_lag_trends2
 4d6e6a0c65a8681e,import,predict_lag
 31bda3e4dc9517fb,import,save_plot
 e025ae01b12c0f12,import,set_default_theme
-891063b1168f12a1,target,time_to_finished
+e4da35b885d0821c,target,time_to_finished
 0366744790fccd40,import,trigger_new_download
 5e3958bb98785e35,import,update_web

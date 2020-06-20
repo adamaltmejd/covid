@@ -12,6 +12,8 @@ suppressPackageStartupMessages(library(forcats))
 suppressPackageStartupMessages(library(gdtools))
 suppressPackageStartupMessages(library(tools))
 suppressPackageStartupMessages(library(curl))
+suppressPackageStartupMessages(library(RCurl))
+suppressPackageStartupMessages(library(lubridate))
 
 # Setup drawing
 my_null_device <- function(width, height) {

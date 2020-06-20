@@ -1,9 +1,10 @@
 plan <- drake_plan(
     latest_fhm = target(download_latest_fhm(folder = file_out(!!file.path("data", "FHM"))),
                         trigger = trigger(condition = trigger_new_download(!!file.path("data", "FHM", "FHM_latest.xlsx")))),
-    ecdc = target(get_remote_data(url = file_in("https://opendata.ecdc.europa.eu/covid19/casedistribution/csv"),
+    ecdc = target(get_ecdc(url = "https://opendata.ecdc.europa.eu/covid19/casedistribution/csv",
                                   f = file_out(!!file.path("data", "ECDC.csv"))),
-                  trigger = trigger(change = Sys.Date())),
+                  trigger = trigger(condition = RCurl::url.exists("opendata.ecdc.europa.eu/covid19/casedistribution/csv"),
+                                    change = Sys.Date())),
     fhm_files = target(list_fhm_files(folder = file_in(!!file.path("data", "FHM"))), format = "file"),
     death_dts = target(load_fhm_deaths(fhm_files), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),

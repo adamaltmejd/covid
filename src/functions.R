@@ -26,6 +26,22 @@ get_remote_data <- function(url, f) {
     return(DT)
 }
 
+get_ecdc <- function(url, f) {
+    require(curl)
+    require(data.table)
+
+    DT <- tryCatch({
+        DT <- fread(url)
+        fwrite(DT, f)
+        return(DT)
+    }, error = function(cond) {
+        warning("ECDC get_remote data error")
+        return(fread(f))
+    })
+
+    return(DT)
+}
+
 get_record_date <- function(f) {
     sheets <- excel_sheets(f)
     return(as.Date(sub("^FOHM ", "", sheets[length(sheets)]), format="%d %b %Y"))

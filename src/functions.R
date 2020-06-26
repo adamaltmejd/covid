@@ -359,7 +359,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_linetype_manual(values = c("By report date" = "dotted", "By death date" = "solid", "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +
         scale_x_date(date_breaks = "3 day", date_labels = "%b %d", expand = expansion(add = 0.8)) +
-        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(5, 10)), sec.axis = dup_axis()) +
+        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(5, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",

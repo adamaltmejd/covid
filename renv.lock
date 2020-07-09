@@ -11,10 +11,10 @@
   "Packages": {
     "Cairo": {
       "Package": "Cairo",
-      "Version": "1.5-12",
+      "Version": "1.5-12.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "a44aec693253e4eb6c45d2fd789091a0"
+      "Hash": "5f09ea90a07218b11c6430b7ca71fee7"
     },
     "MASS": {
       "Package": "MASS",
@@ -53,10 +53,10 @@
     },
     "Rcpp": {
       "Package": "Rcpp",
-      "Version": "1.0.4.6",
+      "Version": "1.0.5",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "e652f23d8b1807cc975c51410d05b72f"
+      "Hash": "125dc7a0ed375eb68c0ce533b48d291f"
     },
     "Rttf2pt1": {
       "Package": "Rttf2pt1",
@@ -172,10 +172,10 @@
     },
     "drake": {
       "Package": "drake",
-      "Version": "7.12.2",
+      "Version": "7.12.4",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "f1b1d4fa17d7006044b6c690888ed4e3"
+      "Hash": "6b1cd4be3f35fa6fcb018b24d3bc02a9"
     },
     "ellipsis": {
       "Package": "ellipsis",
@@ -284,15 +284,15 @@
     },
     "hrbrthemes": {
       "Package": "hrbrthemes",
-      "Version": "0.8.5",
+      "Version": "0.8.6",
       "Source": "GitHub",
       "RemoteType": "github",
       "RemoteUsername": "hrbrmstr",
       "RemoteRepo": "hrbrthemes",
       "RemoteRef": "master",
-      "RemoteSha": "4c14d209dc211a37cdec7eaa513e003819e5987d",
+      "RemoteSha": "7f039a1e0e26791cba6f46defbca1535e12cb6d3",
       "RemoteHost": "api.github.com",
-      "Hash": "3a484390193803f69441f6f01e7737b6"
+      "Hash": "22f0187ff68061da1ab4595b00dd315b"
     },
     "htmltools": {
       "Package": "htmltools",
@@ -443,10 +443,10 @@
     },
     "processx": {
       "Package": "processx",
-      "Version": "3.4.2",
+      "Version": "3.4.3",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "20a082f2bde0ffcd8755779fd476a274"
+      "Hash": "f4f13345fcb00c51ace12f65dd18749f"
     },
     "progress": {
       "Package": "progress",
@@ -461,6 +461,13 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "425d938eb9c02906a8ac98c0c2a306b5"
+    },
+    "purrr": {
+      "Package": "purrr",
+      "Version": "0.3.4",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "97def703420c8ab10d8f0e6c72101e02"
     },
     "readxl": {
       "Package": "readxl",
@@ -555,10 +562,17 @@
     },
     "tibble": {
       "Package": "tibble",
-      "Version": "3.0.1",
+      "Version": "3.0.2",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "1c61e4cad000e03b1bd687db16a75926"
+      "Hash": "fb0cdda0f19ae2e708d93fa7bb08ab3b"
+    },
+    "tidyselect": {
+      "Package": "tidyselect",
+      "Version": "1.1.0",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6ea435c354e8448819627cf686f66e0a"
     },
     "tinytex": {
       "Package": "tinytex",

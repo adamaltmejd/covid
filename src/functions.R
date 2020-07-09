@@ -44,7 +44,9 @@ get_ecdc <- function(url, f) {
 
 get_record_date <- function(f) {
     sheets <- excel_sheets(f)
-    return(as.Date(sub("^FOHM ", "", sheets[length(sheets)]), format="%d %b %Y"))
+    ret <- as.Date(sub("^FOHM ", "", sheets[length(sheets)]), format="%d %b %Y")
+    if (is.na(ret)) ret <- as.Date(sub("^FOHM ", "", sheets[grep("FOHM", sheets)]), format="%d %b %Y")
+    return(ret)
 }
 
 trigger_new_download <- function(f) {

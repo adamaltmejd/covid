@@ -3,9 +3,9 @@ hash,type,name
 10bb347b4b6546b0,import,calculate_lag
 b2a66d46940189cf,import,can_be_numeric
 ae304016eb4a33b9,import,day_of_week
-53c7a9c9c20dccaa,target,days
-bf135b01117b3e49,target,death_dt
-31057087f878336b,target,death_dts
+0618645454c1cd45,target,days
+4a4b9ef2fdd0bd95,target,death_dt
+5c6d945d422d85f7,target,death_dts
 24f6e5ee07d98351,target,death_dts_07a518be
 574d448303deb7f5,target,death_dts_0c9c4e38
 b86ca5a15b163978,target,death_dts_1145a8a5
@@ -115,6 +115,7 @@ decabdbe5ce87d52,target,death_dts_c5e5e67e
 d0b624275f8e36e9,target,death_dts_cb8d9864
 5dec784b26ea7e41,target,death_dts_d2771a68
 4fe5db0ee96cbb68,target,death_dts_d53cbf34
+5636dd1338ddbf3e,target,death_dts_d6c4846a
 35aa7cd608823448,target,death_dts_d9e53698
 bea9357f2bdffc7e,target,death_dts_dcfe792d
 8a2022b70f6f187d,target,death_dts_dd4cf6ae
@@ -133,8 +134,8 @@ adf0cec720009a36,target,death_dts_e8137efb
 f42d2d9d70327597,target,death_dts_f33ae368
 9df89e1fd86ab2b0,target,death_dts_fb0e1833
 37bb99d6bc5b30b6,target,death_dts_fb6a5b78
-fd96a8a43cc21cbd,target,death_plot
-4223251f8763964c,target,death_prediction
+48b5b2dffae5cd21,target,death_plot
+7cc5948ce9b8ce2c,target,death_prediction
 c8235daf8817d7f8,target,default_theme
 05ff9af1803c68ad,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
@@ -145,16 +146,16 @@ c85d88fc56f4e042,target,drake_target_5
 c85d88fc56f4e042,target,drake_target_6
 c85d88fc56f4e042,target,drake_target_7
 91a78a30a1427488,target,drake_target_8
-88c144c950f4bdaf,target,ecdc
-89683f7ce44dd959,target,fhm_files
+d1a241be381be7d4,target,ecdc
+5bc711143ce4f8b0,target,fhm_files
 7279ed32df04e158,import,get_ecdc
 322222f903932bd5,import,get_record_date
 be4f6b6f00240fec,import,get_remote_data
 a100bf8df12f05b3,import,join_data
-124d675e24ce302b,target,lag_plot
-d7c8991074992c04,target,lag_plot1
-4efc5c079b92a4e7,target,lag_plot2
-c85d88fc56f4e042,target,latest_fhm
+2c55a1ba058c220e,target,lag_plot
+b2aad9ddc2b1af55,target,lag_plot1
+67bf11c0cd4ff11a,target,lag_plot2
+8271c9325d9ef093,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 6ef563da969809b8,import,load_fhm_deaths
 b382c19642b49542,import,RCurl::url.exists
@@ -162,12 +163,12 @@ b8c36ee2ceda2d70,import,grDevices::png
 fbd72e1ecb071672,import,cowplot::ggsave2
 e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
-14bcdb49cb15a539,target,file data/ECDC.csv
-00f83b30eb35625f,target,file data/FHM
-e4384bbbddaa19f0,target,file data/covid_deaths_latest.csv
-e132c6a44aa8c7a8,target,file data/predictions.csv
-52a6cedf0e089f7c,target,file docs/archive
-9c72cb0c91661ea5,target,file docs/deaths_lag_sweden_latest.png
+fc6cee7db31b8653,target,file data/ECDC.csv
+76f41edc468fa268,target,file data/FHM
+12558eefc77f629b,target,file data/covid_deaths_latest.csv
+083476cbe2655a93,target,file data/predictions.csv
+f5c5d549e01ceee4,target,file docs/archive
+14d45adcaf1fe514,target,file docs/deaths_lag_sweden_latest.png
 550f77d43af1dea9,target,file docs/deaths_lag_sweden_2020-06-08.png
 107896a4182cf814,target,file docs/deaths_lag_sweden_2020-06-09.png
 6f2d87b88fe36cc3,target,file docs/deaths_lag_sweden_2020-06-10.png
@@ -239,7 +240,8 @@ a582931dd7b9a22b,target,file docs/deaths_lag_sweden_2020-08-15.png
 946aa158d2e4fa43,target,file docs/deaths_lag_sweden_2020-08-17.png
 88b7a0c70209eb81,target,file docs/deaths_lag_sweden_2020-08-18.png
 f7860361c89d8216,target,file docs/deaths_lag_sweden_2020-08-19.png
-f859a1501e1d38ed,target,file docs/index.md
+0986aa20bfd15839,target,file docs/deaths_lag_sweden_2020-08-20.png
+2ad5e3852d9982fd,target,file docs/index.md
 60edc3a7ab543249,target,file docs/lag_trend_sweden_2020-06-08.png
 82484c8aa35e692a,target,file docs/lag_trend_sweden_2020-06-09.png
 505287bfdc5acb78,target,file docs/lag_trend_sweden_2020-06-14.png
@@ -311,7 +313,8 @@ a7bb14b933c4cf75,target,file docs/lag_trend_sweden_2020-08-10.png
 ea99982fb7740b32,target,file docs/lag_trend_sweden_2020-08-11.png
 822d8664cd30a327,target,file docs/lag_trend_sweden_2020-08-12.png
 41badff5e63998fe,target,file docs/lag_trend_sweden_2020-08-13.png
-ba60d78cb94577c2,target,file docs/lag_trend_sweden_latest.png
+64e34ef53e09ba40,target,file docs/lag_trend_sweden_2020-08-20.png
+704dd079c267f66d,target,file docs/lag_trend_sweden_latest.png
 36cfbaf4eb1e05e6,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
 0f8b1fca30c0973c,import,plot_lag_trends_grid
 0158a4a345f328c2,import,plot_lag_trends1
@@ -320,6 +323,6 @@ c5869ca67234ebf5,import,plot_lag_trends2
 4d6e6a0c65a8681e,import,predict_lag
 31bda3e4dc9517fb,import,save_plot
 e025ae01b12c0f12,import,set_default_theme
-fa96742c89da1a3c,target,time_to_finished
+6b99a385fde622db,target,time_to_finished
 4a1123955bde4dc0,import,trigger_new_download
 5e3958bb98785e35,import,update_web

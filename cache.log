@@ -187,7 +187,7 @@ a100bf8df12f05b3,import,join_data
 8cdf68a83867d4fa,target,lag_plot
 8154c524acd56e12,target,lag_plot1
 14337f57204d5f99,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 6ef563da969809b8,import,load_fhm_deaths
 b382c19642b49542,import,RCurl::url.exists
@@ -199,7 +199,7 @@ aa2b9c77ad283919,import,tools::file_ext
 b3dbc3d5b9a2ddcf,target,file data/FHM
 b9f36be76c26fedb,target,file data/covid_deaths_latest.csv
 8697b2d3ce9d9ab7,target,file data/predictions.csv
-344cb9d3b9a92e0b,target,file docs/archive
+c1cc722adcb7e897,target,file docs/archive
 9ae01465ddc8f0be,target,file docs/deaths_lag_sweden_latest.png
 550f77d43af1dea9,target,file docs/deaths_lag_sweden_2020-06-08.png
 107896a4182cf814,target,file docs/deaths_lag_sweden_2020-06-09.png
@@ -320,7 +320,8 @@ aba5f60f77a566d3,target,file docs/deaths_lag_sweden_2020-10-06.png
 710664216a782ba2,target,file docs/deaths_lag_sweden_2020-10-07.png
 0c7b326400569244,target,file docs/deaths_lag_sweden_2020-10-08.png
 fb899bc57ae0a979,target,file docs/deaths_lag_sweden_2020-10-09.png
-8c8dcdf9af608ae1,target,file docs/index.md
+fb899bc57ae0a979,target,file docs/deaths_lag_sweden_2020-10-10.png
+26e20a9aa8bf3c66,target,file docs/index.md
 60edc3a7ab543249,target,file docs/lag_trend_sweden_2020-06-08.png
 82484c8aa35e692a,target,file docs/lag_trend_sweden_2020-06-09.png
 505287bfdc5acb78,target,file docs/lag_trend_sweden_2020-06-14.png
@@ -440,6 +441,7 @@ ab3de1d789eed16a,target,file docs/lag_trend_sweden_2020-09-23.png
 f963c157c61006b9,target,file docs/lag_trend_sweden_2020-10-01.png
 11dca01f24f3deec,target,file docs/lag_trend_sweden_2020-10-02.png
 11dca01f24f3deec,target,file docs/lag_trend_sweden_2020-10-03.png
+6a231111b2a722aa,target,file docs/lag_trend_sweden_2020-10-10.png
 4e21d11a7b4503e4,target,file docs/lag_trend_sweden_latest.png
 36cfbaf4eb1e05e6,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
 0f8b1fca30c0973c,import,plot_lag_trends_grid

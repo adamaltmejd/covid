@@ -86,7 +86,7 @@ load_fhm_deaths <- function(f) {
 
     setnames(DT, c("date", "N"))
 
-    DT[(tolower(date) %in% c("uppgift saknas", "uppgift saknaa")), date := NA]
+    DT[(tolower(date) %in% c("uppgift saknas", "uppgift saknaa", "uppgift saknas+a1")), date := NA]
 
     if (can_be_numeric(DT[, date])) {
         DT[, date := as.Date(as.numeric(date), origin = "1899-12-30")]
@@ -141,9 +141,9 @@ join_data <- function(death_dts) {
 }
 
 predict_lag <- function(death_dt) {
-    # Calculate the average lag from the last 21 days for each report
+    # Calculate the average lag from the last 14 days for each report
     # So when calculating the average number of deaths added on day 3,
-    # include day-3 reports from three weeks back from that date.
+    # include day-3 reports from two weeks back from that date.
     DT <- death_dt[days_since_publication != 0 &
                    !is.na(days_since_publication) &
                    !is.na(date) &
@@ -341,27 +341,29 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
-        geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity") +
-        geom_bar(position = "stack", stat = "identity", aes(fill = delay)) +
+        geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity", width = 1) +
+        geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
 
-        geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
+        # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
         geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
         geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
 
-        geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
+        #geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-03-12"), y = 100,
+                 x = Sys.Date()-40, y = 100,
                  label = paste0(latest_date, "\n",
                                 "Reported: ", format(total_deaths, big.mark = ","), "\n",
                                 "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
                                 "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
-        scale_color_manual(values = c("black", "red")) +
+        # scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
-        scale_linetype_manual(values = c("By report date" = "dotted", "By death date" = "solid", "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +
-        scale_x_date(date_breaks = "3 day", date_labels = "%b %d", expand = expansion(add = 0.8)) +
-        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(5, 10)), sec.axis = dup_axis(name=NULL)) +
+        scale_linetype_manual(values = c(#"By report date" = "dotted",
+                                         "By death date" = "solid",
+                                         "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +
+        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
+        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
@@ -383,16 +385,16 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
     days <- days[date %between% c(DT[, min(date)], DT[, max(date)])]
 
     ggplot(data = DT, aes(x = date, y = value)) +
-        geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
-        geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
+        #geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
+        #geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
         geom_line(aes(group = variable, color = variable), linetype = "twodash", size = 0.9, alpha = 0.8) +
-        scale_x_date(date_breaks = "5 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
-        scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
+        scale_y_continuous(limits = c(-1, 32), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
         # scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,3))) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
         default_theme +
         theme(legend.direction = "horizontal",
-              legend.position = c(0.5, 0.8), legend.justification = "center",
+              legend.position = c(0.4, 0.8), legend.justification = "center",
               panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
               panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)) +
         labs(color = "Completed = days until 3-day change is below:",
@@ -416,12 +418,12 @@ plot_lag_trends2 <- function(death_dt, days, default_theme) {
 
     g <- ggplot(data = DT[lag <= 30],
                 aes(x = publication_date, y = lag)) +
-        geom_text(data = days[weekend == TRUE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
-        geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
-        geom_point(aes(size = n_diff, color = delay)) +
+        #geom_text(data = days[weekend == TRUE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
+        #geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
+        geom_point(aes(size = n_diff / 2, color = delay)) +
         geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
-        scale_x_date(date_breaks = "5 day", date_labels = "%B %d", expand = c(0.02,0.02)) +
-        scale_y_continuous(limits = c(-1, 30), expand = expansion(add = c(1, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
+        scale_y_continuous(limits = c(-1, 32), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
         scale_color_manual(values = colors) + #limits = label_order
         scale_linetype_manual(values = c("90th Percentile" = "dashed"), name = "Statistics") +

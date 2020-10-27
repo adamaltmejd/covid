@@ -5,7 +5,6 @@ plan <- drake_plan(
                                   f = file_out(!!file.path("data", "ECDC.csv"))),
                   trigger = trigger(condition = RCurl::url.exists("opendata.ecdc.europa.eu/covid19/casedistribution/csv"),
                                     change = Sys.Date())),
-    #fhm_files = target(list_fhm_files(folder = file_in(!!file.path("data", "FHM"))), format = "file"),
     fhm_paths = list.files(file_in(!!file.path("data", "FHM")), pattern = "^Folkhalso", full.names = TRUE),
     fhm_files = target(fhm_paths, format = "file", dynamic = map(fhm_paths)),
     death_dts = target(load_fhm_deaths(fhm_files), dynamic = map(fhm_files)),

@@ -373,8 +373,8 @@ be4f6b6f00240fec,import,get_remote_data
 a100bf8df12f05b3,import,join_data
 37b13f4898b3c1aa,target,lag_plot
 9f45df40d2846311,target,lag_plot1
-97cdd31d88e40647,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+7cb93a5bad75e258,target,lag_plot2
+c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 e859bac9effb1e02,import,load_fhm_deaths
 b382c19642b49542,import,RCurl::url.exists

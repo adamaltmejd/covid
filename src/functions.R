@@ -367,7 +367,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Light grey bars show total predicted deaths based on the average lags during the last 3 weeks."),
+                               "Light grey bars show total predicted deaths based on the average lags during the last 2 weeks."),
              caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",

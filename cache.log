@@ -405,8 +405,8 @@ be4f6b6f00240fec,import,get_remote_data
 a100bf8df12f05b3,import,join_data
 976ae0f61cc2d522,target,lag_plot
 8671a87f6353ca2c,target,lag_plot1
-eced09aec2b3b2c2,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+2865d576014dcc15,target,lag_plot2
+c85d88fc56f4e042,target,latest_fhm
 5ea91e324b829377,import,list_fhm_files
 e859bac9effb1e02,import,load_fhm_deaths
 b382c19642b49542,import,RCurl::url.exists

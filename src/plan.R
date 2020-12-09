@@ -16,8 +16,6 @@ plan <- drake_plan(
     # ICU Stats
     icu_dts = target(load_fhm_icu(fhm_files), dynamic = map(fhm_files)),
     icu_dt = join_data(icu_dts),
-    # Predict deaths from ICU admissions as prior:
-    icu_prediction = predict_from_icu(icu_dt, death_dt),
 
     # Save data
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),

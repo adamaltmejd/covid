@@ -104,6 +104,39 @@ load_fhm_deaths <- function(f) {
     return(as.data.frame(DT))
 }
 
+load_fhm_icu <- function(f) {
+    require(data.table)
+    require(readxl)
+    require(stringr)
+
+    # Skip early reports that do not contain ICU data
+    date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+    if (date <= as.Date("2020-04-24")) return(NULL)
+
+    sheets <- excel_sheets(f)
+
+    DT <- data.table((
+        read_excel(path = f, sheet = grep("intensivvårdade", sheets), col_types = c("text", "numeric"))
+    ))
+    setnames(DT, c("date", "N"))
+    DT[(tolower(date) %in% c("uppgift saknas", "uppgift saknaa", "uppgift saknas+a1")), date := NA]
+
+    if (can_be_numeric(DT[, date])) {
+        DT[, date := as.Date(as.numeric(date), origin = "1899-12-30")]
+    } else {
+        DT[, date := as.Date(date)]
+    }
+
+    # Ensure starting point is March 1st, and that all dates have a value
+    publication_date <- get_record_date(f)
+    DT <- merge(DT, data.table(date = seq(as.Date("2020-03-01"), publication_date, by = 1)), all = TRUE)
+    DT[is.na(N), N := 0]
+
+    DT[, publication_date := publication_date]
+
+    return(as.data.frame(DT))
+}
+
 can_be_numeric <- function(x) {
     # Check if vector can be converted to numeric
     stopifnot(is.atomic(x) || is.list(x)) # check if x is a vector

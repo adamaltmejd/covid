@@ -13,6 +13,12 @@ plan <- drake_plan(
     time_to_finished = calculate_lag(death_dt),
     days = day_of_week(death_dt),
 
+    # ICU Stats
+    icu_dts = target(load_fhm_icu(fhm_files), dynamic = map(fhm_files)),
+    icu_dt = join_data(icu_dts),
+    # Predict deaths from ICU admissions as prior:
+    icu_prediction = predict_from_icu(icu_dt, death_dt),
+
     # Save data
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
     fwrite(death_prediction, file_out(!!file.path("data", "predictions.csv"))),

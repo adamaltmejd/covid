@@ -8,6 +8,7 @@
 
 source('src/packages.R')
 source('src/functions.R')
+source('src/model.R')
 source('src/plan.R')
 
 drake::drake_config(

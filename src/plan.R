@@ -17,7 +17,15 @@ plan <- drake_plan(
     icu_dts = target(load_fhm_icu(fhm_files), dynamic = map(fhm_files)),
     icu_dt = join_data(icu_dts),
 
+    # Model predictions
+    model_death_dt = model_build_death_dt(death_dt),
+    model_icu_dt = model_build_icu_dt(icu_dt),
+
+    #model_results <- run.model.all(readd(model_death_dt), readd(model_icu_dt))
+    model_results = run.model.all(model_death_dt, model_icu_dt)
+
     # Save data
+    fwrite(icu_dt, file_out(!!file.path("data", "covid_icu_latest.csv"))),
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
     fwrite(death_prediction, file_out(!!file.path("data", "predictions.csv"))),
 

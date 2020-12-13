@@ -22,11 +22,11 @@ icu_covariates <- function(deaths, icu){
     #
     # save files on line 77
     icu_cov <- NULL
-    icu_cov_name <- file.path("data", "model", "icu_covariates.rds")
+    icu_cov_name <- file.path("data", "processed", "icu_covariates.rds")
     if(file.exists(icu_cov_name)==T)
         icu_cov  <- readRDS(icu_cov_name)
 
-    icu_pre <-read_excel(path = file.path("data", "FHM", "Folkhalsomyndigheten_Covid19_2020-12-09.xlsx"),
+    icu_pre <-read_excel(path = file.path("data", "Folkhalsomyndigheten_Covid19.xlsx"),
                          sheet = 3,
                          col_types = c("date", "numeric"),
                          progress = FALSE)
@@ -42,21 +42,21 @@ icu_covariates <- function(deaths, icu){
         icu_est[j] <- max(icu$detected[j,1:(j+lag)],na.rm=T)
     }
 
-
     icu_pre <- data.frame(date = as.Date(icu_pre$Datum_vårdstart),
                           icu  = icu_pre$Antal_intensivvårdade)
     icu_est <- c(icu_pre$icu[1:51], icu_est)
     dates <- c(icu_pre$date[1:51] ,as.Date(icu$dates[1:(N-lag)]))
 
 
-
     if(is.null(icu_cov)){
+
         data.list <- list(date=1:51,
                           Y = icu_est[1:51])
         model.fit <- gam(Y~s(date), data=data.list, family = poisson)
         icu_cov = data.frame(date=dates[1:51],
-                            theta=log(model.fit$fitted.values)[1:51])
+                             theta=log(model.fit$fitted.values)[1:51])
     }
+
     for(i in 52:length(icu_est)){
         if(dates[i]%in% icu_cov$date ==T)
             next
@@ -66,17 +66,17 @@ icu_covariates <- function(deaths, icu){
                           Y = icu_est[1:i])
 
         model.fit <- gam(Y~s(date), data=data.list, family = poisson)
-
         icu_cov <- rbind(icu_cov,
                          c(as.character(dates[i]),
                            log(model.fit$fitted.values)[i]))
 
     }
+    dates <- icu_cov$date
     icu_cov$theta <- as.numeric(icu_cov$theta)
     saveRDS(icu_cov, file.path("data", "model", "icu_covariates.rds"))
     theta <- icu_cov$theta
-    icu_lag <- c(rep(0,lag), theta)[1:length(theta)]
-
+    icu_lag <- c(rep(0,lag), theta)
+    dates <- c(dates,dates[length(theta)] + 1:7)
 
     # fit coefficients
     incomplete_deaths <- 30
@@ -96,6 +96,8 @@ icu_covariates <- function(deaths, icu){
                                        theta = icu_lag),
                 coeff     = glm.fit$coefficients))
 }
+
+
 
 
 

@@ -71,53 +71,36 @@ list_fhm_files <- function(folder = file.path("data", "FHM")) {
     list.files(folder, pattern = "^Folkhalso", full.names = TRUE)
 }
 
-load_fhm_deaths <- function(f) {
+load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
     require(data.table)
     require(readxl)
     require(stringr)
+    require(lubridate)
+
+    publication_date <- get_record_date(f)
+    file_date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
+
+    if (is.na(publication_date)) {
+        publication_date <- file_date
+    } else {
+        if (publication_date != file_date) { warning("Pub date not file date: [", f, "].") }
+    }
 
     # Skip early reports that do not contain death data
-    date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
-    if (date <= as.Date("2020-04-01")) return(NULL)
+    if (type == "deaths") start_date <- as.Date("2020-04-01")
+    if (type == "icu") start_date <- as.Date("2020-04-24")
+    if (publication_date <= start_date) return(NULL)
 
-    DT <- data.table((
-        read_excel(path = f, sheet = 2, col_types = c("text", "numeric"))
-    ))
-
-    setnames(DT, c("date", "N"))
-
-    DT[(tolower(date) %in% c("uppgift saknas", "uppgift saknaa", "uppgift saknas+a1")), date := NA]
-
-    if (can_be_numeric(DT[, date])) {
-        DT[, date := as.Date(as.numeric(date), origin = "1899-12-30")]
-    } else {
-        DT[, date := as.Date(date)]
+    if (type == "deaths") sheet_n <- 2
+    if (type == "icu") {
+        sheets <- excel_sheets(f)
+        sheet_n <- grep("intensivvårdade", sheets)
     }
 
-    # Ensure starting point is March 1st, and that all dates have a value
-    publication_date <- get_record_date(f)
-    DT <- merge(DT, data.table(date = seq(as.Date("2020-03-01"), publication_date, by = 1)), all = TRUE)
-    DT[is.na(N), N := 0]
-
-    DT[, publication_date := publication_date]
-
-    return(as.data.frame(DT))
-}
-
-load_fhm_icu <- function(f) {
-    require(data.table)
-    require(readxl)
-    require(stringr)
-
-    # Skip early reports that do not contain ICU data
-    date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
-    if (date <= as.Date("2020-04-24")) return(NULL)
-
-    sheets <- excel_sheets(f)
-
     DT <- data.table((
-        read_excel(path = f, sheet = grep("intensivvårdade", sheets), col_types = c("text", "numeric"))
+        read_excel(path = f, sheet = sheet_n, col_types = c("text", "numeric"))
     ))
+
     setnames(DT, c("date", "N"))
     DT[(tolower(date) %in% c("uppgift saknas", "uppgift saknaa", "uppgift saknas+a1")), date := NA]
 
@@ -128,11 +111,19 @@ load_fhm_icu <- function(f) {
     }
 
     # Ensure starting point is March 1st, and that all dates have a value
-    publication_date <- get_record_date(f)
-    DT <- merge(DT, data.table(date = seq(as.Date("2020-03-01"), publication_date, by = 1)), all = TRUE)
-    DT[is.na(N), N := 0]
+    # date_seq <- seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
+    date_seq <- tryCatch({
+        seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
+    }, error = function(cond) {
+        browser()
+        print(publication_date)
+        stop("Error: ", cond, "[", f, "]")
+    })
 
+    DT <- merge(DT, data.table(date = date_seq), all = TRUE)
+    DT[is.na(N), N := 0]
     DT[, publication_date := publication_date]
+    setkey(DT, publication_date, date)
 
     return(as.data.frame(DT))
 }

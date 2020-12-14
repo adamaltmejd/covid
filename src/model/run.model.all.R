@@ -101,11 +101,16 @@ run.model.all <- function(deaths, icu){
             saveRDS(result$posteriror_list, file = paste(store_data_folder,"/prior_",j,'.rds',sep=""))
         }else{
             Npost <-readRDS( file = paste(store_data_folder,"/Npost_",j,'.rds',sep=""))
+            report_cleaned <- report_clean(deaths$detected[start_:j,start_:j],deaths$dates[start_:j])
+            new_cases <- newCases(report_cleaned)
+            rownames(new_cases) <- as.character(deaths$dates[start_:j])
+            colnames(new_cases) <- as.character(deaths$dates[start_:j])
         }
+        Total_repported <- rowSums(new_cases, na.rm=T)
         output_temp <-data.frame(prediction_date  = Npost$State,
                                  date             = Npost$dates,
-                                 sure_deaths      = Npost$Truth,
-                                 predicted_deaths = Npost$median-Npost$Truth,
+                                 sure_deaths      = Total_repported[names(Total_repported)%in%Npost$dates],
+                                 predicted_deaths = Npost$median-Total_repported[names(Total_repported)%in%Npost$dates],
                                  predicted_deaths_lCI = Npost$lCI,
                                  predicted_deaths_uCI = Npost$uCI,
                                  total                = Npost$media)

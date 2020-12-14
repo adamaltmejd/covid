@@ -108,7 +108,7 @@ run.model.all <- function(deaths, icu){
                                  predicted_deaths = Npost$median-Npost$Truth,
                                  predicted_deaths_lCI = Npost$lCI,
                                  predicted_deaths_uCI = Npost$uCI,
-                                 predicted_deaths = Npost$media)
+                                 total                = Npost$media)
         if(dim(output)[1] == 0){
             output <- output_temp
         }else{

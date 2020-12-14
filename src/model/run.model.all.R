@@ -107,6 +107,7 @@ run.model.all <- function(deaths, icu){
             colnames(new_cases) <- as.character(deaths$dates[start_:j])
         }
         Total_repported <- rowSums(new_cases, na.rm=T)
+
         output_temp <-data.frame(prediction_date  = Npost$State,
                                  date             = Npost$dates,
                                  sure_deaths      = Total_repported[names(Total_repported)%in%Npost$dates],
@@ -114,6 +115,32 @@ run.model.all <- function(deaths, icu){
                                  predicted_deaths_lCI = Npost$lCI,
                                  predicted_deaths_uCI = Npost$uCI,
                                  total                = Npost$media)
+
+        cov_index <- cov_$theta_cov$date%in% Npost$State[1]
+        cov_data  <- cov_$theta_cov$theta[cov_index]
+        icu_pred <- qpois(c(model_parameters$quantile[1],
+                            0.5,
+                            model_parameters$quantile[2]),
+                          lambda = exp(c(1,cov_data)%*%cov_$coeff ))
+        date_to_predict <- Npost$State[1] + (max(as.Date(Npost$dates))-Npost$State[1]+1):0
+        cov_index <- cov_$theta_cov$date%in% date_to_predict
+        cov_data  <- cov_$theta_cov$theta[cov_index]
+        icu_pred <- qpois(model_parameters$quantile[1],
+                          lambda = exp(cbind(1,cov_data)%*%cov_$coeff ))
+        icu_pred <- cbind(icu_pred, qpois(0.5,
+                                          lambda = exp(cbind(1,cov_data)%*%cov_$coeff )))
+        icu_pred <- cbind(icu_pred, qpois(model_parameters$quantile[2],
+                                          lambda = exp(cbind(1,cov_data)%*%cov_$coeff )))
+        output_temp <- rbind(output_temp,
+                             data.frame(
+                                 prediction_date  = Npost$State[1],
+                                 date             = as.character(date_to_predict),
+                                 sure_deaths      = 0,
+                                 predicted_deaths = icu_pred[,2],
+                                 predicted_deaths_lCI = icu_pred[,1],
+                                 predicted_deaths_uCI = icu_pred[,3],
+                                 total                = icu_pred[,2]
+                             ))
         if(dim(output)[1] == 0){
             output <- output_temp
         }else{

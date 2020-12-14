@@ -29,7 +29,7 @@ for(day in days){
     cat(' (',round(mean(CI_under),2),',',round(mean(CI_over),2),")" ,sep="")
     cat('\n')
 }
-day_ <- 2
+day_ <- 1
 index <- data$df==day_
 data_temp <- data[index,]
 #data_temp <- data_temp[80:sum(index),]

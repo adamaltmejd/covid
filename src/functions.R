@@ -213,8 +213,13 @@ predict_lag <- function(death_dt) {
     setnames(predictions, "publication_date", "prediction_date")
     predictions[, total := sure_deaths + predicted_deaths]
 
+    # CIs
+    predictions[, total_lCI := total - 1.96 * predicted_deaths_SD]
+    predictions[, total_uCI := total + 1.96 * predicted_deaths_SD]
+    predictions[, predicted_deaths_SD := NULL]
+
     # Assume no more deaths after 28 days just to have a cleaner data set
-    predictions <- predictions[days_since_publication <= 28]
+    predictions <- predictions[days_since_publication <= 30]
     predictions[, days_since_publication := NULL]
 
     setkey(predictions, prediction_date, date)

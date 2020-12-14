@@ -111,14 +111,20 @@ run.model.all <- function(deaths, icu){
                                  date             = Npost$dates,
                                  sure_deaths      = Total_repported[names(Total_repported)%in%Npost$dates],
                                  predicted_deaths = Npost$median-Total_repported[names(Total_repported)%in%Npost$dates],
-                                 predicted_deaths_lCI = Npost$lCI,
-                                 predicted_deaths_uCI = Npost$uCI,
-                                 total                = Npost$media)
+                                 total            = Npost$median,
+                                 total_lCI        = Npost$lCI,
+                                 total_uCI        = Npost$uCI
+                                 )
         if(dim(output)[1] == 0){
             output <- output_temp
         }else{
             output <- rbind(output, output_temp)
         }
     }
+    output <- data.table(output)
+    output[, prediction_date := as.Date(prediction_date)]
+    output[, date := as.Date(date)]
+    setkey(output, prediction_date, date)
+
     return(output)
 }

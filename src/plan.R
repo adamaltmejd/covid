@@ -9,7 +9,6 @@ plan <- drake_plan(
     fhm_files = target(fhm_paths, format = "file", dynamic = map(fhm_paths)),
     death_dts = target(load_fhm_data(fhm_files, type = "deaths"), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),
-    death_prediction = predict_lag(death_dt),
     time_to_finished = calculate_lag(death_dt),
     days = day_of_week(death_dt),
 
@@ -21,17 +20,21 @@ plan <- drake_plan(
     model_death_dt = model_build_death_dt(death_dt),
     model_icu_dt = model_build_icu_dt(icu_dt),
 
-    #model_results <- run.model.all(readd(model_death_dt), readd(model_icu_dt))
-    model_results = run.model.all(model_death_dt, model_icu_dt),
+    death_prediction_constant = predict_lag(death_dt),
+    death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
 
     # Save data
     fwrite(icu_dt, file_out(!!file.path("data", "covid_icu_latest.csv"))),
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
-    fwrite(death_prediction, file_out(!!file.path("data", "predictions.csv"))),
+    fwrite(merge(death_prediction_constant[, -"predicted_deaths"],
+                 death_prediction_model[, -c("sure_deaths", "predicted_deaths")],
+                 suffixes = c(".constant", ".model"), all = TRUE),
+           file_out(!!file.path("data", "predictions.csv"))),
 
     # Plots
     default_theme = set_default_theme(),
-    death_plot = plot_lagged_deaths(death_dt, death_prediction, ecdc, days, default_theme),
+    death_plot = plot_lagged_deaths(death_dt, death_prediction_constant, ecdc, days, default_theme),
+    death_plot_model = plot_lagged_deaths(death_dt, death_prediction_model, ecdc, days, default_theme),
     lag_plot1 = plot_lag_trends1(time_to_finished, days, default_theme),
     lag_plot2 = plot_lag_trends2(death_dt, days, default_theme),
     lag_plot = plot_lag_trends_grid(lag_plot1, lag_plot2, default_theme),
@@ -41,6 +44,7 @@ plan <- drake_plan(
 
     save_plot(death_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")))),
     save_plot(death_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_latest.png"))), bgcolor = "white"),
+    save_plot(death_plot_model, file_out(!!file.path("docs", paste0("deaths_lag_sweden_model.png"))), bgcolor = "white"),
 
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png")))),
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_latest.png"))), bgcolor = "white"),

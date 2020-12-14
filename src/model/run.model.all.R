@@ -147,5 +147,10 @@ run.model.all <- function(deaths, icu){
             output <- rbind(output, output_temp)
         }
     }
+    output <- data.table(output)
+    output[, prediction_date := as.Date(prediction_date)]
+    output[, date := as.Date(date)]
+    setkey(output, prediction_date, date)
+
     return(output)
 }

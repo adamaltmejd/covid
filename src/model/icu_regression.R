@@ -22,7 +22,7 @@ icu_covariates <- function(deaths, icu){
     #
     # save files on line 77
     icu_cov <- NULL
-    icu_cov_name <- file.path("data", "processed", "icu_covariates.rds")
+    icu_cov_name <- file.path("data", "model", "icu_covariates.rds")
     if(file.exists(icu_cov_name)==T)
         icu_cov  <- readRDS(icu_cov_name)
 

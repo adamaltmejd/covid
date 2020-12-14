@@ -10,6 +10,8 @@ source(file.path("src","model","model.R"))
 source(file.path("src","model","icu_regression.R"))
 
 
+
+
 #' Running n.estimate for all data
 #'
 #'@param list for deaths output of buildData.R
@@ -24,7 +26,7 @@ run.model.all <- function(deaths, icu){
     #i icu_covariates  updateras filer
     cov_ <- icu_covariates(deaths, icu)
 
-    store_data_folder <- file.path("data", "model")
+    store_data_folder <- file.path("data","model")
 
     ####
 
@@ -45,6 +47,8 @@ run.model.all <- function(deaths, icu){
                            theta_Sigma    =  5*diag(2),
                            mu_phi         = 1,
                            sigma_phi      = 1)
+
+    output <- data.frame()
 
     for(j in (days_run+1):length(deaths$dates)){
         start_ = j - days_run # run the last 31 days
@@ -71,7 +75,7 @@ run.model.all <- function(deaths, icu){
                             prior_list,
                             covariates = cov_data,
                             beta_covarites = cov_$coeff
-                            )
+            )
             result$posteriror_list$n_obs <- prior_list$n_obs + days_run
 
             ##
@@ -95,6 +99,21 @@ run.model.all <- function(deaths, icu){
             colnames(Npost)[c(1,7)] <- c("State",'Truth')
             saveRDS(Npost, file = paste(store_data_folder,"/Npost_",j,'.rds',sep=""))
             saveRDS(result$posteriror_list, file = paste(store_data_folder,"/prior_",j,'.rds',sep=""))
+        }else{
+            Npost <-readRDS( file = paste(store_data_folder,"/Npost_",j,'.rds',sep=""))
+        }
+        output_temp <-data.frame(prediction_date  = Npost$State,
+                                 date             = Npost$dates,
+                                 sure_deaths      = Npost$Truth,
+                                 predicted_deaths = Npost$median-Npost$Truth,
+                                 predicted_deaths_lCI = Npost$lCI,
+                                 predicted_deaths_uCI = Npost$uCI,
+                                 predicted_deaths = Npost$media)
+        if(dim(output)[1] == 0){
+            output <- output_temp
+        }else{
+            output <- rbind(output, output_temp)
         }
     }
+    return(output)
 }

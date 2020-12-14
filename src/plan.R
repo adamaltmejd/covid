@@ -7,14 +7,14 @@ plan <- drake_plan(
                                     change = Sys.Date())),
     fhm_paths = list.files(file_in(!!file.path("data", "FHM")), pattern = "^Folkhalso", full.names = TRUE),
     fhm_files = target(fhm_paths, format = "file", dynamic = map(fhm_paths)),
-    death_dts = target(load_fhm_deaths(fhm_files), dynamic = map(fhm_files)),
+    death_dts = target(load_fhm_data(fhm_files, type = "deaths"), dynamic = map(fhm_files)),
     death_dt = join_data(death_dts),
     death_prediction = predict_lag(death_dt),
     time_to_finished = calculate_lag(death_dt),
     days = day_of_week(death_dt),
 
     # ICU Stats
-    icu_dts = target(load_fhm_icu(fhm_files), dynamic = map(fhm_files)),
+    icu_dts = target(load_fhm_data(fhm_files, type = "icu"), dynamic = map(fhm_files)),
     icu_dt = join_data(icu_dts),
 
     # Model predictions

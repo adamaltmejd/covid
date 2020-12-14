@@ -26,7 +26,7 @@ icu_covariates <- function(deaths, icu){
     if(file.exists(icu_cov_name)==T)
         icu_cov  <- readRDS(icu_cov_name)
 
-    icu_pre <-read_excel(path = file.path("data", "Folkhalsomyndigheten_Covid19.xlsx"),
+    icu_pre <-read_excel(path = file.path("data", "FHM", "Folkhalsomyndigheten_Covid19_2020-12-09.xlsx"),
                          sheet = 3,
                          col_types = c("date", "numeric"),
                          progress = FALSE)

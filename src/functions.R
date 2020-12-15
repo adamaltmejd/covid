@@ -46,7 +46,8 @@ get_record_date <- function(f) {
     sheets <- excel_sheets(f)
     ret <- as.Date(sub("^FOHM ", "", sheets[length(sheets)]), format="%d %b %Y")
     if (is.na(ret)) ret <- as.Date(sub("^FOHM ", "", sheets[grep("FOHM", sheets)]), format="%d %b %Y")
-    return(ret)
+    if (length(ret) > 0) return(ret)
+    return(as.Date(NA))
 }
 
 trigger_new_download <- function(f) {
@@ -287,6 +288,7 @@ day_of_week <- function(death_dt) {
 ##
 # Plots
 set_default_theme <- function() {
+    require(ggplot2)
     require(hrbrthemes)
 
     theme_ipsum(base_family = "EB Garamond") %+replace%
@@ -320,7 +322,9 @@ set_default_theme <- function() {
         )
 }
 
-plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_theme) {
+plot_lagged_deaths <- function(death_dt,
+                               death_prediction_constant, death_prediction_model,
+                               ecdc, days, default_theme) {
     require(ggplot2)
     require(forcats)
 
@@ -328,12 +332,14 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
     total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]
 
     death_dt <- death_dt[date >= "2020-03-12"]
-    death_prediction <- death_prediction[prediction_date == latest_date]
-    predicted_deaths <- round(death_prediction[, sum(predicted_deaths)], 0)
+    death_prediction_constant <- death_prediction_constant[prediction_date == latest_date]
+    death_prediction_model <- death_prediction_model[prediction_date == latest_date]
+
+    predicted_deaths <- round(death_prediction_model[, sum(predicted_deaths)], 0)
 
     # Deaths by actual date
     actual_deaths <- death_dt[publication_date == latest_date & !is.na(date), .(date, N)]
-    actual_deaths <- merge(actual_deaths, death_prediction[, .(date, predicted = total)],
+    actual_deaths <- merge(actual_deaths, death_prediction_constant[, .(date, predicted = total)],
                            by = "date", all = TRUE)
     actual_deaths[is.na(predicted), predicted := N]
     setkey(actual_deaths, date)
@@ -342,13 +348,13 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
 
     # ECDC data of reported deaths per day
     # Moving average (centered)
-    ecdc <- ecdc[countryterritoryCode == "SWE",
-                 .(date = as.Date(dateRep, format = "%d/%m/%Y"),
-                   cases, deaths)]
-    ecdc <- ecdc[, date := date - 1]
-    ecdc <- ecdc[date >= "2020-03-12"]
-    setkey(ecdc, date)
-    ecdc[, avg := frollmean(deaths, 7, algo = "exact", align = "center")]
+    # ecdc <- ecdc[countryterritoryCode == "SWE",
+    #              .(date = as.Date(dateRep, format = "%d/%m/%Y"),
+    #                cases, deaths)]
+    # ecdc <- ecdc[, date := date - 1]
+    # ecdc <- ecdc[date >= "2020-03-12"]
+    # setkey(ecdc, date)
+    # ecdc[, avg := frollmean(deaths, 7, algo = "exact", align = "center")]
 
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
@@ -365,23 +371,27 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
 
     # Drop earliest data
     death_dt <- death_dt[date >= "2020-03-12"]
-    death_prediction <- death_prediction[date >= "2020-03-12"]
+    death_prediction_constant <- death_prediction_constant[date >= "2020-03-12"]
     days <- days[date >= "2020-03-12"]
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
-        geom_bar(data = death_prediction, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity", width = 1) +
+        #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity", width = 1) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
 
         # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
         geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
-        geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
+        #geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
+
+        geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
+        geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = predicted_deaths_lCI, ymax = predicted_deaths_uCI),
+                    fill = "#444444", alpha = 0.2) +
 
         #geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date()-40, y = 100,
+                 x = Sys.Date()-60, y = 100,
                  label = paste0(latest_date, "\n",
                                 "Reported: ", format(total_deaths, big.mark = ","), "\n",
                                 "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
@@ -390,7 +400,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction, ecdc, days, default_t
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_linetype_manual(values = c(#"By report date" = "dotted",
                                          "By death date" = "solid",
-                                         "Forecast" = "dashed"), name = "Statistics (7-d avg.)") +
+                                         "Model forecast" = "dashed"), name = "Statistics (7-d avg.)") +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
@@ -545,7 +555,8 @@ update_web <- function(death_plot, lag_plot, index) {
         "---\n",
         paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', basename(death_plot), ' "Swedish Covid-19 deaths.")'),
         paste0('![Graph of Swedish Covid-19 reporting delay in daily deaths.](', basename(lag_plot), ' "Trend in Swedish Covid-19 mortality reporting delay.")'),
-        "For code and data, visit <https://github.com/adamaltmejd/covid>."
+        "For code and data, visit <https://github.com/adamaltmejd/covid>.",
+        "For an indepth explanation and evaluation of the nowcasting model, see <https://arxiv.org/abs/2006.06840>."
     )
     con <- file(index, "w")
     writeLines(lines, con = con)

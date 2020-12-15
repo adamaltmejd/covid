@@ -1,7 +1,6 @@
 library(tidyr)
 source(file.path("src", "model", "util.R"))
 source(file.path("src", "model", "MH.R"))
-source(file.path("src", "model", "functions.R"))
 source(file.path("src", "model", "GPutil.R"))
 source(file.path("src", "model", "MLbeta.R"))
 library(numDeriv)

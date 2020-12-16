@@ -294,7 +294,7 @@ set_default_theme <- function() {
     theme_ipsum(base_family = "EB Garamond") %+replace%
         theme(
             text = element_text(size = 12, color = "#333333", family = "EB Garamond"),
-            plot.title = element_text(size = rel(2), face = "bold", hjust = 0, margin = margin(0,0,5,0)),
+            plot.title = element_text(size = rel(2), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.subtitle = element_text(size = rel(1), face = "plain", hjust = 0, margin = margin(0,0,5,0)),
             plot.caption = element_text(size = rel(0.7), family = "EB Garamond", face = "italic", hjust = 1, vjust = 1, margin = margin(12,0,0,0)),
 
@@ -307,8 +307,8 @@ set_default_theme <- function() {
             legend.box.margin = margin(0,0,0,0),
             legend.box.just = "left",
 
-            axis.title.y = element_text(size = rel(1.2), face = "bold", angle = 90, hjust = 1, vjust = 1, margin = margin(0, 4, 0, 0)),
-            axis.title.x = element_text(size = rel(1.2), face = "bold", hjust = 1, vjust = 1, margin = margin(4, 0, 0, 0)),
+            axis.title.y = element_text(size = rel(1.2), face = "plain", angle = 90, hjust = 1, vjust = 1, margin = margin(0, 4, 0, 0)),
+            axis.title.x = element_text(size = rel(1.2), face = "plain", hjust = 1, vjust = 1, margin = margin(4, 0, 0, 0)),
             axis.text.x = element_text(angle = 35, hjust = 1, vjust = 1.1),
 
             # Panels
@@ -365,9 +365,9 @@ plot_lagged_deaths <- function(death_dt,
     levels(death_dt$delay) <- death_dt[, sum(n_diff), delay][order(c(1,2,7,6,5,4,3,8))][, paste0(delay, " (N=", V1, ")")]
 
     fill_colors <- c("gray40", "#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF", "#E1E1E1")
-    fill_colors <- setNames(fill_colors, c(levels(death_dt$delay), "Forecast (avg. lag)"))
+    fill_colors <- setNames(fill_colors, c(levels(death_dt$delay), "Model nowcast"))
     death_dt[, delay := forcats::fct_rev(delay)]
-    label_order <- c("Forecast (avg. lag)", levels(death_dt$delay))
+    label_order <- c("Model nowcast", levels(death_dt$delay))
 
     # Drop earliest data
     death_dt <- death_dt[date >= "2020-03-12"]
@@ -376,7 +376,7 @@ plot_lagged_deaths <- function(death_dt,
 
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
-        #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Forecast (avg. lag)"), stat="identity", width = 1) +
+        #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
 
         # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
@@ -400,13 +400,13 @@ plot_lagged_deaths <- function(death_dt,
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_linetype_manual(values = c(#"By report date" = "dotted",
                                          "By death date" = "solid",
-                                         "Model forecast" = "dashed"), name = "Statistics (7-d avg.)") +
+                                         "Model forecast" = "dashed"), name = "Statistics") +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Light grey bars show total predicted deaths based on the average lags during the last 2 weeks."),
+                               "Dashed line shows model predictions, with the light grey area indicating the 95% credible interval."),
              caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",

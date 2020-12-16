@@ -350,11 +350,11 @@
       "Version": "0.8.6",
       "Source": "GitHub",
       "RemoteType": "github",
+      "RemoteHost": "api.github.com",
       "RemoteUsername": "hrbrmstr",
       "RemoteRepo": "hrbrthemes",
       "RemoteRef": "master",
       "RemoteSha": "1cc6080fb76f50c14b01b0d663ad039dd5ef1b53",
-      "RemoteHost": "api.github.com",
       "Hash": "54a775fb96d64abdb309887b884851ca"
     },
     "htmltools": {
@@ -513,10 +513,10 @@
     },
     "pkgbuild": {
       "Package": "pkgbuild",
-      "Version": "1.1.0",
+      "Version": "1.2.0",
       "Source": "Repository",
       "Repository": "CRAN",
-      "Hash": "404684bc4e3685007f9720adf13b06c1"
+      "Hash": "725fcc30222d4d11ec68efb8ff11a9af"
     },
     "pkgconfig": {
       "Package": "pkgconfig",

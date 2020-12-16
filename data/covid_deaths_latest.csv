@@ -27784,7 +27784,6 @@ date,N,publication_date,days_since_publication,n_diff,n_diff_pct,delay
 2020-12-13,12,2020-12-15,2,12,,2 Days
 2020-12-14,6,2020-12-15,1,6,,1 Day
 2020-12-15,0,2020-12-15,0,0,0,Same day
-<<<<<<< HEAD
 ,26,2020-12-16,,,,No Data
 2020-03-01,0,2020-12-16,290,0,0,14 Days +
 2020-03-02,0,2020-12-16,289,0,0,14 Days +
@@ -28077,5 +28076,3 @@ date,N,publication_date,days_since_publication,n_diff,n_diff_pct,delay
 2020-12-14,16,2020-12-16,2,10,1.66666666666667,2 Days
 2020-12-15,6,2020-12-16,1,6,,1 Day
 2020-12-16,0,2020-12-16,0,0,0,Same day
-=======
->>>>>>> a990f8dabd63d0183214ad888058ced93bb42d9a

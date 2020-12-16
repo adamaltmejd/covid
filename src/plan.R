@@ -38,8 +38,7 @@ plan <- drake_plan(
 
     # Plots
     default_theme = set_default_theme(),
-    death_plot = plot_lagged_deaths(death_dt, death_prediction_constant, ecdc, days, default_theme),
-    death_plot_model = plot_lagged_deaths(death_dt, death_prediction_model, ecdc, days, default_theme),
+    death_plot = plot_lagged_deaths(death_dt, death_prediction_constant, death_prediction_model, ecdc, days, default_theme),
     lag_plot1 = plot_lag_trends1(time_to_finished, days, default_theme),
     lag_plot2 = plot_lag_trends2(death_dt, days, default_theme),
     lag_plot = plot_lag_trends_grid(lag_plot1, lag_plot2, default_theme),
@@ -51,7 +50,6 @@ plan <- drake_plan(
 
     save_plot(death_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")))),
     save_plot(death_plot, file_out(!!file.path("docs", paste0("deaths_lag_sweden_latest.png"))), bgcolor = "white"),
-    save_plot(death_plot_model, file_out(!!file.path("docs", paste0("deaths_lag_sweden_model.png"))), bgcolor = "white"),
 
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png")))),
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_latest.png"))), bgcolor = "white"),

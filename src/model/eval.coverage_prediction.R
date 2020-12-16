@@ -10,7 +10,7 @@
 #'@param max.days - only report the max.days
 coverage_data <- function(model_death_dt,
                           death_prediction_model,
-                          days.ago=1,
+                          days.ago=0,
                           lag = 20){
 
     N <- length(model_death_dt$dates)

@@ -23,7 +23,7 @@ plan <- drake_plan(
     death_prediction_constant = predict_lag(death_dt),
     death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
 
-    days.ago = 1,
+    days.ago = 0,
     coverage =  coverage_data(model_death_dt,
                               death_prediction_model,
                               days.ago=days.ago),

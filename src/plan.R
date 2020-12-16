@@ -23,6 +23,11 @@ plan <- drake_plan(
     death_prediction_constant = predict_lag(death_dt),
     death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
 
+    days.ago = 1,
+    coverage =  coverage_data(model_death_dt,
+                              death_prediction_model,
+                              days.ago=days.ago),
+
     # Save data
     fwrite(icu_dt, file_out(!!file.path("data", "covid_icu_latest.csv"))),
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
@@ -39,6 +44,8 @@ plan <- drake_plan(
     lag_plot2 = plot_lag_trends2(death_dt, days, default_theme),
     lag_plot = plot_lag_trends_grid(lag_plot1, lag_plot2, default_theme),
 
+    coverage_plot = coverage.plot(coverage, days.ago, default_theme),
+
     # Save plots
     target(archive_plots(file_out(!!file.path("docs", "archive"))), trigger = trigger(change = Sys.Date())),
 
@@ -48,6 +55,8 @@ plan <- drake_plan(
 
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png")))),
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_latest.png"))), bgcolor = "white"),
+
+    #save_plot(coverage_plot, file_out(!!file.path("docs", paste0("coverage_model_", Sys.Date() , ".png")))),
 
     update_web(death_plot = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
                lag_plot = file_in(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png"))),

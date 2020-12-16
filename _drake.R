@@ -10,6 +10,7 @@ source('src/packages.R')
 source('src/functions.R')
 source('src/model/prepare_data.R')
 source('src/model/run.model.all.R')
+source('src/model/eval.coverage_prediction.R')
 source('src/plan.R')
 
 drake::drake_config(

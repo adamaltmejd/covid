@@ -408,13 +408,13 @@ plot_lagged_deaths <- function(death_dt,
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date()-100, y = 100,
+                 x = Sys.Date()-80, y = 100,
                  label = paste0(latest_date, "\n",
-                                "Reported: ", format(total_deaths, big.mark = ","), "\n",
+                                "Reported:  ", format(total_deaths, big.mark = ","), "\n",
                                 #"Predicted:    ", format(predicted_deaths, big.mark = ","), " (", format(predicted_deaths_lCI, big.mark = ","), ", ", format(predicted_deaths_uCI, big.mark = ","), ")", "\n",
-                                "Predicted:   ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
+                                "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
                                 #"Total:        ", format(total_deaths + predicted_deaths, big.mark = ","), " (", format(total_deaths + predicted_deaths_lCI, big.mark = ","), ", ", format(total_deaths + predicted_deaths_uCI, big.mark = ","), ")")) +
-                                "Total:       ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
+                                "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
         # scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         # scale_linetype_manual(values = c(#"By report date" = "dotted",

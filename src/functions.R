@@ -411,7 +411,7 @@ plot_lagged_deaths <- function(death_dt,
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
              subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Dashed line shows model predictions, with the light grey area indicating the 95% credible interval."),
+                               "Gray bars show median predictions, with arrows indicating endpoints of 95% credible intervals."),
              caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",
@@ -561,6 +561,7 @@ update_web <- function(death_plot, lag_plot, index) {
         paste0('![Graph of Swedish Covid-19 deaths with reporting delay.](', basename(death_plot), ' "Swedish Covid-19 deaths.")'),
         paste0('![Graph of Swedish Covid-19 reporting delay in daily deaths.](', basename(lag_plot), ' "Trend in Swedish Covid-19 mortality reporting delay.")'),
         "For code and data, visit <https://github.com/adamaltmejd/covid>.",
+        "Evaluations of the statistical model and the old constant average forecast are available here: <https://github.com/adamaltmejd/covid/tree/master/docs/eval>.",
         "For an indepth explanation and evaluation of the nowcasting model, see <https://arxiv.org/abs/2006.06840>."
     )
     con <- file(index, "w")

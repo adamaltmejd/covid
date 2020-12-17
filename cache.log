@@ -214,7 +214,7 @@ dd4fe5ac1036c5b0,target,death_dts_f28ca648
 d3aaa5b9bca50f19,target,death_dts_facdae39
 df18c1f1e8d274b3,target,death_dts_fb7ba532
 fe4b8cb66625fba7,target,death_dts_fd224dc3
-196fd0d8f1787313,target,death_plot
+481ecf1bced3a8b1,target,death_plot
 af58bd4dfe68f929,target,death_plot_model
 f6acaf0fcb3448ed,target,death_prediction_constant
 1674bcc19c7bf0eb,target,death_prediction_model
@@ -665,18 +665,18 @@ f8611e0a816b4a1c,target,file data/ECDC.csv
 8f399c154d8d453c,target,file data/covid_deaths_latest.csv
 e23ddbe92b521d1b,target,file data/covid_icu_latest.csv
 e58b32867eac2fc2,target,file data/predictions.csv
-c7b9229692de1e08,target,file docs/archive
+70c564c202205832,target,file docs/archive
 31af67a55e4e8157,target,file docs/coverage_model_2020-12-16.png
-bf65978ab31e8921,target,file docs/deaths_lag_sweden_latest.png
+60e87d19e3f63e8b,target,file docs/deaths_lag_sweden_latest.png
 71452ff8dd50f5e3,target,file docs/deaths_lag_sweden_model.png
 e56ef7866c9ecf0e,target,file docs/deaths_lag_sweden_2020-12-15.png
 017ba56046722a2a,target,file docs/deaths_lag_sweden_2020-12-16.png
-b139d61f89247f9f,target,file docs/deaths_lag_sweden_2020-12-17.png
+052b25fa29d03202,target,file docs/deaths_lag_sweden_2020-12-17.png
 6aae1db6fbfcdee7,target,file docs/eval/coverage_eval_constant.png
 9065a53791717ad1,target,file docs/eval/coverage_eval_constant_2020-12-17.png
 4bc913c36c2d9313,target,file docs/eval/coverage_eval_model.png
 203523b0d95b3a36,target,file docs/eval/coverage_eval_model_2020-12-17.png
-0ae5d5d08743f15a,target,file docs/index.md
+fa9228419ce9ae43,target,file docs/index.md
 1fa1bd91083b304f,target,file docs/lag_trend_sweden_2020-12-15.png
 02810a0d446be479,target,file docs/lag_trend_sweden_2020-12-16.png
 02810a0d446be479,target,file docs/lag_trend_sweden_2020-12-17.png
@@ -684,7 +684,7 @@ b139d61f89247f9f,target,file docs/deaths_lag_sweden_2020-12-17.png
 621b1819d2bea848,import,plot_lag_trends_grid
 3b2100b673c6a8bf,import,plot_lag_trends1
 2c1e7219187855ec,import,plot_lag_trends2
-a287f29149291bef,import,plot_lagged_deaths
+424483e3372422e3,import,plot_lagged_deaths
 bab1a090337d280f,import,predict_lag
 327c2249f00a20b1,import,prior_t
 b6fa5ff1f293d9c5,import,Prob_gamma
@@ -694,4 +694,4 @@ b6fa5ff1f293d9c5,import,Prob_gamma
 7a48531c21db9a3c,import,set_default_theme
 cb6c976aecf274d1,target,time_to_finished
 4a90f3eb42b9e464,import,trigger_new_download
-57bf576e86121a4b,import,update_web
+6c8f041b9aafc86a,import,update_web

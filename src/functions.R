@@ -377,20 +377,30 @@ plot_lagged_deaths <- function(death_dt,
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
-        geom_bar(data = death_prediction_model, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
+
+        geom_linerange(data = death_prediction_model, aes(y = total, ymin = total_lCI, ymax = total_uCI),
+                       color = "#999999", size = 0.5) +
+        geom_point(data = death_prediction_model, aes(y = total), color = "#888888", size = 0.2) +
+
+        #geom_bar(data = death_prediction_model, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
+
+
+        #geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
+        # geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = total_lCI, ymax = total_uCI),
+        #             fill = "#444444", alpha = 0.2) +
+
+        # geom_point(data = death_prediction_model, aes(x = date, y = total_lCI),
+        #             color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 2) +
+        # geom_point(data = death_prediction_model, aes(x = date, y = total_uCI),
+        #             color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 6) +
+
 
         # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
         # geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
         #geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
 
-        #geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
-        # geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = predicted_deaths_lCI, ymax = predicted_deaths_uCI),
-        #             fill = "#444444", alpha = 0.2) +
-        geom_point(data = death_prediction_model, aes(x = date, y = total_lCI),
-                    color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 2) +
-        geom_point(data = death_prediction_model, aes(x = date, y = total_uCI),
-                    color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 6) +
+
 
         #geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
@@ -410,8 +420,8 @@ plot_lagged_deaths <- function(death_dt,
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
-             subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Gray bars show median predictions, with arrows indicating endpoints of 95% credible intervals."),
+             subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections by FHM.\n",
+                               "Gray bars show 95% credible intervals for predicted actual deaths, with points at the median."),
              caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",
@@ -568,5 +578,3 @@ update_web <- function(death_plot, lag_plot, index) {
     writeLines(lines, con = con)
     close(con)
 }
-
-

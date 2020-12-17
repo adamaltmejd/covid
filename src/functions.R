@@ -336,6 +336,8 @@ plot_lagged_deaths <- function(death_dt,
     death_prediction_model <- death_prediction_model[prediction_date == latest_date]
 
     predicted_deaths <- round(death_prediction_model[, sum(predicted_deaths)], 0)
+    predicted_deaths_lCI <- round(death_prediction_model[, sum(total_lCI - sure_deaths)], 0)
+    predicted_deaths_uCI <- round(death_prediction_model[, sum(total_uCI - sure_deaths)], 0)
 
     # Deaths by actual date
     actual_deaths <- death_dt[publication_date == latest_date & !is.na(date), .(date, N)]
@@ -406,11 +408,13 @@ plot_lagged_deaths <- function(death_dt,
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date()-60, y = 100,
+                 x = Sys.Date()-100, y = 100,
                  label = paste0(latest_date, "\n",
                                 "Reported: ", format(total_deaths, big.mark = ","), "\n",
-                                "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
-                                "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
+                                #"Predicted:    ", format(predicted_deaths, big.mark = ","), " (", format(predicted_deaths_lCI, big.mark = ","), ", ", format(predicted_deaths_uCI, big.mark = ","), ")", "\n",
+                                "Predicted:   ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
+                                #"Total:        ", format(total_deaths + predicted_deaths, big.mark = ","), " (", format(total_deaths + predicted_deaths_lCI, big.mark = ","), ", ", format(total_deaths + predicted_deaths_uCI, big.mark = ","), ")")) +
+                                "Total:       ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
         # scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         # scale_linetype_manual(values = c(#"By report date" = "dotted",
@@ -558,6 +562,58 @@ save_plot <- function(p, f, bgcolor = "transparent") {
                device = grDevices::png(), type = "cairo",
                bg = bgcolor, canvas = "#f5f5f5")
     }
+}
+
+plot_coverage_eval <- function(death_dt, death_prediction_constant, death_prediction_model, days.ago = 0, default_theme) {
+    if (death_prediction_constant[, max(prediction_date)] !=
+        death_prediction_model[, max(prediction_date)]) stop("Prediction dates off.")
+
+    DT <- rbind(
+        data.table(type = "constant", death_prediction_constant[date >= "2020-05-01"]),
+        data.table(type = "model", death_prediction_model[date >= "2020-05-01"])
+    )
+    # days.off sets which prediction day to use
+    DT <- DT[prediction_date == date + days.ago]
+    DT <- DT[, -c("prediction_date", "sure_deaths", "predicted_deaths")]
+
+    death_dt <- death_dt[publication_date == death_prediction_model[, max(prediction_date)], .(date, N)]
+    death_dt[, avg_N := frollmean(N, 7, algo = "exact", align = "center")]
+    death_dt[, state := "Finished"]
+    death_dt[date >= death_prediction_model[, max(prediction_date)] - 21, state := "Still reporting"]
+
+    DT <- merge(DT, death_dt[date >= "2020-05-01"], by = "date")
+
+    DT[month(date) == 12 & type == "constant"]
+    DT[month(date) == 12 & type == "model"]
+
+    coverage <- DT[state == "Finished", mean(N %between% list(total_lCI, total_uCI)), by = type]
+    lmiss <- DT[state == "Finished", mean(N < total_lCI), by = type]
+    umiss <- DT[state == "Finished", mean(N > total_uCI), by = type]
+    DT[type == "constant", type := paste0("Constant [coverage=", round(coverage[type == "constant", V1], 2)*100, "% (lmiss=", round(lmiss[type == "constant", V1], 2), ", umiss=", round(umiss[type == "constant", V1], 2), ")]")]
+    DT[type == "model", type := paste0("Model [coverage=", round(coverage[type == "model", V1], 2)*100, "% (lmiss=", round(lmiss[type == "model", V1], 2), ", umiss=", round(umiss[type == "model", V1], 2), ")]")]
+    DT[, type := factor(type)]
+
+    ggplot(data = DT, aes(x = date, y = total)) +
+        geom_line(aes(y = avg_N, linetype = state)) +
+        geom_line(aes(color = type)) +
+        geom_ribbon(aes(ymin = total_uCI, ymax = total_lCI, fill = type),
+                    alpha = 0.3) +
+        scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(legend.position = "top")) +
+        scale_fill_manual(values = wes_palette("Darjeeling2"), guide = FALSE) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
+        scale_y_continuous(limits = c(-10, 160), minor_breaks = seq(0,160,10), breaks = seq(0,160,20), expand = expansion(add = c(10, 10))) +
+        default_theme +
+        theme(legend.direction = "horizontal", legend.position = "bottom",
+              legend.justification = "center", legend.title = element_blank()) +
+        labs(
+            title = paste0("Nowcast evaluation: prediction t=", days.ago, " days back."),
+            subtitle = paste0("Black line shows actual number of deaths, dashed for the last 21 days where numbers are still being updated. Shaded areas show 95% CI."),
+            caption = paste0("Last day included = ", max(DT$date), "."),
+            linetype = "",
+            color = "",
+            x = "Date",
+            y = "Number of deaths"
+        )
 }
 
 update_web <- function(death_plot, lag_plot, index) {

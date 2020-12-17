@@ -23,10 +23,6 @@ plan <- drake_plan(
     death_prediction_constant = predict_lag(death_dt),
     death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
 
-    days.ago = 1,
-    coverage_constant = coverage_data(model_death_dt, death_prediction_constant, days.ago),
-    coverage_model = coverage_data(model_death_dt, death_prediction_model, days.ago),
-
     # Save data
     fwrite(icu_dt, file_out(!!file.path("data", "covid_icu_latest.csv"))),
     fwrite(death_dt, file_out(!!file.path("data", "covid_deaths_latest.csv"))),
@@ -42,8 +38,18 @@ plan <- drake_plan(
     lag_plot2 = plot_lag_trends2(death_dt, days, default_theme),
     lag_plot = plot_lag_trends_grid(lag_plot1, lag_plot2, default_theme),
 
-    coverage_plot_constant = coverage.plot(coverage_constant, days.ago, default_theme, type = "constant"),
-    coverage_plot_model = coverage.plot(coverage_model, days.ago, default_theme, type = "statistical"),
+    coverage_plot_t0 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme),
+    save_plot(coverage_plot_t0, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t0.png"))), bgcolor = "white"),
+    coverage_plot_t1 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 1, default_theme),
+    save_plot(coverage_plot_t1, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t1.png"))), bgcolor = "white"),
+    coverage_plot_t2 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 2, default_theme),
+    save_plot(coverage_plot_t2, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t2.png"))), bgcolor = "white"),
+    coverage_plot_t3 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 3, default_theme),
+    save_plot(coverage_plot_t3, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t3.png"))), bgcolor = "white"),
+    coverage_plot_t4 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 4, default_theme),
+    save_plot(coverage_plot_t4, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t4.png"))), bgcolor = "white"),
+    coverage_plot_t5 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 5, default_theme),
+    save_plot(coverage_plot_t5, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t5.png"))), bgcolor = "white"),
 
     # Save plots
     target(archive_plots(file_out(!!file.path("docs", "archive"))), trigger = trigger(change = Sys.Date())),
@@ -53,9 +59,6 @@ plan <- drake_plan(
 
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png")))),
     save_plot(lag_plot, file_out(!!file.path("docs", paste0("lag_trend_sweden_latest.png"))), bgcolor = "white"),
-
-    save_plot(coverage_plot_constant, file_out(!!file.path("docs", "eval", paste0("coverage_eval_constant.png"))), bgcolor = "white"),
-    save_plot(coverage_plot_model, file_out(!!file.path("docs", "eval", paste0("coverage_eval_model.png"))), bgcolor = "white"),
 
     update_web(death_plot = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
                lag_plot = file_in(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png"))),

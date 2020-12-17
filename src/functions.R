@@ -377,15 +377,20 @@ plot_lagged_deaths <- function(death_dt,
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
+        geom_bar(data = death_prediction_model, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
 
         # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
-        geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
+        # geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
         #geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
 
-        geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
-        geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = predicted_deaths_lCI, ymax = predicted_deaths_uCI),
-                    fill = "#444444", alpha = 0.2) +
+        #geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
+        # geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = predicted_deaths_lCI, ymax = predicted_deaths_uCI),
+        #             fill = "#444444", alpha = 0.2) +
+        geom_point(data = death_prediction_model, aes(x = date, y = total_lCI),
+                    color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 2) +
+        geom_point(data = death_prediction_model, aes(x = date, y = total_uCI),
+                    color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 6) +
 
         #geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
@@ -398,9 +403,9 @@ plot_lagged_deaths <- function(death_dt,
                                 "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
         # scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
-        scale_linetype_manual(values = c(#"By report date" = "dotted",
-                                         "By death date" = "solid",
-                                         "Model forecast" = "dashed"), name = "Statistics") +
+        # scale_linetype_manual(values = c(#"By report date" = "dotted",
+        #                                  "By death date" = "solid",
+        #                                  "Model forecast" = "dashed"), name = "Statistics") +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +

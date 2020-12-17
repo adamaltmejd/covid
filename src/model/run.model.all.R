@@ -112,9 +112,9 @@ run.model.all <- function(deaths, icu){
                                  date             = Npost$dates,
                                  sure_deaths      = Total_repported[names(Total_repported)%in%Npost$dates],
                                  predicted_deaths = Npost$median-Total_repported[names(Total_repported)%in%Npost$dates],
-                                 predicted_deaths_lCI = Npost$lCI,
-                                 predicted_deaths_uCI = Npost$uCI,
-                                 total                = Npost$media)
+                                 total_lCI        = Npost$lCI,
+                                 total            = Npost$media,
+                                 total_uCI        = Npost$uCI)
 
         cov_index <- cov_$theta_cov$date%in% Npost$State[1]
         cov_data  <- cov_$theta_cov$theta[cov_index]
@@ -137,9 +137,9 @@ run.model.all <- function(deaths, icu){
                                  date             = as.character(date_to_predict),
                                  sure_deaths      = 0,
                                  predicted_deaths = icu_pred[,2],
-                                 predicted_deaths_lCI = icu_pred[,1],
-                                 predicted_deaths_uCI = icu_pred[,3],
-                                 total                = icu_pred[,2]
+                                 total_lCI        = icu_pred[,1],
+                                 total            = icu_pred[,2],
+                                 total_uCI        = icu_pred[,3]
                              ))
         if(dim(output)[1] == 0){
             output <- output_temp

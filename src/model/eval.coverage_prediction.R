@@ -33,21 +33,29 @@ coverage_data <- function(model_death_dt,
                            lmiss           = death_prediction_mod$T_deaths < death_prediction_mod$total_lCI,
                            umiss           = death_prediction_mod$T_deaths > death_prediction_mod$total_uCI
                            )
+
+    coverage <- coverage[coverage$date >= "2020-05-01",]
     return(coverage)
 }
 #'
 #'
 #'@param coverage - data from coverage_data
-coverage.plot <- function(coverage, days.ago, theme){
-    main = paste('Prediciton days ago ',days.ago,'. coverage = ',
-                             round(1-mean(coverage$lmiss+coverage$umiss),2),
-                                    ", (", round(mean(coverage$lmiss),2),",",
-                                     round(mean(coverage$umiss),2),")", sep="")
+coverage.plot <- function(coverage, days.ago, theme, type){
+    title <- paste0("Evaluation of forecast (", type, " model)")
+    subtitle <- paste0("Plot shows nowcast of total deaths as predicted for t=-", days.ago, " days back, with 95% CI. Black points are actual outcomes. ",
+                       "Coverage = ", 100*round(1-mean(coverage$lmiss+coverage$umiss),2), "% (",
+                       round(mean(coverage$lmiss),2),",", round(mean(coverage$umiss),2),")")
     ggfig <- ggplot(data = coverage, aes(y = reported, x = date)) +
         geom_point() +
-        geom_ribbon(aes(ymin=uCI,ymax=lCI),alpha=0.3,fill='blue') +
-        geom_line(aes(y=prediciton),color='blue')+
-        ggtitle(main)
+        geom_ribbon(aes(ymin = uCI, ymax = lCI), alpha = 0.3, fill = 'blue') +
+        geom_line(aes(y = prediciton), color = 'blue') +
+        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
+        scale_y_continuous(limits = c(-10, 130), minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(10, 10))) +
+        theme +
+        labs(title = title, subtitle = subtitle,
+             caption = paste0("Last day included = ", max(coverage$date), "."),
+             x = "Date",
+             y = "Number of deaths")
     return(ggfig)
 }
 #coverage <- coverage_data(model_death_dt,

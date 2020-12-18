@@ -65,7 +65,7 @@ icu_covariates <- function(deaths, icu){
         data.list <- list(date=1:i,
                           Y = icu_est[1:i])
 
-        model.fit <- gam(Y~s(date), data=data.list, family = poisson)
+        model.fit <- gam(Y~s(date), data=data.list, family = poisson, method="REML")
         icu_cov <- rbind(icu_cov,
                          c(as.character(dates[i]),
                            log(model.fit$fitted.values)[i]))

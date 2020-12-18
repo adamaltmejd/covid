@@ -42,7 +42,7 @@ coverage_data <- function(model_death_dt,
 #'@param coverage - data from coverage_data
 coverage.plot <- function(coverage, days.ago, theme, type){
     title <- paste0("Evaluation of forecast (", type, " model)")
-    subtitle <- paste0("Plot shows nowcast of total deaths as predicted for t=-", days.ago, " days back, with 95% CI. Black points are actual outcomes. ",
+    subtitle <- paste0("Plot shows nowcast of total deaths as predicted for t=-", days.ago, " days back, with 95% CI.\n Black points are actual outcomes. ",
                        "Coverage = ", 100*round(1-mean(coverage$lmiss+coverage$umiss),2), "% (",
                        round(mean(coverage$lmiss),2),",", round(mean(coverage$umiss),2),")")
     ggfig <- ggplot(data = coverage, aes(y = reported, x = date)) +
@@ -58,13 +58,38 @@ coverage.plot <- function(coverage, days.ago, theme, type){
              y = "Number of deaths")
     return(ggfig)
 }
-#coverage <- coverage_data(model_death_dt,
- #                     death_prediction_model,
- #                     days.ago=0)
-#main = paste('Prediciton days ago',days.ago,' coverage = ',
-#             round(1-mean(coverage$lmiss+coverage$umiss),2),
-#                   ", (", round(mean(coverage$lmiss),2),",",
-#                    round(mean(coverage$umiss),2),")", sep="")
-#plot(coverage$date,coverage$reported, main=main)
-#lines(coverage$date, coverage$uCI,col='red')
-#lines(coverage$date, coverage$lCI,col='red')
+
+
+#'
+#' Plots all n/N when N > N_min
+#'
+#' @param model_death_dt
+#' @param lag      - only report for result lag days ago
+probability_analysis <- function(model_death_dt ,theme,days.reported=5, lag = 20, N_min=5){
+
+    report_cleaned <- report_clean(model_death_dt$detected,model_death_dt$dates)
+    new_cases <- newCases(report_cleaned)
+    rownames(new_cases) <- as.character(model_death_dt$dates)
+    colnames(new_cases) <- as.character(model_death_dt$dates)
+    diag(new_cases) <- NA
+    N <- apply(new_cases,1,sum, na.rm=T)
+    Prob <- matrix(0,nrow=dim(new_cases)[1]-lag,ncol=30)
+    for(i in 1:(dim(new_cases)[1]-lag)){
+        cases <- new_cases[i,]
+        m <- min(length(cases)-i,30)
+        cases <- cases[i+ (1:m)]
+        cases <- cases[is.na(cases)==F ]
+
+        Prob[i,1:m] = cases[1:m]/sum(new_cases[i,], na.rm=T)
+    }
+    N <- N[1:(dim(new_cases)[1]-lag)]
+    dates <- as.Date(model_death_dt$dates[1:(dim(new_cases)[1]-lag)])
+    data  <- data.frame(date = dates[N>N_min],
+                        prob = apply(Prob[N>N_min,1:days.reported,drop=F],1,sum))
+    ggfig <- ggplot(data = data, aes(y = prob, x = date)) +
+             geom_point()+# theme +
+             labs(title = paste0("reprorted up to day ",days.reported," given total deaths greater then >",N_min,sep=""),
+             x = "Date",
+             y = "reported/Total")
+    return(ggfig)
+}

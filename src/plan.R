@@ -23,9 +23,13 @@ plan <- drake_plan(
     death_prediction_constant = predict_lag(death_dt),
     death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
 
-    days.ago = 1,
+    #model prediction seperate lag
+    death_prediction_model2 = run.model2.all(model_death_dt,model_icu_dt, days.to.pred = 14),
+
+    days.ago = 8,
     coverage_constant = coverage_data(model_death_dt, death_prediction_constant, days.ago),
     coverage_model = coverage_data(model_death_dt, death_prediction_model, days.ago),
+    coverage_model2 = coverage_data(model_death_dt, death_prediction_model2, days.ago),
 
     # Save data
     fwrite(icu_dt, file_out(!!file.path("data", "covid_icu_latest.csv"))),
@@ -44,6 +48,9 @@ plan <- drake_plan(
 
     coverage_plot_constant = coverage.plot(coverage_constant, days.ago, default_theme, type = "constant"),
     coverage_plot_model = coverage.plot(coverage_model, days.ago, default_theme, type = "statistical"),
+    coverage_plot_model2 = coverage.plot(coverage_model2, days.ago, default_theme, type = "stat sep lag"),
+
+    analysis.prob.fig = probability_analysis(model_death_dt),
 
     # Save plots
     target(archive_plots(file_out(!!file.path("docs", "archive"))), trigger = trigger(change = Sys.Date())),
@@ -56,7 +63,8 @@ plan <- drake_plan(
 
     save_plot(coverage_plot_constant, file_out(!!file.path("docs", "eval", paste0("coverage_eval_constant.png"))), bgcolor = "white"),
     save_plot(coverage_plot_model, file_out(!!file.path("docs", "eval", paste0("coverage_eval_model.png"))), bgcolor = "white"),
-
+    save_plot(coverage_plot_model2, file_out(!!file.path("docs", "eval", paste0("coverage_eval_model2.png"))), bgcolor = "white"),
+    save_plot(analysis.prob.fig, file_out(!!file.path("docs", "eval", paste0("probability.png"))), bgcolor = "white"),
     update_web(death_plot = file_in(!!file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))),
                lag_plot = file_in(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png"))),
                index = file_out(!!file.path("docs", "index.md")))

@@ -683,7 +683,7 @@ e39ca7f2873ddd75,target,file data/ECDC.csv
 1b48459213a8ec1b,target,file data/covid_deaths_latest.csv
 f99ca7692c5b39f0,target,file data/covid_icu_latest.csv
 0b714b52c3a5f398,target,file data/predictions.csv
-f784118199f49d43,target,file docs/archive
+165613574b8ed5f9,target,file docs/archive
 f7a2f9dbad457b4d,target,file docs/deaths_lag_sweden_latest.png
 550f77d43af1dea9,target,file docs/deaths_lag_sweden_2020-06-08.png
 107896a4182cf814,target,file docs/deaths_lag_sweden_2020-06-09.png
@@ -873,6 +873,7 @@ a4d01252519829ef,target,file docs/deaths_lag_sweden_2020-12-16.png
 383f8be875a745ce,target,file docs/deaths_lag_sweden_2020-12-17.png
 9581c8480db7a9aa,target,file docs/deaths_lag_sweden_2020-12-18.png
 5ca8aafcfd307c11,target,file docs/deaths_lag_sweden_2020-12-19.png
+5ca8aafcfd307c11,target,file docs/deaths_lag_sweden_2020-12-20.png
 dd443c7e4c564d66,target,file docs/eval/coverage_eval_constant.png
 68726f06a56640a3,target,file docs/eval/coverage_eval_model.png
 09247c425de05fe5,target,file docs/eval/coverage_eval_t0.png
@@ -881,7 +882,7 @@ dd443c7e4c564d66,target,file docs/eval/coverage_eval_constant.png
 bc4ccb8f7de92124,target,file docs/eval/coverage_eval_t3.png
 557c47b6d70a1c7b,target,file docs/eval/coverage_eval_t4.png
 f866581465f43b1d,target,file docs/eval/coverage_eval_t5.png
-e19e14d6d2863313,target,file docs/index.md
+96e6fa286261f470,target,file docs/index.md
 60edc3a7ab543249,target,file docs/lag_trend_sweden_2020-06-08.png
 82484c8aa35e692a,target,file docs/lag_trend_sweden_2020-06-09.png
 505287bfdc5acb78,target,file docs/lag_trend_sweden_2020-06-14.png
@@ -1070,6 +1071,7 @@ c7daf5b4bc7ca536,target,file docs/lag_trend_sweden_2020-12-17.png
 5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-11.png
 5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-12.png
 5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-13.png
+0db9d898a7108ccb,target,file docs/lag_trend_sweden_2020-12-20.png
 90fc48a3ba8a911d,target,file docs/lag_trend_sweden_latest.png
 36cfbaf4eb1e05e6,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
 d336ed9bb8e32249,import,plot_coverage_eval

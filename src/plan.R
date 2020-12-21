@@ -12,9 +12,14 @@ plan <- drake_plan(
     time_to_finished = calculate_lag(death_dt),
     days = day_of_week(death_dt),
 
-    # ICU Stats
+    ##
+    # Hospital/ICU Stats
+    # From FHM
     icu_dts = target(load_fhm_data(fhm_files, type = "icu"), dynamic = map(fhm_files)),
     icu_dt = join_data(icu_dts),
+    # From Socialstyrelsen
+    socstyr_dt = target(update_socstyr(f = file_out(!!file.path("data", "Socialstyrelsen_latest.csv"))),
+                        trigger = trigger(condition = trigger_new_download(!!file.path("data", "Socialstyrelsen_latest.csv"), type = "SocStyr"))),
 
     # Model predictions
     model_death_dt = model_build_death_dt(death_dt),

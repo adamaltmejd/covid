@@ -50,14 +50,15 @@ get_record_date <- function(f) {
     return(as.Date(NA))
 }
 
-trigger_new_download <- function(f) {
+trigger_new_download <- function(f, type = "FHM") {
     require(data.table)
 
     if (!file.exists(f)) {
         return(TRUE)
     }
 
-    latest_record <- get_record_date(f)
+    if (type == "FHM") latest_record <- get_record_date(f)
+    if (type == "SocStyr") latest_record <- max(fread(f)$datum)
 
     if (latest_record < Sys.Date()) {
         if (as.ITime(Sys.time(), tz = "Europe/Stockholm") > as.ITime("14:00")) {
@@ -127,6 +128,65 @@ load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
     setkey(DT, publication_date, date)
 
     return(as.data.frame(DT))
+}
+
+update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) {
+    require(data.table)
+    require(rvest)
+    require(jsonlite)
+    require(magrittr)
+    require(stringr)
+
+    page <- tryCatch(
+        read_html("https://www.socialstyrelsen.se/statistik-och-data/statistik/statistik-om-covid-19/sammanfattande-statistik-over-tid/"),
+        error = function(e) {
+            warning("Error downloading from Socialstyrelsen: ", e)
+            return(NULL)
+        }
+    )
+
+    if (!is.null(page)) {
+        data_json <- page %>%
+            html_nodes("iframe") %>%
+            extract(2) %>%
+            html_attr("src") %>%
+            read_html() %>%
+            html_node("meta") %>%
+            html_attr("content") %>%
+            sub("0; url=", "", .) %>%
+            read_html() %>%
+            html_nodes("script") %>%
+            extract(2) %>%
+            html_text() %>%
+            substr(., str_locate(., "\\{")[1], str_locate_all(., "\\}")[[1]][length(str_locate_all(., "\\}")[[1]])]) %>%
+            gsub("\\\\\\\"", "\\\"", .) %>%
+            gsub("\\\\\"", "\"", .) %>%
+            parse_json
+
+        DT <- fread(text = gsub("\\\\n", "\n", data_json$data$chartData), na.strings = "-")
+
+        setnames(DT,
+                 c("datum",
+                   "Inskrivna i slutenvård - rullande medelvärde",
+                   "Inskrivna i slutenvård - antal",
+                   "Inskrivna i intensivvård - rullande medelvärde",
+                   "Inskrivna i intensivvård - antal",
+                   "Avlidna - rullande medelvärde",
+                   "Avlidna - antal",
+                   "Smittade 70+ särskilt boende - rullande medelvärde",
+                   "Smittade 70+ särskilt boende - antal"),
+                 c("date",
+                   "hospital_7day_avg", "hospital_n",
+                   "icu_7day_avg", "icu_n",
+                   "dead_7day_avg", "dead_n",
+                   "infected_eldercare_7day_avg", "infected_eldercare_n"))
+
+        setkey(DT, date)
+        fwrite(DT, f)
+        return(DT)
+    } else {
+        return(fread(f))
+    }
 }
 
 can_be_numeric <- function(x) {

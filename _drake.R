@@ -13,6 +13,7 @@ source('src/model/run.model.all.R')
 source('src/model/seperate_lag_model.R')
 source('src/model/eval.coverage_prediction.R')
 source('src/plan.R')
+source('src/model/GPsmoothing_model.R')
 
 drake::drake_config(
     plan = plan,

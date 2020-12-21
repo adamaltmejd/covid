@@ -96,6 +96,8 @@ model2.fit <- function(model_dt,
                         lambda =exp(as.vector(c(1,prior_$theta_cov$theta[index]))%*%prior_$coeff)
 
                         prior <- function(x){dpois(x,lambda =lambda ,log=T)}
+                    }else{
+                        prior = NULL
                     }
                     Truth_est <- CI_pred(fit, data.frame(time= Analysis_glm$time[length(Analysis_glm$time)],
                                                          days= state_day),
@@ -117,7 +119,6 @@ model2.fit <- function(model_dt,
 
         }
         if(is.null(prior_)==F & predicted==F){
-            predicted
             index = which(prior_$theta_cov$dates%in%as.Date(pred.day))
             lambda =exp(as.vector(c(1,prior_$theta_cov$theta[index]))%*%prior_$coeff)
             quantile <- qpois(c(0.025,0.5,0.975), lambda = lambda)

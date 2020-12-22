@@ -26,7 +26,7 @@ plan <- drake_plan(
     #model prediction seperate lag
     death_prediction_model2 = run.model2.all(model_death_dt,model_icu_dt, days.to.pred = 25,prior=F),
     death_prediction_model2_smooth  = gp_smooth(death_prediction_model2, model_death_dt),
-    days.ago = 2,
+    days.ago = 7,
     coverage_constant = coverage_data(model_death_dt, death_prediction_constant, days.ago),
     coverage_model = coverage_data(model_death_dt, death_prediction_model, days.ago),
     coverage_model2 = coverage_data(model_death_dt, death_prediction_model2_smooth, days.ago),

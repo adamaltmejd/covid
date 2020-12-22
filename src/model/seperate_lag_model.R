@@ -60,6 +60,10 @@ model2.fit <- function(model_dt,
         Total <- sum(new_cases[i-days.reported,], na.rm=T)
         state <- colnames(new_cases)[i + lag]
         pred.day <- colnames(new_cases)[i + lag - days.reported]
+        if(mean(is.na(new_cases[(i-days.reported),1:i]))<1){
+            Analysis_data <- rbind(Analysis_data, c(cases, Total))
+            dates <- c(dates,colnames(new_cases)[i])
+        }
         if(is.null(model_dt)==F){
             index1 = model_dt$prediction_date == as.Date(state)
             index2 = model_dt$date            == as.Date(pred.day)
@@ -71,8 +75,6 @@ model2.fit <- function(model_dt,
 
         if(mean(is.na(new_cases[(i-days.reported),1:i]))<1){
 
-            Analysis_data <- rbind(Analysis_data, c(cases, Total))
-            dates <- c(dates,colnames(new_cases)[i])
             if(dim(Analysis_data)[1]>20 &
                mean(is.na(new_cases[(i+lag-days.reported),1:(i+lag)]))<1){
                 Analysis_glm  <- data.frame(Y = Analysis_data[,1],

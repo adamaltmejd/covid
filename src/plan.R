@@ -12,9 +12,14 @@ plan <- drake_plan(
     time_to_finished = calculate_lag(death_dt),
     days = day_of_week(death_dt),
 
-    # ICU Stats
+    ##
+    # Hospital/ICU Stats
+    # From FHM
     icu_dts = target(load_fhm_data(fhm_files, type = "icu"), dynamic = map(fhm_files)),
     icu_dt = join_data(icu_dts),
+    # From Socialstyrelsen
+    socstyr_dt = target(update_socstyr(f = file_out(!!file.path("data", "Socialstyrelsen_latest.csv"))),
+                        trigger = trigger(condition = trigger_new_download(!!file.path("data", "Socialstyrelsen_latest.csv"), type = "SocStyr"))),
 
     # Model predictions
     model_death_dt = model_build_death_dt(death_dt),
@@ -22,17 +27,6 @@ plan <- drake_plan(
 
     death_prediction_constant = predict_lag(death_dt),
     death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
-
-    #model prediction seperate lag
-    death_prediction_model2 = run.model2.all(model_death_dt,model_icu_dt, days.to.pred = 25,prior=F),
-    death_prediction_model2_smooth  = gp_smooth(death_prediction_model2, model_death_dt),
-    death_prediction_model_iva = run.model2.all(model_death_dt,model_icu_dt, days.to.pred = 25,prior=T, model.file="model_seperate_lag_iva.rds"),
-    death_prediction_model_iva_smooth  = gp_smooth(death_prediction_model_iva, model_death_dt, model.file = "model_iva_smooth.rds"),
-    days.ago = 0,
-    coverage_constant = coverage_data(model_death_dt, death_prediction_constant, days.ago),
-    coverage_model = coverage_data(model_death_dt, death_prediction_model, days.ago),
-    coverage_model2 = coverage_data(model_death_dt, death_prediction_model2_smooth, days.ago),
-    coverage_model_iva = coverage_data(model_death_dt, death_prediction_model_iva_smooth, days.ago),
 
     # Save data
     fwrite(icu_dt, file_out(!!file.path("data", "covid_icu_latest.csv"))),
@@ -55,6 +49,18 @@ plan <- drake_plan(
     coverage_plot_model_iva = coverage.plot(coverage_model_iva, days.ago, default_theme, type = "stat sep lag iva"),
 
     analysis.prob.fig = probability_analysis(model_death_dt),
+    coverage_plot_t0 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme),
+    save_plot(coverage_plot_t0, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t0.png"))), bgcolor = "white"),
+    coverage_plot_t1 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 1, default_theme),
+    save_plot(coverage_plot_t1, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t1.png"))), bgcolor = "white"),
+    coverage_plot_t2 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 2, default_theme),
+    save_plot(coverage_plot_t2, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t2.png"))), bgcolor = "white"),
+    coverage_plot_t3 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 3, default_theme),
+    save_plot(coverage_plot_t3, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t3.png"))), bgcolor = "white"),
+    coverage_plot_t4 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 4, default_theme),
+    save_plot(coverage_plot_t4, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t4.png"))), bgcolor = "white"),
+    coverage_plot_t5 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 5, default_theme),
+    save_plot(coverage_plot_t5, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t5.png"))), bgcolor = "white"),
 
     # Save plots
     target(archive_plots(file_out(!!file.path("docs", "archive"))), trigger = trigger(change = Sys.Date())),

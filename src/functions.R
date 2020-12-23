@@ -50,14 +50,15 @@ get_record_date <- function(f) {
     return(as.Date(NA))
 }
 
-trigger_new_download <- function(f) {
+trigger_new_download <- function(f, type = "FHM") {
     require(data.table)
 
     if (!file.exists(f)) {
         return(TRUE)
     }
 
-    latest_record <- get_record_date(f)
+    if (type == "FHM") latest_record <- get_record_date(f)
+    if (type == "SocStyr") latest_record <- max(fread(f)$datum)
 
     if (latest_record < Sys.Date()) {
         if (as.ITime(Sys.time(), tz = "Europe/Stockholm") > as.ITime("14:00")) {
@@ -127,6 +128,65 @@ load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
     setkey(DT, publication_date, date)
 
     return(as.data.frame(DT))
+}
+
+update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) {
+    require(data.table)
+    require(rvest)
+    require(jsonlite)
+    require(magrittr)
+    require(stringr)
+
+    page <- tryCatch(
+        read_html("https://www.socialstyrelsen.se/statistik-och-data/statistik/statistik-om-covid-19/sammanfattande-statistik-over-tid/"),
+        error = function(e) {
+            warning("Error downloading from Socialstyrelsen: ", e)
+            return(NULL)
+        }
+    )
+
+    if (!is.null(page)) {
+        data_json <- page %>%
+            html_nodes("iframe") %>%
+            extract(2) %>%
+            html_attr("src") %>%
+            read_html() %>%
+            html_node("meta") %>%
+            html_attr("content") %>%
+            sub("0; url=", "", .) %>%
+            read_html() %>%
+            html_nodes("script") %>%
+            extract(2) %>%
+            html_text() %>%
+            substr(., str_locate(., "\\{")[1], str_locate_all(., "\\}")[[1]][length(str_locate_all(., "\\}")[[1]])]) %>%
+            gsub("\\\\\\\"", "\\\"", .) %>%
+            gsub("\\\\\"", "\"", .) %>%
+            parse_json
+
+        DT <- fread(text = gsub("\\\\n", "\n", data_json$data$chartData), na.strings = "-")
+
+        setnames(DT,
+                 c("datum",
+                   "Inskrivna i slutenvård - rullande medelvärde",
+                   "Inskrivna i slutenvård - antal",
+                   "Inskrivna i intensivvård - rullande medelvärde",
+                   "Inskrivna i intensivvård - antal",
+                   "Avlidna - rullande medelvärde",
+                   "Avlidna - antal",
+                   "Smittade 70+ särskilt boende - rullande medelvärde",
+                   "Smittade 70+ särskilt boende - antal"),
+                 c("date",
+                   "hospital_7day_avg", "hospital_n",
+                   "icu_7day_avg", "icu_n",
+                   "dead_7day_avg", "dead_n",
+                   "infected_eldercare_7day_avg", "infected_eldercare_n"))
+
+        setkey(DT, date)
+        fwrite(DT, f)
+        return(DT)
+    } else {
+        return(fread(f))
+    }
 }
 
 can_be_numeric <- function(x) {
@@ -336,6 +396,8 @@ plot_lagged_deaths <- function(death_dt,
     death_prediction_model <- death_prediction_model[prediction_date == latest_date]
 
     predicted_deaths <- round(death_prediction_model[, sum(predicted_deaths)], 0)
+    predicted_deaths_lCI <- round(death_prediction_model[, sum(total_lCI - sure_deaths)], 0)
+    predicted_deaths_uCI <- round(death_prediction_model[, sum(total_uCI - sure_deaths)], 0)
 
     # Deaths by actual date
     actual_deaths <- death_dt[publication_date == latest_date & !is.na(date), .(date, N)]
@@ -377,30 +439,42 @@ plot_lagged_deaths <- function(death_dt,
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
         #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
-        geom_bar(data = death_prediction_model, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
+
+        geom_linerange(data = death_prediction_model, aes(y = total, ymin = total_lCI, ymax = total_uCI),
+                       color = "#999999", size = 0.5) +
+        geom_point(data = death_prediction_model, aes(y = total), color = "#888888", size = 0.2) +
+
+        #geom_bar(data = death_prediction_model, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
+
+
+        #geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
+        # geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = total_lCI, ymax = total_uCI),
+        #             fill = "#444444", alpha = 0.2) +
+
+        # geom_point(data = death_prediction_model, aes(x = date, y = total_lCI),
+        #             color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 2) +
+        # geom_point(data = death_prediction_model, aes(x = date, y = total_uCI),
+        #             color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 6) +
+
 
         # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
         # geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
         #geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
 
-        #geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
-        # geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = predicted_deaths_lCI, ymax = predicted_deaths_uCI),
-        #             fill = "#444444", alpha = 0.2) +
-        geom_point(data = death_prediction_model, aes(x = date, y = total_lCI),
-                    color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 2) +
-        geom_point(data = death_prediction_model, aes(x = date, y = total_uCI),
-                    color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 6) +
+
 
         #geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date()-60, y = 100,
+                 x = Sys.Date()-80, y = 100,
                  label = paste0(latest_date, "\n",
-                                "Reported: ", format(total_deaths, big.mark = ","), "\n",
-                                "Predicted:    ", format(predicted_deaths, big.mark = ","), "\n",
-                                "Total:        ", format(total_deaths + predicted_deaths, big.mark = ","))) +
+                                "Reported:  ", format(total_deaths, big.mark = ","), "\n",
+                                #"Predicted:    ", format(predicted_deaths, big.mark = ","), " (", format(predicted_deaths_lCI, big.mark = ","), ", ", format(predicted_deaths_uCI, big.mark = ","), ")", "\n",
+                                "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
+                                #"Total:        ", format(total_deaths + predicted_deaths, big.mark = ","), " (", format(total_deaths + predicted_deaths_lCI, big.mark = ","), ", ", format(total_deaths + predicted_deaths_uCI, big.mark = ","), ")")) +
+                                "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
         # scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         # scale_linetype_manual(values = c(#"By report date" = "dotted",
@@ -410,8 +484,8 @@ plot_lagged_deaths <- function(death_dt,
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
         labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
-             subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections.\n",
-                               "Gray bars show median predictions, with arrows indicating endpoints of 95% credible intervals."),
+             subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections by FHM.\n",
+                               "Gray bars show 95% credible intervals for predicted actual deaths, with points at the median."),
              caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
              fill = "Reporting delay",
              x = "Date of death",
@@ -550,6 +624,58 @@ save_plot <- function(p, f, bgcolor = "transparent") {
     }
 }
 
+plot_coverage_eval <- function(death_dt, death_prediction_constant, death_prediction_model, days.ago = 0, default_theme) {
+    if (death_prediction_constant[, max(prediction_date)] !=
+        death_prediction_model[, max(prediction_date)]) stop("Prediction dates off.")
+
+    DT <- rbind(
+        data.table(type = "constant", death_prediction_constant[date >= "2020-05-01"]),
+        data.table(type = "model", death_prediction_model[date >= "2020-05-01"])
+    )
+    # days.off sets which prediction day to use
+    DT <- DT[prediction_date == date + days.ago]
+    DT <- DT[, -c("prediction_date", "sure_deaths", "predicted_deaths")]
+
+    death_dt <- death_dt[publication_date == death_prediction_model[, max(prediction_date)], .(date, N)]
+    death_dt[, avg_N := frollmean(N, 7, algo = "exact", align = "center")]
+    death_dt[, state := "Finished"]
+    death_dt[date >= death_prediction_model[, max(prediction_date)] - 21, state := "Still reporting"]
+
+    DT <- merge(DT, death_dt[date >= "2020-05-01"], by = "date")
+
+    DT[month(date) == 12 & type == "constant"]
+    DT[month(date) == 12 & type == "model"]
+
+    coverage <- DT[state == "Finished", mean(N %between% list(total_lCI, total_uCI)), by = type]
+    lmiss <- DT[state == "Finished", mean(N < total_lCI), by = type]
+    umiss <- DT[state == "Finished", mean(N > total_uCI), by = type]
+    DT[type == "constant", type := paste0("Constant [coverage=", round(coverage[type == "constant", V1], 2)*100, "% (lmiss=", round(lmiss[type == "constant", V1], 2), ", umiss=", round(umiss[type == "constant", V1], 2), ")]")]
+    DT[type == "model", type := paste0("Model [coverage=", round(coverage[type == "model", V1], 2)*100, "% (lmiss=", round(lmiss[type == "model", V1], 2), ", umiss=", round(umiss[type == "model", V1], 2), ")]")]
+    DT[, type := factor(type)]
+
+    ggplot(data = DT, aes(x = date, y = total)) +
+        geom_line(aes(y = avg_N, linetype = state)) +
+        geom_line(aes(color = type)) +
+        geom_ribbon(aes(ymin = total_uCI, ymax = total_lCI, fill = type),
+                    alpha = 0.3) +
+        scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(legend.position = "top")) +
+        scale_fill_manual(values = wes_palette("Darjeeling2"), guide = FALSE) +
+        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
+        scale_y_continuous(limits = c(-10, 160), minor_breaks = seq(0,160,10), breaks = seq(0,160,20), expand = expansion(add = c(10, 10))) +
+        default_theme +
+        theme(legend.direction = "horizontal", legend.position = "bottom",
+              legend.justification = "center", legend.title = element_blank()) +
+        labs(
+            title = paste0("Nowcast evaluation: prediction t=", days.ago, " days back."),
+            subtitle = paste0("Black line shows actual number of deaths, dashed for the last 21 days where numbers are still being updated. Shaded areas show 95% CI."),
+            caption = paste0("Last day included = ", max(DT$date), "."),
+            linetype = "",
+            color = "",
+            x = "Date",
+            y = "Number of deaths"
+        )
+}
+
 update_web <- function(death_plot, lag_plot, index) {
     lines <- c(
         "---",
@@ -568,5 +694,3 @@ update_web <- function(death_plot, lag_plot, index) {
     writeLines(lines, con = con)
     close(con)
 }
-
-

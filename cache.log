@@ -5,17 +5,19 @@ hash,type,name
 10bb347b4b6546b0,import,calculate_lag
 b2a66d46940189cf,import,can_be_numeric
 82a2a2cb96b50459,import,CI_pred
-7683ba6e7b09907c,target,coverage_constant
+8b18c493ac6b28df,target,coverage_constant
 6d21b7dd016e9a7e,import,coverage_data
-407c8552b021b7d3,target,coverage_model
-b3f4979077808037,target,coverage_model2
-bee6dc80405475f2,target,coverage_plot_constant
-a095e5a224680972,target,coverage_plot_model
-fa57397ebb1d8cdd,target,coverage_plot_model2
+c5dccceacf137537,target,coverage_model
+90bca12e286fbde9,target,coverage_model_iva
+b46c5f1791400b0b,target,coverage_model2
+63462da28061a249,target,coverage_plot_constant
+67bb4af5bce83522,target,coverage_plot_model
+7876ac5d0c704926,target,coverage_plot_model_iva
+704a3f2693ae2b22,target,coverage_plot_model2
 690032f67a5f1326,import,coverage.plot
 ae304016eb4a33b9,import,day_of_week
 ac8d269c2bb919c6,target,days
-00e9576b98f38f4b,target,days.ago
+c40c00762a0dac94,target,days.ago
 0c55c24f0464575a,target,death_dt
 8843f58a44c63709,target,death_dts
 2f3701e3c33f8e93,target,death_dts_02d78205
@@ -219,11 +221,13 @@ dd4fe5ac1036c5b0,target,death_dts_f28ca648
 d3aaa5b9bca50f19,target,death_dts_facdae39
 df18c1f1e8d274b3,target,death_dts_fb7ba532
 fe4b8cb66625fba7,target,death_dts_fd224dc3
-be139ab8bda747b9,target,death_plot
+78565bec9ec0624c,target,death_plot
 bef0279832fb90d3,target,death_prediction_constant
 5ac0a9b95415090b,target,death_prediction_model
-0d1d3e5828c8e521,target,death_prediction_model2
-dbe9f0dccf929b95,target,death_prediction_model2_smooth
+aed25263ac3a244c,target,death_prediction_model_iva
+10e021d378b79793,target,death_prediction_model_iva_smooth
+7173891de38a11b6,target,death_prediction_model2
+93a21c5ce6bb8d50,target,death_prediction_model2_smooth
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t
 c0a60539d1607470,import,download_latest_fhm
@@ -231,7 +235,8 @@ c85d88fc56f4e042,target,drake_target_1
 c85d88fc56f4e042,target,drake_target_10
 c85d88fc56f4e042,target,drake_target_11
 c85d88fc56f4e042,target,drake_target_12
-91a78a30a1427488,target,drake_target_13
+c85d88fc56f4e042,target,drake_target_13
+91a78a30a1427488,target,drake_target_14
 c85d88fc56f4e042,target,drake_target_2
 c85d88fc56f4e042,target,drake_target_3
 91a78a30a1427488,target,drake_target_4
@@ -447,7 +452,7 @@ cc1cd81da6327315,target,fhm_paths
 7279ed32df04e158,import,get_ecdc
 74f3a6a747076401,import,get_record_date
 7e20ada77a1c532b,import,gp_msooth
-06f560c99826c90f,import,gp_smooth
+f9f1c5398f14aec5,import,gp_smooth
 668f3e10ad11e706,import,holidays.Sweden
 848972cb18f865b4,import,icu_covariates
 ee975ef954938c46,target,icu_dt
@@ -671,7 +676,7 @@ a641566c66a72d1c,import,ml_inversegamma
 73c5ec875ad1c6a0,import,model_build_icu_dt
 18e18795138d9efb,target,model_death_dt
 4ed1436f8dafedf6,target,model_icu_dt
-07201d6e7f48e110,import,model2.fit
+d9080a14645896a7,import,model2.fit
 b382c19642b49542,import,RCurl::url.exists
 b8c36ee2ceda2d70,import,grDevices::png
 fbd72e1ecb071672,import,cowplot::ggsave2
@@ -684,23 +689,26 @@ e39ca7f2873ddd75,target,file data/ECDC.csv
 d99da0888b29d418,target,file data/covid_deaths_latest.csv
 9e0f258ec49a844f,target,file data/covid_icu_latest.csv
 a084266c3e7867b6,target,file data/predictions.csv
-49e393bca9ff66d0,target,file docs/archive
-1ff8b3048b8ee7bd,target,file docs/deaths_lag_sweden_latest.png
+de99b3e8efe8464f,target,file docs/archive
+81b48f3a24f5ad1d,target,file docs/deaths_lag_sweden_latest.png
 106749c87ab60997,target,file docs/deaths_lag_sweden_2020-12-17.png
 106749c87ab60997,target,file docs/deaths_lag_sweden_2020-12-18.png
 52cf0b8d5fa80773,target,file docs/deaths_lag_sweden_2020-12-20.png
 f29a72e2b8a7b30d,target,file docs/deaths_lag_sweden_2020-12-21.png
 642b7378584c57fa,target,file docs/deaths_lag_sweden_2020-12-22.png
-18bc6a28724d1dbf,target,file docs/eval/coverage_eval_constant.png
-333cd6d2b4dccff0,target,file docs/eval/coverage_eval_model.png
-a644eb21c77af1de,target,file docs/eval/coverage_eval_model2.png
+665c007a31d22ddc,target,file docs/deaths_lag_sweden_2020-12-23.png
+a78b62552a20fd8f,target,file docs/eval/coverage_eval_constant.png
+190c783e85c255b9,target,file docs/eval/coverage_eval_model.png
+0ec3c9330da166fc,target,file docs/eval/coverage_eval_model2.png
+445612fa46ffda44,target,file docs/eval/coverage_eval_model_iva.png
 cee994ab3b85398b,target,file docs/eval/probability.png
-37968d1ab9532da4,target,file docs/index.md
+0537c897c28c43d8,target,file docs/index.md
 30c57c624d769ec4,target,file docs/lag_trend_sweden_2020-12-17.png
 30c57c624d769ec4,target,file docs/lag_trend_sweden_2020-12-18.png
 b8d848e4c1957e31,target,file docs/lag_trend_sweden_2020-12-20.png
 b8d848e4c1957e31,target,file docs/lag_trend_sweden_2020-12-21.png
 7040154868364ce6,target,file docs/lag_trend_sweden_2020-12-22.png
+7040154868364ce6,target,file docs/lag_trend_sweden_2020-12-23.png
 5787c82e122bcafe,target,file docs/lag_trend_sweden_latest.png
 621b1819d2bea848,import,plot_lag_trends_grid
 3b2100b673c6a8bf,import,plot_lag_trends1
@@ -712,7 +720,7 @@ b6fa5ff1f293d9c5,import,Prob_gamma
 b83ab5bf00e98396,import,probability_analysis
 9f2c1a2a656265b7,import,report_clean
 7b3fc11f5f6d7e73,import,run.model.all
-f49e4eba0ece9388,import,run.model2.all
+f3b7803fddb030fa,import,run.model2.all
 31bda3e4dc9517fb,import,save_plot
 7a48531c21db9a3c,import,set_default_theme
 e6993739aa5776f5,target,time_to_finished

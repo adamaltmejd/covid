@@ -2,7 +2,8 @@
 #
 # fit Gaussian processes for smoothing
 #
-#
+
+library(data.table)
 
 likelihood_death <- function(x, D, y){
     kappa       <- exp(x[1])
@@ -18,12 +19,12 @@ likelihood_death <- function(x, D, y){
     return( -sum(log(diag(R))) - 0.5*t(v)%*%v)
 }
 
-gp_smooth <- function(death_prediction, model_death_dt){
+gp_smooth <- function(death_prediction, model_death_dt, model.file ="model_smooth.rds"){
 
     model_dt_smooth <- NULL
 
-    if( file.exists(file.path("data", "model", "model_smooth.rds"))){
-        model_dt_smooth<- readRDS(file.path("data", "model", "model_smooth.rds"))
+    if( file.exists(file.path("data", "model", model.file))){
+        model_dt_smooth<- readRDS(file.path("data", "model", model.file))
     }
 
     N <- length(model_death_dt$dates)
@@ -46,6 +47,8 @@ gp_smooth <- function(death_prediction, model_death_dt){
         model_dt_date <- death_prediction[death_prediction$prediction_date==date_,]
 
         index_d <- death_reported_so_far$date < model_dt_date$prediction_date[1]-25
+        if(sum(index_d) < 20)
+            next
         time_d  = death_reported_so_far$date[index_d] - min(death_reported_so_far$date[index_d])
         y_d     =  sqrt(death_reported_so_far$T_deaths[index_d] )
         D_d     = as.matrix(dist(time_d))
@@ -81,19 +84,19 @@ gp_smooth <- function(death_prediction, model_death_dt){
         date_min <- min(model_dt_date$date)
         total_date <- 0:(date_obs-date_min) + as.Date(date_min)
         new_dates <- setdiff(as.character(total_date),as.character(model_dt_date$date))
+        if(length(new_dates)>0){
 
+            time  = c(as.Date(new_dates),model_dt_date$date)- min(model_dt_date$date)
+            D     = as.matrix(dist(time))
+            Sigma_mod <- matern.covariance(D, kappa, nu, sigma)
+            Sigma_mod_obs <- Sigma_mod
+            diag(Sigma_mod_obs)<- diag(Sigma_mod_obs) + sigma_noise^2
+            index <- (length(new_dates) + 1):length(time)
+            mu_obs <-Sigma_mod_obs[,index]%*%solve(Sigma_Y, y)
 
-        time  = c(as.Date(new_dates),model_dt_date$date)- min(model_dt_date$date)
-        D     = as.matrix(dist(time))
-        Sigma_mod <- matern.covariance(D, kappa, nu, sigma)
-        Sigma_mod_obs <- Sigma_mod
-        diag(Sigma_mod_obs)<- diag(Sigma_mod_obs) + sigma_noise^2
-        index <- (length(new_dates) + 1):length(time)
-        mu_obs <-Sigma_mod_obs[,index]%*%solve(Sigma_Y, y)
+            Sigma_mod_obs_cond <- Sigma_mod_obs - Sigma_mod_obs[,index]%*%solve(Sigma_Y,Sigma_mod_obs[index,])
+            index_no <-1:length(new_dates)
 
-        Sigma_mod_obs_cond <- Sigma_mod_obs - Sigma_mod_obs[,index]%*%solve(Sigma_Y,Sigma_mod_obs[index,])
-        index_no <-1:length(new_dates)
-        if(1){
             model_dt_date <- rbind(model_dt_date,
                                data.frame(
                                    prediction_date   = model_dt_date$prediction_date[1],
@@ -104,11 +107,11 @@ gp_smooth <- function(death_prediction, model_death_dt){
                                   total_lCI         = floor(apply(as.matrix(mu_obs[index_no]- 2*sqrt(diag(Sigma_mod_obs_cond)[index_no])),1,function(x){max(0,x)})^2),
                                    total_uCI         = ceiling((mu_obs[index_no]+ 2*sqrt(diag(Sigma_mod_obs_cond)[index_no]))^2),
                                    total             = round(mu_obs[index_no]^2)))
-            }
-        model_dt_smooth <- rbind(model_dt_smooth,model_dt_date)
+        }
+            model_dt_smooth <- rbind(model_dt_smooth,model_dt_date)
     }
 
-    saveRDS(model_dt_smooth, file.path("data", "model", "model_smooth.rds"))
+    saveRDS(model_dt_smooth, file.path("data", "model", model.file))
     model_dt_smooth <- data.table(model_dt_smooth)
     model_dt_smooth[, prediction_date := as.Date(prediction_date)]
     model_dt_smooth[, date := as.Date(date)]

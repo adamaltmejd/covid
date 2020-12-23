@@ -109,7 +109,7 @@ model2.fit <- function(model_dt,
                     model_dt <- rbind(model_dt,
                                       data.frame( prediction_date = as.Date(state), #state
                                                   date            = as.Date(pred.day),                 #date
-                                                  sure_deaths     = 0,
+                                                  sure_deaths     = obs,
                                                   predicted_deaths = quantile[2] - obs,
                                                   obs              = obs,      # observations
                                                   total_lCI        = quantile[1],
@@ -146,11 +146,12 @@ model2.fit <- function(model_dt,
 #'@param model_dt             - data.frame of model predicitons
 #'@param prior                - use icu to predicit
 #'@param days.to.pred         - how long to predicit each days ahead in time
-run.model2.all <- function(model_death_dt, model_icu_dt ,prior=T, days.to.pred=15){
+run.model2.all <- function(model_death_dt, model_icu_dt ,prior=T, days.to.pred=15,
+                           model.file = "model_seperate_lag.rds"){
 
     model_dt <- NULL
-    if( file.exists(file.path("data", "model", "model_seperate_lag.rds"))){
-        model_dt<- readRDS(file.path("data", "model", "model_seperate_lag.rds"))
+    if( file.exists(file.path("data", "model", model.file))){
+        model_dt<- readRDS(file.path("data", "model", model.file))
     }
     prior_ = NULL
     if(prior==T){
@@ -165,6 +166,6 @@ run.model2.all <- function(model_death_dt, model_icu_dt ,prior=T, days.to.pred=1
         model_dt <- res$model_dt
     }
 
-    saveRDS(model_dt, file.path("data", "model", "model_seperate_lag.rds"))
+    saveRDS(model_dt, file.path("data", "model", model.file))
     return(model_dt)
 }

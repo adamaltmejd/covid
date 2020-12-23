@@ -25,6 +25,17 @@ plan <- drake_plan(
     model_death_dt = model_build_death_dt(death_dt),
     model_icu_dt = model_build_icu_dt(icu_dt),
 
+    #model prediction seperate lag
+    death_prediction_model2 = run.model2.all(model_death_dt,model_icu_dt, days.to.pred = 25,prior=F),
+    death_prediction_model2_smooth  = gp_smooth(death_prediction_model2, model_death_dt),
+    death_prediction_model_iva = run.model2.all(model_death_dt,model_icu_dt, days.to.pred = 25,prior=T, model.file="model_seperate_lag_iva.rds"),
+    death_prediction_model_iva_smooth  = gp_smooth(death_prediction_model_iva, model_death_dt, model.file = "model_iva_smooth.rds"),
+    days.ago = 0,
+    coverage_constant = coverage_data(model_death_dt, death_prediction_constant, days.ago),
+    coverage_model = coverage_data(model_death_dt, death_prediction_model, days.ago),
+    coverage_model2 = coverage_data(model_death_dt, death_prediction_model2_smooth, days.ago),
+    coverage_model_iva = coverage_data(model_death_dt, death_prediction_model_iva_smooth, days.ago),
+
     death_prediction_constant = predict_lag(death_dt),
     death_prediction_model = run.model.all(model_death_dt, model_icu_dt),
 
@@ -47,7 +58,6 @@ plan <- drake_plan(
     coverage_plot_model = coverage.plot(coverage_model, days.ago, default_theme, type = "statistical"),
     coverage_plot_model2 = coverage.plot(coverage_model2, days.ago, default_theme, type = "stat sep lag"),
     coverage_plot_model_iva = coverage.plot(coverage_model_iva, days.ago, default_theme, type = "stat sep lag iva"),
-
     analysis.prob.fig = probability_analysis(model_death_dt),
     coverage_plot_t0 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme),
     save_plot(coverage_plot_t0, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t0.png"))), bgcolor = "white"),

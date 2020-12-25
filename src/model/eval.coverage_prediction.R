@@ -73,19 +73,19 @@ probability_analysis <- function(model_death_dt ,theme,days.reported=5, lag = 20
     colnames(new_cases) <- as.character(model_death_dt$dates)
     diag(new_cases) <- NA
     N <- apply(new_cases,1,sum, na.rm=T)
-    Prob <- matrix(0,nrow=dim(new_cases)[1]-lag,ncol=30)
+    Prob <- matrix(0,nrow=dim(new_cases)[1]-lag,ncol=40)
     for(i in 1:(dim(new_cases)[1]-lag)){
         cases <- new_cases[i,]
-        m <- min(length(cases)-i,30)
-        cases <- cases[i+ (1:m)]
-        cases <- cases[is.na(cases)==F ]
+        m <- min(length(cases)-i,40)
+        cases <- cases[i+ (0:m)]
+        #cases <- cases[is.na(cases)==F ]
 
         Prob[i,1:m] = cases[1:m]/sum(new_cases[i,], na.rm=T)
     }
     N <- N[1:(dim(new_cases)[1]-lag)]
     dates <- as.Date(model_death_dt$dates[1:(dim(new_cases)[1]-lag)])
     data  <- data.frame(date = dates[N>N_min],
-                        prob = apply(Prob[N>N_min,1:days.reported,drop=F],1,sum))
+                        prob = apply(Prob[N>N_min,1:days.reported,drop=F],1,sum, na.rm=T))
     ggfig <- ggplot(data = data, aes(y = prob, x = date)) +
              geom_point()+# theme +
              labs(title = paste0("reprorted up to day ",days.reported," given total deaths greater then >",N_min,sep=""),

@@ -58,7 +58,7 @@ plan <- drake_plan(
     coverage_plot_model = coverage.plot(coverage_model, days.ago, default_theme, type = "statistical"),
     coverage_plot_model2 = coverage.plot(coverage_model2, days.ago, default_theme, type = "stat sep lag"),
     coverage_plot_model_iva = coverage.plot(coverage_model_iva, days.ago, default_theme, type = "stat sep lag iva"),
-    analysis.prob.fig = probability_analysis(model_death_dt),
+    analysis.prob.fig = probability_analysis(model_death_dt,days.reported=14),
     coverage_plot_t0 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme),
     save_plot(coverage_plot_t0, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t0.png"))), bgcolor = "white"),
     coverage_plot_t1 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 1, default_theme),

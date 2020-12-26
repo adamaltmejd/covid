@@ -163,7 +163,12 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
             gsub("\\\\\"", "\"", .) %>%
             parse_json
 
-        DT <- fread(text = gsub("\\\\n", "\n", data_json$data$chartData), na.strings = "-")
+        data_delim <- data_json$data$chartData
+        data_delim <- gsub("\\\\n", "\n", data_delim)
+        data_delim <- gsub("\\\\t", "\t", data_delim)
+
+        DT <- fread(text = data_delim, sep = "\t",
+                    na.strings = "-", fill = TRUE)
 
         setnames(DT,
                  c("datum",

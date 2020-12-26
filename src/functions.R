@@ -387,9 +387,7 @@ set_default_theme <- function() {
         )
 }
 
-plot_lagged_deaths <- function(death_dt,
-                               death_prediction_constant, death_prediction_model,
-                               ecdc, days, default_theme) {
+plot_lagged_deaths <- function(death_dt, death_prediction_model, default_theme) {
     require(ggplot2)
     require(forcats)
 
@@ -397,31 +395,11 @@ plot_lagged_deaths <- function(death_dt,
     total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]
 
     death_dt <- death_dt[date >= "2020-03-12"]
-    death_prediction_constant <- death_prediction_constant[prediction_date == latest_date]
     death_prediction_model <- death_prediction_model[prediction_date == latest_date]
 
     predicted_deaths <- round(death_prediction_model[, sum(predicted_deaths)], 0)
     predicted_deaths_lCI <- round(death_prediction_model[, sum(total_lCI - sure_deaths)], 0)
     predicted_deaths_uCI <- round(death_prediction_model[, sum(total_uCI - sure_deaths)], 0)
-
-    # Deaths by actual date
-    actual_deaths <- death_dt[publication_date == latest_date & !is.na(date), .(date, N)]
-    actual_deaths <- merge(actual_deaths, death_prediction_constant[, .(date, predicted = total)],
-                           by = "date", all = TRUE)
-    actual_deaths[is.na(predicted), predicted := N]
-    setkey(actual_deaths, date)
-    actual_deaths[, avg := frollmean(N, 7, algo = "exact", align = "center")]
-    actual_deaths[, avg_pred := frollmean(predicted, 7, algo = "exact", align = "center")]
-
-    # ECDC data of reported deaths per day
-    # Moving average (centered)
-    # ecdc <- ecdc[countryterritoryCode == "SWE",
-    #              .(date = as.Date(dateRep, format = "%d/%m/%Y"),
-    #                cases, deaths)]
-    # ecdc <- ecdc[, date := date - 1]
-    # ecdc <- ecdc[date >= "2020-03-12"]
-    # setkey(ecdc, date)
-    # ecdc[, avg := frollmean(deaths, 7, algo = "exact", align = "center")]
 
     death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
     date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
@@ -438,52 +416,23 @@ plot_lagged_deaths <- function(death_dt,
 
     # Drop earliest data
     death_dt <- death_dt[date >= "2020-03-12"]
-    death_prediction_constant <- death_prediction_constant[date >= "2020-03-12"]
-    days <- days[date >= "2020-03-12"]
 
+    # Plot
     ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
-        #geom_bar(data = death_prediction_constant, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
-
         geom_linerange(data = death_prediction_model, aes(y = total, ymin = total_lCI, ymax = total_uCI),
                        color = "#999999", size = 0.5) +
         geom_point(data = death_prediction_model, aes(y = total), color = "#888888", size = 0.2) +
-
-        #geom_bar(data = death_prediction_model, aes(y = total, fill = "Model nowcast"), stat="identity", width = 1) +
-
-        #geom_line(data = death_prediction_model, aes(x = date, y = total, linetype = "Model forecast"), color = "#444444") +
-        # geom_ribbon(data = death_prediction_model, aes(x = date, y = total, ymin = total_lCI, ymax = total_uCI),
-        #             fill = "#444444", alpha = 0.2) +
-
-        # geom_point(data = death_prediction_model, aes(x = date, y = total_lCI),
-        #             color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 2) +
-        # geom_point(data = death_prediction_model, aes(x = date, y = total_uCI),
-        #             color = "#000000", fill = "#000000", alpha = 0.4, size = 0.2, shape = 6) +
-
-
-        # geom_line(data = ecdc[!is.na(avg)], aes(x = date, y = avg, linetype = "By report date"), color = "#444444") +
-        # geom_line(data = actual_deaths[!is.na(avg)], aes(x = date, y = avg, linetype = "By death date"), color = "#444444") +
-        #geom_line(data = actual_deaths[!is.na(avg_pred)], aes(x = date, y = avg_pred, linetype = "Forecast"), color = "#444444") +
-
-
-
-        #geom_text(data = days, aes(y = -4, label = wd, color = weekend), size = 2.5, family = "EB Garamond", show.legend = FALSE) +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date()-80, y = 100,
+                 x = Sys.Date() - 80, y = 100,
                  label = paste0(latest_date, "\n",
                                 "Reported:  ", format(total_deaths, big.mark = ","), "\n",
-                                #"Predicted:    ", format(predicted_deaths, big.mark = ","), " (", format(predicted_deaths_lCI, big.mark = ","), ", ", format(predicted_deaths_uCI, big.mark = ","), ")", "\n",
                                 "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
-                                #"Total:        ", format(total_deaths + predicted_deaths, big.mark = ","), " (", format(total_deaths + predicted_deaths_lCI, big.mark = ","), ", ", format(total_deaths + predicted_deaths_uCI, big.mark = ","), ")")) +
                                 "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
-        # scale_color_manual(values = c("black", "red")) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
-        # scale_linetype_manual(values = c(#"By report date" = "dotted",
-        #                                  "By death date" = "solid",
-        #                                  "Model forecast" = "dashed"), name = "Statistics") +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
         scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
         default_theme +
@@ -496,7 +445,7 @@ plot_lagged_deaths <- function(death_dt,
              y = "Number of deaths")
 }
 
-plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
+plot_lag_trends1 <- function(time_to_finished, default_theme) {
     DT <- time_to_finished[, c(1, grep("days_to_finished_[0-9]+_avg$", names(time_to_finished))), with = FALSE]
     DT <- melt(DT, id.vars = "date", variable.factor = FALSE)
     DT <- DT[!is.na(value)]
@@ -504,15 +453,10 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
     DT[, variable := factor(as.numeric(gsub("[a-z_]*", "", variable)))]
     levels(DT$variable) <- paste0(levels(DT$variable), "%")
 
-    days <- days[date %between% c(DT[, min(date)], DT[, max(date)])]
-
     ggplot(data = DT, aes(x = date, y = value)) +
-        #geom_text(data = days[weekend == TRUE], aes(y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
-        #geom_text(data = days[weekend == FALSE], aes(y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
         geom_line(aes(group = variable, color = variable), linetype = "twodash", size = 0.9, alpha = 0.8) +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
         scale_y_continuous(limits = c(-1, 32), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
-        # scale_y_continuous(limits = c(0, NA), breaks = c(5, 10, 15, 20), expand = expansion(add = c(0,3))) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
         default_theme +
         theme(legend.direction = "horizontal",
@@ -524,7 +468,7 @@ plot_lag_trends1 <- function(time_to_finished, days, default_theme) {
              y = 'Days until date is "completed"')
 }
 
-plot_lag_trends2 <- function(death_dt, days, default_theme) {
+plot_lag_trends2 <- function(death_dt, default_theme) {
     DT <- copy(death_dt)
 
     DT <- DT[n_diff > 0 & publication_date > "2020-04-02"]
@@ -540,8 +484,6 @@ plot_lag_trends2 <- function(death_dt, days, default_theme) {
 
     g <- ggplot(data = DT[lag <= 30],
                 aes(x = publication_date, y = lag)) +
-        #geom_text(data = days[weekend == TRUE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "red", size = 2, family = "EB Garamond") +
-        #geom_text(data = days[weekend == FALSE & date > "2020-04-02"], aes(x = date, y = -1, label = wd), color = "black", size = 2, family = "EB Garamond") +
         geom_point(aes(size = n_diff / 2, color = delay)) +
         geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
@@ -557,10 +499,6 @@ plot_lag_trends2 <- function(death_dt, days, default_theme) {
 }
 
 plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
-    loadd(default_theme)
-    lag_plot1 <- plot_lag_trends1(readd(time_to_finished), readd(days), default_theme)
-    lag_plot2 <- plot_lag_trends2(readd(death_dt), readd(days), default_theme)
-
     lag_plot1 <- lag_plot1 + theme(plot.margin = margin(0,-5,0,30))
     lag_plot2 <- lag_plot2 + theme(plot.margin = margin(0,30,0,-5))
     pgrid <- plot_grid(lag_plot1, lag_plot2,

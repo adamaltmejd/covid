@@ -238,12 +238,13 @@ c3a95aa6d94e0514,target,death_prediction_model_iva
 d2c6cb4a5b413a1a,target,death_prediction_model_iva_smooth
 37207f4a02b77509,target,death_prediction_model2
 a66c7f11965d61cb,target,death_prediction_model2_smooth
+1a7b904da893e4ff,import,deaths_icu_hospital_corr_plot
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t
 c0a60539d1607470,import,download_latest_fhm
 c85d88fc56f4e042,target,drake_target_1
-91a78a30a1427488,target,drake_target_10
-c85d88fc56f4e042,target,drake_target_11
+c85d88fc56f4e042,target,drake_target_10
+91a78a30a1427488,target,drake_target_11
 c85d88fc56f4e042,target,drake_target_12
 c85d88fc56f4e042,target,drake_target_13
 c85d88fc56f4e042,target,drake_target_14
@@ -253,7 +254,8 @@ c85d88fc56f4e042,target,drake_target_17
 c85d88fc56f4e042,target,drake_target_18
 c85d88fc56f4e042,target,drake_target_19
 c85d88fc56f4e042,target,drake_target_2
-91a78a30a1427488,target,drake_target_20
+c85d88fc56f4e042,target,drake_target_20
+91a78a30a1427488,target,drake_target_21
 c85d88fc56f4e042,target,drake_target_3
 c85d88fc56f4e042,target,drake_target_4
 c85d88fc56f4e042,target,drake_target_5
@@ -731,6 +733,7 @@ ca17c7742f58b658,target,file docs/eval/coverage_eval_t3.png
 5721a6842d724d62,target,file docs/eval/coverage_eval_t4.png
 1b20398a936c1325,target,file docs/eval/coverage_eval_t5.png
 50d2a746a9abc7c5,target,file docs/eval/probability.png
+21aae5ac2d7ef5f1,target,file docs/eval/prior_eval.png
 d031da6781f26d89,target,file docs/index.md
 1fa1bd91083b304f,target,file docs/lag_trend_sweden_2020-12-15.png
 02810a0d446be479,target,file docs/lag_trend_sweden_2020-12-16.png
@@ -746,6 +749,7 @@ d336ed9bb8e32249,import,plot_coverage_eval
 2c1e7219187855ec,import,plot_lag_trends2
 91da544a5745a2e1,import,plot_lagged_deaths
 bab1a090337d280f,import,predict_lag
+e8544f9c2099aa31,target,prior_eval_plot
 327c2249f00a20b1,import,prior_t
 b6fa5ff1f293d9c5,import,Prob_gamma
 f1b3d9b9e6346f47,import,probability_analysis

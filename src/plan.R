@@ -72,6 +72,10 @@ plan <- drake_plan(
     coverage_plot_t5 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 5, default_theme),
     save_plot(coverage_plot_t5, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t5.png"))), bgcolor = "white"),
 
+    # Prior evaluation plot
+    prior_eval_plot = deaths_icu_hospital_corr_plot(model_death_dt, socstyr_dt, default_theme),
+    save_plot(prior_eval_plot, file_out(!!file.path("docs", "eval", paste0("prior_eval.png"))), bgcolor = "white"),
+
     # Save plots
     target(archive_plots(file_out(!!file.path("docs", "archive"))), trigger = trigger(change = Sys.Date())),
 

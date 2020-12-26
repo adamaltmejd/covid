@@ -634,7 +634,8 @@ plot_coverage_eval <- function(death_dt, death_prediction_constant, death_predic
 
     DT <- rbind(
         data.table(type = "constant", death_prediction_constant[date >= "2020-05-01"]),
-        data.table(type = "model", death_prediction_model[date >= "2020-05-01"])
+        data.table(type = "model", death_prediction_model[date >= "2020-05-01"][, -"obs"]),
+        use.names = TRUE
     )
     # days.off sets which prediction day to use
     DT <- DT[prediction_date == date + days.ago]

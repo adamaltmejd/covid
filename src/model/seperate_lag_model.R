@@ -50,6 +50,7 @@ model2.fit <- function(model_dt,
     Analysis_data <- c()
     coeff <- c()
     dates <- c()
+    holidays <- c()
     prediciton.set <-c()
     vcovs <- list()
 
@@ -63,10 +64,13 @@ model2.fit <- function(model_dt,
         if(mean(is.na(new_cases[(i-days.reported),1:i]))<1){
             Analysis_data <- rbind(Analysis_data, c(cases, Total))
             dates <- c(dates,colnames(new_cases)[i])
+            holidays <- c(holidays, sum(as.Date(colnames(new_cases)[(i-days.reported):i])%in%holidays.Sweden))
         }
+        if(mean(is.na(new_cases[(i+lag-days.reported),1:(i+lag)]))==1)
+            next
         if(is.null(model_dt)==F){
-            index1 = model_dt$prediction_date == as.Date(state)
-            index2 = model_dt$date            == as.Date(pred.day)
+            index1 = as.Date(model_dt$prediction_date) == as.Date(state)
+            index2 = as.Date(model_dt$date)            == as.Date(pred.day)
             if(sum(index1*index2) >0)
                 next
         }
@@ -80,16 +84,17 @@ model2.fit <- function(model_dt,
                 Analysis_glm  <- data.frame(Y = Analysis_data[,1],
                                             N = Analysis_data[,2]-Analysis_data[,1],
                                             time = as.numeric(as.Date(dates)-as.Date(dates[1])),
+                                            holidays = holidays,
                                             days  =as.factor(weekdays(as.Date(dates))))
                 #w <- rev(cumprod(rep(0.95,length(Analysis_data[,2]))))
                 #fit <- gam(cbind(Y,N)~1+ days, weights = w, data=Analysis_glm, family=binomial(link="logit"), method="REML")
-                fit <- gam(cbind(Y,N)~1+s(time,bs="tp")+ days,  data=Analysis_glm, family=binomial(link="logit"), method="REML")
+                fit <- gam(cbind(Y,N)~1+s(time,bs="tp")+ days + holidays,  data=Analysis_glm, family=binomial(link="logit"), method="REML")
 
                 n_fit <- length(fit$fitted.values)
                 #predicition
                 if(i + lag <= dim(new_cases)[1]){
                     predicted=T
-                    obs <- sum(new_cases[(i+lag-days.reported),1:(i+lag)], na.rm=T)
+                    obs   <- sum(new_cases[(i+lag-days.reported),1:(i+lag)], na.rm=T)
                     Truth <-  sum(new_cases[(i+lag-days.reported),], na.rm=T)
                     state_day <- weekdays(as.Date(state))
 
@@ -101,11 +106,15 @@ model2.fit <- function(model_dt,
                     }else{
                         prior = NULL
                     }
+                    holidays_pred <- sum(as.Date(colnames(new_cases)[(i+lag-days.reported):(i+lag)])%in%holidays.Sweden)
                     Truth_est <- CI_pred(fit, data.frame(time= Analysis_glm$time[length(Analysis_glm$time)],
-                                                         days= state_day),
+                                                         days= state_day,
+                                                         holidays =holidays_pred
+                                                         ),
                                          obs,
                                          prior=prior)
                     quantile = quantile(Truth_est,probs = c(0.025,0.5,0.975))
+                    print('here')
                     model_dt <- rbind(model_dt,
                                       data.frame( prediction_date = as.Date(state), #state
                                                   date            = as.Date(pred.day),                 #date

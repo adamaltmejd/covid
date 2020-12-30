@@ -1,5 +1,6 @@
 require(Matrix)
-holidays.Sweden <- as.Date(c("2020-04-10","2020-04-13","2020-05-01","2020-05-21","2020-06-19","2020-06-20"))
+holidays.Sweden <- as.Date(c("2020-04-10","2020-04-13","2020-05-01","2020-05-21","2020-06-19","2020-06-20",
+                             "2020-12-23","2020-12-24","2020-12-25"))
 
 ##
 # sample reported deaths after rep.day (if Inf) predicit day
@@ -695,9 +696,9 @@ newCases <- function(reports){
   ##
   # ugly fix
   ##
-  
+
   reports_temp <- reports
-  
+
   for(i in 1:dim(reports_temp)[1]){
     reports_temp[i,1:(i-1)]=0
     if(is.na(reports_temp[i,i]))
@@ -706,7 +707,7 @@ newCases <- function(reports){
       if(is.na(reports_temp[i,j]))
         reports_temp[i,j]= reports_temp[i,j-1]
     }
-    
+
   }
   reports_temp <- cbind(0,reports_temp)
   newreport <- t(diff(t(reports_temp)))
@@ -731,9 +732,9 @@ newDeaths <-function(deaths, reports,maxusage.day = -1){
   ##
   # ugly fix
   ##
-  
+
   reports_temp <- reports
-  
+
   for(i in 1:dim(reports_temp)[1]){
     reports_temp[i,1:(i-1)]=0
     if(is.na(reports_temp[i,i]))
@@ -742,7 +743,7 @@ newDeaths <-function(deaths, reports,maxusage.day = -1){
       if(is.na(reports_temp[i,j]))
         reports_temp[i,j]= reports_temp[i,j-1]
     }
-    
+
   }
   reports_temp <- cbind(0,reports_temp)
   newreport <- t(diff(t(reports_temp)))

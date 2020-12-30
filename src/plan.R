@@ -29,6 +29,7 @@ plan <- drake_plan(
     model_death_dt = model_build_death_dt(death_dt),
     model_icu_dt = model_build_icu_dt(icu_dt),
     death_prediction_model_raw = run.model2.all(model_death_dt, model_icu_dt, days.to.pred = 25,prior=F),
+    print(death_prediction_model_raw),
     death_prediction_model = gp_smooth(death_prediction_model_raw, model_death_dt),
 
     # Save data

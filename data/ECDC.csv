@@ -1,4 +1,5 @@
 dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,countryterritoryCode,popData2019,continentExp,notification_rate_per_100000_population_14-days
+28/12/2020,2020-52,1994,88,Afghanistan,AF,AFG,38041757,Asia,7.19
 21/12/2020,2020-51,740,111,Afghanistan,AF,AFG,38041757,Asia,6.56
 14/12/2020,2020-50,1757,71,Afghanistan,AF,AFG,38041757,Asia,9.01
 07/12/2020,2020-49,1672,137,Afghanistan,AF,AFG,38041757,Asia,7.22
@@ -50,6 +51,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Afghanistan,AF,AFG,38041757,Asia,0
 13/01/2020,2020-02,0,0,Afghanistan,AF,AFG,38041757,Asia,0
 06/01/2020,2020-01,0,0,Afghanistan,AF,AFG,38041757,Asia,
+28/12/2020,2020-52,3569,76,Albania,AL,ALB,2862427,Europe,280.95
 21/12/2020,2020-51,4473,85,Albania,AL,ALB,2862427,Europe,349.88
 14/12/2020,2020-50,5542,98,Albania,AL,ALB,2862427,Europe,380.97
 07/12/2020,2020-49,5363,107,Albania,AL,ALB,2862427,Europe,357.28
@@ -92,6 +94,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,47,1,Albania,AL,ALB,2862427,Europe,3.04
 16/03/2020,2020-11,40,1,Albania,AL,ALB,2862427,Europe,1.47
 09/03/2020,2020-10,2,0,Albania,AL,ALB,2862427,Europe,
+28/12/2020,2020-52,3428,71,Algeria,DZ,DZA,43053054,Africa,15.17
 21/12/2020,2020-51,3101,70,Algeria,DZ,DZA,43053054,Africa,16.15
 14/12/2020,2020-50,3850,80,Algeria,DZ,DZA,43053054,Africa,22.95
 07/12/2020,2020-49,6031,106,Algeria,DZ,DZA,43053054,Africa,31.1
@@ -143,6 +146,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Algeria,DZ,DZA,43053054,Africa,0
 13/01/2020,2020-02,0,0,Algeria,DZ,DZA,43053054,Africa,0
 06/01/2020,2020-01,0,0,Algeria,DZ,DZA,43053054,Africa,
+28/12/2020,2020-52,10,1,Andorra,AD,AND,76177,Europe,326.87
 21/12/2020,2020-51,239,2,Andorra,AD,AND,76177,Europe,691.81
 14/12/2020,2020-50,288,1,Andorra,AD,AND,76177,Europe,821.77
 07/12/2020,2020-49,338,2,Andorra,AD,AND,76177,Europe,1042.31
@@ -184,6 +188,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,221,6,Andorra,AD,AND,76177,Europe,431.89
 23/03/2020,2020-12,108,0,Andorra,AD,AND,76177,Europe,148.34
 16/03/2020,2020-11,5,0,Andorra,AD,AND,76177,Europe,
+28/12/2020,2020-52,652,16,Angola,AO,AGO,31825299,Africa,3.48
 21/12/2020,2020-51,456,16,Angola,AO,AGO,31825299,Africa,3.48
 14/12/2020,2020-50,652,17,Angola,AO,AGO,31825299,Africa,3.41
 07/12/2020,2020-49,433,8,Angola,AO,AGO,31825299,Africa,3.28
@@ -224,6 +229,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,7,0,Angola,AO,AGO,31825299,Africa,0.04
 30/03/2020,2020-13,5,2,Angola,AO,AGO,31825299,Africa,0.02
 23/03/2020,2020-12,2,0,Angola,AO,AGO,31825299,Africa,
+28/12/2020,2020-52,3,0,Anguilla,AI,AIA,14872,America,20.17
 21/12/2020,2020-51,0,0,Anguilla,AI,AIA,14872,America,6.72
 14/12/2020,2020-50,1,0,Anguilla,AI,AIA,14872,America,40.34
 07/12/2020,2020-49,5,0,Anguilla,AI,AIA,14872,America,33.62
@@ -263,6 +269,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,0,0,Anguilla,AI,AIA,14872,America,6.72
 06/04/2020,2020-14,1,0,Anguilla,AI,AIA,14872,America,20.17
 30/03/2020,2020-13,2,0,Anguilla,AI,AIA,14872,America,
+28/12/2020,2020-52,5,0,Antigua_and_Barbuda,AG,ATG,97115,America,10.3
 21/12/2020,2020-51,5,0,Antigua_and_Barbuda,AG,ATG,97115,America,7.21
 14/12/2020,2020-50,2,1,Antigua_and_Barbuda,AG,ATG,97115,America,7.21
 07/12/2020,2020-49,5,0,Antigua_and_Barbuda,AG,ATG,97115,America,7.21
@@ -303,6 +310,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,8,0,Antigua_and_Barbuda,AG,ATG,97115,America,14.42
 30/03/2020,2020-13,6,0,Antigua_and_Barbuda,AG,ATG,97115,America,7.21
 23/03/2020,2020-12,1,0,Antigua_and_Barbuda,AG,ATG,97115,America,
+28/12/2020,2020-52,43370,871,Argentina,AR,ARG,44780675,America,206.17
 21/12/2020,2020-51,48955,1231,Argentina,AR,ARG,44780675,America,187.63
 14/12/2020,2020-50,35067,996,Argentina,AR,ARG,44780675,America,177.23
 07/12/2020,2020-49,44299,1297,Argentina,AR,ARG,44780675,America,207.1
@@ -345,6 +353,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,210,2,Argentina,AR,ARG,44780675,America,0.57
 16/03/2020,2020-11,44,1,Argentina,AR,ARG,44780675,America,0.13
 09/03/2020,2020-10,12,1,Argentina,AR,ARG,44780675,America,
+28/12/2020,2020-52,3883,119,Armenia,AM,ARM,2957728,Europe,313.28
 21/12/2020,2020-51,5383,153,Armenia,AM,ARM,2957728,Europe,396.28
 14/12/2020,2020-50,6338,159,Armenia,AM,ARM,2957728,Europe,458.39
 07/12/2020,2020-49,7220,180,Armenia,AM,ARM,2957728,Europe,528.62
@@ -396,6 +405,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Armenia,AM,ARM,2957728,Europe,0
 13/01/2020,2020-02,0,0,Armenia,AM,ARM,2957728,Europe,0
 06/01/2020,2020-01,0,0,Armenia,AM,ARM,2957728,Europe,
+28/12/2020,2020-52,147,2,Aruba,AW,ABW,106310,America,257.74
 21/12/2020,2020-51,127,1,Aruba,AW,ABW,106310,America,198.48
 14/12/2020,2020-50,84,1,Aruba,AW,ABW,106310,America,198.48
 07/12/2020,2020-49,127,0,Aruba,AW,ABW,106310,America,220.11
@@ -435,6 +445,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,28,0,Aruba,AW,ABW,106310,America,39.51
 06/04/2020,2020-14,14,0,Aruba,AW,ABW,106310,America,60.2
 30/03/2020,2020-13,50,0,Aruba,AW,ABW,106310,America,
+28/12/2020,2020-52,114,0,Australia,AU,AUS,25203200,Oceania,1.11
 21/12/2020,2020-51,167,0,Australia,AU,AUS,25203200,Oceania,0.92
 14/12/2020,2020-50,66,0,Australia,AU,AUS,25203200,Oceania,0.55
 07/12/2020,2020-49,72,1,Australia,AU,AUS,25203200,Oceania,0.57
@@ -486,6 +497,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Australia,AU,AUS,25203200,Oceania,0
 13/01/2020,2020-02,0,0,Australia,AU,AUS,25203200,Oceania,0
 06/01/2020,2020-01,0,0,Australia,AU,AUS,25203200,Oceania,
+28/12/2020,2020-52,15164,656,Austria,AT,AUT,8858775,Europe,353.89
 21/12/2020,2020-51,16186,816,Austria,AT,AUT,8858775,Europe,397.87
 14/12/2020,2020-50,19060,668,Austria,AT,AUT,8858775,Europe,472.46
 07/12/2020,2020-49,22794,828,Austria,AT,AUT,8858775,Europe,619.18
@@ -537,6 +549,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Austria,AT,AUT,8858775,Europe,0
 13/01/2020,2020-02,0,0,Austria,AT,AUT,8858775,Europe,0
 06/01/2020,2020-01,0,0,Austria,AT,AUT,8858775,Europe,
+28/12/2020,2020-52,13395,328,Azerbaijan,AZ,AZE,10047719,Europe,394.21
 21/12/2020,2020-51,26214,288,Azerbaijan,AZ,AZE,10047719,Europe,551.46
 14/12/2020,2020-50,29195,290,Azerbaijan,AZ,AZE,10047719,Europe,574.05
 07/12/2020,2020-49,28484,271,Azerbaijan,AZ,AZE,10047719,Europe,533.31
@@ -588,6 +601,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Azerbaijan,AZ,AZE,10047719,Europe,0
 13/01/2020,2020-02,0,0,Azerbaijan,AZ,AZE,10047719,Europe,0
 06/01/2020,2020-01,0,0,Azerbaijan,AZ,AZE,10047719,Europe,
+28/12/2020,2020-52,69,6,Bahamas,BS,BHS,389486,America,41.08
 21/12/2020,2020-51,91,1,Bahamas,BS,BHS,389486,America,47.76
 14/12/2020,2020-50,95,0,Bahamas,BS,BHS,389486,America,45.7
 07/12/2020,2020-49,83,0,Bahamas,BS,BHS,389486,America,42.62
@@ -629,6 +643,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,10,0,Bahamas,BS,BHS,389486,America,3.34
 23/03/2020,2020-12,3,0,Bahamas,BS,BHS,389486,America,1.03
 16/03/2020,2020-11,1,0,Bahamas,BS,BHS,389486,America,
+28/12/2020,2020-52,1451,2,Bahrain,BH,BHR,1641164,Asia,157.81
 21/12/2020,2020-51,1139,1,Bahrain,BH,BHR,1641164,Asia,143.31
 14/12/2020,2020-50,1213,7,Bahrain,BH,BHR,1641164,Asia,143.56
 07/12/2020,2020-49,1143,0,Bahrain,BH,BHR,1641164,Asia,135.57
@@ -680,6 +695,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Bahrain,BH,BHR,1641164,Asia,0
 13/01/2020,2020-02,0,0,Bahrain,BH,BHR,1641164,Asia,0
 06/01/2020,2020-01,0,0,Bahrain,BH,BHR,1641164,Asia,
+28/12/2020,2020-52,8435,172,Bangladesh,BD,BGD,163046173,Asia,11.42
 21/12/2020,2020-51,10180,228,Bangladesh,BD,BGD,163046173,Asia,14.21
 14/12/2020,2020-50,12988,214,Bangladesh,BD,BGD,163046173,Asia,17.25
 07/12/2020,2020-49,15138,229,Bangladesh,BD,BGD,163046173,Asia,18.52
@@ -722,6 +738,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,24,3,Bangladesh,BD,BGD,163046173,Asia,0.01
 16/03/2020,2020-11,0,0,Bangladesh,BD,BGD,163046173,Asia,0
 09/03/2020,2020-10,3,0,Bangladesh,BD,BGD,163046173,Asia,
+28/12/2020,2020-52,40,0,Barbados,BB,BRB,287021,America,22.99
 21/12/2020,2020-51,26,0,Barbados,BB,BRB,287021,America,12.19
 14/12/2020,2020-50,9,0,Barbados,BB,BRB,287021,America,7.32
 07/12/2020,2020-49,12,0,Barbados,BB,BRB,287021,America,9.76
@@ -762,6 +779,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,23,1,Barbados,BB,BRB,287021,America,13.59
 30/03/2020,2020-13,16,0,Barbados,BB,BRB,287021,America,11.5
 23/03/2020,2020-12,17,0,Barbados,BB,BRB,287021,America,
+28/12/2020,2020-52,15065,70,Belarus,BY,BLR,9452409,Europe,299.32
 21/12/2020,2020-51,13228,61,Belarus,BY,BLR,9452409,Europe,278.93
 14/12/2020,2020-50,13138,56,Belarus,BY,BLR,9452409,Europe,267.52
 07/12/2020,2020-49,12149,56,Belarus,BY,BLR,9452409,Europe,245
@@ -813,13 +831,14 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Belarus,BY,BLR,9452409,Europe,0
 13/01/2020,2020-02,0,0,Belarus,BY,BLR,9452409,Europe,0
 06/01/2020,2020-01,0,0,Belarus,BY,BLR,9452409,Europe,
-21/12/2020,2020-51,17567,631,Belgium,BE,BEL,11455519,Europe,299.31
-14/12/2020,2020-50,16721,663,Belgium,BE,BEL,11455519,Europe,279.1
-07/12/2020,2020-49,15251,702,Belgium,BE,BEL,11455519,Europe,274.61
-30/11/2020,2020-48,16207,875,Belgium,BE,BEL,11455519,Europe,336.18
-23/11/2020,2020-47,22304,1125,Belgium,BE,BEL,11455519,Europe,491.15
-16/11/2020,2020-46,33960,1335,Belgium,BE,BEL,11455519,Europe,767.76
-09/11/2020,2020-45,53991,1416,Belgium,BE,BEL,11455519,Europe,1340.26
+28/12/2020,2020-52,12159,436,Belgium,BE,BEL,11455519,Europe,260.35
+21/12/2020,2020-51,17666,653,Belgium,BE,BEL,11455519,Europe,300.21
+14/12/2020,2020-50,16725,664,Belgium,BE,BEL,11455519,Europe,279.15
+07/12/2020,2020-49,15253,702,Belgium,BE,BEL,11455519,Europe,274.63
+30/11/2020,2020-48,16207,876,Belgium,BE,BEL,11455519,Europe,336.19
+23/11/2020,2020-47,22305,1125,Belgium,BE,BEL,11455519,Europe,491.16
+16/11/2020,2020-46,33960,1335,Belgium,BE,BEL,11455519,Europe,767.77
+09/11/2020,2020-45,53992,1416,Belgium,BE,BEL,11455519,Europe,1340.27
 02/11/2020,2020-44,99543,1060,Belgium,BE,BEL,11455519,Europe,1788.4
 26/10/2020,2020-43,105328,501,Belgium,BE,BEL,11455519,Europe,1549.66
 19/10/2020,2020-42,72194,236,Belgium,BE,BEL,11455519,Europe,969.17
@@ -855,15 +874,16 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,3673,199,Belgium,BE,BEL,11455519,Europe,43.83
 16/03/2020,2020-11,1348,19,Belgium,BE,BEL,11455519,Europe,15.15
 09/03/2020,2020-10,388,0,Belgium,BE,BEL,11455519,Europe,3.54
-02/03/2020,2020-09,18,0,Belgium,BE,BEL,11455519,Europe,0.16
-24/02/2020,2020-08,0,0,Belgium,BE,BEL,11455519,Europe,0
-17/02/2020,2020-07,0,0,Belgium,BE,BEL,11455519,Europe,0.01
-10/02/2020,2020-06,1,0,Belgium,BE,BEL,11455519,Europe,0.01
+02/03/2020,2020-09,18,0,Belgium,BE,BEL,11455519,Europe,0.17
+24/02/2020,2020-08,1,0,Belgium,BE,BEL,11455519,Europe,0.01
+17/02/2020,2020-07,0,0,Belgium,BE,BEL,11455519,Europe,0
+10/02/2020,2020-06,0,0,Belgium,BE,BEL,11455519,Europe,0
 03/02/2020,2020-05,0,0,Belgium,BE,BEL,11455519,Europe,0
 27/01/2020,2020-04,0,0,Belgium,BE,BEL,11455519,Europe,0
 20/01/2020,2020-03,0,0,Belgium,BE,BEL,11455519,Europe,0
 13/01/2020,2020-02,0,0,Belgium,BE,BEL,11455519,Europe,0
 06/01/2020,2020-01,0,0,Belgium,BE,BEL,11455519,Europe,
+28/12/2020,2020-52,416,9,Belize,BZ,BLZ,390351,America,324.32
 21/12/2020,2020-51,850,29,Belize,BZ,BLZ,390351,America,608.68
 14/12/2020,2020-50,1526,22,Belize,BZ,BLZ,390351,America,909.95
 07/12/2020,2020-49,2026,26,Belize,BZ,BLZ,390351,America,662.48
@@ -903,6 +923,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,9,1,Belize,BZ,BLZ,390351,America,3.07
 06/04/2020,2020-14,3,1,Belize,BZ,BLZ,390351,America,1.28
 30/03/2020,2020-13,2,0,Belize,BZ,BLZ,390351,America,
+28/12/2020,2020-52,38,0,Benin,BJ,BEN,11801151,Africa,0.97
 21/12/2020,2020-51,77,0,Benin,BJ,BEN,11801151,Africa,0.95
 14/12/2020,2020-50,35,0,Benin,BJ,BEN,11801151,Africa,0.98
 07/12/2020,2020-49,81,1,Benin,BJ,BEN,11801151,Africa,1.18
@@ -943,6 +964,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,16,0,Benin,BJ,BEN,11801151,Africa,0.17
 30/03/2020,2020-13,4,0,Benin,BJ,BEN,11801151,Africa,0.05
 23/03/2020,2020-12,2,0,Benin,BJ,BEN,11801151,Africa,
+28/12/2020,2020-52,54,1,Bermuda,BM,BMU,62508,America,239.97
 21/12/2020,2020-51,96,0,Bermuda,BM,BMU,62508,America,382.35
 14/12/2020,2020-50,143,0,Bermuda,BM,BMU,62508,America,287.96
 07/12/2020,2020-49,37,0,Bermuda,BM,BMU,62508,America,97.59
@@ -983,6 +1005,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,15,0,Bermuda,BM,BMU,62508,America,49.59
 30/03/2020,2020-13,16,0,Bermuda,BM,BMU,62508,America,35.2
 23/03/2020,2020-12,6,0,Bermuda,BM,BMU,62508,America,
+28/12/2020,2020-52,156,0,Bhutan,BT,BTN,763094,Asia,24.24
 21/12/2020,2020-51,29,0,Bhutan,BT,BTN,763094,Asia,4.85
 14/12/2020,2020-50,8,0,Bhutan,BT,BTN,763094,Asia,5.5
 07/12/2020,2020-49,34,0,Bhutan,BT,BTN,763094,Asia,6.29
@@ -1023,6 +1046,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,1,0,Bhutan,BT,BTN,763094,Asia,0.39
 30/03/2020,2020-13,2,0,Bhutan,BT,BTN,763094,Asia,0.52
 23/03/2020,2020-12,2,0,Bhutan,BT,BTN,763094,Asia,
+28/12/2020,2020-52,4458,55,Bolivia,BO,BOL,11513102,America,66.82
 21/12/2020,2020-51,3235,25,Bolivia,BO,BOL,11513102,America,41.91
 14/12/2020,2020-50,1590,23,Bolivia,BO,BOL,11513102,America,21.96
 07/12/2020,2020-49,938,43,Bolivia,BO,BOL,11513102,America,14.23
@@ -1063,6 +1087,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,87,8,Bolivia,BO,BOL,11513102,America,1.35
 30/03/2020,2020-13,69,3,Bolivia,BO,BOL,11513102,America,0.83
 23/03/2020,2020-12,27,0,Bolivia,BO,BOL,11513102,America,
+28/12/2020,2020-52,4,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,38.49
 21/12/2020,2020-51,6,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,57.73
 14/12/2020,2020-50,9,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,46.18
 07/12/2020,2020-49,3,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,11.55
@@ -1101,6 +1126,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,2,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,11.55
 13/04/2020,2020-15,1,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,11.55
 06/04/2020,2020-14,2,0,"Bonaire, Saint Eustatius and Saba",BQ,BES,25983,America,
+28/12/2020,2020-52,4167,328,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,259.74
 21/12/2020,2020-51,4407,289,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,333.75
 14/12/2020,2020-50,6610,384,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,416.33
 07/12/2020,2020-49,7133,332,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,439.26
@@ -1142,6 +1168,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,198,5,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,9.24
 23/03/2020,2020-12,107,1,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,3.79
 16/03/2020,2020-11,18,0,Bosnia_and_Herzegovina,BA,BIH,3300998,Europe,
+28/12/2020,2020-52,1011,2,Botswana,BW,BWA,2303703,Africa,50.01
 21/12/2020,2020-51,141,0,Botswana,BW,BWA,2303703,Africa,64.37
 14/12/2020,2020-50,1342,4,Botswana,BW,BWA,2303703,Africa,125.06
 07/12/2020,2020-49,1539,3,Botswana,BW,BWA,2303703,Africa,84.08
@@ -1180,6 +1207,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,7,0,Botswana,BW,BWA,2303703,Africa,0.61
 13/04/2020,2020-15,7,0,Botswana,BW,BWA,2303703,Africa,0.56
 06/04/2020,2020-14,6,1,Botswana,BW,BWA,2303703,Africa,
+28/12/2020,2020-52,220666,3848,Brazil,BR,BRA,211049519,America,275.92
 21/12/2020,2020-51,361667,5889,Brazil,BR,BRA,211049519,America,312.76
 14/12/2020,2020-50,298412,4461,Brazil,BR,BRA,211049519,America,278.23
 07/12/2020,2020-49,288800,4108,Brazil,BR,BRA,211049519,America,252.14
@@ -1231,6 +1259,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Brazil,BR,BRA,211049519,America,0
 13/01/2020,2020-02,0,0,Brazil,BR,BRA,211049519,America,0
 06/01/2020,2020-01,0,0,Brazil,BR,BRA,211049519,America,
+28/12/2020,2020-52,7,0,British_Virgin_Islands,VG,VGB,30033,America,43.29
 21/12/2020,2020-51,6,0,British_Virgin_Islands,VG,VGB,30033,America,43.29
 14/12/2020,2020-50,7,0,British_Virgin_Islands,VG,VGB,30033,America,23.31
 07/12/2020,2020-49,0,0,British_Virgin_Islands,VG,VGB,30033,America,3.33
@@ -1270,6 +1299,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,0,0,British_Virgin_Islands,VG,VGB,30033,America,3.33
 06/04/2020,2020-14,1,0,British_Virgin_Islands,VG,VGB,30033,America,9.99
 30/03/2020,2020-13,2,0,British_Virgin_Islands,VG,VGB,30033,America,
+28/12/2020,2020-52,0,0,Brunei_Darussalam,BN,BRN,433296,Asia,0
 21/12/2020,2020-51,0,0,Brunei_Darussalam,BN,BRN,433296,Asia,0.23
 14/12/2020,2020-50,1,0,Brunei_Darussalam,BN,BRN,433296,Asia,0.46
 07/12/2020,2020-49,1,0,Brunei_Darussalam,BN,BRN,433296,Asia,0.69
@@ -1311,6 +1341,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,38,1,Brunei_Darussalam,BN,BRN,433296,Asia,17.54
 23/03/2020,2020-12,38,0,Brunei_Darussalam,BN,BRN,433296,Asia,20.31
 16/03/2020,2020-11,50,0,Brunei_Darussalam,BN,BRN,433296,Asia,
+28/12/2020,2020-52,6521,555,Bulgaria,BG,BGR,7000039,Europe,260.96
 21/12/2020,2020-51,11746,921,Bulgaria,BG,BGR,7000039,Europe,425.34
 14/12/2020,2020-50,18028,891,Bulgaria,BG,BGR,7000039,Europe,528.04
 07/12/2020,2020-49,18935,983,Bulgaria,BG,BGR,7000039,Europe,565.73
@@ -1353,6 +1384,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,134,1,Bulgaria,BG,BGR,7000039,Europe,2.59
 16/03/2020,2020-11,47,2,Bulgaria,BG,BGR,7000039,Europe,0.73
 09/03/2020,2020-10,4,0,Bulgaria,BG,BGR,7000039,Europe,
+28/12/2020,2020-52,1184,2,Burkina_Faso,BF,BFA,20321383,Africa,11.39
 21/12/2020,2020-51,1130,5,Burkina_Faso,BF,BFA,20321383,Africa,9.59
 14/12/2020,2020-50,818,3,Burkina_Faso,BF,BFA,20321383,Africa,5.78
 07/12/2020,2020-49,356,0,Burkina_Faso,BF,BFA,20321383,Africa,2.35
@@ -1394,6 +1426,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,116,6,Burkina_Faso,BF,BFA,20321383,Africa,0.87
 23/03/2020,2020-12,61,3,Burkina_Faso,BF,BFA,20321383,Africa,0.31
 16/03/2020,2020-11,3,0,Burkina_Faso,BF,BFA,20321383,Africa,
+28/12/2020,2020-52,48,0,Burundi,BI,BDI,11530577,Africa,0.69
 21/12/2020,2020-51,32,1,Burundi,BI,BDI,11530577,Africa,0.58
 14/12/2020,2020-50,35,0,Burundi,BI,BDI,11530577,Africa,0.42
 07/12/2020,2020-49,13,0,Burundi,BI,BDI,11530577,Africa,0.28
@@ -1432,6 +1465,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,1,1,Burundi,BI,BDI,11530577,Africa,0.03
 13/04/2020,2020-15,2,0,Burundi,BI,BDI,11530577,Africa,0.04
 06/04/2020,2020-14,3,0,Burundi,BI,BDI,11530577,Africa,
+28/12/2020,2020-52,1,0,Cambodia,KH,KHM,16486542,Asia,0.03
 21/12/2020,2020-51,4,0,Cambodia,KH,KHM,16486542,Asia,0.09
 14/12/2020,2020-50,11,0,Cambodia,KH,KHM,16486542,Asia,0.22
 07/12/2020,2020-49,25,0,Cambodia,KH,KHM,16486542,Asia,0.25
@@ -1483,6 +1517,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Cambodia,KH,KHM,16486542,Asia,0
 13/01/2020,2020-02,0,0,Cambodia,KH,KHM,16486542,Asia,0
 06/01/2020,2020-01,0,0,Cambodia,KH,KHM,16486542,Asia,
+28/12/2020,2020-52,428,0,Cameroon,CM,CMR,25876387,Africa,3.55
 21/12/2020,2020-51,490,3,Cameroon,CM,CMR,25876387,Africa,4.24
 14/12/2020,2020-50,607,2,Cameroon,CM,CMR,25876387,Africa,4.8
 07/12/2020,2020-49,635,6,Cameroon,CM,CMR,25876387,Africa,4.73
@@ -1525,6 +1560,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,23,0,Cameroon,CM,CMR,25876387,Africa,0.1
 16/03/2020,2020-11,2,0,Cameroon,CM,CMR,25876387,Africa,0.02
 09/03/2020,2020-10,2,0,Cameroon,CM,CMR,25876387,Africa,
+28/12/2020,2020-52,36706,632,Canada,CA,CAN,37411038,America,243.98
 21/12/2020,2020-51,54571,901,Canada,CA,CAN,37411038,America,267.65
 14/12/2020,2020-50,45561,766,Canada,CA,CAN,37411038,America,241.81
 07/12/2020,2020-49,44904,633,Canada,CA,CAN,37411038,America,226.35
@@ -1576,6 +1612,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Canada,CA,CAN,37411038,America,0
 13/01/2020,2020-02,0,0,Canada,CA,CAN,37411038,America,0
 06/01/2020,2020-01,0,0,Canada,CA,CAN,37411038,America,
+28/12/2020,2020-52,144,1,Cape_Verde,CV,CPV,549936,Africa,66.55
 21/12/2020,2020-51,222,1,Cape_Verde,CV,CPV,549936,Africa,93.83
 14/12/2020,2020-50,294,1,Cape_Verde,CV,CPV,549936,Africa,151.11
 07/12/2020,2020-49,537,5,Cape_Verde,CV,CPV,549936,Africa,143.11
@@ -1625,6 +1662,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Cases_on_an_international_conveyance_Japan,JPG11668,"",,Other,
 13/01/2020,2020-02,0,0,Cases_on_an_international_conveyance_Japan,JPG11668,"",,Other,
 06/01/2020,2020-01,0,0,Cases_on_an_international_conveyance_Japan,JPG11668,"",,Other,
+28/12/2020,2020-52,2,0,Cayman_Islands,KY,CYM,64948,America,30.79
 21/12/2020,2020-51,18,0,Cayman_Islands,KY,CYM,64948,America,43.11
 14/12/2020,2020-50,10,0,Cayman_Islands,KY,CYM,64948,America,36.95
 07/12/2020,2020-49,14,0,Cayman_Islands,KY,CYM,64948,America,41.57
@@ -1665,6 +1703,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,31,0,Cayman_Islands,KY,CYM,64948,America,55.43
 30/03/2020,2020-13,5,0,Cayman_Islands,KY,CYM,64948,America,12.32
 23/03/2020,2020-12,3,1,Cayman_Islands,KY,CYM,64948,America,
+28/12/2020,2020-52,23,0,Central_African_Republic,CF,CAF,4745179,Africa,0.53
 21/12/2020,2020-51,2,0,Central_African_Republic,CF,CAF,4745179,Africa,0.34
 14/12/2020,2020-50,14,0,Central_African_Republic,CF,CAF,4745179,Africa,0.48
 07/12/2020,2020-49,9,0,Central_African_Republic,CF,CAF,4745179,Africa,0.23
@@ -1706,6 +1745,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,2,0,Central_African_Republic,CF,CAF,4745179,Africa,0.11
 23/03/2020,2020-12,3,0,Central_African_Republic,CF,CAF,4745179,Africa,0.08
 16/03/2020,2020-11,1,0,Central_African_Republic,CF,CAF,4745179,Africa,
+28/12/2020,2020-52,125,2,Chad,TD,TCD,15946882,Africa,1.54
 21/12/2020,2020-51,120,0,Chad,TD,TCD,15946882,Africa,1.03
 14/12/2020,2020-50,45,0,Chad,TD,TCD,15946882,Africa,0.55
 07/12/2020,2020-49,43,1,Chad,TD,TCD,15946882,Africa,0.52
@@ -1746,6 +1786,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,4,0,Chad,TD,TCD,15946882,Africa,0.04
 30/03/2020,2020-13,3,0,Chad,TD,TCD,15946882,Africa,0.03
 23/03/2020,2020-12,2,0,Chad,TD,TCD,15946882,Africa,
+28/12/2020,2020-52,14540,246,Chile,CL,CHL,18952035,America,158.87
 21/12/2020,2020-51,15569,311,Chile,CL,CHL,18952035,America,143.02
 14/12/2020,2020-50,11537,258,Chile,CL,CHL,18952035,America,113.39
 07/12/2020,2020-49,9952,272,Chile,CL,CHL,18952035,America,104.17
@@ -1788,6 +1829,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,557,1,Chile,CL,CHL,18952035,America,3.28
 16/03/2020,2020-11,65,0,Chile,CL,CHL,18952035,America,0.4
 09/03/2020,2020-10,10,0,Chile,CL,CHL,18952035,America,
+28/12/2020,2020-52,1242,7,China,CN,CHN,1433783692,Asia,0.3
 21/12/2020,2020-51,3029,25,China,CN,CHN,1433783692,Asia,0.22
 14/12/2020,2020-50,103,0,China,CN,CHN,1433783692,Asia,0.01
 07/12/2020,2020-49,104,0,China,CN,CHN,1433783692,Asia,0.01
@@ -1839,6 +1881,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,176,2,China,CN,CHN,1433783692,Asia,0.01
 13/01/2020,2020-02,0,1,China,CN,CHN,1433783692,Asia,0
 06/01/2020,2020-01,59,0,China,CN,CHN,1433783692,Asia,
+28/12/2020,2020-52,85740,1694,Colombia,CO,COL,50339443,America,353.67
 21/12/2020,2020-51,92293,1627,Colombia,CO,COL,50339443,America,291.95
 14/12/2020,2020-50,54671,1245,Colombia,CO,COL,50339443,America,233.21
 07/12/2020,2020-49,62727,1224,Colombia,CO,COL,50339443,America,243.72
@@ -1880,6 +1923,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,467,8,Colombia,CO,COL,50339443,America,1.31
 23/03/2020,2020-12,190,2,Colombia,CO,COL,50339443,America,0.47
 16/03/2020,2020-11,45,0,Colombia,CO,COL,50339443,America,
+28/12/2020,2020-52,65,0,Comoros,KM,COM,850891,Africa,12.1
 21/12/2020,2020-51,38,0,Comoros,KM,COM,850891,Africa,5.88
 14/12/2020,2020-50,12,0,Comoros,KM,COM,850891,Africa,2
 07/12/2020,2020-49,5,0,Comoros,KM,COM,850891,Africa,2.35
@@ -1914,6 +1958,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 18/05/2020,2020-20,0,0,Comoros,KM,COM,850891,Africa,0.94
 11/05/2020,2020-19,8,1,Comoros,KM,COM,850891,Africa,1.29
 04/05/2020,2020-18,3,0,Comoros,KM,COM,850891,Africa,
+28/12/2020,2020-52,371,0,Congo,CG,COG,5380504,Africa,6.9
 21/12/2020,2020-51,0,0,Congo,CG,COG,5380504,Africa,7.92
 14/12/2020,2020-50,426,6,Congo,CG,COG,5380504,Africa,7.92
 07/12/2020,2020-49,0,0,Congo,CG,COG,5380504,Africa,2.64
@@ -1955,6 +2000,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,15,0,Congo,CG,COG,5380504,Africa,0.33
 23/03/2020,2020-12,3,0,Congo,CG,COG,5380504,Africa,0.07
 16/03/2020,2020-11,1,0,Congo,CG,COG,5380504,Africa,
+28/12/2020,2020-52,5869,107,Costa_Rica,CR,CRI,5047561,America,249.49
 21/12/2020,2020-51,6724,101,Costa_Rica,CR,CRI,5047561,America,321.11
 14/12/2020,2020-50,9484,163,Costa_Rica,CR,CRI,5047561,America,318.49
 07/12/2020,2020-49,6592,83,Costa_Rica,CR,CRI,5047561,America,282.65
@@ -1997,6 +2043,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,99,2,Costa_Rica,CR,CRI,5047561,America,2.56
 16/03/2020,2020-11,30,0,Costa_Rica,CR,CRI,5047561,America,0.69
 09/03/2020,2020-10,5,0,Costa_Rica,CR,CRI,5047561,America,
+28/12/2020,2020-52,258,4,Cote_dIvoire,CI,CIV,25716554,Africa,1.93
 21/12/2020,2020-51,238,0,Cote_dIvoire,CI,CIV,25716554,Africa,1.68
 14/12/2020,2020-50,195,1,Cote_dIvoire,CI,CIV,25716554,Africa,1.44
 07/12/2020,2020-49,175,1,Cote_dIvoire,CI,CIV,25716554,Africa,1.35
@@ -2038,6 +2085,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,140,1,Cote_dIvoire,CI,CIV,25716554,Africa,0.63
 23/03/2020,2020-12,21,0,Cote_dIvoire,CI,CIV,25716554,Africa,0.1
 16/03/2020,2020-11,4,0,Cote_dIvoire,CI,CIV,25716554,Africa,
+28/12/2020,2020-52,9518,482,Croatia,HR,HRV,4076246,Europe,720.27
 21/12/2020,2020-51,19842,617,Croatia,HR,HRV,4076246,Europe,1113.16
 14/12/2020,2020-50,25533,466,Croatia,HR,HRV,4076246,Europe,1208.81
 07/12/2020,2020-49,23741,462,Croatia,HR,HRV,4076246,Europe,1144.07
@@ -2089,6 +2137,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Croatia,HR,HRV,4076246,Europe,0
 13/01/2020,2020-02,0,0,Croatia,HR,HRV,4076246,Europe,0
 06/01/2020,2020-01,0,0,Croatia,HR,HRV,4076246,Europe,
+28/12/2020,2020-52,1192,6,Cuba,CU,CUB,11333484,America,17.74
 21/12/2020,2020-51,819,0,Cuba,CU,CUB,11333484,America,12.88
 14/12/2020,2020-50,641,1,Cuba,CU,CUB,11333484,America,10.5
 07/12/2020,2020-49,549,2,Cuba,CU,CUB,11333484,America,8.26
@@ -2129,6 +2178,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,181,5,Cuba,CU,CUB,11333484,America,2.51
 30/03/2020,2020-13,104,2,Cuba,CU,CUB,11333484,America,1.23
 23/03/2020,2020-12,35,1,Cuba,CU,CUB,11333484,America,
+28/12/2020,2020-52,177,3,Curaçao,CW,CUW,163423,America,322.48
 21/12/2020,2020-51,350,0,Curaçao,CW,CUW,163423,America,512.78
 14/12/2020,2020-50,488,4,Curaçao,CW,CUW,163423,America,771.01
 07/12/2020,2020-49,772,3,Curaçao,CW,CUW,163423,America,848.72
@@ -2168,6 +2218,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,3,0,Curaçao,CW,CUW,163423,America,3.06
 06/04/2020,2020-14,2,0,Curaçao,CW,CUW,163423,America,6.73
 30/03/2020,2020-13,9,1,Curaçao,CW,CUW,163423,America,
+28/12/2020,2020-52,1969,21,Cyprus,CY,CYP,875899,Europe,520.15
 21/12/2020,2020-51,2587,13,Cyprus,CY,CYP,875899,Europe,597.9
 14/12/2020,2020-50,2650,17,Cyprus,CY,CYP,875899,Europe,538.65
 07/12/2020,2020-49,2068,13,Cyprus,CY,CYP,875899,Europe,434.75
@@ -2209,6 +2260,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,119,6,Cyprus,CY,CYP,875899,Europe,21.01
 23/03/2020,2020-12,65,0,Cyprus,CY,CYP,875899,Europe,10.85
 16/03/2020,2020-11,30,0,Cyprus,CY,CYP,875899,Europe,
+28/12/2020,2020-52,46817,741,Czechia,CZ,CZE,10649800,Europe,875.71
 21/12/2020,2020-51,46444,802,Czechia,CZ,CZE,10649800,Europe,757.67
 14/12/2020,2020-50,34246,707,Czechia,CZ,CZE,10649800,Europe,576.12
 07/12/2020,2020-49,27110,764,Czechia,CZ,CZE,10649800,Europe,512.4
@@ -2260,7 +2312,8 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Czechia,CZ,CZE,10649800,Europe,0
 13/01/2020,2020-02,0,0,Czechia,CZ,CZE,10649800,Europe,0
 06/01/2020,2020-01,0,0,Czechia,CZ,CZE,10649800,Europe,
-21/12/2020,2020-51,983,15,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,2.19
+28/12/2020,2020-52,1107,13,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,2.77
+21/12/2020,2020-51,1297,210,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,2.55
 14/12/2020,2020-50,918,12,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,2.09
 07/12/2020,2020-49,893,11,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,1.56
 30/11/2020,2020-48,462,5,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,1.05
@@ -2301,6 +2354,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,55,6,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,0.09
 23/03/2020,2020-12,24,2,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,0.03
 16/03/2020,2020-11,2,0,Democratic_Republic_of_the_Congo,CD,COD,86790568,Africa,
+28/12/2020,2020-52,21392,169,Denmark,DK,DNK,5806081,Europe,793.44
 21/12/2020,2020-51,24676,94,Denmark,DK,DNK,5806081,Europe,754.92
 14/12/2020,2020-50,19155,56,Denmark,DK,DNK,5806081,Europe,523.69
 07/12/2020,2020-49,11251,56,Denmark,DK,DNK,5806081,Europe,346.5
@@ -2352,6 +2406,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Denmark,DK,DNK,5806081,Europe,0
 13/01/2020,2020-02,0,0,Denmark,DK,DNK,5806081,Europe,0
 06/01/2020,2020-01,0,0,Denmark,DK,DNK,5806081,Europe,
+28/12/2020,2020-52,32,0,Djibouti,DJ,DJI,973557,Africa,8.73
 21/12/2020,2020-51,53,0,Djibouti,DJ,DJI,973557,Africa,8.22
 14/12/2020,2020-50,27,0,Djibouti,DJ,DJI,973557,Africa,5.24
 07/12/2020,2020-49,24,0,Djibouti,DJ,DJI,973557,Africa,3.39
@@ -2392,6 +2447,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,40,0,Djibouti,DJ,DJI,973557,Africa,5.96
 30/03/2020,2020-13,18,0,Djibouti,DJ,DJI,973557,Africa,1.95
 23/03/2020,2020-12,1,0,Djibouti,DJ,DJI,973557,Africa,
+28/12/2020,2020-52,0,0,Dominica,DM,DMA,71808,America,5.57
 21/12/2020,2020-51,4,0,Dominica,DM,DMA,71808,America,9.75
 14/12/2020,2020-50,3,0,Dominica,DM,DMA,71808,America,4.18
 07/12/2020,2020-49,0,0,Dominica,DM,DMA,71808,America,11.14
@@ -2432,6 +2488,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,3,0,Dominica,DM,DMA,71808,America,18.1
 30/03/2020,2020-13,10,0,Dominica,DM,DMA,71808,America,15.32
 23/03/2020,2020-12,1,0,Dominica,DM,DMA,71808,America,
+28/12/2020,2020-52,6353,19,Dominican_Republic,DO,DOM,10738957,America,118.38
 21/12/2020,2020-51,6360,24,Dominican_Republic,DO,DOM,10738957,America,117.32
 14/12/2020,2020-50,6239,16,Dominican_Republic,DO,DOM,10738957,America,104.47
 07/12/2020,2020-49,4980,15,Dominican_Republic,DO,DOM,10738957,America,93.52
@@ -2483,6 +2540,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Dominican_Republic,DO,DOM,10738957,America,0
 13/01/2020,2020-02,0,0,Dominican_Republic,DO,DOM,10738957,America,0
 06/01/2020,2020-01,0,0,Dominican_Republic,DO,DOM,10738957,America,
+28/12/2020,2020-52,3429,45,Ecuador,EC,ECU,17373657,America,44.02
 21/12/2020,2020-51,4219,74,Ecuador,EC,ECU,17373657,America,47.95
 14/12/2020,2020-50,4112,97,Ecuador,EC,ECU,17373657,America,57.52
 07/12/2020,2020-49,5881,355,Ecuador,EC,ECU,17373657,America,71.11
@@ -2534,6 +2592,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Ecuador,EC,ECU,17373657,America,0
 13/01/2020,2020-02,0,0,Ecuador,EC,ECU,17373657,America,0
 06/01/2020,2020-01,0,0,Ecuador,EC,ECU,17373657,America,
+28/12/2020,2020-52,6986,307,Egypt,EG,EGY,100388076,Africa,10.92
 21/12/2020,2020-51,3980,178,Egypt,EG,EGY,100388076,Africa,7.1
 14/12/2020,2020-50,3143,149,Egypt,EG,EGY,100388076,Africa,6.01
 07/12/2020,2020-49,2891,135,Egypt,EG,EGY,100388076,Africa,5.38
@@ -2585,6 +2644,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Egypt,EG,EGY,100388076,Africa,0
 13/01/2020,2020-02,0,0,Egypt,EG,EGY,100388076,Africa,0
 06/01/2020,2020-01,0,0,Egypt,EG,EGY,100388076,Africa,
+28/12/2020,2020-52,847,56,El_Salvador,SV,SLV,6453550,America,42.44
 21/12/2020,2020-51,1892,52,El_Salvador,SV,SLV,6453550,America,53.1
 14/12/2020,2020-50,1535,41,El_Salvador,SV,SLV,6453550,America,53.85
 07/12/2020,2020-49,1940,50,El_Salvador,SV,SLV,6453550,America,43.12
@@ -2625,6 +2685,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,39,3,El_Salvador,SV,SLV,6453550,America,1.02
 30/03/2020,2020-13,27,0,El_Salvador,SV,SLV,6453550,America,0.46
 23/03/2020,2020-12,3,0,El_Salvador,SV,SLV,6453550,America,
+28/12/2020,2020-52,17,1,Equatorial_Guinea,GQ,GNQ,1355982,Africa,3.91
 21/12/2020,2020-51,36,0,Equatorial_Guinea,GQ,GNQ,1355982,Africa,4.79
 14/12/2020,2020-50,29,0,Equatorial_Guinea,GQ,GNQ,1355982,Africa,3.1
 07/12/2020,2020-49,13,0,Equatorial_Guinea,GQ,GNQ,1355982,Africa,2.65
@@ -2666,6 +2727,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,8,0,Equatorial_Guinea,GQ,GNQ,1355982,Africa,0.96
 23/03/2020,2020-12,5,0,Equatorial_Guinea,GQ,GNQ,1355982,Africa,0.44
 16/03/2020,2020-11,1,0,Equatorial_Guinea,GQ,GNQ,1355982,Africa,
+28/12/2020,2020-52,232,0,Eritrea,ER,ERI,3497117,Africa,9.38
 21/12/2020,2020-51,96,0,Eritrea,ER,ERI,3497117,Africa,5
 14/12/2020,2020-50,79,0,Eritrea,ER,ERI,3497117,Africa,3.83
 07/12/2020,2020-49,55,0,Eritrea,ER,ERI,3497117,Africa,2.32
@@ -2706,6 +2768,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,17,0,Eritrea,ER,ERI,3497117,Africa,0.8
 30/03/2020,2020-13,11,0,Eritrea,ER,ERI,3497117,Africa,0.34
 23/03/2020,2020-12,1,0,Eritrea,ER,ERI,3497117,Africa,
+28/12/2020,2020-52,4014,39,Estonia,EE,EST,1324820,Europe,585.21
 21/12/2020,2020-51,3739,25,Estonia,EE,EST,1324820,Europe,514.48
 14/12/2020,2020-50,3077,18,Estonia,EE,EST,1324820,Europe,453.12
 07/12/2020,2020-49,2926,19,Estonia,EE,EST,1324820,Europe,396.58
@@ -2757,6 +2820,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Estonia,EE,EST,1324820,Europe,0
 13/01/2020,2020-02,0,0,Estonia,EE,EST,1324820,Europe,0
 06/01/2020,2020-01,0,0,Estonia,EE,EST,1324820,Europe,
+28/12/2020,2020-52,1260,27,Eswatini,SZ,SWZ,1148133,Africa,167.14
 21/12/2020,2020-51,659,13,Eswatini,SZ,SWZ,1148133,Africa,80.65
 14/12/2020,2020-50,267,5,Eswatini,SZ,SWZ,1148133,Africa,31.18
 07/12/2020,2020-49,91,1,Eswatini,SZ,SWZ,1148133,Africa,24.56
@@ -2798,6 +2862,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,5,0,Eswatini,SZ,SWZ,1148133,Africa,0.7
 23/03/2020,2020-12,3,0,Eswatini,SZ,SWZ,1148133,Africa,0.35
 16/03/2020,2020-11,1,0,Eswatini,SZ,SWZ,1148133,Africa,
+28/12/2020,2020-52,3194,59,Ethiopia,ET,ETH,112078727,Africa,5.69
 21/12/2020,2020-51,3182,47,Ethiopia,ET,ETH,112078727,Africa,5.94
 14/12/2020,2020-50,3474,59,Ethiopia,ET,ETH,112078727,Africa,6.46
 07/12/2020,2020-49,3761,47,Ethiopia,ET,ETH,112078727,Africa,6.7
@@ -2839,6 +2904,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,5,0,Ethiopia,ET,ETH,112078727,Africa,0.01
 23/03/2020,2020-12,7,0,Ethiopia,ET,ETH,112078727,Africa,0.01
 16/03/2020,2020-11,4,0,Ethiopia,ET,ETH,112078727,Africa,
+28/12/2020,2020-52,5,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,266.9
 21/12/2020,2020-51,4,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,177.94
 14/12/2020,2020-50,2,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,59.31
 07/12/2020,2020-49,0,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,29.66
@@ -2877,6 +2943,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,6,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,266.9
 13/04/2020,2020-15,3,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,148.28
 06/04/2020,2020-14,2,0,Falkland_Islands_(Malvinas),FK,FLK,3372,America,
+28/12/2020,2020-52,36,0,Faroe_Islands,FO,FRO,48677,Europe,110.94
 21/12/2020,2020-51,18,0,Faroe_Islands,FO,FRO,48677,Europe,73.96
 14/12/2020,2020-50,18,0,Faroe_Islands,FO,FRO,48677,Europe,53.41
 07/12/2020,2020-49,8,0,Faroe_Islands,FO,FRO,48677,Europe,20.54
@@ -2919,6 +2986,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,106,0,Faroe_Islands,FO,FRO,48677,Europe,230.09
 16/03/2020,2020-11,6,0,Faroe_Islands,FO,FRO,48677,Europe,18.49
 09/03/2020,2020-10,3,0,Faroe_Islands,FO,FRO,48677,Europe,
+28/12/2020,2020-52,0,0,Fiji,FJ,FJI,889955,Oceania,0
 21/12/2020,2020-51,0,0,Fiji,FJ,FJI,889955,Oceania,0.22
 14/12/2020,2020-50,2,0,Fiji,FJ,FJI,889955,Oceania,0.45
 07/12/2020,2020-49,2,0,Fiji,FJ,FJI,889955,Oceania,1.01
@@ -2959,6 +3027,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,9,0,Fiji,FJ,FJI,889955,Oceania,1.24
 30/03/2020,2020-13,2,0,Fiji,FJ,FJI,889955,Oceania,0.56
 23/03/2020,2020-12,3,0,Fiji,FJ,FJI,889955,Oceania,
+28/12/2020,2020-52,1975,57,Finland,FI,FIN,5517919,Europe,78.42
 21/12/2020,2020-51,2352,28,Finland,FI,FIN,5517919,Europe,100.24
 14/12/2020,2020-50,3179,46,Finland,FI,FIN,5517919,Europe,112.02
 07/12/2020,2020-49,3002,22,Finland,FI,FIN,5517919,Europe,108.59
@@ -3010,6 +3079,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Finland,FI,FIN,5517919,Europe,0
 13/01/2020,2020-02,0,0,Finland,FI,FIN,5517919,Europe,0
 06/01/2020,2020-01,0,0,Finland,FI,FIN,5517919,Europe,
+28/12/2020,2020-52,89292,2560,France,FR,FRA,67012883,Europe,277.25
 21/12/2020,2020-51,96502,2638,France,FR,FRA,67012883,Europe,269.88
 14/12/2020,2020-50,84355,2756,France,FR,FRA,67012883,Europe,236.33
 07/12/2020,2020-49,74014,2830,France,FR,FRA,67012883,Europe,227.25
@@ -3061,6 +3131,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,France,FR,FRA,67012883,Europe,0
 13/01/2020,2020-02,0,0,France,FR,FRA,67012883,Europe,0
 06/01/2020,2020-01,0,0,France,FR,FRA,67012883,Europe,
+28/12/2020,2020-52,368,5,French_Polynesia,PF,PYF,279285,Oceania,287.52
 21/12/2020,2020-51,435,7,French_Polynesia,PF,PYF,279285,Oceania,384.91
 14/12/2020,2020-50,640,17,French_Polynesia,PF,PYF,279285,Oceania,591.15
 07/12/2020,2020-49,1011,6,French_Polynesia,PF,PYF,279285,Oceania,762.3
@@ -3101,6 +3172,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,6,0,French_Polynesia,PF,PYF,279285,Oceania,8.24
 30/03/2020,2020-13,17,0,French_Polynesia,PF,PYF,279285,Oceania,12.53
 23/03/2020,2020-12,18,0,French_Polynesia,PF,PYF,279285,Oceania,
+28/12/2020,2020-52,90,0,Gabon,GA,GAB,2172578,Africa,7.32
 21/12/2020,2020-51,69,1,Gabon,GA,GAB,2172578,Africa,7.64
 14/12/2020,2020-50,97,3,Gabon,GA,GAB,2172578,Africa,7.36
 07/12/2020,2020-49,63,1,Gabon,GA,GAB,2172578,Africa,5.66
@@ -3142,6 +3214,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,1,0,Gabon,GA,GAB,2172578,Africa,0.28
 23/03/2020,2020-12,5,1,Gabon,GA,GAB,2172578,Africa,0.28
 16/03/2020,2020-11,1,0,Gabon,GA,GAB,2172578,Africa,
+28/12/2020,2020-52,8,0,Gambia,GM,GMB,2347696,Africa,0.64
 21/12/2020,2020-51,7,0,Gambia,GM,GMB,2347696,Africa,0.81
 14/12/2020,2020-50,12,0,Gambia,GM,GMB,2347696,Africa,2.04
 07/12/2020,2020-49,36,0,Gambia,GM,GMB,2347696,Africa,1.87
@@ -3182,6 +3255,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,1,0,Gambia,GM,GMB,2347696,Africa,0.13
 30/03/2020,2020-13,2,1,Gambia,GM,GMB,2347696,Africa,0.13
 23/03/2020,2020-12,1,0,Gambia,GM,GMB,2347696,Africa,
+28/12/2020,2020-52,12681,278,Georgia,GE,GEO,3996762,Europe,777.63
 21/12/2020,2020-51,18399,301,Georgia,GE,GEO,3996762,Europe,1113.05
 14/12/2020,2020-50,26087,299,Georgia,GE,GEO,3996762,Europe,1388.1
 07/12/2020,2020-49,29392,273,Georgia,GE,GEO,3996762,Europe,1408.29
@@ -3233,6 +3307,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Georgia,GE,GEO,3996762,Europe,0
 13/01/2020,2020-02,0,0,Georgia,GE,GEO,3996762,Europe,0
 06/01/2020,2020-01,0,0,Georgia,GE,GEO,3996762,Europe,
+28/12/2020,2020-52,141182,3851,Germany,DE,DEU,83019213,Europe,379.14
 21/12/2020,2020-51,173574,4300,Germany,DE,DEU,83019213,Europe,393.88
 14/12/2020,2020-50,153424,3056,Germany,DE,DEU,83019213,Europe,341.14
 07/12/2020,2020-49,129785,2671,Germany,DE,DEU,83019213,Europe,306.58
@@ -3284,6 +3359,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Germany,DE,DEU,83019213,Europe,0
 13/01/2020,2020-02,0,0,Germany,DE,DEU,83019213,Europe,0
 06/01/2020,2020-01,0,0,Germany,DE,DEU,83019213,Europe,
+28/12/2020,2020-52,850,2,Ghana,GH,GHA,30417858,Africa,4.9
 21/12/2020,2020-51,639,4,Ghana,GH,GHA,30417858,Africa,4.53
 14/12/2020,2020-50,740,2,Ghana,GH,GHA,30417858,Africa,4.75
 07/12/2020,2020-49,705,2,Ghana,GH,GHA,30417858,Africa,4.6
@@ -3325,6 +3401,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,128,4,Ghana,GH,GHA,30417858,Africa,0.49
 23/03/2020,2020-12,22,1,Ghana,GH,GHA,30417858,Africa,0.08
 16/03/2020,2020-11,2,0,Ghana,GH,GHA,30417858,Africa,
+28/12/2020,2020-52,462,0,Gibraltar,GI,GIB,33706,Europe,1872.07
 21/12/2020,2020-51,169,1,Gibraltar,GI,GIB,33706,Europe,566.66
 14/12/2020,2020-50,22,0,Gibraltar,GI,GIB,33706,Europe,180.98
 07/12/2020,2020-49,39,0,Gibraltar,GI,GIB,33706,Europe,281.85
@@ -3365,6 +3442,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,38,0,Gibraltar,GI,GIB,33706,Europe,261.08
 30/03/2020,2020-13,50,0,Gibraltar,GI,GIB,33706,Europe,192.84
 23/03/2020,2020-12,15,0,Gibraltar,GI,GIB,33706,Europe,
+28/12/2020,2020-52,4859,500,Greece,EL,GRC,10724599,Europe,106.27
 21/12/2020,2020-51,6538,547,Greece,EL,GRC,10724599,Europe,145.47
 14/12/2020,2020-50,9063,622,Greece,EL,GRC,10724599,Europe,189.35
 07/12/2020,2020-49,11244,682,Greece,EL,GRC,10724599,Europe,222.4
@@ -3416,6 +3494,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Greece,EL,GRC,10724599,Europe,0
 13/01/2020,2020-02,0,0,Greece,EL,GRC,10724599,Europe,0
 06/01/2020,2020-01,0,0,Greece,EL,GRC,10724599,Europe,
+28/12/2020,2020-52,7,0,Greenland,GL,GRL,56660,America,12.35
 21/12/2020,2020-51,0,0,Greenland,GL,GRL,56660,America,1.76
 14/12/2020,2020-50,1,0,Greenland,GL,GRL,56660,America,1.76
 07/12/2020,2020-49,0,0,Greenland,GL,GRL,56660,America,0
@@ -3456,6 +3535,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,1,0,Greenland,GL,GRL,56660,America,15.88
 30/03/2020,2020-13,8,0,Greenland,GL,GRL,56660,America,17.65
 23/03/2020,2020-12,2,0,Greenland,GL,GRL,56660,America,
+28/12/2020,2020-52,9,0,Grenada,GD,GRD,112002,America,41.96
 21/12/2020,2020-51,38,0,Grenada,GD,GRD,112002,America,58.93
 14/12/2020,2020-50,28,0,Grenada,GD,GRD,112002,America,25
 07/12/2020,2020-49,0,0,Grenada,GD,GRD,112002,America,0
@@ -3496,6 +3576,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,3,0,Grenada,GD,GRD,112002,America,9.82
 30/03/2020,2020-13,8,0,Grenada,GD,GRD,112002,America,8.04
 23/03/2020,2020-12,1,0,Grenada,GD,GRD,112002,America,
+28/12/2020,2020-52,59,1,Guam,GU,GUM,167295,Oceania,98.03
 21/12/2020,2020-51,105,2,Guam,GU,GUM,167295,Oceania,123.73
 14/12/2020,2020-50,102,5,Guam,GU,GUM,167295,Oceania,172.15
 07/12/2020,2020-49,186,1,Guam,GU,GUM,167295,Oceania,271.97
@@ -3536,6 +3617,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,54,3,Guam,GU,GUM,167295,Oceania,49.61
 30/03/2020,2020-13,29,0,Guam,GU,GUM,167295,Oceania,33.47
 23/03/2020,2020-12,27,1,Guam,GU,GUM,167295,Oceania,
+28/12/2020,2020-52,1840,55,Guatemala,GT,GTM,17581476,America,35.03
 21/12/2020,2020-51,4319,295,Guatemala,GT,GTM,17581476,America,45.79
 14/12/2020,2020-50,3732,173,Guatemala,GT,GTM,17581476,America,41.58
 07/12/2020,2020-49,3579,84,Guatemala,GT,GTM,17581476,America,39.37
@@ -3577,6 +3659,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,17,0,Guatemala,GT,GTM,17581476,America,0.2
 23/03/2020,2020-12,18,0,Guatemala,GT,GTM,17581476,America,0.11
 16/03/2020,2020-11,1,1,Guatemala,GT,GTM,17581476,America,
+28/12/2020,2020-52,4,0,Guernsey,GG,GGY,64468,Europe,12.41
 21/12/2020,2020-51,4,0,Guernsey,GG,GGY,64468,Europe,7.76
 14/12/2020,2020-50,1,0,Guernsey,GG,GGY,64468,Europe,4.65
 07/12/2020,2020-49,2,0,Guernsey,GG,GGY,64468,Europe,7.76
@@ -3617,6 +3700,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,109,3,Guernsey,GG,GGY,64468,Europe,212.51
 30/03/2020,2020-13,28,0,Guernsey,GG,GGY,64468,Europe,69.8
 23/03/2020,2020-12,17,0,Guernsey,GG,GGY,64468,Europe,
+28/12/2020,2020-52,138,0,Guinea,GN,GIN,12771246,Africa,1.81
 21/12/2020,2020-51,93,0,Guinea,GN,GIN,12771246,Africa,2.48
 14/12/2020,2020-50,224,4,Guinea,GN,GIN,12771246,Africa,3.27
 07/12/2020,2020-49,194,0,Guinea,GN,GIN,12771246,Africa,3.19
@@ -3657,6 +3741,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,113,0,Guinea,GN,GIN,12771246,Africa,0.93
 30/03/2020,2020-13,6,0,Guinea,GN,GIN,12771246,Africa,0.06
 23/03/2020,2020-12,2,0,Guinea,GN,GIN,12771246,Africa,
+28/12/2020,2020-52,0,0,Guinea_Bissau,GW,GNB,1920917,Africa,0
 21/12/2020,2020-51,0,0,Guinea_Bissau,GW,GNB,1920917,Africa,0.26
 14/12/2020,2020-50,5,0,Guinea_Bissau,GW,GNB,1920917,Africa,1.3
 07/12/2020,2020-49,20,1,Guinea_Bissau,GW,GNB,1920917,Africa,1.09
@@ -3696,6 +3781,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,21,0,Guinea_Bissau,GW,GNB,1920917,Africa,1.93
 06/04/2020,2020-14,16,0,Guinea_Bissau,GW,GNB,1920917,Africa,0.94
 30/03/2020,2020-13,2,0,Guinea_Bissau,GW,GNB,1920917,Africa,
+28/12/2020,2020-52,122,5,Guyana,GY,GUY,782775,America,47.65
 21/12/2020,2020-51,251,4,Guyana,GY,GUY,782775,America,64.64
 14/12/2020,2020-50,255,2,Guyana,GY,GUY,782775,America,69.5
 07/12/2020,2020-49,289,3,Guyana,GY,GUY,782775,America,67.96
@@ -3737,6 +3823,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,3,0,Guyana,GY,GUY,782775,America,0.51
 23/03/2020,2020-12,1,0,Guyana,GY,GUY,782775,America,0.64
 16/03/2020,2020-11,4,1,Guyana,GY,GUY,782775,America,
+28/12/2020,2020-52,228,1,Haiti,HT,HTI,11263079,America,3.85
 21/12/2020,2020-51,206,1,Haiti,HT,HTI,11263079,America,3.56
 14/12/2020,2020-50,195,1,Haiti,HT,HTI,11263079,America,2.67
 07/12/2020,2020-49,106,1,Haiti,HT,HTI,11263079,America,1.39
@@ -3777,6 +3864,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,6,0,Haiti,HT,HTI,11263079,America,0.17
 30/03/2020,2020-13,13,0,Haiti,HT,HTI,11263079,America,0.13
 23/03/2020,2020-12,2,0,Haiti,HT,HTI,11263079,America,
+28/12/2020,2020-52,0,0,Holy_See,VA,VAT,815,Europe,0
 21/12/2020,2020-51,0,0,Holy_See,VA,VAT,815,Europe,0
 14/12/2020,2020-50,0,0,Holy_See,VA,VAT,815,Europe,0
 07/12/2020,2020-49,0,0,Holy_See,VA,VAT,815,Europe,0
@@ -3818,6 +3906,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,5,0,Holy_See,VA,VAT,815,Europe,613.5
 23/03/2020,2020-12,0,0,Holy_See,VA,VAT,815,Europe,122.7
 16/03/2020,2020-11,1,0,Holy_See,VA,VAT,815,Europe,
+28/12/2020,2020-52,3081,61,Honduras,HN,HND,9746115,America,58.94
 21/12/2020,2020-51,2663,52,Honduras,HN,HND,9746115,America,61.55
 14/12/2020,2020-50,3336,29,Honduras,HN,HND,9746115,America,66.4
 07/12/2020,2020-49,3135,37,Honduras,HN,HND,9746115,America,67.6
@@ -3859,6 +3948,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,112,3,Honduras,HN,HND,9746115,America,1.36
 23/03/2020,2020-12,21,0,Honduras,HN,HND,9746115,America,0.28
 16/03/2020,2020-11,6,0,Honduras,HN,HND,9746115,America,
+28/12/2020,2020-52,11539,879,Hungary,HU,HUN,9772756,Europe,335.62
 21/12/2020,2020-51,21260,1152,Hungary,HU,HUN,9772756,Europe,521.67
 14/12/2020,2020-50,29722,1146,Hungary,HU,HUN,9772756,Europe,683
 07/12/2020,2020-49,37026,1161,Hungary,HU,HUN,9772756,Europe,779.68
@@ -3901,6 +3991,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,128,6,Hungary,HU,HUN,9772756,Europe,1.63
 16/03/2020,2020-11,31,1,Hungary,HU,HUN,9772756,Europe,0.4
 09/03/2020,2020-10,8,0,Hungary,HU,HUN,9772756,Europe,
+28/12/2020,2020-52,84,0,Iceland,IS,ISL,356991,Europe,47.34
 21/12/2020,2020-51,85,0,Iceland,IS,ISL,356991,Europe,44.82
 14/12/2020,2020-50,75,1,Iceland,IS,ISL,356991,Europe,49.3
 07/12/2020,2020-49,101,1,Iceland,IS,ISL,356991,Europe,57.42
@@ -3952,6 +4043,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Iceland,IS,ISL,356991,Europe,0
 13/01/2020,2020-02,0,0,Iceland,IS,ISL,356991,Europe,0
 06/01/2020,2020-01,0,0,Iceland,IS,ISL,356991,Europe,
+28/12/2020,2020-52,152311,2091,India,IN,IND,1366417756,Asia,23.69
 21/12/2020,2020-51,171460,2455,India,IN,IND,1366417756,Asia,27.69
 14/12/2020,2020-50,206897,2782,India,IN,IND,1366417756,Asia,33.11
 07/12/2020,2020-49,245512,3434,India,IN,IND,1366417756,Asia,39.32
@@ -4003,6 +4095,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,India,IN,IND,1366417756,Asia,0
 13/01/2020,2020-02,0,0,India,IN,IND,1366417756,Asia,0
 06/01/2020,2020-01,0,0,India,IN,IND,1366417756,Asia,
+28/12/2020,2020-52,48435,1357,Indonesia,ID,IDN,270625567,Asia,35.31
 21/12/2020,2020-51,47110,1061,Indonesia,ID,IDN,270625567,Asia,32.94
 14/12/2020,2020-50,42024,1079,Indonesia,ID,IDN,270625567,Asia,30.87
 07/12/2020,2020-49,41530,925,Indonesia,ID,IDN,270625567,Asia,28.87
@@ -4054,6 +4147,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Indonesia,ID,IDN,270625567,Asia,0
 13/01/2020,2020-02,0,0,Indonesia,ID,IDN,270625567,Asia,0
 06/01/2020,2020-01,0,0,Indonesia,ID,IDN,270625567,Asia,
+28/12/2020,2020-52,48393,1245,Iran,IR,IRN,82913893,Asia,111.19
 21/12/2020,2020-51,43803,1252,Iran,IR,IRN,82913893,Asia,134.51
 14/12/2020,2020-50,67722,1886,Iran,IR,IRN,82913893,Asia,192.39
 07/12/2020,2020-49,91798,2435,Iran,IR,IRN,82913893,Asia,224.55
@@ -4105,6 +4199,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Iran,IR,IRN,82913893,Asia,0
 13/01/2020,2020-02,0,0,Iran,IR,IRN,82913893,Asia,0
 06/01/2020,2020-01,0,0,Iran,IR,IRN,82913893,Asia,
+28/12/2020,2020-52,7452,83,Iraq,IQ,IRQ,39309789,Asia,43.15
 21/12/2020,2020-51,9511,118,Iraq,IQ,IRQ,39309789,Asia,50.74
 14/12/2020,2020-50,10434,147,Iraq,IQ,IRQ,39309789,Asia,61.56
 07/12/2020,2020-49,13765,208,Iraq,IQ,IRQ,39309789,Asia,73.47
@@ -4156,6 +4251,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Iraq,IQ,IRQ,39309789,Asia,0
 13/01/2020,2020-02,0,0,Iraq,IQ,IRQ,39309789,Asia,0
 06/01/2020,2020-01,0,0,Iraq,IQ,IRQ,39309789,Asia,
+28/12/2020,2020-52,7352,47,Ireland,IE,IRL,4904240,Europe,218.36
 21/12/2020,2020-51,3357,34,Ireland,IE,IRL,4904240,Europe,107.99
 14/12/2020,2020-50,1939,27,Ireland,IE,IRL,4904240,Europe,80.42
 07/12/2020,2020-49,2005,45,Ireland,IE,IRL,4904240,Europe,77.18
@@ -4207,6 +4303,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Ireland,IE,IRL,4904240,Europe,0
 13/01/2020,2020-02,0,0,Ireland,IE,IRL,4904240,Europe,0
 06/01/2020,2020-01,0,0,Ireland,IE,IRL,4904240,Europe,
+28/12/2020,2020-52,1,0,Isle_of_Man,IM,IMN,84589,Europe,1.18
 21/12/2020,2020-51,0,0,Isle_of_Man,IM,IMN,84589,Europe,3.55
 14/12/2020,2020-50,3,0,Isle_of_Man,IM,IMN,84589,Europe,4.73
 07/12/2020,2020-49,1,0,Isle_of_Man,IM,IMN,84589,Europe,2.36
@@ -4247,6 +4344,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,85,1,Isle_of_Man,IM,IMN,84589,Europe,147.77
 30/03/2020,2020-13,40,0,Isle_of_Man,IM,IMN,84589,Europe,49.65
 23/03/2020,2020-12,2,0,Isle_of_Man,IM,IMN,84589,Europe,
+28/12/2020,2020-52,27627,139,Israel,IL,ISR,8519373,Asia,541.44
 21/12/2020,2020-51,18500,102,Israel,IL,ISR,8519373,Asia,365.73
 14/12/2020,2020-50,12658,82,Israel,IL,ISR,8519373,Asia,256.81
 07/12/2020,2020-49,9221,53,Israel,IL,ISR,8519373,Asia,185.44
@@ -4298,6 +4396,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Israel,IL,ISR,8519373,Asia,0
 13/01/2020,2020-02,0,0,Israel,IL,ISR,8519373,Asia,0
 06/01/2020,2020-01,0,0,Israel,IL,ISR,8519373,Asia,
+28/12/2020,2020-52,94511,3126,Italy,IT,ITA,60359546,Europe,337.95
 21/12/2020,2020-51,109473,4279,Italy,IT,ITA,60359546,Europe,371.62
 14/12/2020,2020-50,114834,4442,Italy,IT,ITA,60359546,Europe,428.32
 07/12/2020,2020-49,143700,5174,Italy,IT,ITA,60359546,Europe,530.17
@@ -4349,6 +4448,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Italy,IT,ITA,60359546,Europe,0
 13/01/2020,2020-02,0,0,Italy,IT,ITA,60359546,Europe,0
 06/01/2020,2020-01,0,0,Italy,IT,ITA,60359546,Europe,
+28/12/2020,2020-52,443,12,Jamaica,JM,JAM,2948277,America,34.66
 21/12/2020,2020-51,579,13,Jamaica,JM,JAM,2948277,America,39.65
 14/12/2020,2020-50,590,8,Jamaica,JM,JAM,2948277,America,33.95
 07/12/2020,2020-49,411,9,Jamaica,JM,JAM,2948277,America,28.36
@@ -4390,6 +4490,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,15,1,Jamaica,JM,JAM,2948277,America,0.81
 23/03/2020,2020-12,9,0,Jamaica,JM,JAM,2948277,America,0.64
 16/03/2020,2020-11,10,0,Jamaica,JM,JAM,2948277,America,
+28/12/2020,2020-52,19851,351,Japan,JP,JPN,126860299,Asia,30.52
 21/12/2020,2020-51,18870,315,Japan,JP,JPN,126860299,Asia,28.74
 14/12/2020,2020-50,17586,250,Japan,JP,JPN,126860299,Asia,25.93
 07/12/2020,2020-49,15307,216,Japan,JP,JPN,126860299,Asia,24.55
@@ -4441,6 +4542,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,1,0,Japan,JP,JPN,126860299,Asia,0
 13/01/2020,2020-02,0,0,Japan,JP,JPN,126860299,Asia,0
 06/01/2020,2020-01,0,0,Japan,JP,JPN,126860299,Asia,
+28/12/2020,2020-52,327,5,Jersey,JE,JEY,107796,Europe,820.07
 21/12/2020,2020-51,557,4,Jersey,JE,JEY,107796,Europe,908.2
 14/12/2020,2020-50,422,0,Jersey,JE,JEY,107796,Europe,789.45
 07/12/2020,2020-49,429,0,Jersey,JE,JEY,107796,Europe,506.51
@@ -4481,6 +4583,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,92,1,Jersey,JE,JEY,107796,Europe,129.87
 30/03/2020,2020-13,48,2,Jersey,JE,JEY,107796,Europe,58.44
 23/03/2020,2020-12,15,0,Jersey,JE,JEY,107796,Europe,
+28/12/2020,2020-52,10498,154,Jordan,JO,JOR,10101697,Asia,280.47
 21/12/2020,2020-51,17834,239,Jordan,JO,JOR,10101697,Asia,369.83
 14/12/2020,2020-50,19525,309,Jordan,JO,JOR,10101697,Asia,448.51
 07/12/2020,2020-49,25782,362,Jordan,JO,JOR,10101697,Asia,560.9
@@ -4522,6 +4625,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,160,1,Jordan,JO,JOR,10101697,Asia,2.42
 23/03/2020,2020-12,84,0,Jordan,JO,JOR,10101697,Asia,0.98
 16/03/2020,2020-11,15,0,Jordan,JO,JOR,10101697,Asia,
+28/12/2020,2020-52,7009,67,Kazakhstan,KZ,KAZ,18551428,Asia,66.74
 21/12/2020,2020-51,5373,70,Kazakhstan,KZ,KAZ,18551428,Asia,62.32
 14/12/2020,2020-50,6188,64,Kazakhstan,KZ,KAZ,18551428,Asia,67.22
 07/12/2020,2020-49,6283,55,Kazakhstan,KZ,KAZ,18551428,Asia,68.48
@@ -4563,6 +4667,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,224,1,Kazakhstan,KZ,KAZ,18551428,Asia,1.48
 23/03/2020,2020-12,51,0,Kazakhstan,KZ,KAZ,18551428,Asia,0.32
 16/03/2020,2020-11,9,0,Kazakhstan,KZ,KAZ,18551428,Asia,
+28/12/2020,2020-52,1492,25,Kenya,KE,KEN,52573967,Africa,7.8
 21/12/2020,2020-51,2608,52,Kenya,KE,KEN,52573967,Africa,11.64
 14/12/2020,2020-50,3512,61,Kenya,KE,KEN,52573967,Africa,16.31
 07/12/2020,2020-49,5064,74,Kenya,KE,KEN,52573967,Africa,20.94
@@ -4604,6 +4709,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,27,1,Kenya,KE,KEN,52573967,Africa,0.07
 23/03/2020,2020-12,12,0,Kenya,KE,KEN,52573967,Africa,0.03
 16/03/2020,2020-11,3,0,Kenya,KE,KEN,52573967,Africa,
+28/12/2020,2020-52,1632,55,Kosovo,XK,XKX,1798506,Europe,234.69
 21/12/2020,2020-51,2589,64,Kosovo,XK,XKX,1798506,Europe,353.85
 14/12/2020,2020-50,3775,92,Kosovo,XK,XKX,1798506,Europe,418.29
 07/12/2020,2020-49,3748,101,Kosovo,XK,XKX,1798506,Europe,473.17
@@ -4645,6 +4751,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,65,0,Kosovo,XK,XKX,1798506,Europe,4.73
 23/03/2020,2020-12,20,1,Kosovo,XK,XKX,1798506,Europe,1.83
 16/03/2020,2020-11,13,0,Kosovo,XK,XKX,1798506,Europe,
+28/12/2020,2020-52,1674,10,Kuwait,KW,KWT,4207077,Asia,81.65
 21/12/2020,2020-51,1761,10,Kuwait,KW,KWT,4207077,Asia,85.81
 14/12/2020,2020-50,1849,20,Kuwait,KW,KWT,4207077,Asia,90.13
 07/12/2020,2020-49,1943,13,Kuwait,KW,KWT,4207077,Asia,102.52
@@ -4696,6 +4803,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Kuwait,KW,KWT,4207077,Asia,0
 13/01/2020,2020-02,0,0,Kuwait,KW,KWT,4207077,Asia,0
 06/01/2020,2020-01,0,0,Kuwait,KW,KWT,4207077,Asia,
+28/12/2020,2020-52,1281,18,Kyrgyzstan,KG,KGZ,6415851,Asia,44.59
 21/12/2020,2020-51,1580,19,Kyrgyzstan,KG,KGZ,6415851,Asia,60.15
 14/12/2020,2020-50,2279,15,Kyrgyzstan,KG,KGZ,6415851,Asia,75.86
 07/12/2020,2020-49,2588,26,Kyrgyzstan,KG,KGZ,6415851,Asia,85.88
@@ -4736,6 +4844,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,132,4,Kyrgyzstan,KG,KGZ,6415851,Asia,3.15
 30/03/2020,2020-13,70,0,Kyrgyzstan,KG,KGZ,6415851,Asia,1.31
 23/03/2020,2020-12,14,0,Kyrgyzstan,KG,KGZ,6415851,Asia,
+28/12/2020,2020-52,0,0,Laos,LA,LAO,7169456,Asia,0
 21/12/2020,2020-51,0,0,Laos,LA,LAO,7169456,Asia,0
 14/12/2020,2020-50,0,0,Laos,LA,LAO,7169456,Asia,0.03
 07/12/2020,2020-49,2,0,Laos,LA,LAO,7169456,Asia,0.24
@@ -4775,6 +4884,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,8,0,Laos,LA,LAO,7169456,Asia,0.18
 06/04/2020,2020-14,5,0,Laos,LA,LAO,7169456,Asia,0.15
 30/03/2020,2020-13,6,0,Laos,LA,LAO,7169456,Asia,
+28/12/2020,2020-52,5898,139,Latvia,LV,LVA,1919968,Europe,581.42
 21/12/2020,2020-51,5265,90,Latvia,LV,LVA,1919968,Europe,501.41
 14/12/2020,2020-50,4362,87,Latvia,LV,LVA,1919968,Europe,453.13
 07/12/2020,2020-49,4338,65,Latvia,LV,LVA,1919968,Europe,426.73
@@ -4817,6 +4927,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,108,0,Latvia,LV,LVA,1919968,Europe,7.08
 16/03/2020,2020-11,28,0,Latvia,LV,LVA,1919968,Europe,1.61
 09/03/2020,2020-10,3,0,Latvia,LV,LVA,1919968,Europe,
+28/12/2020,2020-52,13122,113,Lebanon,LB,LBN,6855709,Asia,360.37
 21/12/2020,2020-51,11584,81,Lebanon,LB,LBN,6855709,Asia,305.6
 14/12/2020,2020-50,9367,101,Lebanon,LB,LBN,6855709,Asia,285.54
 07/12/2020,2020-49,10209,95,Lebanon,LB,LBN,6855709,Asia,301.6
@@ -4868,6 +4979,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Lebanon,LB,LBN,6855709,Asia,0
 13/01/2020,2020-02,0,0,Lebanon,LB,LBN,6855709,Asia,0
 06/01/2020,2020-01,0,0,Lebanon,LB,LBN,6855709,Asia,
+28/12/2020,2020-52,410,3,Lesotho,LS,LSO,2125267,Africa,31.57
 21/12/2020,2020-51,261,4,Lesotho,LS,LSO,2125267,Africa,18.63
 14/12/2020,2020-50,135,0,Lesotho,LS,LSO,2125267,Africa,8.28
 07/12/2020,2020-49,41,0,Lesotho,LS,LSO,2125267,Africa,3.06
@@ -4900,6 +5012,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 01/06/2020,2020-22,0,0,Lesotho,LS,LSO,2125267,Africa,0.05
 25/05/2020,2020-21,1,0,Lesotho,LS,LSO,2125267,Africa,0.09
 18/05/2020,2020-20,1,0,Lesotho,LS,LSO,2125267,Africa,
+28/12/2020,2020-52,12,0,Liberia,LR,LBR,4937374,Africa,0.59
 21/12/2020,2020-51,17,0,Liberia,LR,LBR,4937374,Africa,2.27
 14/12/2020,2020-50,95,0,Liberia,LR,LBR,4937374,Africa,3.56
 07/12/2020,2020-49,81,0,Liberia,LR,LBR,4937374,Africa,2.53
@@ -4940,6 +5053,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,10,3,Liberia,LR,LBR,4937374,Africa,0.2
 30/03/2020,2020-13,0,0,Liberia,LR,LBR,4937374,Africa,0.06
 23/03/2020,2020-12,3,0,Liberia,LR,LBR,4937374,Africa,
+28/12/2020,2020-52,3181,67,Libya,LY,LBY,6777453,Africa,112.17
 21/12/2020,2020-51,4421,70,Libya,LY,LBY,6777453,Africa,127.19
 14/12/2020,2020-50,4199,68,Libya,LY,LBY,6777453,Africa,123.19
 07/12/2020,2020-49,4150,65,Libya,LY,LBY,6777453,Africa,129.21
@@ -4979,7 +5093,8 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,7,0,Libya,LY,LBY,6777453,Africa,0.25
 06/04/2020,2020-14,10,1,Libya,LY,LBY,6777453,Africa,0.27
 30/03/2020,2020-13,8,0,Libya,LY,LBY,6777453,Africa,
-21/12/2020,2020-51,119,0,Liechtenstein,LI,LIE,38378,Europe,617.54
+28/12/2020,2020-52,263,3,Liechtenstein,LI,LIE,38378,Europe,1506.07
+21/12/2020,2020-51,315,6,Liechtenstein,LI,LIE,38378,Europe,1128.25
 14/12/2020,2020-50,118,2,Liechtenstein,LI,LIE,38378,Europe,627.96
 07/12/2020,2020-49,123,1,Liechtenstein,LI,LIE,38378,Europe,740.01
 30/11/2020,2020-48,161,7,Liechtenstein,LI,LIE,38378,Europe,750.43
@@ -5020,6 +5135,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,16,0,Liechtenstein,LI,LIE,38378,Europe,143.31
 23/03/2020,2020-12,39,0,Liechtenstein,LI,LIE,38378,Europe,119.86
 16/03/2020,2020-11,7,0,Liechtenstein,LI,LIE,38378,Europe,
+28/12/2020,2020-52,17882,230,Lithuania,LT,LTU,2794184,Europe,1336.63
 21/12/2020,2020-51,19466,214,Lithuania,LT,LTU,2794184,Europe,1376.11
 14/12/2020,2020-50,18985,188,Lithuania,LT,LTU,2794184,Europe,1205.93
 07/12/2020,2020-49,14711,131,Lithuania,LT,LTU,2794184,Europe,1037.48
@@ -5071,6 +5187,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Lithuania,LT,LTU,2794184,Europe,0
 13/01/2020,2020-02,0,0,Lithuania,LT,LTU,2794184,Europe,0
 06/01/2020,2020-01,0,0,Lithuania,LT,LTU,2794184,Europe,
+28/12/2020,2020-52,1782,47,Luxembourg,LU,LUX,613894,Europe,745.57
 21/12/2020,2020-51,2795,44,Luxembourg,LU,LUX,613894,Europe,1039.76
 14/12/2020,2020-50,3588,46,Luxembourg,LU,LUX,613894,Europe,1188.97
 07/12/2020,2020-49,3711,44,Luxembourg,LU,LUX,613894,Europe,1197.44
@@ -5122,6 +5239,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Luxembourg,LU,LUX,613894,Europe,0
 13/01/2020,2020-02,0,0,Luxembourg,LU,LUX,613894,Europe,0
 06/01/2020,2020-01,0,0,Luxembourg,LU,LUX,613894,Europe,
+28/12/2020,2020-52,81,1,Madagascar,MG,MDG,26969306,Africa,0.3
 21/12/2020,2020-51,0,2,Madagascar,MG,MDG,26969306,Africa,0.44
 14/12/2020,2020-50,120,3,Madagascar,MG,MDG,26969306,Africa,1.08
 07/12/2020,2020-49,172,4,Madagascar,MG,MDG,26969306,Africa,0.64
@@ -5162,6 +5280,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,35,0,Madagascar,MG,MDG,26969306,Africa,0.26
 30/03/2020,2020-13,34,0,Madagascar,MG,MDG,26969306,Africa,0.14
 23/03/2020,2020-12,3,0,Madagascar,MG,MDG,26969306,Africa,
+28/12/2020,2020-52,216,1,Malawi,MW,MWI,18628749,Africa,1.67
 21/12/2020,2020-51,95,0,Malawi,MW,MWI,18628749,Africa,0.59
 14/12/2020,2020-50,15,2,Malawi,MW,MWI,18628749,Africa,0.22
 07/12/2020,2020-49,26,0,Malawi,MW,MWI,18628749,Africa,0.26
@@ -5200,6 +5319,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,4,0,Malawi,MW,MWI,18628749,Africa,0.07
 13/04/2020,2020-15,9,2,Malawi,MW,MWI,18628749,Africa,0.07
 06/04/2020,2020-14,4,0,Malawi,MW,MWI,18628749,Africa,
+28/12/2020,2020-52,11787,15,Malaysia,MY,MYS,31949789,Asia,67.67
 21/12/2020,2020-51,9834,22,Malaysia,MY,MYS,31949789,Asia,64.52
 14/12/2020,2020-50,10781,33,Malaysia,MY,MYS,31949789,Asia,59.44
 07/12/2020,2020-49,8209,25,Malaysia,MY,MYS,31949789,Asia,56.08
@@ -5251,6 +5371,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Malaysia,MY,MYS,31949789,Asia,0
 13/01/2020,2020-02,0,0,Malaysia,MY,MYS,31949789,Asia,0
 06/01/2020,2020-01,0,0,Malaysia,MY,MYS,31949789,Asia,
+28/12/2020,2020-52,151,0,Maldives,MV,MDV,530957,Asia,51.98
 21/12/2020,2020-51,125,0,Maldives,MV,MDV,530957,Asia,55.56
 14/12/2020,2020-50,170,1,Maldives,MV,MDV,530957,Asia,70.44
 07/12/2020,2020-49,204,1,Maldives,MV,MDV,530957,Asia,111.12
@@ -5293,6 +5414,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,0,0,Maldives,MV,MDV,530957,Asia,1.7
 16/03/2020,2020-11,9,0,Maldives,MV,MDV,530957,Asia,2.45
 09/03/2020,2020-10,4,0,Maldives,MV,MDV,530957,Asia,
+28/12/2020,2020-52,512,34,Mali,ML,MLI,19658023,Africa,4.52
 21/12/2020,2020-51,377,28,Mali,ML,MLI,19658023,Africa,5.37
 14/12/2020,2020-50,679,30,Mali,ML,MLI,19658023,Africa,5.88
 07/12/2020,2020-49,476,15,Mali,ML,MLI,19658023,Africa,4.73
@@ -5332,6 +5454,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,71,4,Mali,ML,MLI,19658023,Africa,0.5
 06/04/2020,2020-14,27,5,Mali,ML,MLI,19658023,Africa,0.23
 30/03/2020,2020-13,18,0,Mali,ML,MLI,19658023,Africa,
+28/12/2020,2020-52,712,25,Malta,MT,MLT,493559,Europe,237.46
 21/12/2020,2020-51,460,16,Malta,MT,MLT,493559,Europe,241.92
 14/12/2020,2020-50,734,23,Malta,MT,MLT,493559,Europe,304.32
 07/12/2020,2020-49,768,18,Malta,MT,MLT,493559,Europe,309.39
@@ -5374,6 +5497,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,77,0,Malta,MT,MLT,493559,Europe,21.07
 16/03/2020,2020-11,27,0,Malta,MT,MLT,493559,Europe,6.08
 09/03/2020,2020-10,3,0,Malta,MT,MLT,493559,Europe,
+28/12/2020,2020-52,0,0,Marshall_Islands,MH,MHL,58791,Oceania,0
 21/12/2020,2020-51,0,0,Marshall_Islands,MH,MHL,58791,Oceania,0
 14/12/2020,2020-50,0,0,Marshall_Islands,MH,MHL,58791,Oceania,0
 07/12/2020,2020-49,0,0,Marshall_Islands,MH,MHL,58791,Oceania,0
@@ -5382,6 +5506,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 16/11/2020,2020-46,0,0,Marshall_Islands,MH,MHL,58791,Oceania,0
 09/11/2020,2020-45,0,0,Marshall_Islands,MH,MHL,58791,Oceania,1.7
 02/11/2020,2020-44,1,0,Marshall_Islands,MH,MHL,58791,Oceania,
+28/12/2020,2020-52,1360,49,Mauritania,MR,MRT,4525698,Africa,62.02
 21/12/2020,2020-51,1447,56,Mauritania,MR,MRT,4525698,Africa,81.93
 14/12/2020,2020-50,2261,48,Mauritania,MR,MRT,4525698,Africa,53.52
 07/12/2020,2020-49,161,2,Mauritania,MR,MRT,4525698,Africa,13.57
@@ -5423,6 +5548,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,3,0,Mauritania,MR,MRT,4525698,Africa,0.09
 23/03/2020,2020-12,1,0,Mauritania,MR,MRT,4525698,Africa,0.04
 16/03/2020,2020-11,1,0,Mauritania,MR,MRT,4525698,Africa,
+28/12/2020,2020-52,1,0,Mauritius,MU,MUS,1269670,Africa,0.32
 21/12/2020,2020-51,3,0,Mauritius,MU,MUS,1269670,Africa,1.65
 14/12/2020,2020-50,18,0,Mauritius,MU,MUS,1269670,Africa,1.73
 07/12/2020,2020-49,4,0,Mauritius,MU,MUS,1269670,Africa,0.87
@@ -5463,6 +5589,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,117,4,Mauritius,MU,MUS,1269670,Africa,15.67
 30/03/2020,2020-13,82,1,Mauritius,MU,MUS,1269670,Africa,8.66
 23/03/2020,2020-12,28,2,Mauritius,MU,MUS,1269670,Africa,
+28/12/2020,2020-52,63515,4257,Mexico,MX,MEX,127575529,America,109.26
 21/12/2020,2020-51,75871,4645,Mexico,MX,MEX,127575529,America,117.63
 14/12/2020,2020-50,74194,4236,Mexico,MX,MEX,127575529,America,112.07
 07/12/2020,2020-49,68779,4062,Mexico,MX,MEX,127575529,America,105.02
@@ -5514,6 +5641,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,1,0,Mexico,MX,MEX,127575529,America,0
 13/01/2020,2020-02,0,0,Mexico,MX,MEX,127575529,America,0
 06/01/2020,2020-01,0,0,Mexico,MX,MEX,127575529,America,
+28/12/2020,2020-52,6148,139,Moldova,MD,MDA,4043258,Europe,366.96
 21/12/2020,2020-51,8689,180,Moldova,MD,MDA,4043258,Europe,459.33
 14/12/2020,2020-50,9883,153,Moldova,MD,MDA,4043258,Europe,482.31
 07/12/2020,2020-49,9618,129,Moldova,MD,MDA,4043258,Europe,462.35
@@ -5555,6 +5683,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,169,1,Moldova,MD,MDA,4043258,Europe,5.94
 23/03/2020,2020-12,71,1,Moldova,MD,MDA,4043258,Europe,2.32
 16/03/2020,2020-11,23,0,Moldova,MD,MDA,4043258,Europe,
+28/12/2020,2020-52,75,0,Monaco,MC,MCO,33085,Europe,408.04
 21/12/2020,2020-51,60,0,Monaco,MC,MCO,33085,Europe,272.03
 14/12/2020,2020-50,30,0,Monaco,MC,MCO,33085,Europe,181.35
 07/12/2020,2020-49,30,0,Monaco,MC,MCO,33085,Europe,169.26
@@ -5606,6 +5735,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Monaco,MC,MCO,33085,Europe,0
 13/01/2020,2020-02,0,0,Monaco,MC,MCO,33085,Europe,0
 06/01/2020,2020-01,0,0,Monaco,MC,MCO,33085,Europe,
+28/12/2020,2020-52,144,0,Mongolia,MN,MNG,3225166,Asia,6.98
 21/12/2020,2020-51,81,0,Mongolia,MN,MNG,3225166,Asia,3.29
 14/12/2020,2020-50,25,0,Mongolia,MN,MNG,3225166,Asia,3.75
 07/12/2020,2020-49,96,0,Mongolia,MN,MNG,3225166,Asia,7.66
@@ -5646,6 +5776,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,2,0,Mongolia,MN,MNG,3225166,Asia,0.12
 30/03/2020,2020-13,2,0,Mongolia,MN,MNG,3225166,Asia,0.37
 23/03/2020,2020-12,10,0,Mongolia,MN,MNG,3225166,Asia,
+28/12/2020,2020-52,2739,40,Montenegro,ME,MNE,622182,Europe,846.7
 21/12/2020,2020-51,2529,44,Montenegro,ME,MNE,622182,Europe,917.58
 14/12/2020,2020-50,3180,49,Montenegro,ME,MNE,622182,Europe,1051.94
 07/12/2020,2020-49,3365,46,Montenegro,ME,MNE,622182,Europe,1154.65
@@ -5686,6 +5817,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,129,1,Montenegro,ME,MNE,622182,Europe,31.02
 30/03/2020,2020-13,64,1,Montenegro,ME,MNE,622182,Europe,13.66
 23/03/2020,2020-12,21,0,Montenegro,ME,MNE,622182,Europe,
+28/12/2020,2020-52,0,0,Montserrat,MS,MSF,4991,America,0
 21/12/2020,2020-51,0,0,Montserrat,MS,MSF,4991,America,0
 14/12/2020,2020-50,0,0,Montserrat,MS,MSF,4991,America,0
 07/12/2020,2020-49,0,0,Montserrat,MS,MSF,4991,America,0
@@ -5726,6 +5858,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,1,0,Montserrat,MS,MSF,4991,America,100.18
 30/03/2020,2020-13,4,0,Montserrat,MS,MSF,4991,America,100.18
 23/03/2020,2020-12,1,0,Montserrat,MS,MSF,4991,America,
+28/12/2020,2020-52,14954,283,Morocco,MA,MAR,36471766,Africa,89.03
 21/12/2020,2020-51,17516,333,Morocco,MA,MAR,36471766,Africa,102.73
 14/12/2020,2020-50,19952,379,Morocco,MA,MAR,36471766,Africa,125.59
 07/12/2020,2020-49,25854,456,Morocco,MA,MAR,36471766,Africa,160.93
@@ -5767,6 +5900,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,364,22,Morocco,MA,MAR,36471766,Africa,1.24
 23/03/2020,2020-12,87,3,Morocco,MA,MAR,36471766,Africa,0.32
 16/03/2020,2020-11,28,1,Morocco,MA,MAR,36471766,Africa,
+28/12/2020,2020-52,742,14,Mozambique,MZ,MOZ,30366043,Africa,4.47
 21/12/2020,2020-51,614,6,Mozambique,MZ,MOZ,30366043,Africa,4.36
 14/12/2020,2020-50,710,9,Mozambique,MZ,MOZ,30366043,Africa,4.42
 07/12/2020,2020-49,631,3,Mozambique,MZ,MOZ,30366043,Africa,3.97
@@ -5807,6 +5941,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,2,0,Mozambique,MZ,MOZ,30366043,Africa,0.03
 30/03/2020,2020-13,7,0,Mozambique,MZ,MOZ,30366043,Africa,0.03
 23/03/2020,2020-12,1,0,Mozambique,MZ,MOZ,30366043,Africa,
+28/12/2020,2020-52,5752,158,Myanmar,MM,MMR,54045422,Asia,25.06
 21/12/2020,2020-51,7792,175,Myanmar,MM,MMR,54045422,Asia,31.42
 14/12/2020,2020-50,9187,158,Myanmar,MM,MMR,54045422,Asia,34.89
 07/12/2020,2020-49,9669,192,Myanmar,MM,MMR,54045422,Asia,36.84
@@ -5846,6 +5981,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,20,3,Myanmar,MM,MMR,54045422,Asia,0.06
 06/04/2020,2020-14,13,1,Myanmar,MM,MMR,54045422,Asia,0.04
 30/03/2020,2020-13,8,0,Myanmar,MM,MMR,54045422,Asia,
+28/12/2020,2020-52,3573,16,Namibia,,NAM,2494524,Africa,230.54
 21/12/2020,2020-51,2178,17,Namibia,,NAM,2494524,Africa,145.76
 14/12/2020,2020-50,1458,8,Namibia,,NAM,2494524,Africa,87.83
 07/12/2020,2020-49,733,1,Namibia,,NAM,2494524,Africa,48.63
@@ -5887,6 +6023,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,8,0,Namibia,,NAM,2494524,Africa,0.36
 23/03/2020,2020-12,1,0,Namibia,,NAM,2494524,Africa,0.12
 16/03/2020,2020-11,2,0,Namibia,,NAM,2494524,Africa,
+28/12/2020,2020-52,4409,37,Nepal,NP,NPL,28608715,Asia,34.11
 21/12/2020,2020-51,5349,90,Nepal,NP,NPL,28608715,Asia,44.71
 14/12/2020,2020-50,7442,104,Nepal,NP,NPL,28608715,Asia,57.48
 07/12/2020,2020-49,9003,115,Nepal,NP,NPL,28608715,Asia,72.26
@@ -5938,6 +6075,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Nepal,NP,NPL,28608715,Asia,0
 13/01/2020,2020-02,0,0,Nepal,NP,NPL,28608715,Asia,0
 06/01/2020,2020-01,0,0,Nepal,NP,NPL,28608715,Asia,
+28/12/2020,2020-52,80594,551,Netherlands,NL,NLD,17282163,Europe,906.99
 21/12/2020,2020-51,76154,443,Netherlands,NL,NLD,17282163,Europe,765.8
 14/12/2020,2020-50,56193,360,Netherlands,NL,NLD,17282163,Europe,546.65
 07/12/2020,2020-49,38280,338,Netherlands,NL,NLD,17282163,Europe,419.47
@@ -5989,6 +6127,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Netherlands,NL,NLD,17282163,Europe,0
 13/01/2020,2020-02,0,0,Netherlands,NL,NLD,17282163,Europe,0
 06/01/2020,2020-01,0,0,Netherlands,NL,NLD,17282163,Europe,
+28/12/2020,2020-52,1,0,New_Caledonia,NC,NCL,282757,Oceania,0.71
 21/12/2020,2020-51,1,0,New_Caledonia,NC,NCL,282757,Oceania,0.71
 14/12/2020,2020-50,1,0,New_Caledonia,NC,NCL,282757,Oceania,1.41
 07/12/2020,2020-49,3,0,New_Caledonia,NC,NCL,282757,Oceania,1.06
@@ -6029,6 +6168,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,3,0,New_Caledonia,NC,NCL,282757,Oceania,4.6
 30/03/2020,2020-13,10,0,New_Caledonia,NC,NCL,282757,Oceania,5.3
 23/03/2020,2020-12,5,0,New_Caledonia,NC,NCL,282757,Oceania,
+28/12/2020,2020-52,23,0,New_Zealand,NZ,NZL,4783062,Oceania,1
 21/12/2020,2020-51,25,0,New_Zealand,NZ,NZL,4783062,Oceania,0.88
 14/12/2020,2020-50,17,0,New_Zealand,NZ,NZL,4783062,Oceania,0.84
 07/12/2020,2020-49,23,0,New_Zealand,NZ,NZL,4783062,Oceania,1.02
@@ -6080,6 +6220,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,New_Zealand,NZ,NZL,4783062,Oceania,0
 13/01/2020,2020-02,0,0,New_Zealand,NZ,NZL,4783062,Oceania,0
 06/01/2020,2020-01,0,0,New_Zealand,NZ,NZL,4783062,Oceania,
+28/12/2020,2020-52,53,1,Nicaragua,NI,NIC,6545503,America,1.59
 21/12/2020,2020-51,51,1,Nicaragua,NI,NIC,6545503,America,1.53
 14/12/2020,2020-50,49,1,Nicaragua,NI,NIC,6545503,America,1.57
 07/12/2020,2020-49,54,1,Nicaragua,NI,NIC,6545503,America,1.73
@@ -6120,6 +6261,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,1,0,Nicaragua,NI,NIC,6545503,America,0.05
 30/03/2020,2020-13,2,1,Nicaragua,NI,NIC,6545503,America,0.06
 23/03/2020,2020-12,2,0,Nicaragua,NI,NIC,6545503,America,
+28/12/2020,2020-52,500,12,Niger,NE,NER,23310719,Africa,3.87
 21/12/2020,2020-51,401,7,Niger,NE,NER,23310719,Africa,3.44
 14/12/2020,2020-50,402,3,Niger,NE,NER,23310719,Africa,3.18
 07/12/2020,2020-49,340,7,Niger,NE,NER,23310719,Africa,2.09
@@ -6160,6 +6302,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,174,9,Niger,NE,NER,23310719,Africa,0.79
 30/03/2020,2020-13,9,1,Niger,NE,NER,23310719,Africa,0.04
 23/03/2020,2020-12,1,0,Niger,NE,NER,23310719,Africa,
+28/12/2020,2020-52,6377,43,Nigeria,NG,NGA,200963603,Africa,5.79
 21/12/2020,2020-51,5259,24,Nigeria,NG,NGA,200963603,Africa,4.57
 14/12/2020,2020-50,3920,17,Nigeria,NG,NGA,200963603,Africa,2.87
 07/12/2020,2020-49,1843,7,Nigeria,NG,NGA,200963603,Africa,1.43
@@ -6211,6 +6354,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Nigeria,NG,NGA,200963603,Africa,0
 13/01/2020,2020-02,0,0,Nigeria,NG,NGA,200963603,Africa,0
 06/01/2020,2020-01,0,0,Nigeria,NG,NGA,200963603,Africa,
+28/12/2020,2020-52,3499,164,North_Macedonia,MK,MKD,2077132,Europe,393.14
 21/12/2020,2020-51,4667,171,North_Macedonia,MK,MKD,2077132,Europe,497.66
 14/12/2020,2020-50,5670,197,North_Macedonia,MK,MKD,2077132,Europe,582.29
 07/12/2020,2020-49,6425,193,North_Macedonia,MK,MKD,2077132,Europe,636.7
@@ -6262,6 +6406,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,North_Macedonia,MK,MKD,2077132,Europe,0
 13/01/2020,2020-02,0,0,North_Macedonia,MK,MKD,2077132,Europe,0
 06/01/2020,2020-01,0,0,North_Macedonia,MK,MKD,2077132,Europe,
+28/12/2020,2020-52,6,0,Northern_Mariana_Islands,MP,MNP,57213,Oceania,15.73
 21/12/2020,2020-51,3,0,Northern_Mariana_Islands,MP,MNP,57213,Oceania,12.23
 14/12/2020,2020-50,4,0,Northern_Mariana_Islands,MP,MNP,57213,Oceania,12.23
 07/12/2020,2020-49,3,0,Northern_Mariana_Islands,MP,MNP,57213,Oceania,8.74
@@ -6300,6 +6445,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,3,0,Northern_Mariana_Islands,MP,MNP,57213,Oceania,10.49
 13/04/2020,2020-15,3,1,Northern_Mariana_Islands,MP,MNP,57213,Oceania,19.23
 06/04/2020,2020-14,8,1,Northern_Mariana_Islands,MP,MNP,57213,Oceania,
+28/12/2020,2020-52,4282,25,Norway,NO,NOR,5328212,Europe,113.62
 21/12/2020,2020-51,1772,11,Norway,NO,NOR,5328212,Europe,101.42
 14/12/2020,2020-50,3632,39,Norway,NO,NOR,5328212,Europe,117.41
 07/12/2020,2020-49,2624,26,Norway,NO,NOR,5328212,Europe,111.35
@@ -6351,6 +6497,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Norway,NO,NOR,5328212,Europe,0
 13/01/2020,2020-02,0,0,Norway,NO,NOR,5328212,Europe,0
 06/01/2020,2020-01,0,0,Norway,NO,NOR,5328212,Europe,
+28/12/2020,2020-52,805,7,Oman,OM,OMN,4974992,Asia,44.86
 21/12/2020,2020-51,1427,17,Oman,OM,OMN,4974992,Asia,55.9
 14/12/2020,2020-50,1354,27,Oman,OM,OMN,4974992,Asia,55.4
 07/12/2020,2020-49,1402,26,Oman,OM,OMN,4974992,Asia,56.38
@@ -6402,6 +6549,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Oman,OM,OMN,4974992,Asia,0
 13/01/2020,2020-02,0,0,Oman,OM,OMN,4974992,Asia,0
 06/01/2020,2020-01,0,0,Oman,OM,OMN,4974992,Asia,
+28/12/2020,2020-52,14341,537,Pakistan,PK,PAK,216565317,Asia,15.02
 21/12/2020,2020-51,18181,560,Pakistan,PK,PAK,216565317,Asia,17.86
 14/12/2020,2020-50,20493,434,Pakistan,PK,PAK,216565317,Asia,19.75
 07/12/2020,2020-49,22270,373,Pakistan,PK,PAK,216565317,Asia,20.02
@@ -6453,6 +6601,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Pakistan,PK,PAK,216565317,Asia,0
 13/01/2020,2020-02,0,0,Pakistan,PK,PAK,216565317,Asia,0
 06/01/2020,2020-01,0,0,Pakistan,PK,PAK,216565317,Asia,
+28/12/2020,2020-52,10316,147,Palestine,PS,PSE,4981422,Asia,516.04
 21/12/2020,2020-51,15390,208,Palestine,PS,PSE,4981422,Asia,562.33
 14/12/2020,2020-50,12622,157,Palestine,PS,PSE,4981422,Asia,559.46
 07/12/2020,2020-49,15247,115,Palestine,PS,PSE,4981422,Asia,555.97
@@ -6494,6 +6643,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,47,1,Palestine,PS,PSE,4981422,Asia,1.37
 23/03/2020,2020-12,21,0,Palestine,PS,PSE,4981422,Asia,1.18
 16/03/2020,2020-11,38,0,Palestine,PS,PSE,4981422,Asia,
+28/12/2020,2020-52,19667,295,Panama,PA,PAN,4246440,America,958.4
 21/12/2020,2020-51,21031,241,Panama,PA,PAN,4246440,America,855.28
 14/12/2020,2020-50,15288,163,Panama,PA,PAN,4246440,America,665.92
 07/12/2020,2020-49,12990,133,Panama,PA,PAN,4246440,America,540.12
@@ -6535,6 +6685,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,676,21,Panama,PA,PAN,4246440,America,22.28
 23/03/2020,2020-12,270,2,Panama,PA,PAN,4246440,America,7.37
 16/03/2020,2020-11,43,1,Panama,PA,PAN,4246440,America,
+28/12/2020,2020-52,19,0,Papua_New_Guinea,PG,PNG,8776119,Oceania,0.63
 21/12/2020,2020-51,36,1,Papua_New_Guinea,PG,PNG,8776119,Oceania,1.03
 14/12/2020,2020-50,54,1,Papua_New_Guinea,PG,PNG,8776119,Oceania,0.8
 07/12/2020,2020-49,16,0,Papua_New_Guinea,PG,PNG,8776119,Oceania,0.76
@@ -6575,6 +6726,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,0,0,Papua_New_Guinea,PG,PNG,8776119,Oceania,0
 30/03/2020,2020-13,0,0,Papua_New_Guinea,PG,PNG,8776119,Oceania,0.01
 23/03/2020,2020-12,1,0,Papua_New_Guinea,PG,PNG,8776119,Oceania,
+28/12/2020,2020-52,4762,99,Paraguay,PY,PRY,7044639,America,167.39
 21/12/2020,2020-51,7030,150,Paraguay,PY,PRY,7044639,America,180.17
 14/12/2020,2020-50,5662,100,Paraguay,PY,PRY,7044639,America,165.74
 07/12/2020,2020-49,6014,110,Paraguay,PY,PRY,7044639,America,162.45
@@ -6616,6 +6768,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,42,2,Paraguay,PY,PRY,7044639,America,0.79
 23/03/2020,2020-12,14,1,Paraguay,PY,PRY,7044639,America,0.31
 16/03/2020,2020-11,8,0,Paraguay,PY,PRY,7044639,America,
+28/12/2020,2020-52,10433,352,Peru,PE,PER,32510462,America,73.62
 21/12/2020,2020-51,13502,496,Peru,PE,PER,32510462,America,75.55
 14/12/2020,2020-50,11061,403,Peru,PE,PER,32510462,America,69.03
 07/12/2020,2020-49,11382,351,Peru,PE,PER,32510462,America,74.57
@@ -6658,6 +6811,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,292,5,Peru,PE,PER,32510462,America,1.1
 16/03/2020,2020-11,64,0,Peru,PE,PER,32510462,America,0.22
 09/03/2020,2020-10,7,0,Peru,PE,PER,32510462,America,
+28/12/2020,2020-52,10097,162,Philippines,PH,PHL,108116622,Asia,18.95
 21/12/2020,2020-51,10389,214,Philippines,PH,PHL,108116622,Asia,18.46
 14/12/2020,2020-50,9566,179,Philippines,PH,PHL,108116622,Asia,18.07
 07/12/2020,2020-49,9970,181,Philippines,PH,PHL,108116622,Asia,19.44
@@ -6709,6 +6863,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Philippines,PH,PHL,108116622,Asia,0
 13/01/2020,2020-02,0,0,Philippines,PH,PHL,108116622,Asia,0
 06/01/2020,2020-01,0,0,Philippines,PH,PHL,108116622,Asia,
+28/12/2020,2020-52,58310,1750,Poland,PL,POL,37972812,Europe,330.06
 21/12/2020,2020-51,67024,2533,Poland,PL,POL,37972812,Europe,366.71
 14/12/2020,2020-50,72227,2775,Poland,PL,POL,37972812,Europe,396.6
 07/12/2020,2020-49,78374,3060,Poland,PL,POL,37972812,Europe,532.27
@@ -6751,6 +6906,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,509,4,Poland,PL,POL,37972812,Europe,1.64
 16/03/2020,2020-11,114,3,Poland,PL,POL,37972812,Europe,0.33
 09/03/2020,2020-10,11,0,Poland,PL,POL,37972812,Europe,
+28/12/2020,2020-52,22545,543,Portugal,PT,PRT,10276617,Europe,466.32
 21/12/2020,2020-51,25377,575,Portugal,PT,PRT,10276617,Europe,502.57
 14/12/2020,2020-50,26270,596,Portugal,PT,PRT,10276617,Europe,524.93
 07/12/2020,2020-49,27675,536,Portugal,PT,PRT,10276617,Europe,600.55
@@ -6793,6 +6949,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,1355,14,Portugal,PT,PRT,10276617,Europe,15.28
 16/03/2020,2020-11,215,0,Portugal,PT,PRT,10276617,Europe,2.38
 09/03/2020,2020-10,30,0,Portugal,PT,PRT,10276617,Europe,
+28/12/2020,2020-52,13317,74,Puerto_Rico,PR,PRI,2933404,America,734.51
 21/12/2020,2020-51,8229,110,Puerto_Rico,PR,PRI,2933404,America,589.18
 14/12/2020,2020-50,9054,80,Puerto_Rico,PR,PRI,2933404,America,564.63
 07/12/2020,2020-49,7509,98,Puerto_Rico,PR,PRI,2933404,America,449.31
@@ -6832,6 +6989,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,422,24,Puerto_Rico,PR,PRI,2933404,America,26.25
 06/04/2020,2020-14,348,15,Puerto_Rico,PR,PRI,2933404,America,16.19
 30/03/2020,2020-13,127,5,Puerto_Rico,PR,PRI,2933404,America,
+28/12/2020,2020-52,1061,1,Qatar,QA,QAT,2832071,Asia,68.54
 21/12/2020,2020-51,880,2,Qatar,QA,QAT,2832071,Asia,73.9
 14/12/2020,2020-50,1213,2,Qatar,QA,QAT,2832071,Asia,87.32
 07/12/2020,2020-49,1260,2,Qatar,QA,QAT,2832071,Asia,94.6
@@ -6883,6 +7041,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Qatar,QA,QAT,2832071,Asia,0
 13/01/2020,2020-02,0,0,Qatar,QA,QAT,2832071,Asia,0
 06/01/2020,2020-01,0,0,Qatar,QA,QAT,2832071,Asia,
+28/12/2020,2020-52,27135,940,Romania,RO,ROU,19414458,Europe,319.83
 21/12/2020,2020-51,34959,1009,Romania,RO,ROU,19414458,Europe,400.31
 14/12/2020,2020-50,42759,1065,Romania,RO,ROU,19414458,Europe,436.78
 07/12/2020,2020-49,42040,1127,Romania,RO,ROU,19414458,Europe,488.97
@@ -6934,6 +7093,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Romania,RO,ROU,19414458,Europe,0
 13/01/2020,2020-02,0,0,Romania,RO,ROU,19414458,Europe,0
 06/01/2020,2020-01,0,0,Romania,RO,ROU,19414458,Europe,
+28/12/2020,2020-52,315367,6114,Russia,RU,RUS,145872260,Europe,290.74
 21/12/2020,2020-51,108740,2210,Russia,RU,RUS,145872260,Europe,206.96
 14/12/2020,2020-50,193158,3800,Russia,RU,RUS,145872260,Europe,263.66
 07/12/2020,2020-49,191454,3614,Russia,RU,RUS,145872260,Europe,254.63
@@ -6985,6 +7145,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Russia,RU,RUS,145872260,Europe,0
 13/01/2020,2020-02,0,0,Russia,RU,RUS,145872260,Europe,0
 06/01/2020,2020-01,0,0,Russia,RU,RUS,145872260,Europe,
+28/12/2020,2020-52,728,12,Rwanda,RW,RWA,12626938,Africa,10.79
 21/12/2020,2020-51,634,7,Rwanda,RW,RWA,12626938,Africa,9.22
 14/12/2020,2020-50,530,5,Rwanda,RW,RWA,12626938,Africa,5.86
 07/12/2020,2020-49,210,3,Rwanda,RW,RWA,12626938,Africa,3.67
@@ -7026,6 +7187,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,51,0,Rwanda,RW,RWA,12626938,Africa,0.51
 23/03/2020,2020-12,14,0,Rwanda,RW,RWA,12626938,Africa,0.15
 16/03/2020,2020-11,5,0,Rwanda,RW,RWA,12626938,Africa,
+28/12/2020,2020-52,2,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,7.57
 21/12/2020,2020-51,2,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,9.46
 14/12/2020,2020-50,3,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,11.36
 07/12/2020,2020-49,3,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,9.46
@@ -7065,6 +7227,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,2,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,9.46
 06/04/2020,2020-14,3,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,18.93
 30/03/2020,2020-13,7,0,Saint_Kitts_and_Nevis,KN,KNA,52834,America,
+28/12/2020,2020-52,18,0,Saint_Lucia,LC,LCA,182795,America,16.41
 21/12/2020,2020-51,12,1,Saint_Lucia,LC,LCA,182795,America,12.04
 14/12/2020,2020-50,10,2,Saint_Lucia,LC,LCA,182795,America,9.85
 07/12/2020,2020-49,8,0,Saint_Lucia,LC,LCA,182795,America,24.62
@@ -7106,6 +7269,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,7,0,Saint_Lucia,LC,LCA,182795,America,3.83
 23/03/2020,2020-12,0,0,Saint_Lucia,LC,LCA,182795,America,1.09
 16/03/2020,2020-11,2,0,Saint_Lucia,LC,LCA,182795,America,
+28/12/2020,2020-52,5,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,9.95
 21/12/2020,2020-51,6,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,15.37
 14/12/2020,2020-50,11,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,11.75
 07/12/2020,2020-49,2,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,2.71
@@ -7145,6 +7309,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,5,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,9.95
 06/04/2020,2020-14,6,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,6.33
 30/03/2020,2020-13,1,0,Saint_Vincent_and_the_Grenadines,VC,VCT,110593,America,
+28/12/2020,2020-52,168,2,San_Marino,SM,SMR,34453,Europe,952.02
 21/12/2020,2020-51,160,4,San_Marino,SM,SMR,34453,Europe,923
 14/12/2020,2020-50,158,3,San_Marino,SM,SMR,34453,Europe,1047.8
 07/12/2020,2020-49,203,3,San_Marino,SM,SMR,34453,Europe,1143.59
@@ -7196,6 +7361,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,San_Marino,SM,SMR,34453,Europe,0
 13/01/2020,2020-02,0,0,San_Marino,SM,SMR,34453,Europe,0
 06/01/2020,2020-01,0,0,San_Marino,SM,SMR,34453,Europe,
+28/12/2020,2020-52,2,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,2.33
 21/12/2020,2020-51,3,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,6.05
 14/12/2020,2020-50,10,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,9.3
 07/12/2020,2020-49,10,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,9.3
@@ -7233,6 +7399,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 27/04/2020,2020-17,4,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,1.86
 20/04/2020,2020-16,0,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,1.86
 13/04/2020,2020-15,4,0,Sao_Tome_and_Principe,ST,STP,215048,Africa,
+28/12/2020,2020-52,1210,63,Saudi_Arabia,SA,SAU,34268529,Asia,6.81
 21/12/2020,2020-51,1122,74,Saudi_Arabia,SA,SAU,34268529,Asia,6.7
 14/12/2020,2020-50,1175,83,Saudi_Arabia,SA,SAU,34268529,Asia,8.05
 07/12/2020,2020-49,1585,81,Saudi_Arabia,SA,SAU,34268529,Asia,10.08
@@ -7275,6 +7442,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,393,0,Saudi_Arabia,SA,SAU,34268529,Asia,1.46
 16/03/2020,2020-11,107,0,Saudi_Arabia,SA,SAU,34268529,Asia,0.34
 09/03/2020,2020-10,11,0,Saudi_Arabia,SA,SAU,34268529,Asia,
+28/12/2020,2020-52,970,25,Senegal,SN,SEN,16296362,Africa,10.14
 21/12/2020,2020-51,683,16,Senegal,SN,SEN,16296362,Africa,7.86
 14/12/2020,2020-50,598,11,Senegal,SN,SEN,16296362,Africa,6.14
 07/12/2020,2020-49,402,5,Senegal,SN,SEN,16296362,Africa,3.65
@@ -7316,6 +7484,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,75,0,Senegal,SN,SEN,16296362,Africa,0.71
 23/03/2020,2020-12,41,0,Senegal,SN,SEN,16296362,Africa,0.41
 16/03/2020,2020-11,26,0,Senegal,SN,SEN,16296362,Africa,
+28/12/2020,2020-52,24872,340,Serbia,RS,SRB,6963764,Europe,893.01
 21/12/2020,2020-51,37315,402,Serbia,RS,SRB,6963764,Europe,1207.61
 14/12/2020,2020-50,46780,382,Serbia,RS,SRB,6963764,Europe,1396.06
 07/12/2020,2020-49,50438,400,Serbia,RS,SRB,6963764,Europe,1414.92
@@ -7357,6 +7526,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,553,12,Serbia,RS,SRB,6963764,Europe,9.85
 23/03/2020,2020-12,133,1,Serbia,RS,SRB,6963764,Europe,2.7
 16/03/2020,2020-11,55,0,Serbia,RS,SRB,6963764,Europe,
+28/12/2020,2020-52,12,0,Seychelles,SC,SYC,97741,Africa,15.35
 21/12/2020,2020-51,3,0,Seychelles,SC,SYC,97741,Africa,21.49
 14/12/2020,2020-50,18,0,Seychelles,SC,SYC,97741,Africa,29.67
 07/12/2020,2020-49,11,0,Seychelles,SC,SYC,97741,Africa,18.42
@@ -7398,6 +7568,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,1,0,Seychelles,SC,SYC,97741,Africa,5.12
 23/03/2020,2020-12,4,0,Seychelles,SC,SYC,97741,Africa,7.16
 16/03/2020,2020-11,3,0,Seychelles,SC,SYC,97741,Africa,
+28/12/2020,2020-52,51,1,Sierra_Leone,SL,SLE,7813207,Africa,1.47
 21/12/2020,2020-51,64,0,Sierra_Leone,SL,SLE,7813207,Africa,1.06
 14/12/2020,2020-50,19,1,Sierra_Leone,SL,SLE,7813207,Africa,0.44
 07/12/2020,2020-49,15,0,Sierra_Leone,SL,SLE,7813207,Africa,0.27
@@ -7436,6 +7607,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,25,0,Sierra_Leone,SL,SLE,7813207,Africa,0.37
 13/04/2020,2020-15,4,0,Sierra_Leone,SL,SLE,7813207,Africa,0.13
 06/04/2020,2020-14,6,0,Sierra_Leone,SL,SLE,7813207,Africa,
+28/12/2020,2020-52,102,0,Singapore,SG,SGP,5804343,Asia,3.51
 21/12/2020,2020-51,102,0,Singapore,SG,SGP,5804343,Asia,2.79
 14/12/2020,2020-50,60,0,Singapore,SG,SGP,5804343,Asia,1.84
 07/12/2020,2020-49,47,0,Singapore,SG,SGP,5804343,Asia,1.72
@@ -7487,6 +7659,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Singapore,SG,SGP,5804343,Asia,0
 13/01/2020,2020-02,0,0,Singapore,SG,SGP,5804343,Asia,0
 06/01/2020,2020-01,0,0,Singapore,SG,SGP,5804343,Asia,
+28/12/2020,2020-52,73,1,Sint_Maarten,SX,SXM,42389,America,382.17
 21/12/2020,2020-51,89,0,Sint_Maarten,SX,SXM,42389,America,464.74
 14/12/2020,2020-50,108,0,Sint_Maarten,SX,SXM,42389,America,431.72
 07/12/2020,2020-49,75,1,Sint_Maarten,SX,SXM,42389,America,316.12
@@ -7526,6 +7699,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,25,5,Sint_Maarten,SX,SXM,42389,America,110.88
 06/04/2020,2020-14,22,4,Sint_Maarten,SX,SXM,42389,America,58.98
 30/03/2020,2020-13,3,0,Sint_Maarten,SX,SXM,42389,America,
+28/12/2020,2020-52,16756,324,Slovakia,SK,SVK,5450421,Europe,644.13
 21/12/2020,2020-51,18352,380,Slovakia,SK,SVK,5450421,Europe,634.91
 14/12/2020,2020-50,16253,179,Slovakia,SK,SVK,5450421,Europe,499.98
 07/12/2020,2020-49,10998,180,Slovakia,SK,SVK,5450421,Europe,375.93
@@ -7568,6 +7742,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,124,0,Slovakia,SK,SVK,5450421,Europe,3.3
 16/03/2020,2020-11,56,0,Slovakia,SK,SVK,5450421,Europe,1.12
 09/03/2020,2020-10,5,0,Slovakia,SK,SVK,5450421,Europe,
+28/12/2020,2020-52,9428,216,Slovenia,SI,SVN,2080908,Europe,913.69
 21/12/2020,2020-51,9585,156,Slovenia,SI,SVN,2080908,Europe,965.64
 14/12/2020,2020-50,10509,954,Slovenia,SI,SVN,2080908,Europe,1005.96
 07/12/2020,2020-49,10424,331,Slovenia,SI,SVN,2080908,Europe,985
@@ -7610,6 +7785,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,195,1,Slovenia,SI,SVN,2080908,Europe,19.13
 16/03/2020,2020-11,203,0,Slovenia,SI,SVN,2080908,Europe,10.52
 09/03/2020,2020-10,16,0,Slovenia,SI,SVN,2080908,Europe,
+28/12/2020,2020-52,0,0,Solomon_Islands,SB,SLB,669821,Oceania,0
 21/12/2020,2020-51,0,0,Solomon_Islands,SB,SLB,669821,Oceania,0
 14/12/2020,2020-50,0,0,Solomon_Islands,SB,SLB,669821,Oceania,0
 07/12/2020,2020-49,0,0,Solomon_Islands,SB,SLB,669821,Oceania,0.15
@@ -7620,6 +7796,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 02/11/2020,2020-44,4,0,Solomon_Islands,SB,SLB,669821,Oceania,0.75
 26/10/2020,2020-43,1,0,Solomon_Islands,SB,SLB,669821,Oceania,0.6
 19/10/2020,2020-42,3,0,Solomon_Islands,SB,SLB,669821,Oceania,
+28/12/2020,2020-52,28,3,Somalia,SO,SOM,15442906,Africa,0.72
 21/12/2020,2020-51,83,3,Somalia,SO,SOM,15442906,Africa,0.89
 14/12/2020,2020-50,54,0,Somalia,SO,SOM,15442906,Africa,0.87
 07/12/2020,2020-49,80,8,Somalia,SO,SOM,15442906,Africa,0.52
@@ -7660,6 +7837,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,4,0,Somalia,SO,SOM,15442906,Africa,0.04
 30/03/2020,2020-13,2,0,Somalia,SO,SOM,15442906,Africa,0.02
 23/03/2020,2020-12,1,0,Somalia,SO,SOM,15442906,Africa,
+28/12/2020,2020-52,89949,2380,South_Africa,ZA,ZAF,58558267,Africa,257.7
 21/12/2020,2020-51,60958,1415,South_Africa,ZA,ZAF,58558267,Africa,183.33
 14/12/2020,2020-50,46399,1070,South_Africa,ZA,ZAF,58558267,Africa,125.11
 07/12/2020,2020-49,26863,729,South_Africa,ZA,ZAF,58558267,Africa,80.07
@@ -7702,6 +7880,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 23/03/2020,2020-12,223,0,South_Africa,ZA,ZAF,58558267,Africa,0.46
 16/03/2020,2020-11,48,0,South_Africa,ZA,ZAF,58558267,Africa,0.09
 09/03/2020,2020-10,3,0,South_Africa,ZA,ZAF,58558267,Africa,
+28/12/2020,2020-52,7089,121,South_Korea,KR,KOR,51225321,Asia,27.71
 21/12/2020,2020-51,7107,111,South_Korea,KR,KOR,51225321,Asia,24.27
 14/12/2020,2020-50,5323,38,South_Korea,KR,KOR,51225321,Asia,18.12
 07/12/2020,2020-49,3960,23,South_Korea,KR,KOR,51225321,Asia,13.97
@@ -7753,6 +7932,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,1,0,South_Korea,KR,KOR,51225321,Asia,0
 13/01/2020,2020-02,0,0,South_Korea,KR,KOR,51225321,Asia,0
 06/01/2020,2020-01,0,0,South_Korea,KR,KOR,51225321,Asia,
+28/12/2020,2020-52,263,0,South_Sudan,SS,SSD,11062114,Africa,2.42
 21/12/2020,2020-51,5,0,South_Sudan,SS,SSD,11062114,Africa,0.42
 14/12/2020,2020-50,42,0,South_Sudan,SS,SSD,11062114,Africa,1.03
 07/12/2020,2020-49,72,1,South_Sudan,SS,SSD,11062114,Africa,1.21
@@ -7791,6 +7971,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/04/2020,2020-16,0,0,South_Sudan,SS,SSD,11062114,Africa,0.03
 13/04/2020,2020-15,3,0,South_Sudan,SS,SSD,11062114,Africa,0.04
 06/04/2020,2020-14,1,0,South_Sudan,SS,SSD,11062114,Africa,
+28/12/2020,2020-52,60164,862,Spain,ES,ESP,46937060,Europe,271.7
 21/12/2020,2020-51,67365,1247,Spain,ES,ESP,46937060,Europe,249.1
 14/12/2020,2020-50,49556,1367,Spain,ES,ESP,46937060,Europe,220.93
 07/12/2020,2020-49,54141,1577,Spain,ES,ESP,46937060,Europe,255.05
@@ -7842,6 +8023,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Spain,ES,ESP,46937060,Europe,0
 13/01/2020,2020-02,0,0,Spain,ES,ESP,46937060,Europe,0
 06/01/2020,2020-01,0,0,Spain,ES,ESP,46937060,Europe,
+28/12/2020,2020-52,3793,15,Sri_Lanka,LK,LKA,21323734,Asia,38.75
 21/12/2020,2020-51,4471,24,Sri_Lanka,LK,LKA,21323734,Asia,44.01
 14/12/2020,2020-50,4913,12,Sri_Lanka,LK,LKA,21323734,Asia,43.64
 07/12/2020,2020-49,4393,24,Sri_Lanka,LK,LKA,21323734,Asia,36.14
@@ -7893,6 +8075,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Sri_Lanka,LK,LKA,21323734,Asia,0
 13/01/2020,2020-02,0,0,Sri_Lanka,LK,LKA,21323734,Asia,0
 06/01/2020,2020-01,0,0,Sri_Lanka,LK,LKA,21323734,Asia,
+28/12/2020,2020-52,493,34,Sudan,SD,SDN,42813237,Africa,4.51
 21/12/2020,2020-51,1437,87,Sudan,SD,SDN,42813237,Africa,7.84
 14/12/2020,2020-50,1918,52,Sudan,SD,SDN,42813237,Africa,8.78
 07/12/2020,2020-49,1841,54,Sudan,SD,SDN,42813237,Africa,8.48
@@ -7934,6 +8117,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,3,0,Sudan,SD,SDN,42813237,Africa,0.01
 23/03/2020,2020-12,1,0,Sudan,SD,SDN,42813237,Africa,0
 16/03/2020,2020-11,1,1,Sudan,SD,SDN,42813237,Africa,
+28/12/2020,2020-52,430,2,Suriname,SR,SUR,581363,America,113.53
 21/12/2020,2020-51,230,1,Suriname,SR,SUR,581363,America,44.55
 14/12/2020,2020-50,29,0,Suriname,SR,SUR,581363,America,7.05
 07/12/2020,2020-49,12,0,Suriname,SR,SUR,581363,America,4.82
@@ -7974,47 +8158,48 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,2,1,Suriname,SR,SUR,581363,America,0.86
 30/03/2020,2020-13,3,0,Suriname,SR,SUR,581363,America,1.38
 23/03/2020,2020-12,5,0,Suriname,SR,SUR,581363,America,
-21/12/2020,2020-51,46212,196,Sweden,SE,SWE,10230185,Europe,878.38
-14/12/2020,2020-50,43648,332,Sweden,SE,SWE,10230185,Europe,786.83
-07/12/2020,2020-49,36846,455,Sweden,SE,SWE,10230185,Europe,707.82
-30/11/2020,2020-48,35565,412,Sweden,SE,SWE,10230185,Europe,660.06
-23/11/2020,2020-47,31960,330,Sweden,SE,SWE,10230185,Europe,618.6
-16/11/2020,2020-46,31324,235,Sweden,SE,SWE,10230185,Europe,554.54
-09/11/2020,2020-45,25406,155,Sweden,SE,SWE,10230185,Europe,428.95
-02/11/2020,2020-44,18476,82,Sweden,SE,SWE,10230185,Europe,270.11
-26/10/2020,2020-43,9157,43,Sweden,SE,SWE,10230185,Europe,144.45
-19/10/2020,2020-42,5620,16,Sweden,SE,SWE,10230185,Europe,96.75
-12/10/2020,2020-41,4278,22,Sweden,SE,SWE,10230185,Europe,77.42
-05/10/2020,2020-40,3642,17,Sweden,SE,SWE,10230185,Europe,64.13
-28/09/2020,2020-39,2919,11,Sweden,SE,SWE,10230185,Europe,48.87
+28/12/2020,2020-52,37168,82,Sweden,SE,SWE,10230185,Europe,814.99
+21/12/2020,2020-51,46207,270,Sweden,SE,SWE,10230185,Europe,878.31
+14/12/2020,2020-50,43646,433,Sweden,SE,SWE,10230185,Europe,786.78
+07/12/2020,2020-49,36843,453,Sweden,SE,SWE,10230185,Europe,707.77
+30/11/2020,2020-48,35563,422,Sweden,SE,SWE,10230185,Europe,660.04
+23/11/2020,2020-47,31960,347,Sweden,SE,SWE,10230185,Europe,618.59
+16/11/2020,2020-46,31323,237,Sweden,SE,SWE,10230185,Europe,554.53
+09/11/2020,2020-45,25406,170,Sweden,SE,SWE,10230185,Europe,428.95
+02/11/2020,2020-44,18476,91,Sweden,SE,SWE,10230185,Europe,270.11
+26/10/2020,2020-43,9157,50,Sweden,SE,SWE,10230185,Europe,144.45
+19/10/2020,2020-42,5620,17,Sweden,SE,SWE,10230185,Europe,96.75
+12/10/2020,2020-41,4278,23,Sweden,SE,SWE,10230185,Europe,77.42
+05/10/2020,2020-40,3642,18,Sweden,SE,SWE,10230185,Europe,64.13
+28/09/2020,2020-39,2919,10,Sweden,SE,SWE,10230185,Europe,48.87
 21/09/2020,2020-38,2080,12,Sweden,SE,SWE,10230185,Europe,35.89
-14/09/2020,2020-37,1592,13,Sweden,SE,SWE,10230185,Europe,28.58
-07/09/2020,2020-36,1332,12,Sweden,SE,SWE,10230185,Europe,24.75
-31/08/2020,2020-35,1200,10,Sweden,SE,SWE,10230185,Europe,28.22
-24/08/2020,2020-34,1687,19,Sweden,SE,SWE,10230185,Europe,36.55
-17/08/2020,2020-33,2052,16,Sweden,SE,SWE,10230185,Europe,39.75
-10/08/2020,2020-32,2014,18,Sweden,SE,SWE,10230185,Europe,34.9
-03/08/2020,2020-31,1556,18,Sweden,SE,SWE,10230185,Europe,28.07
+14/09/2020,2020-37,1592,14,Sweden,SE,SWE,10230185,Europe,28.58
+07/09/2020,2020-36,1332,11,Sweden,SE,SWE,10230185,Europe,24.75
+31/08/2020,2020-35,1200,11,Sweden,SE,SWE,10230185,Europe,28.22
+24/08/2020,2020-34,1687,17,Sweden,SE,SWE,10230185,Europe,36.55
+17/08/2020,2020-33,2052,17,Sweden,SE,SWE,10230185,Europe,39.75
+10/08/2020,2020-32,2014,16,Sweden,SE,SWE,10230185,Europe,34.9
+03/08/2020,2020-31,1556,16,Sweden,SE,SWE,10230185,Europe,28.07
 27/07/2020,2020-30,1316,30,Sweden,SE,SWE,10230185,Europe,28.72
-20/07/2020,2020-29,1622,57,Sweden,SE,SWE,10230185,Europe,37.15
-13/07/2020,2020-28,2179,85,Sweden,SE,SWE,10230185,Europe,63.09
-06/07/2020,2020-27,4275,98,Sweden,SE,SWE,10230185,Europe,114.71
-29/06/2020,2020-26,7460,138,Sweden,SE,SWE,10230185,Europe,142.06
-22/06/2020,2020-25,7073,200,Sweden,SE,SWE,10230185,Europe,138.77
-15/06/2020,2020-24,7123,235,Sweden,SE,SWE,10230185,Europe,128.48
-08/06/2020,2020-23,6021,245,Sweden,SE,SWE,10230185,Europe,100.7
-01/06/2020,2020-22,4281,274,Sweden,SE,SWE,10230185,Europe,77.62
-25/05/2020,2020-21,3660,360,Sweden,SE,SWE,10230185,Europe,73.6
-18/05/2020,2020-20,3869,381,Sweden,SE,SWE,10230185,Europe,78.41
-11/05/2020,2020-19,4152,510,Sweden,SE,SWE,10230185,Europe,78.04
-04/05/2020,2020-18,3832,544,Sweden,SE,SWE,10230185,Europe,78.52
-27/04/2020,2020-17,4201,546,Sweden,SE,SWE,10230185,Europe,77.73
-20/04/2020,2020-16,3751,658,Sweden,SE,SWE,10230185,Europe,73.22
-13/04/2020,2020-15,3740,664,Sweden,SE,SWE,10230185,Europe,68.12
-06/04/2020,2020-14,3229,451,Sweden,SE,SWE,10230185,Europe,50.69
-30/03/2020,2020-13,1957,190,Sweden,SE,SWE,10230185,Europe,28.16
-23/03/2020,2020-12,924,44,Sweden,SE,SWE,10230185,Europe,17.22
-16/03/2020,2020-11,838,29,Sweden,SE,SWE,10230185,Europe,10.25
+20/07/2020,2020-29,1622,51,Sweden,SE,SWE,10230185,Europe,37.15
+13/07/2020,2020-28,2179,82,Sweden,SE,SWE,10230185,Europe,63.09
+06/07/2020,2020-27,4275,97,Sweden,SE,SWE,10230185,Europe,114.71
+29/06/2020,2020-26,7460,134,Sweden,SE,SWE,10230185,Europe,142.06
+22/06/2020,2020-25,7073,190,Sweden,SE,SWE,10230185,Europe,138.77
+15/06/2020,2020-24,7123,227,Sweden,SE,SWE,10230185,Europe,128.48
+08/06/2020,2020-23,6021,244,Sweden,SE,SWE,10230185,Europe,100.7
+01/06/2020,2020-22,4281,271,Sweden,SE,SWE,10230185,Europe,77.62
+25/05/2020,2020-21,3660,343,Sweden,SE,SWE,10230185,Europe,73.6
+18/05/2020,2020-20,3869,375,Sweden,SE,SWE,10230185,Europe,78.41
+11/05/2020,2020-19,4152,491,Sweden,SE,SWE,10230185,Europe,78.04
+04/05/2020,2020-18,3832,554,Sweden,SE,SWE,10230185,Europe,78.52
+27/04/2020,2020-17,4201,535,Sweden,SE,SWE,10230185,Europe,77.73
+20/04/2020,2020-16,3751,659,Sweden,SE,SWE,10230185,Europe,73.22
+13/04/2020,2020-15,3740,658,Sweden,SE,SWE,10230185,Europe,68.12
+06/04/2020,2020-14,3229,496,Sweden,SE,SWE,10230185,Europe,50.69
+30/03/2020,2020-13,1957,224,Sweden,SE,SWE,10230185,Europe,28.16
+23/03/2020,2020-12,924,53,Sweden,SE,SWE,10230185,Europe,17.22
+16/03/2020,2020-11,838,8,Sweden,SE,SWE,10230185,Europe,10.25
 09/03/2020,2020-10,211,0,Sweden,SE,SWE,10230185,Europe,2.19
 02/03/2020,2020-09,13,0,Sweden,SE,SWE,10230185,Europe,0.13
 24/02/2020,2020-08,0,0,Sweden,SE,SWE,10230185,Europe,0
@@ -8025,6 +8210,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Sweden,SE,SWE,10230185,Europe,0
 13/01/2020,2020-02,0,0,Sweden,SE,SWE,10230185,Europe,0
 06/01/2020,2020-01,0,0,Sweden,SE,SWE,10230185,Europe,
+28/12/2020,2020-52,49051,1069,Switzerland,CH,CHE,8544527,Europe,748.05
 21/12/2020,2020-51,14866,296,Switzerland,CH,CHE,8544527,Europe,516.05
 14/12/2020,2020-50,29228,546,Switzerland,CH,CHE,8544527,Europe,647.34
 07/12/2020,2020-49,26084,596,Switzerland,CH,CHE,8544527,Europe,627.51
@@ -8076,6 +8262,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Switzerland,CH,CHE,8544527,Europe,0
 13/01/2020,2020-02,0,0,Switzerland,CH,CHE,8544527,Europe,0
 06/01/2020,2020-01,0,0,Switzerland,CH,CHE,8544527,Europe,
+28/12/2020,2020-52,838,68,Syria,SY,SYR,17070132,Asia,10.94
 21/12/2020,2020-51,1029,92,Syria,SY,SYR,17070132,Asia,10.5
 14/12/2020,2020-50,763,71,Syria,SY,SYR,17070132,Asia,8.02
 07/12/2020,2020-49,606,34,Syria,SY,SYR,17070132,Asia,6.9
@@ -8116,6 +8303,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,10,1,Syria,SY,SYR,17070132,Asia,0.11
 30/03/2020,2020-13,8,1,Syria,SY,SYR,17070132,Asia,0.05
 23/03/2020,2020-12,1,0,Syria,SY,SYR,17070132,Asia,
+28/12/2020,2020-52,27,0,Taiwan,TW,CNG1925,23773881,Asia,0.22
 21/12/2020,2020-51,26,0,Taiwan,TW,CNG1925,23773881,Asia,0.21
 14/12/2020,2020-50,24,0,Taiwan,TW,CNG1925,23773881,Asia,0.27
 07/12/2020,2020-49,41,0,Taiwan,TW,CNG1925,23773881,Asia,0.41
@@ -8167,6 +8355,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Taiwan,TW,CNG1925,23773881,Asia,0
 13/01/2020,2020-02,0,0,Taiwan,TW,CNG1925,23773881,Asia,0
 06/01/2020,2020-01,0,0,Taiwan,TW,CNG1925,23773881,Asia,
+28/12/2020,2020-52,277,1,Tajikistan,TJ,TJK,9321023,Asia,5.72
 21/12/2020,2020-51,256,1,Tajikistan,TJ,TJK,9321023,Asia,5.71
 14/12/2020,2020-50,276,1,Tajikistan,TJ,TJK,9321023,Asia,5.89
 07/12/2020,2020-49,273,1,Tajikistan,TJ,TJK,9321023,Asia,5.73
@@ -8201,6 +8390,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 18/05/2020,2020-20,912,19,Tajikistan,TJ,TJK,9321023,Asia,15.53
 11/05/2020,2020-19,536,18,Tajikistan,TJ,TJK,9321023,Asia,6.57
 04/05/2020,2020-18,76,2,Tajikistan,TJ,TJK,9321023,Asia,
+28/12/2020,2020-52,1378,0,Thailand,TH,THA,69625581,Asia,2.94
 21/12/2020,2020-51,670,0,Thailand,TH,THA,69625581,Asia,1.15
 14/12/2020,2020-50,130,0,Thailand,TH,THA,69625581,Asia,0.37
 07/12/2020,2020-49,130,0,Thailand,TH,THA,69625581,Asia,0.28
@@ -8252,6 +8442,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,1,0,Thailand,TH,THA,69625581,Asia,0
 13/01/2020,2020-02,1,0,Thailand,TH,THA,69625581,Asia,0
 06/01/2020,2020-01,0,0,Thailand,TH,THA,69625581,Asia,
+28/12/2020,2020-52,10,0,Timor_Leste,TL,TLS,1293120,Asia,0.77
 21/12/2020,2020-51,0,0,Timor_Leste,TL,TLS,1293120,Asia,0
 14/12/2020,2020-50,0,0,Timor_Leste,TL,TLS,1293120,Asia,0.08
 07/12/2020,2020-49,1,0,Timor_Leste,TL,TLS,1293120,Asia,0.08
@@ -8292,6 +8483,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,0,0,Timor_Leste,TL,TLS,1293120,Asia,0
 30/03/2020,2020-13,0,0,Timor_Leste,TL,TLS,1293120,Asia,0.08
 23/03/2020,2020-12,1,0,Timor_Leste,TL,TLS,1293120,Asia,
+28/12/2020,2020-52,160,2,Togo,TG,TGO,8082359,Africa,4.02
 21/12/2020,2020-51,165,0,Togo,TG,TGO,8082359,Africa,3.97
 14/12/2020,2020-50,156,1,Togo,TG,TGO,8082359,Africa,3.58
 07/12/2020,2020-49,133,1,Togo,TG,TGO,8082359,Africa,3.12
@@ -8333,6 +8525,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,15,1,Togo,TG,TGO,8082359,Africa,0.36
 23/03/2020,2020-12,14,0,Togo,TG,TGO,8082359,Africa,0.19
 16/03/2020,2020-11,1,0,Togo,TG,TGO,8082359,Africa,
+28/12/2020,2020-52,103,0,Trinidad_and_Tobago,TT,TTO,1394969,America,16.92
 21/12/2020,2020-51,133,3,Trinidad_and_Tobago,TT,TTO,1394969,America,17.56
 14/12/2020,2020-50,112,0,Trinidad_and_Tobago,TT,TTO,1394969,America,15.7
 07/12/2020,2020-49,107,2,Trinidad_and_Tobago,TT,TTO,1394969,America,22.72
@@ -8374,6 +8567,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,28,3,Trinidad_and_Tobago,TT,TTO,1394969,America,5.3
 23/03/2020,2020-12,46,0,Trinidad_and_Tobago,TT,TTO,1394969,America,3.58
 16/03/2020,2020-11,4,0,Trinidad_and_Tobago,TT,TTO,1394969,America,
+28/12/2020,2020-52,9874,267,Tunisia,TN,TUN,11694721,Africa,172.99
 21/12/2020,2020-51,10357,305,Tunisia,TN,TUN,11694721,Africa,151.49
 14/12/2020,2020-50,7359,333,Tunisia,TN,TUN,11694721,Africa,129.2
 07/12/2020,2020-49,7751,342,Tunisia,TN,TUN,11694721,Africa,130.75
@@ -8415,6 +8609,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,203,5,Tunisia,TN,TUN,11694721,Africa,2.22
 23/03/2020,2020-12,57,3,Tunisia,TN,TUN,11694721,Africa,0.64
 16/03/2020,2020-11,18,0,Tunisia,TN,TUN,11694721,Africa,
+28/12/2020,2020-52,143293,2027,Turkey,TR,TUR,82003882,Europe,411.89
 21/12/2020,2020-51,194476,1652,Turkey,TR,TUR,82003882,Europe,467.28
 14/12/2020,2020-50,188713,1299,Turkey,TR,TUR,82003882,Europe,499.22
 07/12/2020,2020-49,220667,1342,Turkey,TR,TUR,82003882,Europe,438.93
@@ -8456,6 +8651,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,7981,101,Turkey,TR,TUR,82003882,Europe,11.22
 23/03/2020,2020-12,1218,30,Turkey,TR,TUR,82003882,Europe,1.51
 16/03/2020,2020-11,18,0,Turkey,TR,TUR,82003882,Europe,
+28/12/2020,2020-52,51,0,Turks_and_Caicos_islands,TC,TCA,38194,America,209.46
 21/12/2020,2020-51,29,0,Turks_and_Caicos_islands,TC,TCA,38194,America,109.96
 14/12/2020,2020-50,13,0,Turks_and_Caicos_islands,TC,TCA,38194,America,54.98
 07/12/2020,2020-49,8,0,Turks_and_Caicos_islands,TC,TCA,38194,America,26.18
@@ -8495,6 +8691,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,4,0,Turks_and_Caicos_islands,TC,TCA,38194,America,10.47
 06/04/2020,2020-14,0,1,Turks_and_Caicos_islands,TC,TCA,38194,America,13.09
 30/03/2020,2020-13,5,0,Turks_and_Caicos_islands,TC,TCA,38194,America,
+28/12/2020,2020-52,2786,17,Uganda,UG,UGA,44269587,Africa,14.55
 21/12/2020,2020-51,3655,10,Uganda,UG,UGA,44269587,Africa,19.63
 14/12/2020,2020-50,5033,15,Uganda,UG,UGA,44269587,Africa,16.69
 07/12/2020,2020-49,2354,5,Uganda,UG,UGA,44269587,Africa,10.24
@@ -8535,6 +8732,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,19,0,Uganda,UG,UGA,44269587,Africa,0.12
 30/03/2020,2020-13,32,0,Uganda,UG,UGA,44269587,Africa,0.07
 23/03/2020,2020-12,1,0,Uganda,UG,UGA,44269587,Africa,
+28/12/2020,2020-52,59381,1184,Ukraine,UA,UKR,43993643,Europe,294.83
 21/12/2020,2020-51,70327,1418,Ukraine,UA,UKR,43993643,Europe,358.43
 14/12/2020,2020-50,87360,1659,Ukraine,UA,UKR,43993643,Europe,404.57
 07/12/2020,2020-49,90627,1375,Ukraine,UA,UKR,43993643,Europe,456.07
@@ -8576,6 +8774,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,371,6,Ukraine,UA,UKR,43993643,Europe,0.94
 23/03/2020,2020-12,44,3,Ukraine,UA,UKR,43993643,Europe,0.11
 16/03/2020,2020-11,3,0,Ukraine,UA,UKR,43993643,Europe,
+28/12/2020,2020-52,8261,20,United_Arab_Emirates,AE,ARE,9770526,Asia,172.84
 21/12/2020,2020-51,8626,20,United_Arab_Emirates,AE,ARE,9770526,Asia,175.49
 14/12/2020,2020-50,8520,25,United_Arab_Emirates,AE,ARE,9770526,Asia,176
 07/12/2020,2020-49,8676,22,United_Arab_Emirates,AE,ARE,9770526,Asia,178.49
@@ -8627,6 +8826,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,United_Arab_Emirates,AE,ARE,9770526,Asia,0
 13/01/2020,2020-02,0,0,United_Arab_Emirates,AE,ARE,9770526,Asia,0
 06/01/2020,2020-01,0,0,United_Arab_Emirates,AE,ARE,9770526,Asia,
+28/12/2020,2020-52,289583,3708,United_Kingdom,UK,GBR,66647112,Europe,720.7
 21/12/2020,2020-51,190744,3231,United_Kingdom,UK,GBR,66647112,Europe,475.5
 14/12/2020,2020-50,126161,2925,United_Kingdom,UK,GBR,66647112,Europe,348.22
 07/12/2020,2020-49,105915,3000,United_Kingdom,UK,GBR,66647112,Europe,316.89
@@ -8678,6 +8878,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,United_Kingdom,UK,GBR,66647112,Europe,0
 13/01/2020,2020-02,0,0,United_Kingdom,UK,GBR,66647112,Europe,0
 06/01/2020,2020-01,0,0,United_Kingdom,UK,GBR,66647112,Europe,
+28/12/2020,2020-52,0,0,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,0
 21/12/2020,2020-51,0,0,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,0
 14/12/2020,2020-50,0,0,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,0
 07/12/2020,2020-49,0,0,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,0
@@ -8718,6 +8919,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,8,0,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,0.02
 30/03/2020,2020-13,2,1,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,0.02
 23/03/2020,2020-12,12,0,United_Republic_of_Tanzania,TZ,TZA,58005461,Africa,
+28/12/2020,2020-52,1306812,15656,United_States_of_America,US,USA,329064917,America,879.73
 21/12/2020,2020-51,1588085,18493,United_States_of_America,US,USA,329064917,America,938.37
 14/12/2020,2020-50,1499756,16867,United_States_of_America,US,USA,329064917,America,873.21
 07/12/2020,2020-49,1373677,15437,United_States_of_America,US,USA,329064917,America,762.79
@@ -8769,6 +8971,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,United_States_of_America,US,USA,329064917,America,0
 13/01/2020,2020-02,0,0,United_States_of_America,US,USA,329064917,America,0
 06/01/2020,2020-01,0,0,United_States_of_America,US,USA,329064917,America,
+28/12/2020,2020-52,83,0,United_States_Virgin_Islands,VI,VIR,104579,America,168.29
 21/12/2020,2020-51,93,0,United_States_Virgin_Islands,VI,VIR,104579,America,260.09
 14/12/2020,2020-50,179,0,United_States_Virgin_Islands,VI,VIR,104579,America,271.57
 07/12/2020,2020-49,105,0,United_States_Virgin_Islands,VI,VIR,104579,America,138.65
@@ -8808,6 +9011,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 13/04/2020,2020-15,9,0,United_States_Virgin_Islands,VI,VIR,104579,America,20.08
 06/04/2020,2020-14,12,1,United_States_Virgin_Islands,VI,VIR,104579,America,40.16
 30/03/2020,2020-13,30,0,United_States_Virgin_Islands,VI,VIR,104579,America,
+28/12/2020,2020-52,3829,41,Uruguay,UY,URY,3461731,America,219.49
 21/12/2020,2020-51,3769,27,Uruguay,UY,URY,3461731,America,178.35
 14/12/2020,2020-50,2405,10,Uruguay,UY,URY,3461731,America,115.32
 07/12/2020,2020-49,1587,6,Uruguay,UY,URY,3461731,America,75.22
@@ -8849,6 +9053,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,137,1,Uruguay,UY,URY,3461731,America,8.29
 23/03/2020,2020-12,150,0,Uruguay,UY,URY,3461731,America,4.56
 16/03/2020,2020-11,8,0,Uruguay,UY,URY,3461731,America,
+28/12/2020,2020-52,784,1,Uzbekistan,UZ,UZB,32981715,Asia,5.27
 21/12/2020,2020-51,954,0,Uzbekistan,UZ,UZB,32981715,Asia,6.05
 14/12/2020,2020-50,1041,1,Uzbekistan,UZ,UZB,32981715,Asia,6.74
 07/12/2020,2020-49,1183,3,Uzbekistan,UZ,UZB,32981715,Asia,7.39
@@ -8890,12 +9095,14 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,99,1,Uzbekistan,UZ,UZB,32981715,Asia,0.42
 23/03/2020,2020-12,40,0,Uzbekistan,UZ,UZB,32981715,Asia,0.14
 16/03/2020,2020-11,6,0,Uzbekistan,UZ,UZB,32981715,Asia,
+28/12/2020,2020-52,0,0,Vanuatu,VU,VUT,299882,Oceania,0
 21/12/2020,2020-51,0,0,Vanuatu,VU,VUT,299882,Oceania,0
 14/12/2020,2020-50,0,0,Vanuatu,VU,VUT,299882,Oceania,0
 07/12/2020,2020-49,0,0,Vanuatu,VU,VUT,299882,Oceania,0
 30/11/2020,2020-48,0,0,Vanuatu,VU,VUT,299882,Oceania,0
 23/11/2020,2020-47,0,0,Vanuatu,VU,VUT,299882,Oceania,0.33
 16/11/2020,2020-46,1,0,Vanuatu,VU,VUT,299882,Oceania,
+28/12/2020,2020-52,2241,26,Venezuela,VE,VEN,28515829,America,18.02
 21/12/2020,2020-51,2898,39,Venezuela,VE,VEN,28515829,America,19.75
 14/12/2020,2020-50,2735,30,Venezuela,VE,VEN,28515829,America,18.01
 07/12/2020,2020-49,2402,25,Venezuela,VE,VEN,28515829,America,16.16
@@ -8937,6 +9144,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 30/03/2020,2020-13,83,1,Venezuela,VE,VEN,28515829,America,0.36
 23/03/2020,2020-12,21,0,Venezuela,VE,VEN,28515829,America,0.13
 16/03/2020,2020-11,15,0,Venezuela,VE,VEN,28515829,America,
+28/12/2020,2020-52,28,0,Vietnam,VN,VNM,96462108,Asia,0.05
 21/12/2020,2020-51,16,0,Vietnam,VN,VNM,96462108,Asia,0.05
 14/12/2020,2020-50,31,0,Vietnam,VN,VNM,96462108,Asia,0.06
 07/12/2020,2020-49,23,0,Vietnam,VN,VNM,96462108,Asia,0.06
@@ -8988,6 +9196,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 20/01/2020,2020-03,0,0,Vietnam,VN,VNM,96462108,Asia,0
 13/01/2020,2020-02,0,0,Vietnam,VN,VNM,96462108,Asia,0
 06/01/2020,2020-01,0,0,Vietnam,VN,VNM,96462108,Asia,
+28/12/2020,2020-52,0,0,Wallis_and_Futuna,WF,"",,Oceania,
 21/12/2020,2020-51,1,0,Wallis_and_Futuna,WF,"",,Oceania,
 14/12/2020,2020-50,0,0,Wallis_and_Futuna,WF,"",,Oceania,
 07/12/2020,2020-49,0,0,Wallis_and_Futuna,WF,"",,Oceania,
@@ -8998,6 +9207,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 02/11/2020,2020-44,0,0,Wallis_and_Futuna,WF,"",,Oceania,
 26/10/2020,2020-43,0,0,Wallis_and_Futuna,WF,"",,Oceania,
 19/10/2020,2020-42,1,0,Wallis_and_Futuna,WF,"",,Oceania,
+28/12/2020,2020-52,0,0,Western_Sahara,EH,ESH,582458,Africa,0
 21/12/2020,2020-51,0,0,Western_Sahara,EH,ESH,582458,Africa,0
 14/12/2020,2020-50,0,0,Western_Sahara,EH,ESH,582458,Africa,0
 07/12/2020,2020-49,0,0,Western_Sahara,EH,ESH,582458,Africa,0
@@ -9033,6 +9243,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 11/05/2020,2020-19,0,0,Western_Sahara,EH,ESH,582458,Africa,0
 04/05/2020,2020-18,0,0,Western_Sahara,EH,ESH,582458,Africa,1.03
 27/04/2020,2020-17,6,0,Western_Sahara,EH,ESH,582458,Africa,
+28/12/2020,2020-52,9,1,Yemen,YE,YEM,29161922,Asia,0.05
 21/12/2020,2020-51,6,1,Yemen,YE,YEM,29161922,Asia,0.04
 14/12/2020,2020-50,6,0,Yemen,YE,YEM,29161922,Asia,0.02
 07/12/2020,2020-49,0,1,Yemen,YE,YEM,29161922,Asia,0.03
@@ -9070,6 +9281,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 27/04/2020,2020-17,0,0,Yemen,YE,YEM,29161922,Asia,0
 20/04/2020,2020-16,0,0,Yemen,YE,YEM,29161922,Asia,0
 13/04/2020,2020-15,1,0,Yemen,YE,YEM,29161922,Asia,
+28/12/2020,2020-52,1227,11,Zambia,ZM,ZMB,17861034,Africa,9.34
 21/12/2020,2020-51,442,6,Zambia,ZM,ZMB,17861034,Africa,4.48
 14/12/2020,2020-50,358,3,Zambia,ZM,ZMB,17861034,Africa,3.73
 07/12/2020,2020-49,308,7,Zambia,ZM,ZMB,17861034,Africa,2.75
@@ -9110,6 +9322,7 @@ dateRep,year_week,cases_weekly,deaths_weekly,countriesAndTerritories,geoId,count
 06/04/2020,2020-14,10,1,Zambia,ZM,ZMB,17861034,Africa,0.2
 30/03/2020,2020-13,26,0,Zambia,ZM,ZMB,17861034,Africa,0.16
 23/03/2020,2020-12,3,0,Zambia,ZM,ZMB,17861034,Africa,
+28/12/2020,2020-52,795,34,Zimbabwe,ZW,ZWE,14645473,Africa,12.99
 21/12/2020,2020-51,1107,13,Zimbabwe,ZW,ZWE,14645473,Africa,11.16
 14/12/2020,2020-50,528,16,Zimbabwe,ZW,ZWE,14645473,Africa,8.85
 07/12/2020,2020-49,768,15,Zimbabwe,ZW,ZWE,14645473,Africa,10.23

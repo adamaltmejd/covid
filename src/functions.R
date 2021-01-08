@@ -114,13 +114,7 @@ load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
 
     # Ensure starting point is March 1st, and that all dates have a value
     # date_seq <- seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
-    date_seq <- tryCatch({
-        seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
-    }, error = function(cond) {
-        browser()
-        print(publication_date)
-        stop("Error: ", cond, "[", f, "]")
-    })
+    date_seq <- seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
 
     DT <- merge(DT, data.table(date = date_seq), all = TRUE)
     DT[is.na(N), N := 0]

@@ -58,7 +58,7 @@ trigger_new_download <- function(f, type = "FHM") {
     }
 
     if (type == "FHM") latest_record <- get_record_date(f)
-    if (type == "SocStyr") latest_record <- max(fread(f)$datum)
+    if (type == "SocStyr") latest_record <- max(fread(f)$date)
 
     if (latest_record < Sys.Date()) {
         if (as.ITime(Sys.time(), tz = "Europe/Stockholm") > as.ITime("14:00")) {
@@ -241,7 +241,7 @@ predict_lag <- function(death_dt) {
     DT[, days_since_publication := publication_date - date]
 
     # Set n_diff to zero when there was no report
-    # DT[is.na(n_diff), n_diff := 0]
+    DT[is.na(n_diff), n_diff := 0]
 
     # Create predictions for each publication date so we can track and evaluate
     # historical predictions
@@ -430,8 +430,9 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model, default_theme) 
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date() - 80, y = 100,
+                 x = Sys.Date() - 120, y = 100,
                  label = paste0(latest_date, "\n",
+                                "WARNING: Prediction unreliable\nbecause of holiday lag change.\n",
                                 "Reported:  ", format(total_deaths, big.mark = ","), "\n",
                                 "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
                                 "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
@@ -574,8 +575,8 @@ plot_coverage_eval <- function(death_dt, death_prediction_constant, death_predic
         death_prediction_model[, max(prediction_date)]) stop("Prediction dates off.")
 
     DT <- rbind(
-        data.table(type = "constant", death_prediction_constant[date >= "2020-05-01"]),
-        data.table(type = "model", death_prediction_model[date >= "2020-05-01"][, -"obs"]),
+        data.table(type = "constant", death_prediction_constant[date >= "2020-04-20"]),
+        data.table(type = "model", death_prediction_model[date >= "2020-04-20"][, -"obs"]),
         use.names = TRUE
     )
     # days.off sets which prediction day to use
@@ -693,21 +694,6 @@ deaths_icu_hospital_corr_plot <- function(model_death_dt, socstyr_dt, default_th
         }
     }
 
-    # x11()
-    # plot(lags, lags.model[[1]], ylim= c(min(unlist(lags.model)), max(unlist(lags.model)) ), col='blue')
-    # points(lags, lags.model[[2]],col='red')
-    # points(lags, lags.model[[3]],col='green')
-    # x11()
-    # plot(data.total.rem$date,data.total.rem$death, xlab='date',ylab='Y',
-    #      main = paste("final date = ",max(data.total.rem$date),sep="") ,pch=3)
-    # lines(models.selected[[1]]$date, exp(predict(models.selected[[1]])),col='blue')
-    # lines(models.selected[[2]]$date, exp(predict(models.selected[[2]])),col='red')
-    # lines(models.selected[[3]]$date, exp(predict(models.selected[[3]])),col='green')
-    # legend(data.total.rem$date[110], 80, legend=c(paste("sluten lag = ", which.max(lags.model$sluten),sep=""),
-    #                                               paste("iva    lag = ", which.max(lags.model$iva),sep=""),
-    #                                               paste("elder  lag = ", which.max(lags.model$elder),sep="")),
-    #        col=c("blue", "red", "green"), lty=1:1, cex=0.5)
-
     DT <- data.table(data.total.rem)[, -"theta"]
     sluten <- data.table(date = models.selected[[1]]$date, y = exp(predict(models.selected[[1]])), model = paste0("N hospitalized [lag=", which.max(lags.model$sluten), "]"))
     iva <- data.table(date = models.selected[[2]]$date, y = exp(predict(models.selected[[2]])), model = paste0("N in ICU [lag=", which.max(lags.model$iva), "]"))
@@ -720,15 +706,9 @@ deaths_icu_hospital_corr_plot <- function(model_death_dt, socstyr_dt, default_th
         geom_line(aes(color = model)) +
         default_theme +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(legend.position = "top")) +
-        #scale_fill_manual(values = wes_palette("Darjeeling2"), guide = FALSE) +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
-        #scale_y_continuous(limits = c(-10, 160), minor_breaks = seq(0,160,10), breaks = seq(0,160,20), expand = expansion(add = c(10, 10))) +
-        # theme(legend.direction = "horizontal", legend.position = "bottom",
-        #       legend.justification = "center", legend.title = element_blank()) +
         labs(
             title = paste0("Model prior evaluation vs actual deaths."),
-            #subtitle = paste0("Black line shows actual number of deaths, dashed for the last 21 days where numbers are still being updated. Shaded areas show 95% CI."),
-            #caption = paste0("Last day included = ", max(DT$date), "."),
             color = "Models",
             x = "Date",
             y = "Number of deaths"

@@ -5,14 +5,16 @@ eb0db2f3aef47a88,target,analysis.prob.fig
 10bb347b4b6546b0,import,calculate_lag
 b2a66d46940189cf,import,can_be_numeric
 82a2a2cb96b50459,import,CI_pred
+469ea652b864013b,target,coverage
 8637f7d20073cdff,target,coverage_constant
 6d21b7dd016e9a7e,import,coverage_data
 3fea1c22dc01a220,target,coverage_model
 0d518bb86cc67ccf,target,coverage_model_iva
 599bcd09278f2e47,target,coverage_model2
-10b770bc00f85c09,target,coverage_plot_constant
-d2972042d581bdf7,target,coverage_plot_model
-6a06fe0f044f7566,target,coverage_plot_model_iva
+0600f4ad6b5d8a56,target,coverage_plot
+31012f486e801779,target,coverage_plot_constant
+ecd97cd1037ef012,target,coverage_plot_model
+799c91e1ae25dc98,target,coverage_plot_model_iva
 c23205b9633b9e5e,target,coverage_plot_model2
 fa3ba154db65932a,target,coverage_plot_t0
 4d8245bbacd6fb98,target,coverage_plot_t1
@@ -232,20 +234,22 @@ dd4fe5ac1036c5b0,target,death_dts_f28ca648
 d3aaa5b9bca50f19,target,death_dts_facdae39
 df18c1f1e8d274b3,target,death_dts_fb7ba532
 fe4b8cb66625fba7,target,death_dts_fd224dc3
-942a7c4e03263f5e,target,death_plot
-a4127d3a8c3dc726,target,death_prediction
+c78c317181bfb5a2,target,death_plot
+af58bd4dfe68f929,target,death_plot_model
 ad43c93779cbfa50,target,death_prediction_constant
 97844f586d36439e,target,death_prediction_model
 c3a95aa6d94e0514,target,death_prediction_model_iva
 d2c6cb4a5b413a1a,target,death_prediction_model_iva_smooth
 d2a4200fd46b8583,target,death_prediction_model_old
 987e4f400484a533,target,death_prediction_model_raw
+37207f4a02b77509,target,death_prediction_model2
+a66c7f11965d61cb,target,death_prediction_model2_smooth
 1a7b904da893e4ff,import,deaths_icu_hospital_corr_plot
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t
 d2b1b6c4dc92c0c7,import,download_latest_fhm
-987e4f400484a533,target,drake_target_1
-91a78a30a1427488,target,drake_target_10
+c85d88fc56f4e042,target,drake_target_1
+c85d88fc56f4e042,target,drake_target_10
 c85d88fc56f4e042,target,drake_target_11
 c85d88fc56f4e042,target,drake_target_12
 c85d88fc56f4e042,target,drake_target_13
@@ -259,12 +263,12 @@ c85d88fc56f4e042,target,drake_target_2
 c85d88fc56f4e042,target,drake_target_20
 91a78a30a1427488,target,drake_target_21
 c85d88fc56f4e042,target,drake_target_3
-c85d88fc56f4e042,target,drake_target_4
-91a78a30a1427488,target,drake_target_5
+91a78a30a1427488,target,drake_target_4
+c85d88fc56f4e042,target,drake_target_5
 c85d88fc56f4e042,target,drake_target_6
 c85d88fc56f4e042,target,drake_target_7
 c85d88fc56f4e042,target,drake_target_8
-c85d88fc56f4e042,target,drake_target_9
+91a78a30a1427488,target,drake_target_9
 4f8e3f6df220472e,target,ecdc
 5179ded02b46ab75,target,fhm_files
 f53b9418c5a7b28f,target,fhm_files_05516964
@@ -476,7 +480,6 @@ dc50663dcc113e08,target,fhm_files_fb6a5b78
 ce32ddab10a27f83,target,fhm_paths
 7279ed32df04e158,import,get_ecdc
 74f3a6a747076401,import,get_record_date
-be4f6b6f00240fec,import,get_remote_data
 f9f1c5398f14aec5,import,gp_smooth
 a92ecf31abac1679,import,holidays.Sweden
 848972cb18f865b4,import,icu_covariates
@@ -689,15 +692,12 @@ e0c6cebf5da75613,target,icu_dts_f95883b2
 01041aa1a973a58c,target,icu_dts_fb7ba532
 30ed731025c87276,target,icu_dts_fd224dc3
 a100bf8df12f05b3,import,join_data
-0662d8e9806f6ff2,target,lag_plot
+f821657a8e643a27,target,lag_plot
 0ef63cb54288721f,target,lag_plot1
 c8911d72493cb472,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+c85d88fc56f4e042,target,latest_fhm
 b9d816e40e8ee2e7,import,likelihood_death
-5ea91e324b829377,import,list_fhm_files
-ce39962ac873f0b2,import,load_fhm_data
-e859bac9effb1e02,import,load_fhm_deaths
-da68f234ed3c64e8,import,load_fhm_icu
+146be7d74d6addcb,import,load_fhm_data
 bd714dfb6790ef37,import,matern.covariance
 495beffc5316c5b8,import,MH_RW
 557cfd73fe758ab8,import,MH_SA
@@ -718,441 +718,56 @@ e58487b951031097,import,forcats::fct_rev
 aa2b9c77ad283919,import,tools::file_ext
 73fd589b6a5c5042,import,newCases
 b2bc8854e76405ab,target,file data/ECDC.csv
-e29fb34cff5cefcf,target,file data/FHM
+e4f442eb85d2f9a6,target,file data/FHM
 0c415135001d4ca8,target,file data/Socialstyrelsen_latest.csv
 1213bac034b8735a,target,file data/covid_deaths_latest.csv
 4c795c67ece6c675,target,file data/covid_icu_latest.csv
 9beb6fcf47a056a3,target,file data/predictions.csv
-41afd8a622f9d145,target,file docs/archive
-3169abe6538ceb8c,target,file docs/deaths_lag_sweden_latest.png
-550f77d43af1dea9,target,file docs/deaths_lag_sweden_2020-06-08.png
-107896a4182cf814,target,file docs/deaths_lag_sweden_2020-06-09.png
-6f2d87b88fe36cc3,target,file docs/deaths_lag_sweden_2020-06-10.png
-8e85d7e0ecdbf0ec,target,file docs/deaths_lag_sweden_2020-06-11.png
-1c7afca8fd162abe,target,file docs/deaths_lag_sweden_2020-06-12.png
-07c8e463e9dc0733,target,file docs/deaths_lag_sweden_2020-06-13.png
-0760a144905bf390,target,file docs/deaths_lag_sweden_2020-06-14.png
-3750ea20896d5ddb,target,file docs/deaths_lag_sweden_2020-06-15.png
-1fb64ece43aae31c,target,file docs/deaths_lag_sweden_2020-06-16.png
-44d12f944b8717b0,target,file docs/deaths_lag_sweden_2020-06-17.png
-bc2111c66d3c5e16,target,file docs/deaths_lag_sweden_2020-06-18.png
-57741c5b8f6e6663,target,file docs/deaths_lag_sweden_2020-06-19.png
-5c0fcbf66ad2caf6,target,file docs/deaths_lag_sweden_2020-06-20.png
-5c0fcbf66ad2caf6,target,file docs/deaths_lag_sweden_2020-06-21.png
-5f57af2f7c2c4cc1,target,file docs/deaths_lag_sweden_2020-06-22.png
-1e97d16d8864e010,target,file docs/deaths_lag_sweden_2020-06-23.png
-cc3993ceee3fa66d,target,file docs/deaths_lag_sweden_2020-06-24.png
-917fd072fc4e7df8,target,file docs/deaths_lag_sweden_2020-06-25.png
-8946e20596ecdd70,target,file docs/deaths_lag_sweden_2020-06-26.png
-3b584423c6f31ca4,target,file docs/deaths_lag_sweden_2020-06-27.png
-04e2dabcd75e6154,target,file docs/deaths_lag_sweden_2020-06-28.png
-37b0012b60f47c7d,target,file docs/deaths_lag_sweden_2020-06-30.png
-6223bdf65d986e9d,target,file docs/deaths_lag_sweden_2020-07-01.png
-dd7304d1da033c06,target,file docs/deaths_lag_sweden_2020-07-02.png
-7a25935f352b3c4b,target,file docs/deaths_lag_sweden_2020-07-03.png
-cf953f9303ec88f8,target,file docs/deaths_lag_sweden_2020-07-04.png
-7aee7d93ee2c8e31,target,file docs/deaths_lag_sweden_2020-07-05.png
-5e9ed01601d8d232,target,file docs/deaths_lag_sweden_2020-07-06.png
-01b1e386d4e24fe2,target,file docs/deaths_lag_sweden_2020-07-07.png
-5d5e0ea3b6d585bf,target,file docs/deaths_lag_sweden_2020-07-08.png
-96bde9a7e26d3c65,target,file docs/deaths_lag_sweden_2020-07-09.png
-8354cf963b89a16e,target,file docs/deaths_lag_sweden_2020-07-10.png
-3ae4935a3ae7ba3b,target,file docs/deaths_lag_sweden_2020-07-11.png
-0fa18b9ec90b0384,target,file docs/deaths_lag_sweden_2020-07-12.png
-86c016b653d042ed,target,file docs/deaths_lag_sweden_2020-07-13.png
-97ffed2251bb56d7,target,file docs/deaths_lag_sweden_2020-07-14.png
-a5274423ec617ccd,target,file docs/deaths_lag_sweden_2020-07-15.png
-479a387b3924e57e,target,file docs/deaths_lag_sweden_2020-07-16.png
-686808174b5b138d,target,file docs/deaths_lag_sweden_2020-07-17.png
-cbae5cc617741a95,target,file docs/deaths_lag_sweden_2020-07-18.png
-b6b26b317c5b7b8d,target,file docs/deaths_lag_sweden_2020-07-19.png
-d54902135d86a48f,target,file docs/deaths_lag_sweden_2020-07-20.png
-6718f949066220f1,target,file docs/deaths_lag_sweden_2020-07-21.png
-6ee54bc9e8efe138,target,file docs/deaths_lag_sweden_2020-07-22.png
-99634acd3a572430,target,file docs/deaths_lag_sweden_2020-07-23.png
-c79574ee483abbe3,target,file docs/deaths_lag_sweden_2020-07-24.png
-79e3401d16a2cddb,target,file docs/deaths_lag_sweden_2020-07-25.png
-023306211e720e8f,target,file docs/deaths_lag_sweden_2020-07-26.png
-ca5c8e08d9a985bc,target,file docs/deaths_lag_sweden_2020-07-27.png
-d17540b0a959c076,target,file docs/deaths_lag_sweden_2020-07-28.png
-4303023c33ecb7aa,target,file docs/deaths_lag_sweden_2020-07-29.png
-86d9da1352e1abb7,target,file docs/deaths_lag_sweden_2020-07-31.png
-6ce297006acb20a5,target,file docs/deaths_lag_sweden_2020-08-01.png
-f4efc3970068af77,target,file docs/deaths_lag_sweden_2020-08-02.png
-f7929204d5fa47a8,target,file docs/deaths_lag_sweden_2020-08-03.png
-56254ce638da76c6,target,file docs/deaths_lag_sweden_2020-08-04.png
-5c698392f4410a05,target,file docs/deaths_lag_sweden_2020-08-05.png
-f5d1b1fa4a3053cf,target,file docs/deaths_lag_sweden_2020-08-06.png
-d0915ac8eaf43c35,target,file docs/deaths_lag_sweden_2020-08-07.png
-99221f1f617cbb76,target,file docs/deaths_lag_sweden_2020-08-08.png
-b37addb1c912f57b,target,file docs/deaths_lag_sweden_2020-08-09.png
-37406b31e807531d,target,file docs/deaths_lag_sweden_2020-08-10.png
-c48322f70a8f4e14,target,file docs/deaths_lag_sweden_2020-08-11.png
-bf342127d938e933,target,file docs/deaths_lag_sweden_2020-08-12.png
-02babb87e45263a2,target,file docs/deaths_lag_sweden_2020-08-13.png
-c1ec94fdcf2dba10,target,file docs/deaths_lag_sweden_2020-08-14.png
-a582931dd7b9a22b,target,file docs/deaths_lag_sweden_2020-08-15.png
-90fdce36c09f0864,target,file docs/deaths_lag_sweden_2020-08-16.png
-946aa158d2e4fa43,target,file docs/deaths_lag_sweden_2020-08-17.png
-88b7a0c70209eb81,target,file docs/deaths_lag_sweden_2020-08-18.png
-f7860361c89d8216,target,file docs/deaths_lag_sweden_2020-08-19.png
-0986aa20bfd15839,target,file docs/deaths_lag_sweden_2020-08-20.png
-6e4d1371c283e08a,target,file docs/deaths_lag_sweden_2020-08-21.png
-43f9ff4923ae231b,target,file docs/deaths_lag_sweden_2020-08-22.png
-47169973a34a3d76,target,file docs/deaths_lag_sweden_2020-08-23.png
-047154008161caa3,target,file docs/deaths_lag_sweden_2020-08-24.png
-24ebbe368538fd11,target,file docs/deaths_lag_sweden_2020-08-25.png
-667e0cc7e812799d,target,file docs/deaths_lag_sweden_2020-08-26.png
-6055b5da23560b66,target,file docs/deaths_lag_sweden_2020-08-27.png
-8d00d928645cd300,target,file docs/deaths_lag_sweden_2020-08-28.png
-bf60e7a605538c72,target,file docs/deaths_lag_sweden_2020-08-29.png
-ce76ff8d7d0e01c4,target,file docs/deaths_lag_sweden_2020-08-31.png
-13f2e768a92cbe0c,target,file docs/deaths_lag_sweden_2020-09-01.png
-39abf85717fb72a5,target,file docs/deaths_lag_sweden_2020-09-02.png
-9a432a515f40f864,target,file docs/deaths_lag_sweden_2020-09-03.png
-ac2ab5e4db188483,target,file docs/deaths_lag_sweden_2020-09-04.png
-1b4f17ad9017f4d1,target,file docs/deaths_lag_sweden_2020-09-05.png
-25cae83c2fea791c,target,file docs/deaths_lag_sweden_2020-09-06.png
-e8f29f79043df886,target,file docs/deaths_lag_sweden_2020-09-07.png
-718a9287131b258d,target,file docs/deaths_lag_sweden_2020-09-08.png
-de8f1a8bd9a8436a,target,file docs/deaths_lag_sweden_2020-09-09.png
-2d58286cbe90fb64,target,file docs/deaths_lag_sweden_2020-09-10.png
-00d94686246124ae,target,file docs/deaths_lag_sweden_2020-09-12.png
-02e7a2f1017a06e8,target,file docs/deaths_lag_sweden_2020-09-13.png
-8f95d5ea2ba96690,target,file docs/deaths_lag_sweden_2020-09-14.png
-f96eb3448af0a252,target,file docs/deaths_lag_sweden_2020-09-15.png
-fef220a30871c18d,target,file docs/deaths_lag_sweden_2020-09-16.png
-90b5421064d51a4f,target,file docs/deaths_lag_sweden_2020-09-17.png
-325ac5c6a2f4f177,target,file docs/deaths_lag_sweden_2020-09-19.png
-6ba0cd2eb4272941,target,file docs/deaths_lag_sweden_2020-09-20.png
-31cbdba468aa6300,target,file docs/deaths_lag_sweden_2020-09-21.png
-aab91c860f849b02,target,file docs/deaths_lag_sweden_2020-09-22.png
-c3abe8702301e665,target,file docs/deaths_lag_sweden_2020-09-23.png
-9da822701a93125a,target,file docs/deaths_lag_sweden_2020-09-24.png
-6d83f7baa3b3314f,target,file docs/deaths_lag_sweden_2020-09-25.png
-b0eab1bca3d260d3,target,file docs/deaths_lag_sweden_2020-09-26.png
-0ec3047e9f8174f8,target,file docs/deaths_lag_sweden_2020-09-27.png
-d0f5a43bffd85563,target,file docs/deaths_lag_sweden_2020-09-28.png
-36dd19d36bcaa2bc,target,file docs/deaths_lag_sweden_2020-09-29.png
-7851a6c85fec3b0b,target,file docs/deaths_lag_sweden_2020-09-30.png
-8edd52f65ff1c08e,target,file docs/deaths_lag_sweden_2020-10-01.png
-e7d389d5a2e52cf8,target,file docs/deaths_lag_sweden_2020-10-02.png
-812e020270ea67f5,target,file docs/deaths_lag_sweden_2020-10-03.png
-5d7eb032153af983,target,file docs/deaths_lag_sweden_2020-10-04.png
-14e265055de55d79,target,file docs/deaths_lag_sweden_2020-10-05.png
-aba5f60f77a566d3,target,file docs/deaths_lag_sweden_2020-10-06.png
-710664216a782ba2,target,file docs/deaths_lag_sweden_2020-10-07.png
-0c7b326400569244,target,file docs/deaths_lag_sweden_2020-10-08.png
-fb899bc57ae0a979,target,file docs/deaths_lag_sweden_2020-10-09.png
-fb899bc57ae0a979,target,file docs/deaths_lag_sweden_2020-10-10.png
-776d43beb1820332,target,file docs/deaths_lag_sweden_2020-10-11.png
-b20cd74dd2f87ec8,target,file docs/deaths_lag_sweden_2020-10-12.png
-6ca376bb967510d6,target,file docs/deaths_lag_sweden_2020-10-13.png
-2579622311a33f31,target,file docs/deaths_lag_sweden_2020-10-14.png
-144fd10d30a3c1a9,target,file docs/deaths_lag_sweden_2020-10-16.png
-706df8fd5d87e27a,target,file docs/deaths_lag_sweden_2020-10-17.png
-8b916f4e4a248092,target,file docs/deaths_lag_sweden_2020-10-18.png
-eb7d7a1ccc3cda74,target,file docs/deaths_lag_sweden_2020-10-20.png
-43adbbf6a51250df,target,file docs/deaths_lag_sweden_2020-10-21.png
-0bf2f68b38334ad7,target,file docs/deaths_lag_sweden_2020-10-22.png
-c4d8b9f6dd068e59,target,file docs/deaths_lag_sweden_2020-10-23.png
-3b299bf6e7e44f77,target,file docs/deaths_lag_sweden_2020-10-24.png
-d3619e6eb76cfaea,target,file docs/deaths_lag_sweden_2020-10-25.png
-abb65e9bdf04a8b8,target,file docs/deaths_lag_sweden_2020-10-26.png
-ca3102414715dfd8,target,file docs/deaths_lag_sweden_2020-10-27.png
-d81e4b586b0201b2,target,file docs/deaths_lag_sweden_2020-10-28.png
-5744de50bbece832,target,file docs/deaths_lag_sweden_2020-10-29.png
-69757e617344e638,target,file docs/deaths_lag_sweden_2020-10-30.png
-1f4d2edbdc7a04fd,target,file docs/deaths_lag_sweden_2020-10-31.png
-12b936623136f87b,target,file docs/deaths_lag_sweden_2020-11-01.png
-2c152c29ce771aaa,target,file docs/deaths_lag_sweden_2020-11-02.png
-8d38f6a35f8da216,target,file docs/deaths_lag_sweden_2020-11-03.png
-684d40ea2864a893,target,file docs/deaths_lag_sweden_2020-11-04.png
-e1f56a4a80149352,target,file docs/deaths_lag_sweden_2020-11-05.png
-afd2751ec1f10aaf,target,file docs/deaths_lag_sweden_2020-11-06.png
-0affc0a847ea7c1e,target,file docs/deaths_lag_sweden_2020-11-07.png
-0e26def023777bfd,target,file docs/deaths_lag_sweden_2020-11-08.png
-ddd94cd9f67ee84d,target,file docs/deaths_lag_sweden_2020-11-09.png
-aced8491be30212d,target,file docs/deaths_lag_sweden_2020-11-10.png
-6e4e25d87239cd4c,target,file docs/deaths_lag_sweden_2020-11-11.png
-f30826853eed1fba,target,file docs/deaths_lag_sweden_2020-11-12.png
-220a2d0346682357,target,file docs/deaths_lag_sweden_2020-11-13.png
-5f5978bb8d2da279,target,file docs/deaths_lag_sweden_2020-11-14.png
-5fdbf7e6a0aefc91,target,file docs/deaths_lag_sweden_2020-11-15.png
-257559817aa5783b,target,file docs/deaths_lag_sweden_2020-11-16.png
-25e5264ba5b4ba62,target,file docs/deaths_lag_sweden_2020-11-17.png
-489975974f710976,target,file docs/deaths_lag_sweden_2020-11-18.png
-05fd598eb73896ef,target,file docs/deaths_lag_sweden_2020-11-19.png
-5f715f4076fe1a67,target,file docs/deaths_lag_sweden_2020-11-20.png
-4ffbfb92517e0baa,target,file docs/deaths_lag_sweden_2020-11-21.png
-c69c076c7f962144,target,file docs/deaths_lag_sweden_2020-11-22.png
-b6802eed481b4cbd,target,file docs/deaths_lag_sweden_2020-11-23.png
-1a8bdd6ca6a7604d,target,file docs/deaths_lag_sweden_2020-11-24.png
-a6a654b2ffba1231,target,file docs/deaths_lag_sweden_2020-11-25.png
-069b2cf500fe2eba,target,file docs/deaths_lag_sweden_2020-11-26.png
-5be9d49bc744e419,target,file docs/deaths_lag_sweden_2020-11-27.png
-ba20aa3bf1c0007a,target,file docs/deaths_lag_sweden_2020-11-28.png
-c8434c09cbc11c6c,target,file docs/deaths_lag_sweden_2020-11-29.png
-8218c78833b80919,target,file docs/deaths_lag_sweden_2020-11-30.png
-58d2779305b41731,target,file docs/deaths_lag_sweden_2020-12-01.png
-77c59aab219a2748,target,file docs/deaths_lag_sweden_2020-12-02.png
-5a6b1be038e7f524,target,file docs/deaths_lag_sweden_2020-12-03.png
-10964bf6fe2a23d2,target,file docs/deaths_lag_sweden_2020-12-04.png
-a7e9edbcb0eccd43,target,file docs/deaths_lag_sweden_2020-12-05.png
-06d9fd4e54b2ab51,target,file docs/deaths_lag_sweden_2020-12-06.png
-7e2e2e9c22e594c3,target,file docs/deaths_lag_sweden_2020-12-07.png
-b530cd741ef37900,target,file docs/deaths_lag_sweden_2020-12-08.png
-1f7a98fe689e8efe,target,file docs/deaths_lag_sweden_2020-12-09.png
-b12b0c61e539a114,target,file docs/deaths_lag_sweden_2020-12-10.png
-88209eac84a9f606,target,file docs/deaths_lag_sweden_2020-12-11.png
-cf81ea44d84eb4fd,target,file docs/deaths_lag_sweden_2020-12-12.png
-06a8ff0a1054304c,target,file docs/deaths_lag_sweden_2020-12-13.png
-953b5c054bcf5cff,target,file docs/deaths_lag_sweden_2020-12-14.png
-bfdd7a74ab506482,target,file docs/deaths_lag_sweden_2020-12-15.png
-a4d01252519829ef,target,file docs/deaths_lag_sweden_2020-12-16.png
-383f8be875a745ce,target,file docs/deaths_lag_sweden_2020-12-17.png
-9581c8480db7a9aa,target,file docs/deaths_lag_sweden_2020-12-18.png
-5ca8aafcfd307c11,target,file docs/deaths_lag_sweden_2020-12-19.png
-5ca8aafcfd307c11,target,file docs/deaths_lag_sweden_2020-12-20.png
-5ca8aafcfd307c11,target,file docs/deaths_lag_sweden_2020-12-21.png
-54ba85c76b8f26b5,target,file docs/deaths_lag_sweden_2020-12-23.png
-2fadf2c106e1b26f,target,file docs/deaths_lag_sweden_2020-12-26.png
-2fadf2c106e1b26f,target,file docs/deaths_lag_sweden_2020-12-27.png
-2fadf2c106e1b26f,target,file docs/deaths_lag_sweden_2020-12-28.png
-8517a402be0a49a8,target,file docs/deaths_lag_sweden_2020-12-29.png
-14d1596613ddcbd4,target,file docs/deaths_lag_sweden_2020-12-30.png
-14d1596613ddcbd4,target,file docs/deaths_lag_sweden_2020-12-31.png
-14d1596613ddcbd4,target,file docs/deaths_lag_sweden_2021-01-01.png
-14d1596613ddcbd4,target,file docs/deaths_lag_sweden_2021-01-02.png
-14d1596613ddcbd4,target,file docs/deaths_lag_sweden_2021-01-03.png
-6354bf25bb3ec68e,target,file docs/deaths_lag_sweden_2021-01-05.png
-6354bf25bb3ec68e,target,file docs/deaths_lag_sweden_2021-01-06.png
-2e7e9d9e0dc7bf2e,target,file docs/deaths_lag_sweden_2021-01-07.png
-81cde7af14df2ecf,target,file docs/eval/coverage_eval_constant.png
-26bed25ab86e245b,target,file docs/eval/coverage_eval_model.png
-feca514d236ea2af,target,file docs/eval/coverage_eval_model2.png
-929fd67284cc0086,target,file docs/eval/coverage_eval_model_iva.png
-407827b35954c1eb,target,file docs/eval/coverage_eval_t0.png
-6ab53d108c456903,target,file docs/eval/coverage_eval_t1.png
-d499f2b5d84acdaf,target,file docs/eval/coverage_eval_t2.png
-04bd44486c716a94,target,file docs/eval/coverage_eval_t3.png
-c9da1b75e28d1b69,target,file docs/eval/coverage_eval_t4.png
-2c3b3f83e1223053,target,file docs/eval/coverage_eval_t5.png
-05aa13cc55b9cd9e,target,file docs/eval/probability.png
-59654fbd0b2c672b,target,file docs/eval/prior_eval.png
-bbe4d43dd15a0e98,target,file docs/index.md
-60edc3a7ab543249,target,file docs/lag_trend_sweden_2020-06-08.png
-82484c8aa35e692a,target,file docs/lag_trend_sweden_2020-06-09.png
-505287bfdc5acb78,target,file docs/lag_trend_sweden_2020-06-14.png
-3551f1ca29d5d377,target,file docs/lag_trend_sweden_2020-06-15.png
-6f8c371fb13dbeff,target,file docs/lag_trend_sweden_2020-06-16.png
-12ee6a0d71b4814d,target,file docs/lag_trend_sweden_2020-06-17.png
-6a202aa7f1c0f252,target,file docs/lag_trend_sweden_2020-06-18.png
-6a202aa7f1c0f252,target,file docs/lag_trend_sweden_2020-06-19.png
-37eea621a4632a3d,target,file docs/lag_trend_sweden_2020-06-10.png
-0aabd135c731f61f,target,file docs/lag_trend_sweden_2020-06-11.png
-305610b55473321c,target,file docs/lag_trend_sweden_2020-06-12.png
-beb8e7fd8c53fb11,target,file docs/lag_trend_sweden_2020-06-13.png
-bbe55c7643cf308e,target,file docs/lag_trend_sweden_2020-06-24.png
-1a4a185e8a2c2861,target,file docs/lag_trend_sweden_2020-06-25.png
-47d69ebb815ffc4a,target,file docs/lag_trend_sweden_2020-06-26.png
-47d69ebb815ffc4a,target,file docs/lag_trend_sweden_2020-06-27.png
-47d69ebb815ffc4a,target,file docs/lag_trend_sweden_2020-06-28.png
-6a202aa7f1c0f252,target,file docs/lag_trend_sweden_2020-06-20.png
-6a202aa7f1c0f252,target,file docs/lag_trend_sweden_2020-06-21.png
-43dc2dab7db10b1d,target,file docs/lag_trend_sweden_2020-06-22.png
-8b48d5258c4de3b8,target,file docs/lag_trend_sweden_2020-06-23.png
-c85391c5c96098e0,target,file docs/lag_trend_sweden_2020-06-30.png
-1dbc932739feef8d,target,file docs/lag_trend_sweden_2020-07-04.png
-1dbc932739feef8d,target,file docs/lag_trend_sweden_2020-07-05.png
-082edebd4beb23ce,target,file docs/lag_trend_sweden_2020-07-06.png
-a363059688e09b35,target,file docs/lag_trend_sweden_2020-07-07.png
-89d3703a4bf6e38a,target,file docs/lag_trend_sweden_2020-07-08.png
-cbe4088034410d28,target,file docs/lag_trend_sweden_2020-07-09.png
-a1230f8deab2773d,target,file docs/lag_trend_sweden_2020-07-01.png
-e55dc772a53cfd62,target,file docs/lag_trend_sweden_2020-07-02.png
-1dbc932739feef8d,target,file docs/lag_trend_sweden_2020-07-03.png
-35c2293f18072840,target,file docs/lag_trend_sweden_2020-07-14.png
-47c2e49aca813eaa,target,file docs/lag_trend_sweden_2020-07-15.png
-71475048170675de,target,file docs/lag_trend_sweden_2020-07-16.png
-771b60d29fe340c0,target,file docs/lag_trend_sweden_2020-07-17.png
-771b60d29fe340c0,target,file docs/lag_trend_sweden_2020-07-18.png
-771b60d29fe340c0,target,file docs/lag_trend_sweden_2020-07-19.png
-ab0ea5b56ba2b872,target,file docs/lag_trend_sweden_2020-07-10.png
-ab0ea5b56ba2b872,target,file docs/lag_trend_sweden_2020-07-11.png
-ab0ea5b56ba2b872,target,file docs/lag_trend_sweden_2020-07-12.png
-35570f826a5a1904,target,file docs/lag_trend_sweden_2020-07-13.png
-1ff129d8494932c9,target,file docs/lag_trend_sweden_2020-07-24.png
-1ff129d8494932c9,target,file docs/lag_trend_sweden_2020-07-25.png
-1ff129d8494932c9,target,file docs/lag_trend_sweden_2020-07-26.png
-859fc78afb9accf1,target,file docs/lag_trend_sweden_2020-07-27.png
-970af7119bb29ff0,target,file docs/lag_trend_sweden_2020-07-28.png
-052ad5834581a573,target,file docs/lag_trend_sweden_2020-07-29.png
-d156afe24ffb4bb6,target,file docs/lag_trend_sweden_2020-07-20.png
-b94a5cc6213c3fe8,target,file docs/lag_trend_sweden_2020-07-21.png
-42aa10256a979f3f,target,file docs/lag_trend_sweden_2020-07-22.png
-7bcf8236e869e4bc,target,file docs/lag_trend_sweden_2020-07-23.png
-9e573c2468ae7a49,target,file docs/lag_trend_sweden_2020-07-31.png
-b6bb6812bc487a80,target,file docs/lag_trend_sweden_2020-08-04.png
-0dd11a2036632b2a,target,file docs/lag_trend_sweden_2020-08-05.png
-657baf5eacf7ff64,target,file docs/lag_trend_sweden_2020-08-06.png
-9157533d03f64d4c,target,file docs/lag_trend_sweden_2020-08-07.png
-9157533d03f64d4c,target,file docs/lag_trend_sweden_2020-08-08.png
-9157533d03f64d4c,target,file docs/lag_trend_sweden_2020-08-09.png
-9e573c2468ae7a49,target,file docs/lag_trend_sweden_2020-08-01.png
-9e573c2468ae7a49,target,file docs/lag_trend_sweden_2020-08-02.png
-d7d64402623db6c9,target,file docs/lag_trend_sweden_2020-08-03.png
-0593f1e176a56abd,target,file docs/lag_trend_sweden_2020-08-14.png
-0593f1e176a56abd,target,file docs/lag_trend_sweden_2020-08-15.png
-0593f1e176a56abd,target,file docs/lag_trend_sweden_2020-08-16.png
-b1fd9a352ddf5c40,target,file docs/lag_trend_sweden_2020-08-17.png
-237ca128c6c04b80,target,file docs/lag_trend_sweden_2020-08-18.png
-ec9f8e37cf75f092,target,file docs/lag_trend_sweden_2020-08-19.png
-a7bb14b933c4cf75,target,file docs/lag_trend_sweden_2020-08-10.png
-ea99982fb7740b32,target,file docs/lag_trend_sweden_2020-08-11.png
-822d8664cd30a327,target,file docs/lag_trend_sweden_2020-08-12.png
-41badff5e63998fe,target,file docs/lag_trend_sweden_2020-08-13.png
-08a99cb57563e3ea,target,file docs/lag_trend_sweden_2020-08-24.png
-35e875063e586877,target,file docs/lag_trend_sweden_2020-08-25.png
-a47e3cb78c7feeb1,target,file docs/lag_trend_sweden_2020-08-26.png
-7706db73db6a92fa,target,file docs/lag_trend_sweden_2020-08-27.png
-be86df6edb908ceb,target,file docs/lag_trend_sweden_2020-08-28.png
-be86df6edb908ceb,target,file docs/lag_trend_sweden_2020-08-29.png
-64e34ef53e09ba40,target,file docs/lag_trend_sweden_2020-08-20.png
-5d286d87d7736178,target,file docs/lag_trend_sweden_2020-08-21.png
-5d286d87d7736178,target,file docs/lag_trend_sweden_2020-08-22.png
-5d286d87d7736178,target,file docs/lag_trend_sweden_2020-08-23.png
-1274dd85e1d790af,target,file docs/lag_trend_sweden_2020-08-31.png
-b089cf0feccaef23,target,file docs/lag_trend_sweden_2020-09-04.png
-b089cf0feccaef23,target,file docs/lag_trend_sweden_2020-09-05.png
-b089cf0feccaef23,target,file docs/lag_trend_sweden_2020-09-06.png
-6400fd0d01c14e60,target,file docs/lag_trend_sweden_2020-09-07.png
-97a4ca28573fffec,target,file docs/lag_trend_sweden_2020-09-08.png
-f30441fe2cf35608,target,file docs/lag_trend_sweden_2020-09-09.png
-c598dce008a8f71b,target,file docs/lag_trend_sweden_2020-09-01.png
-6d61f8e28aefebee,target,file docs/lag_trend_sweden_2020-09-02.png
-04a15f2ec762adb9,target,file docs/lag_trend_sweden_2020-09-03.png
-9068d8842b2dd0e6,target,file docs/lag_trend_sweden_2020-09-14.png
-f869bd6e8a785ab7,target,file docs/lag_trend_sweden_2020-09-15.png
-d3e8e23269cacbcd,target,file docs/lag_trend_sweden_2020-09-16.png
-5e2c20f59bbc5668,target,file docs/lag_trend_sweden_2020-09-17.png
-28cc38c22c8f42e1,target,file docs/lag_trend_sweden_2020-09-19.png
-416f18f06bc65fa9,target,file docs/lag_trend_sweden_2020-09-10.png
-9068d8842b2dd0e6,target,file docs/lag_trend_sweden_2020-09-12.png
-9068d8842b2dd0e6,target,file docs/lag_trend_sweden_2020-09-13.png
-5b1bd97d77360c3f,target,file docs/lag_trend_sweden_2020-09-24.png
-262ba2a98676df2b,target,file docs/lag_trend_sweden_2020-09-25.png
-262ba2a98676df2b,target,file docs/lag_trend_sweden_2020-09-26.png
-262ba2a98676df2b,target,file docs/lag_trend_sweden_2020-09-27.png
-262ba2a98676df2b,target,file docs/lag_trend_sweden_2020-09-28.png
-a33541c7e53ca300,target,file docs/lag_trend_sweden_2020-09-29.png
-28cc38c22c8f42e1,target,file docs/lag_trend_sweden_2020-09-20.png
-28cc38c22c8f42e1,target,file docs/lag_trend_sweden_2020-09-21.png
-0bf6361ee0c702a7,target,file docs/lag_trend_sweden_2020-09-22.png
-ab3de1d789eed16a,target,file docs/lag_trend_sweden_2020-09-23.png
-8cb5f1e0a28764e4,target,file docs/lag_trend_sweden_2020-09-30.png
-11dca01f24f3deec,target,file docs/lag_trend_sweden_2020-10-04.png
-11dca01f24f3deec,target,file docs/lag_trend_sweden_2020-10-05.png
-85f5c394f272a7e8,target,file docs/lag_trend_sweden_2020-10-06.png
-501de8e7a3b1f325,target,file docs/lag_trend_sweden_2020-10-07.png
-4be2d4a90b729af7,target,file docs/lag_trend_sweden_2020-10-08.png
-6a231111b2a722aa,target,file docs/lag_trend_sweden_2020-10-09.png
-f963c157c61006b9,target,file docs/lag_trend_sweden_2020-10-01.png
-11dca01f24f3deec,target,file docs/lag_trend_sweden_2020-10-02.png
-11dca01f24f3deec,target,file docs/lag_trend_sweden_2020-10-03.png
-2dbd8d11f1d1379e,target,file docs/lag_trend_sweden_2020-10-14.png
-a5d7aed6dcd779d7,target,file docs/lag_trend_sweden_2020-10-16.png
-a5d7aed6dcd779d7,target,file docs/lag_trend_sweden_2020-10-17.png
-a5d7aed6dcd779d7,target,file docs/lag_trend_sweden_2020-10-18.png
-6a231111b2a722aa,target,file docs/lag_trend_sweden_2020-10-10.png
-6a231111b2a722aa,target,file docs/lag_trend_sweden_2020-10-11.png
-6a231111b2a722aa,target,file docs/lag_trend_sweden_2020-10-12.png
-6b97289470a373c4,target,file docs/lag_trend_sweden_2020-10-13.png
-477eb084db013153,target,file docs/lag_trend_sweden_2020-10-24.png
-477eb084db013153,target,file docs/lag_trend_sweden_2020-10-25.png
-477eb084db013153,target,file docs/lag_trend_sweden_2020-10-26.png
-3181e86fc166ffa8,target,file docs/lag_trend_sweden_2020-10-27.png
-bbc9e677a6ee1d3c,target,file docs/lag_trend_sweden_2020-10-28.png
-8235a2cf5e5915bf,target,file docs/lag_trend_sweden_2020-10-29.png
-862c1985a44119ef,target,file docs/lag_trend_sweden_2020-10-20.png
-477eb084db013153,target,file docs/lag_trend_sweden_2020-10-21.png
-477eb084db013153,target,file docs/lag_trend_sweden_2020-10-22.png
-477eb084db013153,target,file docs/lag_trend_sweden_2020-10-23.png
-26d2824cf75d84a6,target,file docs/lag_trend_sweden_2020-10-30.png
-26d2824cf75d84a6,target,file docs/lag_trend_sweden_2020-10-31.png
-dec997e6ba6107cc,target,file docs/lag_trend_sweden_2020-11-04.png
-902035702807c239,target,file docs/lag_trend_sweden_2020-11-05.png
-85eb3f4660c21f54,target,file docs/lag_trend_sweden_2020-11-06.png
-85eb3f4660c21f54,target,file docs/lag_trend_sweden_2020-11-07.png
-85eb3f4660c21f54,target,file docs/lag_trend_sweden_2020-11-08.png
-85eb3f4660c21f54,target,file docs/lag_trend_sweden_2020-11-09.png
-26d2824cf75d84a6,target,file docs/lag_trend_sweden_2020-11-01.png
-26d2824cf75d84a6,target,file docs/lag_trend_sweden_2020-11-02.png
-d889cc01c57bc40f,target,file docs/lag_trend_sweden_2020-11-03.png
-7140754baf580713,target,file docs/lag_trend_sweden_2020-11-14.png
-7140754baf580713,target,file docs/lag_trend_sweden_2020-11-15.png
-7140754baf580713,target,file docs/lag_trend_sweden_2020-11-16.png
-05f9b04fc204b033,target,file docs/lag_trend_sweden_2020-11-17.png
-6e9bba1511dc6a2a,target,file docs/lag_trend_sweden_2020-11-18.png
-b4c35fac67588604,target,file docs/lag_trend_sweden_2020-11-19.png
-ed2446beaa2e08b6,target,file docs/lag_trend_sweden_2020-11-10.png
-3416ccb241a24056,target,file docs/lag_trend_sweden_2020-11-11.png
-a78cccb7a25b2556,target,file docs/lag_trend_sweden_2020-11-12.png
-7140754baf580713,target,file docs/lag_trend_sweden_2020-11-13.png
-a63507570d2da883,target,file docs/lag_trend_sweden_2020-11-24.png
-fd4a7ed84d97f239,target,file docs/lag_trend_sweden_2020-11-25.png
-f8b3d88b46e1a0fe,target,file docs/lag_trend_sweden_2020-11-26.png
-5259233c762ccb72,target,file docs/lag_trend_sweden_2020-11-27.png
-5259233c762ccb72,target,file docs/lag_trend_sweden_2020-11-28.png
-5259233c762ccb72,target,file docs/lag_trend_sweden_2020-11-29.png
-13c96a151a4632c1,target,file docs/lag_trend_sweden_2020-11-20.png
-13c96a151a4632c1,target,file docs/lag_trend_sweden_2020-11-21.png
-13c96a151a4632c1,target,file docs/lag_trend_sweden_2020-11-22.png
-13c96a151a4632c1,target,file docs/lag_trend_sweden_2020-11-23.png
-5259233c762ccb72,target,file docs/lag_trend_sweden_2020-11-30.png
-82482b6531dd5978,target,file docs/lag_trend_sweden_2020-12-04.png
-82482b6531dd5978,target,file docs/lag_trend_sweden_2020-12-05.png
-82482b6531dd5978,target,file docs/lag_trend_sweden_2020-12-06.png
-82482b6531dd5978,target,file docs/lag_trend_sweden_2020-12-07.png
-7d1068e9116097f5,target,file docs/lag_trend_sweden_2020-12-08.png
-74a528af4093587d,target,file docs/lag_trend_sweden_2020-12-09.png
-0064045d66c8c1c0,target,file docs/lag_trend_sweden_2020-12-01.png
-221e7ea4c1eb97ca,target,file docs/lag_trend_sweden_2020-12-02.png
-38ebe83e6c8f45d9,target,file docs/lag_trend_sweden_2020-12-03.png
-5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-14.png
-4e4ba05274a88bbe,target,file docs/lag_trend_sweden_2020-12-15.png
-2416320928c32723,target,file docs/lag_trend_sweden_2020-12-16.png
-c7daf5b4bc7ca536,target,file docs/lag_trend_sweden_2020-12-17.png
-0db9d898a7108ccb,target,file docs/lag_trend_sweden_2020-12-18.png
-0db9d898a7108ccb,target,file docs/lag_trend_sweden_2020-12-19.png
-5010d4002197e57b,target,file docs/lag_trend_sweden_2020-12-10.png
-5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-11.png
-5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-12.png
-5fcaf4df7742bebc,target,file docs/lag_trend_sweden_2020-12-13.png
-51655af7642a258b,target,file docs/lag_trend_sweden_2020-12-26.png
-51655af7642a258b,target,file docs/lag_trend_sweden_2020-12-27.png
-51655af7642a258b,target,file docs/lag_trend_sweden_2020-12-28.png
-e5f9fe4eab03a38e,target,file docs/lag_trend_sweden_2020-12-29.png
-0db9d898a7108ccb,target,file docs/lag_trend_sweden_2020-12-20.png
-0db9d898a7108ccb,target,file docs/lag_trend_sweden_2020-12-21.png
-b602c7e684fb7b6f,target,file docs/lag_trend_sweden_2020-12-23.png
-b798821000513918,target,file docs/lag_trend_sweden_2020-12-30.png
-b798821000513918,target,file docs/lag_trend_sweden_2020-12-31.png
-191e4c69cb44b05a,target,file docs/lag_trend_sweden_2021-01-05.png
-191e4c69cb44b05a,target,file docs/lag_trend_sweden_2021-01-06.png
-7be8e6fe79669fda,target,file docs/lag_trend_sweden_2021-01-07.png
-b798821000513918,target,file docs/lag_trend_sweden_2021-01-01.png
-b798821000513918,target,file docs/lag_trend_sweden_2021-01-02.png
-b798821000513918,target,file docs/lag_trend_sweden_2021-01-03.png
-e61d05e13be6128f,target,file docs/lag_trend_sweden_latest.png
-36cfbaf4eb1e05e6,import,url https://opendata.ecdc.europa.eu/covid19/casedistribution/csv
+b89fe4b9c5bb233d,target,file docs/archive
+31af67a55e4e8157,target,file docs/coverage_model_2020-12-16.png
+8e239c196f97fcc0,target,file docs/deaths_lag_sweden_latest.png
+71452ff8dd50f5e3,target,file docs/deaths_lag_sweden_model.png
+e56ef7866c9ecf0e,target,file docs/deaths_lag_sweden_2020-12-15.png
+017ba56046722a2a,target,file docs/deaths_lag_sweden_2020-12-16.png
+9551ef9b0d72aba7,target,file docs/deaths_lag_sweden_2020-12-17.png
+0047b2ad74bf4de7,target,file docs/deaths_lag_sweden_2020-12-21.png
+352ca85cba25e28e,target,file docs/deaths_lag_sweden_2020-12-23.png
+3758a5a53f747f23,target,file docs/deaths_lag_sweden_2020-12-25.png
+a6f04b9abb856891,target,file docs/deaths_lag_sweden_2020-12-26.png
+af2f817af457bb8b,target,file docs/deaths_lag_sweden_2021-01-06.png
+d9b5a153ad124d7e,target,file docs/deaths_lag_sweden_2021-01-08.png
+e0fc5ad9928aa9ce,target,file docs/eval/coverage_eval_constant.png
+9065a53791717ad1,target,file docs/eval/coverage_eval_constant_2020-12-17.png
+fa82fd9a864cb4b8,target,file docs/eval/coverage_eval_model.png
+515de917e467fd76,target,file docs/eval/coverage_eval_model2.png
+203523b0d95b3a36,target,file docs/eval/coverage_eval_model_2020-12-17.png
+b86d07ebeb730da9,target,file docs/eval/coverage_eval_model_iva.png
+32536709847f4bc1,target,file docs/eval/coverage_eval_t0.png
+397ceb5c209e82ca,target,file docs/eval/coverage_eval_t1.png
+03b56a3379d90e90,target,file docs/eval/coverage_eval_t2.png
+e88e15459d010e72,target,file docs/eval/coverage_eval_t3.png
+80263052ab81bb43,target,file docs/eval/coverage_eval_t4.png
+66e947165ed85ec7,target,file docs/eval/coverage_eval_t5.png
+50d2a746a9abc7c5,target,file docs/eval/probability.png
+9acb4335dbe7d844,target,file docs/eval/prior_eval.png
+97f97675b2545f0b,target,file docs/index.md
+1fa1bd91083b304f,target,file docs/lag_trend_sweden_2020-12-15.png
+02810a0d446be479,target,file docs/lag_trend_sweden_2020-12-16.png
+18a881d8b2c6b02b,target,file docs/lag_trend_sweden_2020-12-17.png
+1992c78f84ce7899,target,file docs/lag_trend_sweden_2020-12-25.png
+87d5092ac5fef85b,target,file docs/lag_trend_sweden_2020-12-26.png
+024b4ed5a7b08940,target,file docs/lag_trend_sweden_2020-12-21.png
+ae04bfb54ecb2115,target,file docs/lag_trend_sweden_2020-12-23.png
+869bf18a578b78ed,target,file docs/lag_trend_sweden_2021-01-06.png
+50a9dbff27c6d88b,target,file docs/lag_trend_sweden_2021-01-08.png
+99d84663920e88de,target,file docs/lag_trend_sweden_latest.png
 5840d8949572e56e,import,plot_coverage_eval
 8f3ab72471354a30,import,plot_lag_trends_grid
 96c5476ce1d3865c,import,plot_lag_trends1
 6d9a89948aa4ec47,import,plot_lag_trends2
 b3e036f40d37c739,import,plot_lagged_deaths
-bab1a090337d280f,import,predict_lag
-d809b75560820c1b,target,prior_eval_plot
+9dad1766abceb92e,import,predict_lag
+7ca6fb13aebc23b5,target,prior_eval_plot
 327c2249f00a20b1,import,prior_t
 b6fa5ff1f293d9c5,import,Prob_gamma
 f1b3d9b9e6346f47,import,probability_analysis

@@ -113,7 +113,6 @@ load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
     }
 
     # Ensure starting point is March 1st, and that all dates have a value
-    # date_seq <- seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
     date_seq <- seq.Date(as.Date("2020-03-01"), publication_date, by = 1)
 
     DT <- merge(DT, data.table(date = date_seq), all = TRUE)
@@ -233,6 +232,16 @@ predict_lag <- function(death_dt) {
                    !is.na(date) &
                    date >= "2020-04-02",
                    .(date, publication_date, days_since_publication, n_diff)]
+
+    # Add missing report dates (FHM does not report every day)
+    all_dates <- CJ(date = seq.Date(DT[, min(date)], DT[, max(date)], by = 1),
+                    publication_date = seq.Date(DT[, min(publication_date)], DT[, max(publication_date)], by = 1))
+    all_dates <- all_dates[date <= publication_date]
+    DT <- merge(DT, all_dates, all = TRUE)
+    DT[, days_since_publication := publication_date - date]
+
+    # Set n_diff to zero when there was no report
+    # DT[is.na(n_diff), n_diff := 0]
 
     # Create predictions for each publication date so we can track and evaluate
     # historical predictions

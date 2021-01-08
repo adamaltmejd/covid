@@ -231,7 +231,7 @@ predict_lag <- function(death_dt) {
                    !is.na(days_since_publication) &
                    !is.na(date) &
                    date >= "2020-04-02",
-                   .(date, publication_date, days_since_publication, n_diff)]
+                   .(date, publication_date, days_since_publication, N, n_diff)]
 
     # Add missing report dates (FHM does not report every day)
     all_dates <- CJ(date = seq.Date(DT[, min(date)], DT[, max(date)], by = 1),
@@ -242,6 +242,8 @@ predict_lag <- function(death_dt) {
 
     # Set n_diff to zero when there was no report
     DT[is.na(n_diff), n_diff := 0]
+    DT[, N := nafill(N, type = "locf"), by = .(date)]
+    DT[is.na(N), N := 0]
 
     # Create predictions for each publication date so we can track and evaluate
     # historical predictions
@@ -270,7 +272,7 @@ predict_lag <- function(death_dt) {
 
     # To create actual predictions of totals per day
     # we need to add the averages to the reported data
-    predictions <- avg_delay[death_dt[date >= "2020-04-02" & publication_date >= "2020-04-14"],
+    predictions <- avg_delay[DT[date >= "2020-04-02" & publication_date >= "2020-04-14"],
               on = .(publication_date,
                      days_since_publication > days_since_publication),
               by = .EACHI,

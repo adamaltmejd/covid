@@ -160,7 +160,7 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
         data_delim <- gsub("\\\\n", "\n", data_delim)
         data_delim <- gsub("\\\\t", "\t", data_delim)
 
-        DT <- fread(text = data_delim, sep = "\t",
+        DT <- fread(text = data_delim, sep = ",",
                     na.strings = "-", fill = TRUE)
 
         setnames(DT,

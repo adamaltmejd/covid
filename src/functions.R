@@ -434,7 +434,6 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model, default_theme) 
                  label.r = unit(0, "lines"), label.size = 0.5,
                  x = Sys.Date() - 120, y = 100,
                  label = paste0(latest_date, "\n",
-                                "WARNING: Prediction unreliable\nbecause of holiday lag change.\n",
                                 "Reported:  ", format(total_deaths, big.mark = ","), "\n",
                                 "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
                                 "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +

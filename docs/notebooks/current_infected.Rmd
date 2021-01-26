@@ -1,0 +1,71 @@
+---
+title: "How many have had Covid-19 in Sweden?"
+output:
+  html_document:
+    df_print: paged
+    code_folding: show
+---
+
+```{r}
+# source("_drake.R")
+library(data.table)
+library(readxl)
+```
+
+Using data from Socialstyrelsen as these are confirmed Covid-19 cases. It is also divided by both age and gender, unfortunately in quite coarse age groups but still better than FHM who only has age and gender separately.
+
+```{r load_data, echo = TRUE, results = "hide"}
+socstyr_url <- "https://www.socialstyrelsen.se/globalassets/1-globalt/covid-19-statistik/statistik-over-antal-avlidna-i-covid-19/statistik-covid19-avlidna.xlsx"
+
+f <- file.path("socstyr_deaths.xlsx")
+download.file(socstyr_url, destfile = f)
+
+excel_sheets(f)
+DT <- data.table(read_excel(path = f, sheet = 4, range = "A6:G20"))
+DT <- DT[c(4, 5, 6, 9, 10, 11, 12, 14), c(1, 4, 6)]
+setnames(DT, c("age", "male", "female"))
+DT[, male := as.integer(male)]
+DT[, female := as.integer(female)]
+```
+
+Age/gender-specific IFR from here: <https://www.nature.com/articles/s41586-020-2918-0)>. Table S3.
+
+```{r}
+ifr <- data.table(
+    age = c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49", "50-54", "55-59", "60-64", "65-69", "70-74", "75-79", "80+"),
+    ifr_male = c(0.003, 0.001, 0.001, 0.003, 0.008, 0.017, 0.033, 0.056, 0.106, 0.168, 0.291, 0.448, 0.595, 1.452, 2.307, 4.260, 10.825),
+    ifr_female = c(0.003, 0.001, 0.001, 0.002, 0.005, 0.009, 0.015, 0.025, 0.044, 0.073, 0.123, 0.197, 0.318, 0.698, 1.042, 2.145, 5.759),
+    ifr_mean = c(0.003, 0.001, 0.001, 0.003, 0.006, 0.013, 0.024, 0.040, 0.075, 0.121, 0.207, 0.323, 0.456, 1.075, 1.674, 3.203, 8.292)
+)
+ifr[, ifr_male := ifr_male / 100]
+ifr[, ifr_female := ifr_female / 100]
+ifr[, ifr_mean := ifr_mean / 100]
+```
+
+unfortunately the age groups do not overlap at all. We will simply by taking the mean IFR for each of the Socialstyrelsen age groups.
+
+```{r}
+
+ifr <- rbindlist(list(
+    data.table(age = "0-50", ifr[age %in% c("0-4", "5-9", "10-14", "15-19", "20-24", "25-29", "30-34", "35-39", "40-44", "45-49"), lapply(.SD, mean), .SDcols = c("ifr_male", "ifr_female", "ifr_mean")]),
+    data.table(age = "50-59", ifr[age %in% c("50-54", "55-59"), lapply(.SD, mean), .SDcols = c("ifr_male", "ifr_female", "ifr_mean")]),
+    data.table(age = "60-69", ifr[age %in% c("60-64", "65-69"), lapply(.SD, mean), .SDcols = c("ifr_male", "ifr_female", "ifr_mean")]),
+    ifr[age == "70-74"],
+    ifr[age == "75-79"],
+    ifr[age == "80+"]
+))
+
+DT[age == "Under 50", age := "0-50"]
+DT <- rbind(DT, DT[age %in% c("80-84", "85-89", "90+"), .(age = "80+", male = sum(male), female = sum(female))])
+```
+
+Calculate infections
+
+```{r}
+outcome <- merge(DT, ifr, by = "age")
+
+outcome[, males_infected := male / ifr_male]
+outcome[, females_infected := female / ifr_female]
+```
+
+Total number of infected using this calculation is: `r format(outcome[, sum(males_infected + females_infected)])`.

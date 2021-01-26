@@ -13,6 +13,26 @@ plan <- drake_plan(
     days = day_of_week(death_dt),
 
     ##
+    # Other countries
+
+    # Finland
+    url_finland = "https://sampo.thl.fi/pivot/prod/en/epirapo/covid19case/fact_epirapo_covid19case.csv?row=dateweek20200101-508804L&column=measure-444833.445356.492118.",
+    deaths_dt_finland = target(
+        unique(rbind(
+            fread(file.path("data", "other_countries", "finland.csv")),
+            data.table(publication_date = as.IDate(Sys.Date()), fread(url_finland, sep = ";")) %>%
+                setnames(c("Measure", "Time", "val"), c("variable", "date", "value")),
+            use.names = TRUE
+        )),
+        trigger = trigger(condition = RCurl::url.exists(url_finland) &
+                          max(fread(file.path("data", "other_countries", "finland.csv"))$publication_date) < Sys.Date(),
+                          change = Sys.Date())
+    ),
+    fwrite(deaths_dt_finland, file.path("data", "other_countries", "finland.csv")),
+
+    #
+
+    ##
     # Hospital/ICU Stats
     # From FHM
     icu_dts = target(load_fhm_data(fhm_files, type = "icu"), dynamic = map(fhm_files)),

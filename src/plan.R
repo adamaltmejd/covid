@@ -20,8 +20,11 @@ plan <- drake_plan(
     deaths_dt_finland = target(
         unique(rbind(
             fread(file.path("data", "other_countries", "finland.csv")),
-            data.table(publication_date = as.IDate(Sys.Date()), fread(url_finland, sep = ";")) %>%
-                setnames(c("Measure", "Time", "val"), c("variable", "date", "value")),
+            data.table(publication_date = as.IDate(Sys.Date()),
+                       fread(url_finland, sep = ";",
+                             select = c("Time" = "IDate", "Measure" = "character", "val" = "integer"),
+                             col.names = c("date", "variable", "value")),
+                       key = c("publication_date", "date"))[!is.na(value)],
             use.names = TRUE
         )),
         trigger = trigger(condition = RCurl::url.exists(url_finland) &
@@ -29,8 +32,6 @@ plan <- drake_plan(
                           change = Sys.Date())
     ),
     fwrite(deaths_dt_finland, file.path("data", "other_countries", "finland.csv")),
-
-    #
 
     ##
     # Hospital/ICU Stats

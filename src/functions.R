@@ -438,7 +438,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model, default_theme) 
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = Sys.Date() - 120, y = 100,
+                 x = as.Date("2020-07-01"), y = 100,
                  label = paste0(latest_date, "\n",
                                 "Reported:  ", format(total_deaths, big.mark = ","), "\n",
                                 "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",

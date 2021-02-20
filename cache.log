@@ -265,8 +265,8 @@ c3a95aa6d94e0514,target,death_prediction_model_iva
 d2c6cb4a5b413a1a,target,death_prediction_model_iva_smooth
 d2a4200fd46b8583,target,death_prediction_model_old
 523af08f41c485ed,target,death_prediction_model_raw
-bcaecc483da05ee3,target,deaths_dt_finland
-dc663d9e3ced074d,target,deaths_dt_uk
+7be8623e174ff05a,target,deaths_dt_finland
+e5cd1300ad8c673e,target,deaths_dt_uk
 1a7b904da893e4ff,import,deaths_icu_hospital_corr_plot
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t

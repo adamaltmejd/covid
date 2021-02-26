@@ -269,8 +269,8 @@ c3a95aa6d94e0514,target,death_prediction_model_iva
 d2c6cb4a5b413a1a,target,death_prediction_model_iva_smooth
 d2a4200fd46b8583,target,death_prediction_model_old
 3d38efeb1226c4a6,target,death_prediction_model_raw
-e5ff6ae0f26c308e,target,deaths_dt_finland
-cabedc7cab6b74a4,target,deaths_dt_uk
+9fcbd44e59490969,target,deaths_dt_finland
+af13929f2e12b275,target,deaths_dt_uk
 1a7b904da893e4ff,import,deaths_icu_hospital_corr_plot
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t
@@ -781,7 +781,7 @@ a100bf8df12f05b3,import,join_data
 8c3ba226b3885f4b,target,lag_plot
 bd46987b32a722d5,target,lag_plot1
 f11ec12818f2aca4,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+c85d88fc56f4e042,target,latest_fhm
 b9d816e40e8ee2e7,import,likelihood_death
 5ea91e324b829377,import,list_fhm_files
 146be7d74d6addcb,import,load_fhm_data

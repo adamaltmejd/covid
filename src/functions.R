@@ -58,7 +58,7 @@ trigger_new_download <- function(f, type = "FHM") {
     }
 
     if (type == "FHM") latest_record <- get_record_date(f)
-    if (type == "SocStyr") latest_record <- max(fread(f)$date)
+    if (type == "SocStyr") latest_record <- max(fread(f)$date, na.rm = TRUE)
 
     if (latest_record < Sys.Date()) {
         if (as.ITime(Sys.time(), tz = "Europe/Stockholm") > as.ITime("14:00")) {
@@ -159,6 +159,7 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
         data_delim <- data_json$data$chartData
         data_delim <- gsub("\\\\n", "\n", data_delim)
         data_delim <- gsub("\\\\t", "\t", data_delim)
+        data_delim <- gsub("\\\\r", "\t", data_delim)
 
         if (str_count(data_delim, "\t") > str_count(data_delim, ",")) {
             sep <- "\t"
@@ -167,7 +168,7 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
         }
 
         DT <- fread(text = data_delim, sep = sep,
-                    na.strings = "-", fill = TRUE)
+                    na.strings = c("-", "\"-\""), fill = TRUE)
 
         setnames(DT,
                  c("datum",
@@ -184,6 +185,9 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
                    "icu_7day_avg", "icu_n",
                    "dead_7day_avg", "dead_n",
                    "infected_eldercare_7day_avg", "infected_eldercare_n"))
+
+        DT[, date := as.Date(date)]
+        DT <- DT[!is.na(date)]
 
         setkey(DT, date)
         fwrite(DT, f)

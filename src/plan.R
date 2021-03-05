@@ -26,7 +26,7 @@ plan <- drake_plan(
                              col.names = c("date", "variable", "value")),
                        key = c("publication_date", "date"))[!is.na(value)],
             use.names = TRUE
-        )),
+        ), by = c("publication_date", "date")),
         trigger = trigger(condition = RCurl::url.exists(url_finland) &
                           max(fread(file.path("data", "other_countries", "finland.csv"))$publication_date) < Sys.Date(),
                           change = Sys.Date())
@@ -44,7 +44,7 @@ plan <- drake_plan(
                              col.names = c("date", "N_dead")),
                        key = c("publication_date", "date"))[!is.na(N_dead)],
             use.names = TRUE
-        )),
+        ), by = c("publication_date", "date")),
         trigger = trigger(condition = RCurl::url.exists(url_uk) &
                           max(fread(file.path("data", "other_countries", "uk.csv"))$publication_date) < Sys.Date(),
                           change = Sys.Date())

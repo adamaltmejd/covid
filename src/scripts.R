@@ -21,8 +21,8 @@ new_DT_list <- lapply(new_data_files, fread)
 names(new_DT_list) <- gsub("[a-z/_]*([0-9-]*).csv$", "\\1", new_data_files)
 new_DT <- rbindlist(new_DT_list, use.names = TRUE, idcol = "publication_date")
 
-DT <- rbind(new_DT[, .(publication_date = as.IDate(publication_date), date = as.IDate(date), N_dead = as.integer(newDeaths28DaysByDeathDate))],
-            DT[, .(publication_date = as.IDate(publication_date), date = as.IDate(date), N_dead = as.integer(N_dead))],
+DT <- rbind(new_DT[, .(publication_date = as.IDate(publication_date), date = as.IDate(date), N = as.integer(newDeaths28DaysByDeathDate))],
+            DT[, .(publication_date = as.IDate(publication_date), date = as.IDate(date), N = as.integer(N))],
             use.names = TRUE)
 setkey(DT, publication_date, date)
 DT <- unique(DT, by = key(DT))

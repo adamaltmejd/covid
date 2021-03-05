@@ -209,8 +209,9 @@ join_data <- function(death_dts) {
     death_dt <- data.table(death_dts)
     setkey(death_dt, publication_date, date)
 
-    death_dt[!is.na(date) & publication_date > "2020-04-02", days_since_publication := publication_date - date]
-    death_dt[date == "2020-04-02" & publication_date == "2020-04-02", days_since_publication := 0]
+    first_pub_date <- death_dt[, min(publication_date, na.rm = TRUE)]
+    death_dt[!is.na(date) & publication_date > first_pub_date, days_since_publication := publication_date - date]
+    death_dt[date == first_pub_date & publication_date == first_pub_date, days_since_publication := 0]
 
     death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
     death_dt[!is.na(date), n_diff := N - n_m1]
@@ -402,62 +403,97 @@ set_default_theme <- function() {
         )
 }
 
-plot_lagged_deaths <- function(death_dt, death_prediction_model, default_theme) {
+plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
+                               default_theme, custom_labs = NULL) {
     require(ggplot2)
     require(forcats)
 
+    first_pub_date <- death_dt[, min(publication_date, na.rm = TRUE)]
     latest_date <- death_dt[, max(publication_date, na.rm = TRUE)]
     total_deaths <- death_dt[publication_date == latest_date, sum(N, na.rm = TRUE)]
 
     death_dt <- death_dt[date >= "2020-03-12"]
-    death_prediction_model <- death_prediction_model[prediction_date == latest_date]
 
-    predicted_deaths <- round(death_prediction_model[, sum(predicted_deaths)], 0)
-    predicted_deaths_lCI <- round(death_prediction_model[, sum(total_lCI - sure_deaths)], 0)
-    predicted_deaths_uCI <- round(death_prediction_model[, sum(total_uCI - sure_deaths)], 0)
-
-    death_dt[publication_date == "2020-04-02" & is.na(days_since_publication), publication_date := NA]
-    date_diff <- death_dt[!is.na(publication_date), sum(n_diff, na.rm = TRUE), by = publication_date]
-    death_dt <- death_dt[n_diff != 0 & !is.na(n_diff)]
+    y_max <- ceiling((death_dt[, max(N)]/100)) * 100
 
     # Only one observation per group
+    death_dt[publication_date == first_pub_date & is.na(days_since_publication), publication_date := NA]
+    death_dt <- death_dt[n_diff != 0 & !is.na(n_diff)]
     death_dt <- death_dt[, .(n_diff = sum(n_diff, na.rm = TRUE)), by = .(date, delay)]
-    levels(death_dt$delay) <- death_dt[, sum(n_diff), delay][order(c(1,2,7,6,5,4,3,8))][, paste0(delay, " (N=", V1, ")")]
+
+    # Add numbers to labels
+    n_labs <- merge(
+        data.table(delay = levels(death_dt$delay)),
+        death_dt[, sum(n_diff), delay],
+        all = TRUE, sort = FALSE
+    )
+    n_labs[is.na(V1), V1 := 0]
+    levels(death_dt$delay) <- n_labs[, paste0(delay, " (N=", V1, ")")]
 
     fill_colors <- c("gray40", "#FF0000", "#507159", "#55AC62", "#F2AD00", "#F69100", "#5BBCD6", "#478BAF", "#E1E1E1")
     fill_colors <- setNames(fill_colors, c(levels(death_dt$delay), "Model nowcast"))
     death_dt[, delay := forcats::fct_rev(delay)]
-    label_order <- c("Model nowcast", levels(death_dt$delay))
+    label_order <- levels(death_dt$delay)
 
-    # Drop earliest data
-    death_dt <- death_dt[date >= "2020-03-12"]
+    # Prediction
+    if (!is.null(death_prediction_model)) {
+        death_prediction_model <- death_prediction_model[prediction_date == latest_date]
+        predicted_deaths <- round(death_prediction_model[, sum(predicted_deaths)], 0)
+        predicted_deaths_lCI <- round(death_prediction_model[, sum(total_lCI - sure_deaths)], 0)
+        predicted_deaths_uCI <- round(death_prediction_model[, sum(total_uCI - sure_deaths)], 0)
 
+        label_order <- c("Model nowcast", label_order)
+    }
+
+    ######
     # Plot
-    ggplot(data = death_dt, aes(y = n_diff, x = date)) +
+
+    # Main part
+    p <- ggplot(data = death_dt, aes(y = n_diff, x = date)) +
         geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
-        geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1) +
-        geom_linerange(data = death_prediction_model, aes(y = total, ymin = total_lCI, ymax = total_uCI),
-                       color = "#999999", size = 0.5) +
-        geom_point(data = death_prediction_model, aes(y = total), color = "#888888", size = 0.2) +
+        geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1)
+
+    # Label
+    lab <- paste0(latest_date, "\n",
+                  "Reported:  ", format(total_deaths, big.mark = ","))
+
+    # Add prediction
+    if (!is.null(death_prediction_model)) {
+        p <- p +
+            geom_linerange(data = death_prediction_model, aes(y = total, ymin = total_lCI, ymax = total_uCI),
+                        color = "#999999", size = 0.5) +
+            geom_point(data = death_prediction_model, aes(y = total), color = "#888888", size = 0.2)
+
+        lab <- paste0(lab, "\n",
+                      "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
+                      "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))
+    }
+
+    # Add Annotations and styling
+    p <- p +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
-                 hjust = 0, family = "EB Garamond",
+                 hjust = 0, family = "Eb Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-07-01"), y = 100,
-                 label = paste0(latest_date, "\n",
-                                "Reported:  ", format(total_deaths, big.mark = ","), "\n",
-                                "Predicted:  ", format(predicted_deaths_lCI, big.mark = ","), " - ", format(predicted_deaths_uCI, big.mark = ","), "\n",
-                                "Total:         ", format(total_deaths + predicted_deaths_lCI, big.mark = ","), " - ", format(total_deaths + predicted_deaths_uCI, big.mark = ","))) +
+                 x = as.Date("2020-07-01"), y = y_max / 2,
+                 label = lab) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
-        scale_y_continuous(minor_breaks = seq(0,200,10), breaks = seq(0,200,20), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
-        default_theme +
-        labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
-             subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections by FHM.\n",
-                               "Gray bars show 95% credible intervals for predicted actual deaths, with points at the median."),
-             caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
-             fill = "Reporting delay",
-             x = "Date of death",
-             y = "Number of deaths")
+        scale_y_continuous(minor_breaks = seq(0, y_max, y_max / 20), breaks = seq(0, y_max, y_max / 10), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
+        default_theme
+    if (!is.null(custom_labs)) {
+        p <- p + custom_labs
+    } else {
+        p <- p +
+            labs(title = paste0("Confirmed daily Covid-19 deaths in Sweden"),
+                subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay. Negative values indicate data corrections by FHM.\n",
+                                "Gray bars show 95% credible intervals for predicted actual deaths, with points at the median."),
+                caption = paste0("Source: Folkhälsomyndigheten and ECDC. Updated: ", Sys.Date(), ". Latest version available at https://adamaltmejd.se/covid."),
+                fill = "Reporting delay",
+                x = "Date of death",
+                y = "Number of deaths")
+    }
+
+    return(p)
 }
 
 plot_lag_trends1 <- function(time_to_finished, default_theme) {

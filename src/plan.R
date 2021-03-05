@@ -95,6 +95,15 @@ plan <- drake_plan(
                lag_plot = file_in(!!file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png"))),
                index = file_out(!!file.path("docs", "index.md"))),
 
+    # UK Plot
+    death_plot_uk = plot_lagged_deaths(
+        join_data(deaths_dt_uk), NULL, default_theme,
+        custom_labs = labs(title = paste0("Covid-19 deaths in the UK"),
+                           subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay."),
+                           caption = paste0("Source: GOV.UK. Updated: ", Sys.Date(), "."),
+                           fill = "Reporting delay", x = "Date of death", y = "Number of deaths")),
+    save_plot(death_plot_uk, file_out(!!file.path("docs", paste0("deaths_lag_uk.png"))), bgcolor = "white"),
+
     # Evaluation plots
     coverage_plot_t0 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme),
     save_plot(coverage_plot_t0, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t0.png"))), bgcolor = "white"),

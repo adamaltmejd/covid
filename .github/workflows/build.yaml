@@ -14,12 +14,12 @@ jobs:
             - uses: actions/checkout@v2
 
             - name: Install dependencies
-              run: sudo apt-get install fonts-ebgaramond
+              run: sudo apt-get install fonts-ebgaramond libcurl4-openssl-dev
 
             - name: Setup R
               uses: r-lib/actions/setup-r@master
               with:
-                  r-version: "4.0.2"
+                  r-version: "4.0.4"
 
             # - name: renv cache
             #   uses: actions/cache@v2
@@ -29,13 +29,13 @@ jobs:
             #       restore-keys: |
             #           ${{ runner.os }}-renv-
 
-            - name: drake cache
-              uses: actions/cache@v2
-              with:
-                  path: .drake
-                  key: ${{ runner.os }}-drake-${{ hashFiles('**/cache.log') }}
-                  restore-keys: |
-                      ${{ runner.os }}-drake-
+            # - name: drake cache
+            #   uses: actions/cache@v2
+            #   with:
+            #       path: .drake
+            #       key: ${{ runner.os }}-drake-${{ hashFiles('**/cache.log') }}
+            #       restore-keys: |
+            #           ${{ runner.os }}-drake-
 
             - name: renv
               shell: Rscript {0}

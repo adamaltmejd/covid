@@ -25,17 +25,17 @@ jobs:
               uses: actions/cache@v2
               with:
                   path: ~/.local/share/renv
-                  key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+                  key: ${{ runner.os }}-renv-v2-${{ hashFiles('**/renv.lock') }}
                   restore-keys: |
-                      ${{ runner.os }}-renv-
+                      ${{ runner.os }}-renv-v2-
 
             - name: drake cache
               uses: actions/cache@v2
               with:
                   path: .drake
-                  key: ${{ runner.os }}-drake-${{ hashFiles('**/cache.log') }}
+                  key: ${{ runner.os }}-drake-v2-${{ hashFiles('**/cache.log') }}
                   restore-keys: |
-                      ${{ runner.os }}-drake-
+                      ${{ runner.os }}-drake-v2-
 
             - name: renv
               shell: Rscript {0}

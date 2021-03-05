@@ -21,13 +21,13 @@ jobs:
               with:
                   r-version: "4.0.2"
 
-            - name: renv cache
-              uses: actions/cache@v2
-              with:
-                  path: ~/.local/share/renv
-                  key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
-                  restore-keys: |
-                      ${{ runner.os }}-renv-
+            # - name: renv cache
+            #   uses: actions/cache@v2
+            #   with:
+            #       path: ~/.local/share/renv
+            #       key: ${{ runner.os }}-renv-${{ hashFiles('**/renv.lock') }}
+            #       restore-keys: |
+            #           ${{ runner.os }}-renv-
 
             - name: drake cache
               uses: actions/cache@v2

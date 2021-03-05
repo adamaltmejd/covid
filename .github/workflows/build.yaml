@@ -38,7 +38,10 @@ jobs:
                       ${{ runner.os }}-drake-
 
             - name: renv
-              run: Rscript -e "renv::restore()"
+              shell: Rscript {0}
+              run: |
+                  if (!requireNamespace("renv", quietly = TRUE)) install.packages("renv")
+                  renv::restore()
 
             - name: build
               run: Rscript -e 'drake::r_make()'

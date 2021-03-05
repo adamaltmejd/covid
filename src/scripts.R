@@ -26,3 +26,4 @@ DT <- rbind(new_DT[, .(publication_date = as.IDate(publication_date), date = as.
             use.names = TRUE)
 setkey(DT, publication_date, date)
 DT <- unique(DT, by = key(DT))
+fwrite(DT, file.path("data", "other_countries", "uk.csv"))

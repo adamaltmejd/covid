@@ -41,8 +41,8 @@ plan <- drake_plan(
             data.table(publication_date = as.IDate(Sys.Date()),
                        fread(url_uk,
                              select = c("date" = "IDate", "newDeaths28DaysByDeathDate" = "integer"),
-                             col.names = c("date", "N_dead")),
-                       key = c("publication_date", "date"))[!is.na(N_dead)],
+                             col.names = c("date", "N")),
+                       key = c("publication_date", "date"))[!is.na(N)],
             use.names = TRUE
         ), by = c("publication_date", "date")),
         trigger = trigger(condition = RCurl::url.exists(url_uk) &

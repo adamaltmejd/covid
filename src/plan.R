@@ -110,7 +110,8 @@ plan <- drake_plan(
         join_data(deaths_dt_finland[variable == "Number of deaths", -"variable"]),
         NULL, readd(default_theme), y_max = 30, br_major = 10,
         custom_labs = labs(title = paste0("Covid-19 deaths in Finland"),
-                           subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay."),
+                           subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay.\n",
+                                             "Delays measured between March 6 and 10 are unreliable due to a data issue."),
                            caption = paste0("Source: THL.FI. Updated: ", Sys.Date(), "."),
                            fill = "Reporting delay", x = "Date of death", y = "Number of deaths")
     ),

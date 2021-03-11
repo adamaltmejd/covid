@@ -80,7 +80,7 @@ plan <- drake_plan(
 
     # Main Plots
     default_theme = set_default_theme(),
-    death_plot = plot_lagged_deaths(death_dt, death_prediction_model, default_theme),
+    death_plot = plot_lagged_deaths(death_dt, death_prediction_model, default_theme, y_max = 150, br_major = 20),
     lag_plot1 = plot_lag_trends1(time_to_finished, default_theme),
     lag_plot2 = plot_lag_trends2(death_dt, default_theme),
     lag_plot = plot_lag_trends_grid(lag_plot1, lag_plot2, default_theme),
@@ -97,12 +97,24 @@ plan <- drake_plan(
 
     # UK Plot
     death_plot_uk = plot_lagged_deaths(
-        join_data(deaths_dt_uk), NULL, default_theme,
+        join_data(deaths_dt_uk), NULL, default_theme, br_major = 200,
         custom_labs = labs(title = paste0("Covid-19 deaths in the UK"),
                            subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay."),
                            caption = paste0("Source: GOV.UK. Updated: ", Sys.Date(), "."),
-                           fill = "Reporting delay", x = "Date of death", y = "Number of deaths")),
+                           fill = "Reporting delay", x = "Date of death", y = "Number of deaths")
+    ),
     save_plot(death_plot_uk, file_out(!!file.path("docs", paste0("deaths_lag_uk.png"))), bgcolor = "white"),
+
+    # Finland plot
+    death_plot_finland = plot_lagged_deaths(
+        join_data(deaths_dt_finland[variable == "Number of deaths", -"variable"]),
+        NULL, readd(default_theme), y_max = 30, br_major = 10,
+        custom_labs = labs(title = paste0("Covid-19 deaths in Finland"),
+                           subtitle = paste0("Each death is attributed to its actual day of death. Colored bars show reporting delay."),
+                           caption = paste0("Source: THL.FI. Updated: ", Sys.Date(), "."),
+                           fill = "Reporting delay", x = "Date of death", y = "Number of deaths")
+    ),
+    save_plot(death_plot_finland, file_out(!!file.path("docs", paste0("deaths_lag_finland.png"))), bgcolor = "white"),
 
     # Evaluation plots
     coverage_plot_t0 = plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme),

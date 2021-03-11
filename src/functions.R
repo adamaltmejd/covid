@@ -404,7 +404,7 @@ set_default_theme <- function() {
 }
 
 plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
-                               default_theme, custom_labs = NULL) {
+                               default_theme, custom_labs = NULL, y_max = NULL, br_major = NULL) {
     require(ggplot2)
     require(forcats)
 
@@ -414,7 +414,12 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
 
     death_dt <- death_dt[date >= "2020-03-12"]
 
-    y_max <- ceiling((death_dt[, max(N)]/100)) * 100
+    if (is.null(y_max)) {
+        y_max <- ceiling((death_dt[, max(N)]/100)) * 100
+    }
+    if (is.null(br_major)) {
+        br_major <- 10^nchar(y_max) / 100
+    }
 
     # Only one observation per group
     death_dt[publication_date == first_pub_date & is.na(days_since_publication), publication_date := NA]
@@ -474,11 +479,14 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
                  hjust = 0, family = "Eb Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
-                 x = as.Date("2020-07-01"), y = y_max / 2,
+                 x = as.Date("2020-07-01"), y = 2 * y_max / 3,
                  label = lab) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
-        scale_y_continuous(minor_breaks = seq(0, y_max, y_max / 20), breaks = seq(0, y_max, y_max / 10), expand = expansion(add = c(0, 10)), sec.axis = dup_axis(name=NULL)) +
+        scale_y_continuous(minor_breaks = seq(0, y_max, br_major / 2),
+                           breaks = seq(0, y_max, br_major),
+                           expand = expansion(add = c(0, 10)),
+                           sec.axis = dup_axis(name=NULL)) +
         default_theme
     if (!is.null(custom_labs)) {
         p <- p + custom_labs

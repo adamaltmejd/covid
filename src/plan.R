@@ -23,10 +23,10 @@ plan <- drake_plan(
             data.table(publication_date = as.IDate(Sys.Date()),
                        fread(url_finland, sep = ";",
                              select = c("Time" = "IDate", "Measure" = "character", "val" = "integer"),
-                             col.names = c("date", "variable", "value")),
-                       key = c("publication_date", "date"))[!is.na(value)],
+                             col.names = c("date", "variable", "N")),
+                       key = c("publication_date", "date", "variable"))[!is.na(N)],
             use.names = TRUE
-        ), by = c("publication_date", "date")),
+        ), by = c("publication_date", "date", "variable")),
         trigger = trigger(condition = RCurl::url.exists(url_finland) &
                           max(fread(file.path("data", "other_countries", "finland.csv"))$publication_date) < Sys.Date(),
                           change = Sys.Date())

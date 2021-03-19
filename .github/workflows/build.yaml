@@ -19,7 +19,7 @@ jobs:
             - name: Setup R
               uses: r-lib/actions/setup-r@master
               with:
-                  r-version: "4.1.0"
+                  r-version: "4.0.4"
 
             - name: renv cache
               uses: actions/cache@v2

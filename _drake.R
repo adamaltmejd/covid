@@ -12,8 +12,8 @@ source('src/model/prepare_data.R')
 source('src/model/run.model.all.R')
 source('src/model/seperate_lag_model.R')
 source('src/model/eval.coverage_prediction.R')
-source('src/plan.R')
 source('src/model/GPsmoothing_model.R')
+source('src/plan.R')
 
 drake::drake_config(
     plan = plan,

@@ -16,7 +16,7 @@ jobs:
             - name: Install dependencies
               run: |
                 sudo apt-get update -qq
-                sudo apt-get install -y --fix-broken libcurl4-openssl-dev fonts-ebgaramond
+                sudo apt-get install -y libcurl4-openssl-dev fonts-ebgaramond
 
             - name: Setup R
               uses: r-lib/actions/setup-r@master

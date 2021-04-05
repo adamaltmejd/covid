@@ -14,7 +14,9 @@ jobs:
             - uses: actions/checkout@v2
 
             - name: Install dependencies
-              run: sudo apt-get install fonts-ebgaramond
+              run: |
+                sudo apt-get update -qq
+                sudo apt-get install -y --fix-broken libcurl4-openssl-dev fonts-ebgaramond
 
             - name: Setup R
               uses: r-lib/actions/setup-r@master

@@ -152,6 +152,10 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
             html_attr("content") %>%
             sub("0; url=", "", .) %>%
             read_html() %>%
+            html_node("meta") %>%
+            html_attr("content") %>%
+            sub("0; url=", "", .) %>%
+            read_html() %>%
             html_nodes("script") %>%
             extract(2) %>%
             html_text() %>%

@@ -139,23 +139,25 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
     )
 
     if (!is.null(page)) {
-        data_json <- page %>%
+        data <- page %>%
             html_nodes("iframe") %>%
             extract(2) %>%
             html_attr("src") %>%
-            read_html() %>%
-            html_node("meta") %>%
-            html_attr("content") %>%
-            sub("0; url=", "", .) %>%
-            read_html() %>%
-            html_node("meta") %>%
-            html_attr("content") %>%
-            sub("0; url=", "", .) %>%
-            read_html() %>%
-            # html_node("meta") %>%
-            # html_attr("content") %>%
-            # sub("0; url=", "", .) %>%
-            # read_html() %>%
+            read_html()
+
+        # Follow wrappers until at real page
+        while (TRUE) {
+            data <- data %>% html_elements(xpath = '//meta[@http-equiv="REFRESH"]') %>%
+                html_attr("content") %>%
+                sub("0; url=", "", .) %>%
+                read_html()
+
+            if (length(data %>% html_elements(xpath = '//meta[@http-equiv="REFRESH"]')) == 0) {
+                break
+            }
+        }
+
+        data_json <- data %>%
             html_nodes("script") %>%
             extract(2) %>%
             html_text() %>%

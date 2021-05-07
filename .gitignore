@@ -18,6 +18,6 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 rsconnect/
-
+data/tmp/
 # Drake console
 console.log

@@ -34,19 +34,19 @@ plan <- drake_plan(
     fwrite(deaths_dt_finland, file.path("data", "other_countries", "finland.csv")),
 
     # UK
-    url_uk = "https://coronavirus.data.gov.uk/api/v1/data?filters=areaType=overview&structure=%7B%22areaType%22:%22areaType%22,%22areaName%22:%22areaName%22,%22areaCode%22:%22areaCode%22,%22date%22:%22date%22,%22newDeaths28DaysByDeathDate%22:%22newDeaths28DaysByDeathDate%22,%22cumDeaths28DaysByDeathDate%22:%22cumDeaths28DaysByDeathDate%22%7D&format=csv",
+    url_uk = "https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newDeaths28DaysByDeathDate&format=csv&release=",
     deaths_dt_uk = target(
         unique(rbind(
             fread(file.path("data", "other_countries", "uk.csv")),
-            data.table(publication_date = as.IDate(Sys.Date()),
-                       fread(url_uk,
+            data.table(publication_date = as.IDate(Sys.Date() - 1),
+                       fread(paste0(url_uk, as.Date(Sys.Date() - 1)),
                              select = c("date" = "IDate", "newDeaths28DaysByDeathDate" = "integer"),
                              col.names = c("date", "N")),
                        key = c("publication_date", "date"))[!is.na(N)],
             use.names = TRUE
         ), by = c("publication_date", "date")),
         trigger = trigger(condition = RCurl::url.exists(url_uk) &
-                          max(fread(file.path("data", "other_countries", "uk.csv"))$publication_date) < Sys.Date(),
+                          max(fread(file.path("data", "other_countries", "uk.csv"))$publication_date) < Sys.Date() - 1,
                           change = Sys.Date())
     ),
     fwrite(deaths_dt_uk, file.path("data", "other_countries", "uk.csv")),

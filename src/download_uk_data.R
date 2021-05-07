@@ -2,19 +2,19 @@
 # download_old_UK_data
 library(data.table)
 library(drake)
-# start_date <- as.Date("2021-05-05")
-# end_date <- as.Date("2021-05-06")
+start_date <- as.Date("2020-08-24")
+end_date <- as.Date("2021-05-06")
 
-# #DT <- readd(deaths_dt_uk)
-# dates_to_fetch <- seq(start_date, end_date, 1)
-# for (i in seq_along(dates_to_fetch)) {
-#     print(dates_to_fetch[i])
-#     download.file(
-#         url = paste0("https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newDeaths28DaysByDeathDate&format=csv&release=", dates_to_fetch[i]),
-#         destfile = paste0("data/tmp/uk_", dates_to_fetch[i], ".csv")
-#     )
-#     Sys.sleep(40)
-# }
+#DT <- readd(deaths_dt_uk)
+dates_to_fetch <- seq(start_date, end_date, 1)
+for (i in seq_along(dates_to_fetch)) {
+    print(dates_to_fetch[i])
+    download.file(
+        url = paste0("https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newDeaths28DaysByDeathDate&format=csv&release=", dates_to_fetch[i]),
+        destfile = paste0("data/tmp/uk_", dates_to_fetch[i], ".csv")
+    )
+    Sys.sleep(40)
+}
 
 # Add old UK data to UK dataset
 #DT <- readd(deaths_dt_uk)

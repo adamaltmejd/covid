@@ -2,17 +2,26 @@
 # download_old_UK_data
 library(data.table)
 library(drake)
-start_date <- as.Date("2020-08-24")
+start_date <- as.Date("2020-08-25")
 end_date <- as.Date("2021-05-06")
 
 #DT <- readd(deaths_dt_uk)
 dates_to_fetch <- seq(start_date, end_date, 1)
 for (i in seq_along(dates_to_fetch)) {
-    print(dates_to_fetch[i])
+
+    # Skip already downloaded
+    if (file.exists(paste0("data/tmp/uk_", dates_to_fetch[i], ".csv"))) next
+
+    # Skip dates with errors
+    if (dates_to_fetch[i] %in% as.Date(c("2021-02-24", "2021-02-25"))) next
+
+    # Download file
     download.file(
         url = paste0("https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newDeaths28DaysByDeathDate&format=csv&release=", dates_to_fetch[i]),
         destfile = paste0("data/tmp/uk_", dates_to_fetch[i], ".csv")
     )
+
+    # Sleep to adhere to gov.uk 100 files per hour rule.
     Sys.sleep(40)
 }
 

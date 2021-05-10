@@ -7,7 +7,7 @@ output:
 ---
 
 ```{r setup}
-knitr::opts_knit$set(root.dir = normalizePath("../..")) 
+knitr::opts_knit$set(root.dir = normalizePath("../.."))
 ```
 
 ```{r}
@@ -18,7 +18,7 @@ source("_drake.R")
 ```{r load_data}
 loadd(ecdc)
 ecdc[, date := as.Date(dateRep, format = "%d/%m/%Y")]
-ecdc <- ecdc[!is.na(countryterritoryCode) & countryterritoryCode != "" & !is.na(date), 
+ecdc <- ecdc[!is.na(countryterritoryCode) & countryterritoryCode != "" & !is.na(date),
             .(country = countriesAndTerritories, country_code = countryterritoryCode, date, cases, deaths, pop = popData2018)]
 setkey(ecdc, country_code, date)
 ecdc[, deaths_cum := cumsum(deaths), by = country_code]
@@ -29,7 +29,7 @@ stringency <- fread("data/index_stringency.csv", header = TRUE)[!is.na(V2) & V2 
 setnames(stringency, c("V1", "V2"), c("country", "countryterritoryCode"))
 stringency <- melt(stringency, id.vars = c("country", "countryterritoryCode"), variable.name = "date", value.name = "stringency")
 stringency[, date := as.Date(date, format = "%d%b%Y")]
-stringency <- stringency[!is.na(countryterritoryCode) & !is.na(date) & !(stringency %in% c(".", "", NA_character_)), 
+stringency <- stringency[!is.na(countryterritoryCode) & !is.na(date) & !(stringency %in% c(".", "", NA_character_)),
                          .(country, country_code = countryterritoryCode, date, stringency = as.numeric(stringency))]
 stringency <- stringency[country_code %in% ecdc[, unique(country_code)]]
 setkey(stringency, country_code, date)
@@ -59,7 +59,7 @@ Clear differences between Nordic countries:
 DT[country_code %in% c("SWE", "NOR", "DNK", "FIN")]
 ```
 
-We compare two predictors. 
+We compare two predictors.
 
 (1) The **number of days between the 10th death occurred in a country and the date when the country reached 20 on the stringency level scale**. 20 is a really mild stringency level. Sweden, who never had any stay-at-home orders and did not close restaurants or primary schools has a peak stringency level of 46.3. We see that most countries have negative values, meaning that at least some interventions were put in place before the country reached 10 deaths. Sweden has a value of -1 days, among the `r DT[, .N]` countries in our sample, this is the `r sum(sort(DT[, days_from_10_deaths_to_stringency_20]) <= DT[country_code == "SWE", days_from_10_deaths_to_stringency_20])` slowest.
 
@@ -79,13 +79,13 @@ DT[, summary(peak_stringency)]
 The question is how well these two variables correlate with the variation in deaths. We use the cumulative number of deaths within 60 days from the 10th death per capita as our dependent variable.
 
 ```{r}
-summary(lm(deaths_cum_10p60_pc ~ days_from_10_deaths_to_stringency_20, DT))
+summary(lm(deaths_cum_10p60_pc ~ days_from_10_deaths_to_stringency_20, DT))
 ```
 
 Predicting deaths 60 days after 10th death with the peak stringency level.
 
 ```{r}
-summary(lm(deaths_cum_10p60_pc ~ peak_stringency, DT))
+summary(lm(deaths_cum_10p60_pc ~ peak_stringency, DT))
 ```
 
 R^2 is 6.5 times higher for timing of interventions vs level of stringency.

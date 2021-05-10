@@ -910,7 +910,7 @@ aa2b9c77ad283919,import,tools::file_ext
 842ab03e0a3faa82,target,file data/covid_deaths_latest.csv
 7020863ade100db3,target,file data/covid_icu_latest.csv
 37f54275c6cf0876,target,file data/predictions.csv
-8cf9f3bfc9e40276,target,file docs/archive
+7e6273ef2735f329,target,file docs/archive
 38d20a18ab429130,target,file docs/deaths_lag_uk.png
 524ca9b588ac1a81,target,file docs/deaths_lag_finland.png
 4ae4e577fa6b4841,target,file docs/deaths_lag_sweden_latest.png

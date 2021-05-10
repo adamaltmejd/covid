@@ -12,9 +12,6 @@ for (i in seq_along(dates_to_fetch)) {
     # Skip already downloaded
     if (file.exists(paste0("data/tmp/uk_", dates_to_fetch[i], ".csv"))) next
 
-    # Skip dates with errors
-    if (dates_to_fetch[i] %in% as.Date(c("2021-02-24", "2021-02-25"))) next
-
     # Download file
     download.file(
         url = paste0("https://api.coronavirus.data.gov.uk/v2/data?areaType=overview&metric=newDeaths28DaysByDeathDate&format=csv&release=", dates_to_fetch[i]),

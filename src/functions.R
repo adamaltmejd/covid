@@ -166,7 +166,8 @@ update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) 
             gsub("\\\\\"", "\"", .) %>%
             parse_json
 
-        data_delim <- data_json$data$chartData
+        data_delim <- data_json$data
+        if ("chartData" %in% names(data_delim)) data_delim <- data_json$chartData
         data_delim <- gsub("\\\\n", "\n", data_delim)
         data_delim <- gsub("\\\\t", "\t", data_delim)
         data_delim <- gsub("\\\\r", "\t", data_delim)
@@ -671,7 +672,7 @@ plot_coverage_eval <- function(death_dt, death_prediction_constant, death_predic
         geom_ribbon(aes(ymin = total_uCI, ymax = total_lCI, fill = type),
                     alpha = 0.3) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(legend.position = "top")) +
-        scale_fill_manual(values = wes_palette("Darjeeling2"), guide = FALSE) +
+        scale_fill_manual(values = wes_palette("Darjeeling2"), guide = "none") +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
         scale_y_continuous(limits = c(-10, 160), minor_breaks = seq(0,160,10), breaks = seq(0,160,20), expand = expansion(add = c(10, 10))) +
         default_theme +

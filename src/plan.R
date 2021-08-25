@@ -57,8 +57,8 @@ plan <- drake_plan(
     icu_dts = target(load_fhm_data(fhm_files, type = "icu"), dynamic = map(fhm_files)),
     icu_dt = join_data(icu_dts),
     # From Socialstyrelsen
-    socstyr_dt = target(update_socstyr(f = file_out(!!file.path("data", "Socialstyrelsen_latest.csv"))),
-                        trigger = trigger(condition = trigger_new_download(!!file.path("data", "Socialstyrelsen_latest.csv"), type = "SocStyr"))),
+    # socstyr_dt = target(update_socstyr(f = file_out(!!file.path("data", "Socialstyrelsen_latest.csv"))),
+    #                     trigger = trigger(condition = trigger_new_download(!!file.path("data", "Socialstyrelsen_latest.csv"), type = "SocStyr"))),
 
     # Model predictions
     # Constant model
@@ -132,7 +132,7 @@ plan <- drake_plan(
     save_plot(coverage_plot_t5, file_out(!!file.path("docs", "eval", paste0("coverage_eval_t5.png"))), bgcolor = "white"),
 
     # Prior evaluation plot
-    prior_eval_plot = deaths_icu_hospital_corr_plot(model_death_dt, socstyr_dt, default_theme),
-    save_plot(prior_eval_plot, file_out(!!file.path("docs", "eval", paste0("prior_eval.png"))), bgcolor = "white"),
+    #prior_eval_plot = deaths_icu_hospital_corr_plot(model_death_dt, socstyr_dt, default_theme),
+    #save_plot(prior_eval_plot, file_out(!!file.path("docs", "eval", paste0("prior_eval.png"))), bgcolor = "white"),
 )
 

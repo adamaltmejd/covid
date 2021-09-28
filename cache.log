@@ -367,8 +367,8 @@ b1599c0e046cb644,target,death_plot_uk
 9d53d34d1fc2ff33,target,death_prediction_constant
 e1496c715af1f1ef,target,death_prediction_model
 43c48372eb8157bf,target,death_prediction_model_raw
-29857e53e1641a0c,target,deaths_dt_finland
-187c63ff60f768fa,target,deaths_dt_uk
+5d9f69686f7e2b10,target,deaths_dt_finland
+259a40bb49eb127a,target,deaths_dt_uk
 1a7b904da893e4ff,import,deaths_icu_hospital_corr_plot
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t
@@ -1100,7 +1100,7 @@ fc771d9d0dddbd7f,import,join_data
 b8da9be89e8c18a3,target,lag_plot
 0d81bfb767c1c1f1,target,lag_plot1
 f90a55a66171a79e,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+c85d88fc56f4e042,target,latest_fhm
 b9d816e40e8ee2e7,import,likelihood_death
 146be7d74d6addcb,import,load_fhm_data
 bd714dfb6790ef37,import,matern.covariance
@@ -1128,7 +1128,7 @@ aa2b9c77ad283919,import,tools::file_ext
 d18e6e2b91618863,target,file data/covid_deaths_latest.csv
 5c6af2b9e8e8f351,target,file data/covid_icu_latest.csv
 3d237f60b20f56f0,target,file data/predictions.csv
-87ebf527f8b6e1d4,target,file docs/archive
+c48ae0ce6ecb4397,target,file docs/archive
 e8feffd602e0f7d5,target,file docs/deaths_lag_uk.png
 fa8c918301aabe1f,target,file docs/deaths_lag_finland.png
 2448361ab652c040,target,file docs/deaths_lag_sweden_latest.png

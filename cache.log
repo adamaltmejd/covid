@@ -370,8 +370,8 @@ f193a3fb1850f0ff,target,death_dts_ffd2bf51
 38b34f0724e489f7,target,death_prediction_constant
 008ef2aa7a8d55ec,target,death_prediction_model
 dfbb4173c66e9f25,target,death_prediction_model_raw
-e004e9983a7e8633,target,deaths_dt_finland
-5a26e1ca48f9595a,target,deaths_dt_uk
+4d8aa35cce4a369b,target,deaths_dt_finland
+2a17e59b7a022f92,target,deaths_dt_uk
 1a7b904da893e4ff,import,deaths_icu_hospital_corr_plot
 69b35d3d0ebec135,target,default_theme
 b605f5b941f74434,import,density_t
@@ -1137,7 +1137,7 @@ fee105d152d08257,target,file data/FHM
 82be3ab3a85888ea,target,file data/covid_deaths_latest.csv
 66237117d7c976b3,target,file data/covid_icu_latest.csv
 d77137857c0ab142,target,file data/predictions.csv
-5038be6981bc3a5e,target,file docs/archive
+cc3c46dc985feaf4,target,file docs/archive
 d5777c88489de79a,target,file docs/deaths_lag_uk.png
 87d8f2716696f795,target,file docs/deaths_lag_finland.png
 3805890fa816be3a,target,file docs/deaths_lag_sweden_latest.png

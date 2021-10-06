@@ -20,5 +20,6 @@ drake::drake_config(
     verbose = 2, lock_cache = TRUE,
     session_info = TRUE, seed = 12345,
     log_make = file.path("console.log"),
-    cache_log_file = file.path("cache.log")
+    cache_log_file = file.path("cache.log"),
+    keep_going = TRUE # keep going despite error in UK code
 )

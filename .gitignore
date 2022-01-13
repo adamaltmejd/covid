@@ -1,3 +1,9 @@
+library/
+local/
+cellar/
+lock/
+python/
+staging/
 .DS_Store
 ~$*
 .drake

@@ -6,7 +6,7 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
     if (DL != 0) { stop("File download error.") }
 
     # Check archived files for latest record
-    latest_record <- max(as.Date(gsub("^.*(202[01]-[0-9]{2}-[0-9]{2}).xlsx", "\\1", list.files(folder, pattern = "^Folkhalso"))))
+    latest_record <- max(as.Date(gsub("^.*(202[0-9]-[0-9]{2}-[0-9]{2}).xlsx", "\\1", list.files(folder, pattern = "^Folkhalso"))))
 
     # Check if new download is newer than latest record, in that case, archive it.
     new_record <- get_record_date(file.path(folder, "FHM_latest.xlsx"))

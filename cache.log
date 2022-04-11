@@ -460,7 +460,7 @@ df18c1f1e8d274b3,target,death_dts_fb7ba532
 fe4b8cb66625fba7,target,death_dts_fd224dc3
 797a97806d462690,target,death_dts_ff1372b1
 f193a3fb1850f0ff,target,death_dts_ffd2bf51
-e0247729d37c70ba,target,death_plot
+09532c096711a42f,target,death_plot
 9962b061a1530317,target,death_prediction_constant
 f6f0a56986ba2276,target,death_prediction_model
 3cbd07d154aef12e,target,death_prediction_model_raw
@@ -1392,7 +1392,7 @@ a6b2bece2c7601ca,target,icu_dts_fa79d925
 616037d376457175,target,icu_dts_ff1372b1
 1facd6fa6ee0576c,target,icu_dts_ffd2bf51
 fc771d9d0dddbd7f,import,join_data
-22b373da5127977e,target,lag_plot
+ea36f4cb5f32f5f5,target,lag_plot
 f604abace6f25e77,target,lag_plot1
 0deb5540c8ef84dd,target,lag_plot2
 c85d88fc56f4e042,target,latest_fhm
@@ -1424,10 +1424,9 @@ aa2b9c77ad283919,import,tools::file_ext
 4f8d31546b5b0962,target,file data/covid_icu_latest.csv
 b36611614e5ac863,target,file data/predictions.csv
 bd8a3cf37b05760f,target,file docs/archive
-c625f9b60e83f9a5,target,file docs/deaths_lag_sweden_latest.png
+65199b884680668b,target,file docs/deaths_lag_sweden_latest.png
 a8ac0b122c1beba3,target,file docs/deaths_lag_sweden_2021-03-05.png
-1e44d6bcd0d63f4f,target,file docs/deaths_lag_sweden_2022-04-10.png
-1e44d6bcd0d63f4f,target,file docs/deaths_lag_sweden_2022-04-11.png
+d78dc328ca589fcf,target,file docs/deaths_lag_sweden_2022-04-11.png
 f195b7e1eec0c72a,target,file docs/eval/coverage_eval_t0.png
 4bb139b8c85fc7ef,target,file docs/eval/coverage_eval_t1.png
 f5c2503df4eef2e6,target,file docs/eval/coverage_eval_t2.png
@@ -1437,9 +1436,8 @@ f5c2503df4eef2e6,target,file docs/eval/coverage_eval_t2.png
 674edf86802be4e5,target,file docs/eval/prior_eval.png
 079808aebb22f3f6,target,file docs/index.md
 a8b4f6c32b018417,target,file docs/lag_trend_sweden_2021-03-05.png
-9f93e842a7485ab1,target,file docs/lag_trend_sweden_2022-04-10.png
-9f93e842a7485ab1,target,file docs/lag_trend_sweden_2022-04-11.png
-c037f8cdcc224b9c,target,file docs/lag_trend_sweden_latest.png
+dcc0ac29eb355159,target,file docs/lag_trend_sweden_2022-04-11.png
+64a8e11225df5aff,target,file docs/lag_trend_sweden_latest.png
 f6d8f0dedc52e8dd,import,plot_coverage_eval
 8f3ab72471354a30,import,plot_lag_trends_grid
 96c5476ce1d3865c,import,plot_lag_trends1

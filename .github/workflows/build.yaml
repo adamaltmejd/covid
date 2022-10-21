@@ -19,7 +19,7 @@ jobs:
                 sudo apt-get install -y libcurl4-openssl-dev fonts-ebgaramond
 
             - name: Setup R
-              uses: r-lib/actions/setup-r@master
+              uses: r-lib/actions/setup-r@v2
               with:
                   r-version: "4.1.1"
 

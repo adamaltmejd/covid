@@ -1497,7 +1497,7 @@ fc771d9d0dddbd7f,import,join_data
 b279f1828e380e30,target,lag_plot
 031bdddb9ffe4b88,target,lag_plot1
 4f18e78d92c851e4,target,lag_plot2
-8271c9325d9ef093,target,latest_fhm
+c85d88fc56f4e042,target,latest_fhm
 b9d816e40e8ee2e7,import,likelihood_death
 146be7d74d6addcb,import,load_fhm_data
 bd714dfb6790ef37,import,matern.covariance
@@ -1528,7 +1528,6 @@ d1d6147b7d545d56,target,file data/predictions.csv
 3215fcd5eba4c3d1,target,file docs/archive
 a92a3ea49fd55724,target,file docs/deaths_lag_sweden_latest.png
 a8ac0b122c1beba3,target,file docs/deaths_lag_sweden_2021-03-05.png
-964a4ae734bc2534,target,file docs/deaths_lag_sweden_2022-11-30.png
 c26314c3ef5d1b2d,target,file docs/deaths_lag_sweden_2022-12-01.png
 aaf222fc66c6db36,target,file docs/eval/coverage_eval_t0.png
 293e1c06e6091797,target,file docs/eval/coverage_eval_t1.png
@@ -1539,7 +1538,6 @@ aaf222fc66c6db36,target,file docs/eval/coverage_eval_t0.png
 674edf86802be4e5,target,file docs/eval/prior_eval.png
 26450ded1611a65a,target,file docs/index.md
 a8b4f6c32b018417,target,file docs/lag_trend_sweden_2021-03-05.png
-a4dace074493f7f4,target,file docs/lag_trend_sweden_2022-11-30.png
 1676a1c051c47755,target,file docs/lag_trend_sweden_2022-12-01.png
 2a688b618e2de5e1,target,file docs/lag_trend_sweden_latest.png
 f6d8f0dedc52e8dd,import,plot_coverage_eval

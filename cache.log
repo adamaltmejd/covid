@@ -526,9 +526,9 @@ c85d88fc56f4e042,target,drake_target_3
 c85d88fc56f4e042,target,drake_target_4
 c85d88fc56f4e042,target,drake_target_5
 91a78a30a1427488,target,drake_target_6
-9edbf8286ca5e76a,target,drake_target_7
+bd63f815aa744601,target,drake_target_7
 507dc99686c28427,target,drake_target_8
-a3a6839f53444b03,target,drake_target_9
+e6d089b00ff84ebf,target,drake_target_9
 078ae3a8bca775a2,target,ecdc
 49f25c0a34995500,target,fhm_files
 157c17c522cd5929,target,fhm_files_012b6601
@@ -1543,10 +1543,11 @@ d5518fa25724e9d9,target,file data/FHM
 a671b021afe89d13,target,file data/covid_deaths_latest.csv
 6277c46e91fdcff3,target,file data/covid_icu_latest.csv
 4a04f521edd5e5ad,target,file data/predictions.csv
-8fc3739a432c47cf,target,file docs/archive
+edd58e047fd418c1,target,file docs/archive
 a801db69b551802e,target,file docs/deaths_lag_sweden_latest.png
 a8ac0b122c1beba3,target,file docs/deaths_lag_sweden_2021-03-05.png
 135dc3047888c99d,target,file docs/deaths_lag_sweden_2023-01-14.png
+135dc3047888c99d,target,file docs/deaths_lag_sweden_2023-01-15.png
 c2275e513e1bfcfc,target,file docs/eval/coverage_eval_t0.png
 ee104579e9a0b0a1,target,file docs/eval/coverage_eval_t1.png
 ec33c4d30134e7f6,target,file docs/eval/coverage_eval_t2.png
@@ -1554,9 +1555,10 @@ ec33c4d30134e7f6,target,file docs/eval/coverage_eval_t2.png
 d72f7249bda2b3f6,target,file docs/eval/coverage_eval_t4.png
 cdfab9c19e768b43,target,file docs/eval/coverage_eval_t5.png
 674edf86802be4e5,target,file docs/eval/prior_eval.png
-29537057ec6f4d20,target,file docs/index.md
+6111e91415006930,target,file docs/index.md
 a8b4f6c32b018417,target,file docs/lag_trend_sweden_2021-03-05.png
 9612d6e62ba73112,target,file docs/lag_trend_sweden_2023-01-14.png
+9612d6e62ba73112,target,file docs/lag_trend_sweden_2023-01-15.png
 41ac4146825da98d,target,file docs/lag_trend_sweden_latest.png
 f6d8f0dedc52e8dd,import,plot_coverage_eval
 8f3ab72471354a30,import,plot_lag_trends_grid

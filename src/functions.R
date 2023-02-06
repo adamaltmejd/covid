@@ -409,8 +409,8 @@ set_default_theme <- function() {
             panel.border = element_blank(),
             panel.grid.major.x = element_blank(),
             panel.grid.minor.x = element_blank(),
-            panel.grid.major.y = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
-            panel.grid.minor.y = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)
+            panel.grid.major.y = element_line(linetype = "dotted", color = "#CCCCCC", linewidth = 0.3),
+            panel.grid.minor.y = element_line(linetype = "dotted", color = "#CECECE", linewidth = 0.2)
         )
 }
 
@@ -466,7 +466,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
 
     # Main part
     p <- ggplot(data = death_dt, aes(y = n_diff, x = date)) +
-        geom_hline(yintercept = 0, linetype = "solid", color = "#999999", size = 0.4) +
+        geom_hline(yintercept = 0, linetype = "solid", color = "#999999", linewidth = 0.4) +
         geom_bar(position = "stack", stat = "identity", aes(fill = delay), width = 1)
 
     # Label
@@ -477,7 +477,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
     if (!is.null(death_prediction_model)) {
         p <- p +
             geom_linerange(data = death_prediction_model, aes(y = total, ymin = total_lCI, ymax = total_uCI),
-                        color = "#999999", size = 0.5) +
+                        color = "#999999", linewidth = 0.5) +
             geom_point(data = death_prediction_model, aes(y = total), color = "#888888", size = 0.2)
 
         lab <- paste0(lab, "\n",
@@ -488,7 +488,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
     # Add Annotations and styling
     p <- p +
         annotate(geom = "label", fill = "#F5F5F5", color = "#333333",
-                 hjust = 0, family = "Eb Garamond",
+                 hjust = 0, family = "EB Garamond",
                  label.r = unit(0, "lines"), label.size = 0.5,
                  x = as.Date("2020-07-01"), y = 2 * y_max / 3,
                  label = lab) +
@@ -524,15 +524,15 @@ plot_lag_trends1 <- function(time_to_finished, default_theme) {
     levels(DT$variable) <- paste0(levels(DT$variable), "%")
 
     ggplot(data = DT, aes(x = date, y = value)) +
-        geom_line(aes(group = variable, color = variable), linetype = "twodash", size = 0.9, alpha = 0.8) +
+        geom_line(aes(group = variable, color = variable), linetype = "twodash", linewidth = 0.9, alpha = 0.8) +
         scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
         scale_y_continuous(limits = c(-1, 32), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
         default_theme +
         theme(legend.direction = "horizontal",
               legend.position = c(0.4, 0.8), legend.justification = "center",
-              panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", size = 0.3),
-              panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", size = 0.2)) +
+              panel.grid.major.x = element_line(linetype = "dotted", color = "#CCCCCC", linewidth = 0.3),
+              panel.grid.minor.x = element_line(linetype = "dotted", color = "#CECECE", linewidth = 0.2)) +
         labs(color = "Completed = days until 3-day change is below:",
              x = "Death date",
              y = 'Days until date is "completed"')

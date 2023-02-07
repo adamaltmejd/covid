@@ -1,7 +1,7 @@
 load_fhm_icu_age <- function(f) {
-    require(data.table)
-    require(readxl)
-    require(stringr)
+    library(data.table)
+    library(readxl)
+    library(stringr)
 
     # Skip early reports that do not contain ICU data
     date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
@@ -20,9 +20,9 @@ load_fhm_icu_age <- function(f) {
     return(DT)
 }
 
-require(data.table)
-require(readxl)
-require(stringr)
+library(data.table)
+library(readxl)
+library(stringr)
 library(ggplot2)
 fhm_files <- list.files(file.path("data", "FHM"), pattern = "^Folkhalso", full.names = TRUE)
 dts <- rbindlist(lapply(fhm_files, load_fhm_icu_age))

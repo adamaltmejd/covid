@@ -507,7 +507,7 @@ benchmark_BetaGP_lag_j <-function(j,
                                   deaths_sim,
                                   prior = c(0),
                                   npar=2){
-    require(Matrix)
+    library(Matrix)
     N_T <- length(result$dates)
     deaths_est_T <- apply(result$detected, 1, max, na.rm=T)
     result_j <- result
@@ -693,7 +693,7 @@ benchmark_BetaGP_post_lag_j <- function(j,
                                         deaths_sim,
                                         prior = 0,
                                         npars = 2){
-    require(Matrix)
+    library(Matrix)
     N_T <- length(result$dates)
     deaths_est_T <- apply(result$detected, 1, max, na.rm=T)
     result_j <- result

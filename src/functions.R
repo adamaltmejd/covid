@@ -1,5 +1,5 @@
 download_latest_fhm <- function(folder = file.path("data", "FHM")) {
-    require(readxl)
+    library(readxl)
 
     DL <- download.file("https://www.arcgis.com/sharing/rest/content/items/b5e7488e117749c19881cce45db13f7e/data",
                         destfile = file.path(folder, "FHM_latest.xlsx"), method = "curl", extra = c("-L"), quiet = TRUE)
@@ -20,8 +20,8 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
 }
 
 get_remote_data <- function(url, f) {
-    require(curl)
-    require(data.table)
+    library(curl)
+    library(data.table)
 
     DT <- fread(url)
     fwrite(DT, f)
@@ -29,8 +29,8 @@ get_remote_data <- function(url, f) {
 }
 
 get_ecdc <- function(url, f) {
-    require(curl)
-    require(data.table)
+    library(curl)
+    library(data.table)
 
     DT <- tryCatch({
         DT <- fread(url)
@@ -53,7 +53,7 @@ get_record_date <- function(f) {
 }
 
 trigger_new_download <- function(f, type = "FHM") {
-    require(data.table)
+    library(data.table)
 
     if (!file.exists(f)) {
         return(TRUE)
@@ -76,10 +76,10 @@ list_fhm_files <- function(folder = file.path("data", "FHM")) {
 }
 
 load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
-    require(data.table)
-    require(readxl)
-    require(stringr)
-    require(lubridate)
+    library(data.table)
+    library(readxl)
+    library(stringr)
+    library(lubridate)
 
     publication_date <- get_record_date(f)
     file_date <- as.Date(str_extract(f, "[0-9]{4}-[0-9]{2}-[0-9]{2}"))
@@ -126,11 +126,11 @@ load_fhm_data <- function(f, type) { # type %in% c("deaths", "icu")
 }
 
 update_socstyr <- function(f = file.path("data", "Socialstyrelsen_latest.csv")) {
-    require(data.table)
-    require(rvest)
-    require(jsonlite)
-    require(magrittr)
-    require(stringr)
+    library(data.table)
+    library(rvest)
+    library(jsonlite)
+    library(magrittr)
+    library(stringr)
 
     page <- tryCatch(
         read_html("https://www.socialstyrelsen.se/statistik-och-data/statistik/statistik-om-covid-19/sammanfattande-statistik-over-tid/"),
@@ -383,8 +383,8 @@ day_of_week <- function(death_dt) {
 ##
 # Plots
 set_default_theme <- function() {
-    require(ggplot2)
-    require(hrbrthemes)
+    library(ggplot2)
+    library(hrbrthemes)
 
     theme_ipsum(base_family = "EB Garamond") %+replace%
         theme(
@@ -428,8 +428,8 @@ my_null_device <- function(width, height) {
 
 plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
                                default_theme, custom_labs = NULL, y_max = NULL, br_major = NULL) {
-    require(ggplot2)
-    require(forcats)
+    library(ggplot2)
+    library(forcats)
 
     first_pub_date <- death_dt[, min(publication_date, na.rm = TRUE)]
     latest_date <- death_dt[, max(publication_date, na.rm = TRUE)]
@@ -701,11 +701,11 @@ plot_coverage_eval <- function(death_dt, death_prediction_constant, death_predic
 }
 
 deaths_icu_hospital_corr_plot <- function(model_death_dt, socstyr_dt, default_theme) {
-    require(data.table)
-    require(gamm4)
-    require(ggplot2)
-    require(wesanderson)
-    require(hrbrthemes)
+    library(data.table)
+    library(gamm4)
+    library(ggplot2)
+    library(wesanderson)
+    library(hrbrthemes)
     lag <- 7
     delay <- 20
 

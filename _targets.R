@@ -8,21 +8,12 @@ source('src/model/seperate_lag_model.R')
 source('src/model/eval.coverage_prediction.R')
 source('src/model/GPsmoothing_model.R')
 
-# library(Matrix)
-# library(invgamma)
-# library(tidyr)
-# library(numDeriv)
-# library(invgamma)
-# library(mvtnorm)
-# library(gamm4)
-# library(readxl)
-
 tar_option_set(
     library = .libPaths(),
     packages = c(
         "data.table", "fst", "readxl", "stringr", "qs",
         "ggplot2", "cowplot", "hrbrthemes", "wesanderson",
-        "forcats", "lubridate", "tools",
+        "forcats", "lubridate", "tools", "tidyr",
         "invgamma", "numDeriv", "mvtnorm", "gamm4"
     ),
     workspace_on_error = TRUE, error = "abridge", format = "qs",

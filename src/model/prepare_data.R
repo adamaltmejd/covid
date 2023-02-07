@@ -12,25 +12,17 @@ model_build_death_dt <- function(deaths_dt) {
 
     deaths_dt <- deaths_dt[date > "2020-04-01", .(date, publication_date, N)]
 
-    res2 <- deaths_dt %>% tidyr::spread(publication_date, N)
+    res2 <- deaths_dt |> tidyr::spread(publication_date, N)
 
-    # dayes with no reporting
-    index_NoReport <- res2[,1]$date%in%unique(deaths_dt$publication_date)==F
-
-    deaths_dt[, .N, date]
-    deaths_dt[is.na(date), .N]
-    deaths_dt[date < "2020-03-11"]
+    # days with no reporting
+    index_NoReport <- res2[,1] %in% unique(deaths_dt$publication_date) == FALSE
 
     # create a detected matrix for date x date
     n.days <- dim(res2)[1]
-    detected <- matrix(NA, nrow= n.days,
-                        ncol =n.days)
+    detected <- matrix(NA, nrow= n.days, ncol =n.days)
     detected[,index_NoReport == F] = as.matrix(res2[,2:dim(res2)[2]])
-    colnames(detected) <- c(res2[,1]$date)
-    #d_ <- diag(detected)
-    #d_[is.na(d_)] <- 0
-    #d_[index_NoReport] <- NA
-    #diag(detected) <- d_
+    colnames(detected) <- c(res2[,1])
+
     repeated = 1
     while(repeated != 0){
         repeated = 0
@@ -48,9 +40,9 @@ model_build_death_dt <- function(deaths_dt) {
         }
     }
     result <- list(detected = detected,
-                dates = res2[,1]$date,
-                dates_report=unique(deaths_dt$publication_date),
-                dates_not_reported = index_NoReport)
+                   dates = res2[,1],
+                   dates_report=unique(deaths_dt$publication_date),
+                   dates_not_reported = index_NoReport)
 
     return(result)
 }
@@ -71,7 +63,7 @@ model_build_icu_dt <- function(icu_dt) {
     res2 <- icu_dt %>% tidyr::spread(publication_date, N)
 
     # dayes with no reporting
-    index_NoReport <- res2[,1]$date%in%unique(icu_dt$publication_date)==F
+    index_NoReport <- res2[,1] %in% unique(icu_dt$publication_date) == FALSE
 
     icu_dt[, .N, date]
     icu_dt[is.na(date), .N]
@@ -82,7 +74,7 @@ model_build_icu_dt <- function(icu_dt) {
     detected <- matrix(NA, nrow= n.days,
                         ncol =n.days)
     detected[,index_NoReport == F] = as.matrix(res2[,2:dim(res2)[2]])
-    colnames(detected) <- c(res2[,1]$date)
+    colnames(detected) <- c(res2[,1])
     #d_ <- diag(detected)
     #d_[is.na(d_)] <- 0
     #d_[index_NoReport] <- NA
@@ -104,7 +96,7 @@ model_build_icu_dt <- function(icu_dt) {
         }
     }
     result <- list(detected = detected,
-                dates = res2[,1]$date,
+                dates = res2[,1],
                 dates_report=unique(icu_dt$publication_date),
                 dates_not_reported = index_NoReport)
 

@@ -223,8 +223,8 @@ join_data <- function(death_dts) {
     setkey(death_dt, publication_date, date)
 
     first_pub_date <- death_dt[, min(publication_date, na.rm = TRUE)]
-    death_dt[!is.na(date) & publication_date > first_pub_date, days_since_publication := publication_date - date]
-    death_dt[date == first_pub_date & publication_date == first_pub_date, days_since_publication := 0]
+    death_dt[!is.na(date) & publication_date > first_pub_date, days_since_publication := as.integer(publication_date - date)]
+    death_dt[date == first_pub_date & publication_date == first_pub_date, days_since_publication := 0L]
 
     death_dt[, paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
     death_dt[is.na(date), n_m1 := NA_real_]
@@ -262,8 +262,8 @@ predict_lag <- function(death_dt) {
     all_dates <- CJ(date = seq.Date(DT[, min(date)], DT[, max(date)], by = 1),
                     publication_date = seq.Date(DT[, min(publication_date)], DT[, max(publication_date)], by = 1))
     all_dates <- all_dates[date <= publication_date]
-    DT <- merge(DT, all_dates, all = TRUE)
-    DT[, days_since_publication := publication_date - date]
+    DT <- merge(DT, all_dates, by = c("date", "publication_date"), all = TRUE)
+    DT[, days_since_publication := as.integer(publication_date - date)]
 
     # Set n_diff to zero when there was no report
     DT[is.na(n_diff), n_diff := 0]
@@ -505,7 +505,7 @@ plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,
                  x = as.Date("2020-07-01"), y = 2 * y_max / 3,
                  label = lab) +
         scale_fill_manual(values = fill_colors, limits = label_order, drop = FALSE) +
-        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = expansion(add = 0)) +
+        scale_x_date(date_breaks = "1 year", date_labels = "%Y", date_minor_breaks = "1 month", expand = expansion(add = 0)) +
         scale_y_continuous(minor_breaks = seq(0, y_max, br_major / 2),
                            breaks = seq(0, y_max, br_major),
                            expand = expansion(add = c(0, 10)),
@@ -537,8 +537,8 @@ plot_lag_trends1 <- function(time_to_finished, default_theme) {
 
     ggplot(data = DT, aes(x = date, y = value)) +
         geom_line(aes(group = variable, color = variable), linetype = "twodash", linewidth = 0.9, alpha = 0.8) +
-        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
-        scale_y_continuous(limits = c(-1, 32), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28), minor_breaks = NULL) +
+        scale_x_date(date_breaks = "1 year", date_minor_breaks = "1 month", date_labels = "%Y", expand = c(0.02,0.02)) +
+        scale_y_continuous(limits = c(-1, 60), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28, 35, 42, 49, 56), minor_breaks = NULL) +
         scale_color_manual(values = wes_palette("Darjeeling2"), guide = guide_legend(title.position = "top")) +
         default_theme +
         theme(legend.direction = "horizontal",
@@ -564,12 +564,12 @@ plot_lag_trends2 <- function(death_dt, default_theme) {
     DT[, delay := forcats::fct_rev(delay)]
     label_order <- c(levels(DT$delay)[!grepl("No Data", levels(DT$delay))], "Weekend", "Weekday")
 
-    g <- ggplot(data = DT[lag <= 30],
+    g <- ggplot(data = DT[lag <= 60],
                 aes(x = publication_date, y = lag)) +
         geom_point(aes(size = n_diff / 2, color = delay)) +
         geom_line(aes(y = perc90_days, linetype = "90th Percentile"), color = "#555555", alpha = 0.8) +
-        scale_x_date(date_breaks = "1 month", date_labels = "%B", expand = c(0.02,0.02)) +
-        scale_y_continuous(limits = c(-1, 32), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28), minor_breaks = c(1, 2, 3, 5)) +
+        scale_x_date(date_breaks = "1 year", date_minor_breaks = "1 month", date_labels = "%Y", expand = c(0.02,0.02)) +
+        scale_y_continuous(limits = c(-1, 60), expand = expansion(add = c(0, 0)), breaks = c(7, 14, 21, 28, 35, 42, 49, 56), minor_breaks = c(1, 2, 3, 5)) +
         scale_size(range = c(0.5, 5)) +
         scale_color_manual(values = colors) + #limits = label_order
         scale_linetype_manual(values = c("90th Percentile" = "dashed"), name = "Statistics") +
@@ -620,7 +620,7 @@ plot_lag_trends_grid <- function(lag_plot1, lag_plot2, default_theme) {
     return(pgrid_labels)
 }
 
-archive_plots <- function(out_dir) {
+archive_plots <- function(out_dir, plots) {
     files <- list.files("docs", pattern = ".png")
     files <- files[!grepl(Sys.Date(), files)]
     files <- files[!grepl("latest", files)]
@@ -629,23 +629,22 @@ archive_plots <- function(out_dir) {
 }
 
 save_plot <- function(p, f, bgcolor = "transparent") {
-    require(ggplot2)
-    require(tools)
+    library(ggplot2)
+    library(ragg)
+    library(tools)
 
     h <- 6 # inches
     w <- 11.46 # inches (twitter ratio 1.91:1)
 
     if (tools::file_ext(f) == "pdf") {
-        cowplot::ggsave2(filename = f, plot = p,
-           height = h, width = w,
-           device = cairo_pdf)
+        ggsave(filename = f, plot = p, height = h, width = w, device = cairo_pdf)
     }
     if (tools::file_ext(f) == "png") {
-        cowplot::ggsave2(filename = f, plot = p,
-               height = h, width = w, dpi = 300,
-               device = grDevices::png(), type = "cairo",
-               bg = bgcolor, canvas = "#f5f5f5")
+        my_png <- function(...) ragg::agg_png(..., res = 300, units = "in")
+        ggsave(filename = f, plot = p, height = h, width = w, device = my_png, bg = bgcolor)
     }
+
+    return(f)
 }
 
 plot_coverage_eval <- function(death_dt, death_prediction_constant, death_prediction_model, days.ago = 0, default_theme) {
@@ -795,7 +794,7 @@ deaths_icu_hospital_corr_plot <- function(model_death_dt, socstyr_dt, default_th
     return(p)
 }
 
-update_web <- function(death_plot, lag_plot, index) {
+update_web <- function(plots, death_plot, lag_plot, index) {
     lines <- c(
         "---",
         "layout: page",
@@ -812,4 +811,11 @@ update_web <- function(death_plot, lag_plot, index) {
     con <- file(index, "w")
     writeLines(lines, con = con)
     close(con)
+
+    return(index)
+}
+
+exec_ret_path <- function(.data, FUN, path, ...) {
+    FUN(.data, path, ...)
+    return(path)
 }

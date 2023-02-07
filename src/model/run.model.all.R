@@ -2,15 +2,10 @@
 # function that updates all Npost, nprior
 #
 ###
-library(Matrix)
-library(invgamma)
 source(file.path("src","model","prob_dens.R"))
 source(file.path("src","model","regression.R"))
 source(file.path("src","model","model.R"))
 source(file.path("src","model","icu_regression.R"))
-
-
-
 
 #' Running n.estimate for all data
 #'

@@ -3,8 +3,6 @@
 # fit Gaussian processes for smoothing
 #
 
-library(data.table)
-
 likelihood_death <- function(x, D, y){
     kappa       <- exp(x[1])
     nu          <- exp(x[2])

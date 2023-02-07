@@ -1,4 +1,4 @@
-name: make_drake_cron
+name: make_cron
 
 on:
     push:
@@ -29,13 +29,13 @@ jobs:
                   restore-keys: |
                       ${{ runner.os }}-renv-v3-
 
-            - name: drake cache
+            - name: targets cache
               uses: actions/cache@v3
               with:
-                  path: .drake
-                  key: ${{ runner.os }}-drake-v3-${{ hashFiles('**/cache.log') }}
+                  path: _targets
+                  key: ${{ runner.os }}-targets-v3-${{ hashFiles('**/cache.log') }}
                   restore-keys: |
-                      ${{ runner.os }}-drake-v3-
+                      ${{ runner.os }}-targets-v3-
 
             - name: renv
               shell: Rscript {0}
@@ -44,7 +44,7 @@ jobs:
                   renv::restore()
 
             - name: build
-              run: Rscript -e 'drake::r_make()'
+              run: Rscript -e 'targets::tar_make()'
 
             - name: push
               run: |

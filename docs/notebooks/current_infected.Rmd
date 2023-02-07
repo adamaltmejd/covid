@@ -7,7 +7,6 @@ output:
 ---
 
 ```{r}
-# source("_drake.R")
 library(data.table)
 library(readxl)
 ```

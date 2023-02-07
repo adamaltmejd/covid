@@ -10,9 +10,6 @@ output:
 knitr::opts_knit$set(root.dir = normalizePath("../.."))
 ```
 
-```{r}
-source("_drake.R")
-```
 
 
 ```{r load_data}

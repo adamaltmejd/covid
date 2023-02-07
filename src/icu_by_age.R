@@ -20,7 +20,6 @@ load_fhm_icu_age <- function(f) {
     return(DT)
 }
 
-library(drake)
 require(data.table)
 require(readxl)
 require(stringr)

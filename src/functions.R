@@ -15,6 +15,8 @@ download_latest_fhm <- function(folder = file.path("data", "FHM")) {
         file.copy(file.path(folder, "FHM_latest.xlsx"),
                   file.path("data", "FHM", paste0("Folkhalsomyndigheten_Covid19_", new_record, ".xlsx")))
     }
+
+    return(as.character(new_record))
 }
 
 get_remote_data <- function(url, f) {
@@ -224,7 +226,8 @@ join_data <- function(death_dts) {
     death_dt[!is.na(date) & publication_date > first_pub_date, days_since_publication := publication_date - date]
     death_dt[date == first_pub_date & publication_date == first_pub_date, days_since_publication := 0]
 
-    death_dt[!is.na(date), paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
+    death_dt[, paste0("n_m", 1) := shift(N, n = 1, type = "lag", fill = 0L), by = date]
+    death_dt[is.na(date), n_m1 := NA_real_]
     death_dt[!is.na(date), n_diff := N - n_m1]
     death_dt[!is.na(date) & n_m1 > 0 & !is.na(n_m1), n_diff_pct := N/n_m1 - 1]
     death_dt[!is.na(date) & n_m1 == 0 & N == 0, n_diff_pct := 0]
@@ -412,6 +415,15 @@ set_default_theme <- function() {
             panel.grid.major.y = element_line(linetype = "dotted", color = "#CCCCCC", linewidth = 0.3),
             panel.grid.minor.y = element_line(linetype = "dotted", color = "#CECECE", linewidth = 0.2)
         )
+}
+
+my_null_device <- function(width, height) {
+    grDevices::png(
+        filename = tempfile(pattern = "cowplot_null_plot", fileext = ".png"),
+        width = width, height = height, type = "cairo",
+        units = "in", res = 300
+    )
+    grDevices::dev.control("enable")
 }
 
 plot_lagged_deaths <- function(death_dt, death_prediction_model = NULL,

@@ -1,7 +1,6 @@
 
 # download_old_UK_data
 library(data.table)
-library(drake)
 start_date <- as.Date("2020-08-25")
 end_date <- as.Date("2021-05-06")
 

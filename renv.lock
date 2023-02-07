@@ -63,16 +63,6 @@
       "Hash": "45f0398006e83a5b10b72a90663d8d8c",
       "Requirements": []
     },
-    "RCurl": {
-      "Package": "RCurl",
-      "Version": "1.98-1.10",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "35136c52e39f2679ebbe7bf448e3bd5a",
-      "Requirements": [
-        "bitops"
-      ]
-    },
     "Rcpp": {
       "Package": "Rcpp",
       "Version": "1.0.10",
@@ -432,23 +422,6 @@
         "vctrs"
       ]
     },
-    "drake": {
-      "Package": "drake",
-      "Version": "7.13.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "3e9462ecaab1fd72fb8246ca4050cf4d",
-      "Requirements": [
-        "base64url",
-        "digest",
-        "igraph",
-        "rlang",
-        "storr",
-        "tidyselect",
-        "txtq",
-        "vctrs"
-      ]
-    },
     "ellipsis": {
       "Package": "ellipsis",
       "Version": "0.3.2",
@@ -508,14 +481,6 @@
       "Source": "Repository",
       "Repository": "CRAN",
       "Hash": "77bd60a6157420d4ffa93b27cf6a58b8",
-      "Requirements": []
-    },
-    "filelock": {
-      "Package": "filelock",
-      "Version": "1.0.2",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "38ec653c2613bed60052ba3787bd8a2c",
       "Requirements": []
     },
     "fontawesome": {
@@ -633,7 +598,8 @@
       "Hash": "07fd04f71ff5fbf2a69c74e4ec128d65",
       "Requirements": [
         "Matrix",
-        "lme4"
+        "lme4",
+        "mgcv"
       ]
     },
     "gdtools": {
@@ -686,6 +652,7 @@
         "gtable",
         "isoband",
         "lifecycle",
+        "mgcv",
         "rlang",
         "scales",
         "tibble",
@@ -1025,6 +992,17 @@
         "rlang"
       ]
     },
+    "mgcv": {
+      "Package": "mgcv",
+      "Version": "1.8-41",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "6b3904f13346742caa3e82dd0303d4ad",
+      "Requirements": [
+        "Matrix",
+        "nlme"
+      ]
+    },
     "mime": {
       "Package": "mime",
       "Version": "0.12",
@@ -1258,6 +1236,17 @@
         "stringfish"
       ]
     },
+    "ragg": {
+      "Package": "ragg",
+      "Version": "1.2.5",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "690bc058ea2b1b8a407d3cfe3dce3ef9",
+      "Requirements": [
+        "systemfonts",
+        "textshaping"
+      ]
+    },
     "rappdirs": {
       "Package": "rappdirs",
       "Version": "0.3.3",
@@ -1475,17 +1464,6 @@
       "Hash": "5f5a7629f956619d519205ec475fe647",
       "Requirements": []
     },
-    "storr": {
-      "Package": "storr",
-      "Version": "1.2.5",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "96034207276a46a44dc81b8d43397602",
-      "Requirements": [
-        "R6",
-        "digest"
-      ]
-    },
     "stringfish": {
       "Package": "stringfish",
       "Version": "0.15.7",
@@ -1611,6 +1589,17 @@
         "withr"
       ]
     },
+    "textshaping": {
+      "Package": "textshaping",
+      "Version": "0.3.6",
+      "Source": "Repository",
+      "Repository": "CRAN",
+      "Hash": "1ab6223d3670fac7143202cb6a2d43d5",
+      "Requirements": [
+        "cpp11",
+        "systemfonts"
+      ]
+    },
     "tibble": {
       "Package": "tibble",
       "Version": "3.1.8",
@@ -1691,18 +1680,6 @@
       "Hash": "847a9d113b78baca4a9a8639609ea228",
       "Requirements": [
         "Rcpp"
-      ]
-    },
-    "txtq": {
-      "Package": "txtq",
-      "Version": "0.2.4",
-      "Source": "Repository",
-      "Repository": "CRAN",
-      "Hash": "47bc241ac3efaa6b75109c00ad708448",
-      "Requirements": [
-        "R6",
-        "base64url",
-        "filelock"
       ]
     },
     "urltools": {

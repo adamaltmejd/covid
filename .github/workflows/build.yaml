@@ -4,8 +4,7 @@ on:
     push:
         branches: [master]
     schedule:
-        # UTC is currently -1 wrt Europe/Stockholm (CEST)
-        - cron: "02,30 13 * * *"
+        - cron: "30 14 * * *"
 
 jobs:
     build:

@@ -24,10 +24,11 @@ tar_option_set(
 
 list(
     # FHM (run new download daily)
-    tarchetypes::tar_change(get_fhm_latest, download_latest_fhm(folder = file.path("data", "FHM")), Sys.Date()),
+    tarchetypes::tar_change(get_fhm_latest, download_latest_fhm(folder = file.path("data", "FHM")), change = Sys.Date()),
+    # get_fhm_latest returns the date of the Fohm data file - only update paths when new information has been added
     tarchetypes::tar_change(f_fhm_paths,
         list.files(file.path("data", "FHM"), pattern = "^Folkhalso", full.names = TRUE),
-        get_fhm_latest),
+        change = get_fhm_latest),
     tar_target(f_fhm_files, f_fhm_paths, format = "file", pattern = map(f_fhm_paths)),
     # ECDC
     tarchetypes::tar_download(ecdc,
@@ -70,16 +71,16 @@ list(
     tar_target(lag_plot, plot_lag_trends_grid(lag_plot1, lag_plot2, default_theme)),
 
     # Save main plots
-    tarchetypes::tar_change(plot_archive, archive_plots(file.path("docs", "archive"), plots = list(death_plot, lag_plot)), Sys.Date()),
+    tarchetypes::tar_change(plot_archive, archive_plots(file.path("docs", "archive"), plots = list(death_plot, lag_plot)), change = Sys.Date()),
     tar_target(p_out_death_plot, save_plot(death_plot, file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png"))), format = "file"),
     tar_target(p_out_death_plot_latest, save_plot(death_plot, file.path("docs", paste0("deaths_lag_sweden_latest.png")), bgcolor = "white"), format = "file"),
     tar_target(p_out_lag_plot, save_plot(lag_plot, file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png"))), format = "file"),
     tar_target(p_out_lag_plot_latest, save_plot(lag_plot, file.path("docs", paste0("lag_trend_sweden_latest.png")), bgcolor = "white"), format = "file"),
-    tar_target(web_update,
+    tarchetypes::tar_change(web_update,
         update_web(plots = list(death_plot, lag_plot),
                    death_plot = file.path("docs", paste0("deaths_lag_sweden_", Sys.Date() , ".png")),
                    lag_plot = file.path("docs", paste0("lag_trend_sweden_", Sys.Date() , ".png")),
-                   index = file.path("docs", "index.md")), format = "file"),
+                   index = file.path("docs", "index.md")), change = Sys.Date(), format = "file"),
 
     # Evaluation plots
     tar_target(coverage_plot_t0, plot_coverage_eval(death_dt, death_prediction_constant, death_prediction_model, 0, default_theme)),

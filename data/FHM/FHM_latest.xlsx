@@ -15,7 +15,7 @@
 
 <head>
 <title>
-Error: You do not have permissions to access this resource or perform this operation.</title>
+Error: Subscription is disabled, the item is not accessible</title>
 <link href="/sharing/rest/files/gw.css" rel="stylesheet" type="text/css"/>
 </head>
 
@@ -37,7 +37,7 @@ Error: You do not have permissions to access this resource or perform this opera
 
 <div class="gwDiv">
 
-<h3>You do not have permissions to access this resource or perform this operation.</h3><br/>
+<h3>Subscription is disabled, the item is not accessible</h3><br/>
 
 <b>Error: </b>403<br/><br/>
 

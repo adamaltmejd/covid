@@ -1,6 +1,50 @@
+
+
+
+
+
+
+
+
 <html>
-<head><title>504 Gateway Time-out</title></head>
+
+
+
+
+
+
+<head>
+<title>
+Error: Subscription is disabled, the item is not accessible</title>
+<link href="/sharing/rest/files/gw.css" rel="stylesheet" type="text/css"/>
+</head>
+
 <body>
-<center><h1>504 Gateway Time-out</h1></center>
+
+<table width="100%" class="topTable">
+<tr valign="top">
+<td>
+<b>ArcGIS Portal Directory</b>
+
+</td>
+<td align="right">
+
+</td>
+</tr>
+</table>
+
+<table class="navTable" width="100%"><tr><td class="breadcrumbs">Error</td></tr></table>
+
+<div class="gwDiv">
+
+<h3>Subscription is disabled, the item is not accessible</h3><br/>
+
+<b>Error: </b>403<br/><br/>
+
+
+
+</div>
+
 </body>
+
 </html>
